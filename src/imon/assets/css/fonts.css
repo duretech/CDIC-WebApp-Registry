@@ -1,0 +1,74 @@
+
+
+/*
+*   oneImpact BACKGROUND images
+*/
+
+@font-face {
+  font-family: 'museo_sans300';
+  src: url('../fonts/MuseoSans/museosans-300-webfont.woff2') format('woff2'),
+    url('../fonts/MuseoSans/museosans-300-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'museo_sans500';
+  src: url('../fonts/MuseoSans/museosans-500-webfont.woff2') format('woff2'),
+    url('../fonts/MuseoSans/museosans-500-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'museo_sans900';
+  src: url('../fonts/MuseoSans/museosans-900-webfont.woff2') format('woff2'),
+    url('../fonts/MuseoSans/museosans-900-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+body[data-theme~="oneImpact"] {
+ 
+}
+
+
+
+
+/*
+*   VOICEPLUS BACKGROUND images
+*/
+
+@font-face {
+  font-family: 'glacial-regular';
+  src: url('../fonts/Glacial/GlacialIndifference-Regular.woff') format('woff');;
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'glacial-bold';
+  src: url('../fonts/Glacial/GlacialIndifference-Bold.woff') format('woff');;
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'glacial-italic';
+  src: url('../fonts/Glacial/GlacialIndifference-Italic.woff') format('woff');;
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+body[data-theme~="voicePlus"]  {
+  
+}

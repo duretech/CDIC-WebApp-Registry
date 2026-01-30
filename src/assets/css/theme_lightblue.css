@@ -1,0 +1,1512 @@
+body.theme_lightblue{
+	background-color: #ffff;
+}
+
+body.theme_lightblue .main{
+    background-color: #ffff;
+}
+
+body.theme_lightblue .mainsection{
+	width: auto;
+    height: calc(100vh - 94px) !important;
+    overflow-y: auto;
+    padding-top: 65px !important;
+    background-color: #ffff;
+    overflow-x: hidden;
+}
+
+body.theme_lightblue .modalheader {
+    background-color: #7CB1FF !important;
+}
+
+body.theme_lightblue .modalactionbtn{
+    background-color: #7CB1FF !important;
+}
+
+body.theme_lightblue .mainsection.pT-55{
+    padding-top: 55px !important;
+}
+@media only screen and (min-width: 1200px) {
+    body.theme_lightblue .mainsection.pT-55{
+        padding-top: 70px !important;
+    }
+
+}
+
+body.theme_lightblue header{
+	background-color: #ffff !important;
+}
+
+body.theme_lightblue header svg{
+	fill: #7CB1FF;
+}
+
+body.theme_lightblue header h6{
+	color: #060707;
+}
+
+body.theme_lightblue .pageupperpart{
+	height: calc(40vh - 35px);
+}
+
+body.theme_lightblue .pagelaterpart{
+	height: calc(60vh - 16px);
+	background-color: #7CB1FF;
+}
+
+body.theme_lightblue .pageupperpart .innerdiv{
+	display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: calc(40vh - 68px);
+    justify-content: space-evenly;
+}
+
+.pb-0{
+	padding-bottom: 0px !important;
+}
+
+body.theme_lightblue .mainsection.pb-0{
+	height: 100vh !important;
+    
+}
+
+body.theme_lightblue .custom-shape-divider-top-1612935135 {
+    position: absolute;
+    /*top: 0;*/
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    margin-top: -12px;
+    border-bottom: 2px solid #fff;
+}
+
+body.theme_lightblue .custom-shape-divider-top-1612935135 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    background-color: #7CB1FF;
+}
+
+body.theme_lightblue .custom-shape-divider-top-1612935135 .shape-fill {
+    fill: #ffff;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    body.theme_lightblue .custom-shape-divider-top-1612935135 svg {
+        width: calc(100% + 1.3px);
+        height: 61px;
+    }
+    
+    .migrantlogin{
+        display: none;
+    }
+
+    /* body.theme_lightblue .customregistrationtabs .fullWidth > div{
+        padding-top: 45px !important;
+    } */
+
+    .searchcustombg{
+        padding-top: 100px !important;
+    }
+}
+
+.text-uppercase{
+	text-transform: uppercase;
+}
+
+body.theme_lightblue .loginpageformholder{
+	height: calc(60vh - 65px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.w-100{
+	width: 100%;
+}
+
+body.theme_lightblue .loginpageformholder .MuiFormLabel-root.Mui-focused{
+	color: #fff;
+}
+
+body.theme_lightblue .loginpageformholder label.MuiInputLabel-animated {
+    color: #fff;
+    font-size: 14px;
+    padding-left: 0px;
+}
+
+body.theme_lightblue .loginpageformholder .MuiInputLabel-shrink {
+    transform: translate(0, 1.5px) scale(1);
+    transform-origin: top left;
+}
+
+body.theme_lightblue .loginpageformholder .MuiInput-underline:before,
+body.theme_lightblue .loginpageformholder .MuiInput-underline:after{
+	border-bottom: none !important;
+}
+
+body.theme_lightblue .loginpageformholder input{
+	background: #e6faf8;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 10px;
+    padding-left: 5px;
+}
+
+body.theme_lightblue .loginpageformholder .MuiInputLabel-formControl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(0, 0px) scale(1);
+}
+
+body.theme_lightblue .loginsubmitbtn{
+    padding: 25px 10px !important;
+    font-size: 16px !important;
+    text-transform: uppercase;
+    font-weight: 600 !important;
+    background-color: #7CB1FF !important;
+    color: #fff !important;
+    width: 100%;
+     padding: 0px 12px !important; 
+    font-size: 14px !important;
+    text-transform: capitalize;
+    font-weight: 600 !important;
+    min-height: 36px !important;
+}
+
+body.theme_lightblue .langprefpageformholder{
+    height: calc(60vh - 44px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+body.theme_lightblue .langprefpageformholder label.MuiFormControlLabel-root{
+	background-color: #e6faf8;
+	border-radius: 5px;
+    margin: 10px 0px;
+}
+
+body.theme_lightblue .langprefpageformholder .MuiRadio-colorSecondary.Mui-checked {
+    color: #242f31 ;
+}
+
+body.theme_lightblue .homemenupageholder{
+    height: calc(60vh - 44px);
+    position: relative;
+    /* display: flex; */
+    align-items: center;
+    padding: 0px 0px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body.theme_lightblue .homemenucontainer{
+	background: #e6faf8;
+    border-radius: 5px;
+    padding:10px 5px;
+    font-size: 14px;
+    font-weight: 700;
+    height: calc(100% - 20px);
+}
+
+body.theme_lightblue .homemenucontainer svg{
+	color: #7CB1FF;
+    font-size: 40px;
+}
+
+body.theme_lightblue .homemenucontainer span{
+    white-space: normal;
+    word-break: break-word;
+}
+
+body.theme_lightblue a .homemenucontainer{
+	color: #000 !important;
+}
+
+body.theme_lightblue .bottomnavbar{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigationAction-root{
+	min-width: 50px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigationAction-label.Mui-selected {
+    font-size: 0.875rem;
+    font-size: 0.75rem;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigation-root {
+    height: 66px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9ffff;
+    align-items: self-start;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigationAction-root.Mui-selected {
+    color: #2995d3;
+    padding-top: 0px;
+    font-weight: 600;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigation-root svg{
+	margin-top: 5px;
+	color: #9f9f9f;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigationAction-root.Mui-selected svg{
+	color: #2995d3;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigationAction-label{
+	color: #9f9f9f;
+    font-weight: 600;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigationAction-label.Mui-selected{
+	color: #2995d3;
+}
+
+body.theme_lightblue .stepperdiv{
+	position: fixed;
+	bottom: 130px;
+	width: 100%;
+	margin-left: -12px;
+	background-color: transparent !important;
+	padding:0px !important;
+}
+
+body.theme_lightblue .stepperbutton{
+	position: fixed;
+	bottom: 80px;
+	width: 100%;
+    margin-left: -12px;
+}
+
+body.theme_lightblue .stepperbutton .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #1397c7 !important;
+}
+
+body.theme_lightblue .stepperdiv .MuiStepIcon-root.MuiStepIcon-active {
+    color: #1397c7;
+}
+
+body.theme_lightblue .stepperdiv .MuiStepIcon-root.MuiStepIcon-completed {
+    color: #1397c7;
+}
+
+body.theme_lightblue .makeStyles-root-14,.bg-transparent ,
+body.theme_lightblue .bg-transparent > div{
+    background-color: transparent !important;
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-root button.Mui-selected svg.MuiSvgIcon-root {
+    background-color: #545454;
+    fill: #fff;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-root svg.MuiSvgIcon-root {
+    background-color: #afabab;
+    fill: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-root button.Mui-selected span {
+    color: #545454;
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-root button span {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-indicator {
+    color: #545454;
+    background-color: #545454;
+}
+
+body.theme_lightblue .searchtabmaindiv{
+    height: calc(100vh - 165px) !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightblue .addclient-page .MuiBox-root {
+    padding: 24px;
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 5px;
+}
+
+body.theme_lightblue .addclient-page label + .MuiInput-formControl {
+    margin-top: 20px;
+}
+
+body.theme_lightblue .addclient-page label.MuiInputLabel-animated {
+    color: #000;
+    font-size: 16px;
+    padding-left: 0px;
+}
+
+body.theme_lightblue .addclient-page .MuiInputLabel-shrink {
+    transform: translate(0, 1.5px) scale(1);
+    transform-origin: top left;
+    color: #545454;
+}
+
+body.theme_lightblue .addclient-page .MuiInput-underline:after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    border-bottom: 1px solid #545454 !important;
+    pointer-events: none;
+}
+
+body.theme_lightblue .addclient-page .MuiFormLabel-root.Mui-focused {
+  color: #545454 !important;
+}
+
+body.theme_lightblue .addclient-page .MuiFormControl-root{
+    margin:0px !important;
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-root button span {
+    font-size: 12px;
+}
+
+body.theme_lightblue .login-submitbtnholder a {
+    background-color: #545454;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    border: 1px solid #545454;
+}
+
+body.theme_lightblue .login-submitbtnholder {
+    margin-top: 30px;
+}
+
+body.theme_lightblue .searchtabmaindiv .MuiAccordionSummary-root {
+    background-color: #7CB1FF;
+    color: #fff;
+    border-radius: 4px;
+}
+
+body.theme_lightblue .searchtabmaindiv .MuiAccordionSummary-root .MuiAccordionSummary-content p {
+    color: #fff;
+}
+
+body.theme_lightblue .searchtabmaindiv .MuiAccordionSummary-root span svg {
+    fill: #fff;
+}
+
+body.theme_lightblue .addclient-page .MuiPaper-root{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+body.theme_lightblue .addclient-page .MuiCollapse-container{
+    background-color: #fff;
+}
+
+body.theme_lightblue .addclient-page .MuiButtonBase-root.MuiAccordionSummary-root.Mui-expanded{
+    margin-bottom: 0px;
+}
+
+body.theme_lightblue .riskselectiondiv label {
+    margin: 0px !important;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px !important;
+    background-color: #ebebeb;
+}
+
+body.theme_lightblue .addclient-page .MuiCheckbox-colorSecondary.Mui-checked {
+    color: #545454;
+}
+
+body.theme_lightblue .riskselectionmainholder{
+    height: calc(100vh - 308px);
+    overflow-y: auto;
+    padding: 0px 10px;
+}
+
+body.theme_lightblue .reftabmaindiv{
+    height: calc(100vh - 264px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightblue .sharerefsliptext {
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+body.theme_lightblue .reftabmaindiv .MuiAccordionSummary-root{
+    background-color: #7CB1FF;
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+body.theme_lightblue .reftabmaindiv .MuiAccordionSummary-root span svg {
+    fill: #fff;
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-scroller.MuiTabs-scrollable{
+    position: fixed;
+    bottom: 66px;
+    width: calc(100vw - 35px);
+    overflow-x: scroll;
+    box-shadow: 3px -8px 10px -9px rgba(0,0,0,0.75);
+-webkit-box-shadow: 3px -8px 10px -9px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px -8px 10px -9px rgba(0,0,0,0.75);
+width: calc(100vw - 0px);
+    margin-left: 0px;
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-root{
+    position: fixed;
+    bottom: 66px;
+    width: calc(100vw - 0px);
+}
+
+body.theme_lightblue .addclient-page .MuiTabs-flexContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+body.theme_lightblue .searchtabmaindiv.mytasksdiv .MuiAccordionDetails-root,
+body.theme_lightblue .profilepage .MuiAccordionDetails-root {
+  flex-direction: column;
+}
+
+body.theme_lightblue #tasksearchdate-label.MuiInputLabel-formControl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(0, 0px) scale(1);
+}
+
+body.theme_lightblue .quizprogresstext{
+    color: #333 !important;
+}
+
+body.theme_lightblue .searchtabmaindiv .progresscontainer{
+    margin-bottom: 0px !important;
+}
+
+body.theme_lightblue .quizinfoholder {
+    background: #5d5858;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #12c0ff;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Chat page styles */
+
+body.theme_lightblue .rsc-header{
+    display: none !important;
+}
+
+body.theme_lightblue .rsc-container{
+    box-shadow: none !important;
+}
+
+body.theme_lightblue .rsc-content{
+    height: calc(100vh - 207px) !important;
+    overflow-y: auto !important;
+}
+
+body.theme_lightblue .rsc-footer .rsc-input{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    background-color: #ffff;
+}
+
+body.theme_lightblue .rsc-input:disabled {
+    background-color: #ffff !important;
+    background: #ffff !important;
+}
+
+body.theme_lightblue .rsc-footer,.rsc-container{
+    border-radius: 0px !important;
+}
+
+body.theme_lightblue .react-quiz-container{
+    margin: 0px !important;
+     width: auto !important;
+}
+
+body.theme_lightblue .react-quiz-container .questionWrapper .btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #908686 !important;
+    font-size: 15px;
+    display: block;
+    white-space: normal;
+    text-align: unset;
+}
+
+body.theme_lightblue #dob-label.MuiInputLabel-formControl,
+body.theme_lightblue #registerdob-label.MuiInputLabel-formControl,
+body.theme_lightblue #doreferral-label.MuiInputLabel-formControl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(0, 0px) scale(1);
+}
+
+body.theme_lightblue .searchtabmaindiv .MuiAccordionDetails-root .MuiTypography-root,
+body.theme_lightblue .reftabmaindiv .MuiAccordionDetails-root .MuiTypography-root {
+    width: 100%;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigationAction-label.MuiBottomNavigationAction-iconOnly {
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+body.theme_lightblue .bottomnavbar .MuiBottomNavigationAction-root.MuiBottomNavigationAction-iconOnly {
+    padding-top: 0px;
+}
+
+body.theme_lightblue .bottomnavbar .anchorLink.active .MuiBottomNavigationAction-root svg {
+    color: #2995d3;
+}
+
+body.theme_lightblue .bottomnavbar .anchorLink.active .MuiBottomNavigationAction-label {
+    color: #2995d3;
+}
+
+body.theme_lightblue .searchtabsinglemaindiv.searchtabsinglemaindiv {
+    height: calc(100vh - 151px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightblue .login-submitbtnholder a {
+    background-color: #545454;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    border: 1px solid #545454;
+    text-decoration: none;
+}
+
+body.theme_lightblue .myclientslistholder ul li{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+body.theme_lightblue .myclientslistholder button{
+    justify-content: flex-start;
+}
+
+@media only screen and (min-width: 1200px) {
+body.theme_lightblue .bottomnavbar .MuiBottomNavigation-root {
+    height: 66px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9ffff;
+    align-items: center;
+}
+/* body.theme_lightblue .customregistrationtabs .fullWidth > div {
+    padding-top: 53px !important;
+} */
+
+
+}
+
+
+body.theme_lightblue .addclientmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/add-user.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/add-user.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/add-user.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain;
+}
+
+body.theme_lightblue .dashboardmenubg{
+    -webkit-mask: url("../../assets/images/home/homeicon.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/homeicon.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+  /* background-image: url("../../assets/images/home/lightgreen/dashboard.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain;  
+}
+
+body.theme_lightblue .myclientsmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/records.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/records.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+   /* background-image: url("../../assets/images/home/lightgreen/records.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain;   
+}
+
+body.theme_lightblue .mytasksmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/clipboard.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/clipboard.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/clipboard.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .tutorialmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/video-tutorial.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/video-tutorial.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/video-tutorial.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .chatmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/speech-bubble.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/speech-bubble.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/speech-bubble.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightblue .searchbg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/search.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/search.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/search.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .myjourneymenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/calendar.png") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/calendar.png") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightblue .nearmemenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/pin.png") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/pin.png") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .getknowledgeablemenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/medical-book.png") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/medical-book.png") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .eduandknowmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/education.png") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/education.png") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .alertbg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/alert.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/alert.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .referalbg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/referral.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/referral.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/referral.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .databg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/dataentry.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/dataentry.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/dataentry.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightblue .transferOut{
+    -webkit-mask: url("../../assets/images/home/lightgreen/file-upload.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/file-upload.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/file-upload.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightblue .transferIn{
+    -webkit-mask: url("../../assets/images/home/lightgreen/file-download.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/file-download.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/file-download.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .customregistrationtabs header.MuiPaper-root{
+    background-color: #7CB1FF !important;
+    color: #fff !important;
+}
+
+body.theme_lightblue .casescardheader,body.theme_lightblue .cardactionfooter{
+    background-color: #7CB1FF !important;
+}
+body.theme_lightblue .cardactionfooter .MuiSvgIcon-root{
+ fill: #fff !important;
+}
+.Mui-selected .MuiTab-wrapper{
+    font-size: 14px !important;
+}
+body.theme_lightblue  .regformsubmitbtn {
+    background-color: #7CB1FF;
+}
+body.theme_lightblue .caselistholder > ul{
+    background-color: #ffff !important
+}
+body.theme_lightblue .caselistholder{
+    background-color: #ffff !important
+}
+body.theme_lightblue .MuiTab-textColorInherit.Mui-selected{
+    background-color: #0847bb !important;
+    box-shadow: 3px -8px 10px -9px rgb(216, 225, 248);
+}
+body.theme_lightblue .alerts_title{
+    background-color: #7CB1FF;
+    color: #fff !important;
+    padding: 10px;
+}
+body.theme_lightblue .alertsdetailholder{
+ border: 2px solid #7CB1FF;
+}
+
+body.theme_lightblue .casescardheader {
+    padding: 5px !important;
+}
+body.theme_lightblue .casescardheader .MuiAvatar-circle {
+    background-color: transparent;
+}
+body.theme_lightblue .cardactionfooter {
+    padding: 0px !important;
+}
+body.theme_lightblue .customregistrationtabs .fullWidth > div {
+    /* padding-top: 0px !important ; */
+}
+body.theme_lightblue .customLoc {
+    background-color: inherit !important;
+    border:none !important;
+}
+@media only screen and (min-width: 1100px) {
+    body.theme_lightblue .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item.customLoc {
+        background-color: inherit !important;
+        border:none !important;
+    }  
+
+    body.theme_lightblue  .buttons.linkbtn{
+       padding-top: 50px;
+   }
+
+   body.theme_lightblue .visibilityiconcontainer{
+      /* position: relative; */
+   }
+
+   /* body.theme_lightblue .visibilityiconcontainer svg{
+        position: absolute;
+        top: -18px;
+        right: 40px;
+
+   } */
+}
+
+@media only screen and (min-width: 767px) {
+    body.theme_lightblue .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item.customLoc {
+        background-color: inherit !important;
+        border:none !important;
+    }  
+}
+body.theme_lightblue .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item > div {
+    border: none  !important;
+    padding: 0 !important;
+    background-color: inherit !important
+}
+body.theme_lightblue .alertsdetailholder {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+body.theme_lightblue .alerts_description_fields{
+    padding-left: 5px;
+}
+
+body.theme_lightblue .choose_alertdiv label.MuiInputLabel-animated,
+body.theme_lightblue .choose_alertdiv .MuiInputBase-input{
+    color: #000 !important;
+}
+body.theme_lightblue .searchcustombg.alertDiv,body.theme_lightblue .searchcustombg.indiDiv{
+    height: 100vh !important;
+}
+
+body.theme_lightblue .searchformcontainer .MuiGrid-container,
+body.theme_lightblue .searchformcontainer .buttons ,
+body.theme_lightblue .searchformcontainer .MuiFormControl-root {
+    padding-left: 20px !important;  
+    padding-right: 20px;
+}
+body.theme_lightblue .searchformheading {
+    color: #000;
+    padding-left: 20px;
+}
+body.theme_lightblue .alertformheading {
+    color: #000;
+}   
+body.theme_lightblue .regcasetabs header.MuiPaper-root{
+    /* position: fixed !important; */
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* bottom: 66px; */
+    /* top: 65px; */
+    box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%)
+}
+body.theme_lightblue .regcasetabs form.fullWidth .innertabdivreg{
+    height: calc(100vh - 280px);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+@media (max-width: 599.95px){
+    body.theme_lightblue .regcasetabs .MuiTabs-scrollButtonsDesktop{
+        margin: auto;
+    }   
+    .logintext{
+        /* display: none; */
+    }
+    body.theme_lightblue .regcasetabs header.MuiPaper-root {
+        top: 56px;
+    }
+}
+body.theme_lightblue .visibilityiconcontainer svg{
+    margin-top: -60px;
+} 
+body.theme_lightblue .forgotpw{
+    margin-top: 10px;
+    margin-bottom: 0px;
+} 
+
+
+body.theme_lightblue .noHolder svg{
+    fill: #fff !important;
+    font-size: 20px;
+}
+body.theme_lightblue .bottomnavbar{
+    z-index: 1;
+}
+body.theme_lightblue .bottomnavbar .MuiBottomNavigation-root{
+    padding: 0px 20px !important;
+}
+
+body.theme_lightblue .bottomIcons div{
+ height: 30px !important;
+ width: 30px !important;   
+ margin: 5px auto !important;
+}
+
+body.theme_lightblue .MuiTab-wrapper{
+    /* color: #000; */
+}
+body.theme_lightblue .MuiFormControlLabel-label {
+    color: #000;
+}
+body.theme_lightblue .buttonFlex{
+    padding: 20px;
+}
+
+body.theme_lightblue .userFolder{
+    background-image: url("../../assets/images/folder.svg");
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightblue .MuiAccordionSummary-content.Mui-expanded{
+    margin: 0px !important;
+}
+
+body.theme_lightblue .reginnertabcontainer .fullWidth{
+    padding: 0px !important;
+}
+
+body.theme_lightblue .custom-shape-divider-top-1617788413 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background: #7CB1FF;
+}
+
+body.theme_lightblue .custom-shape-divider-top-1617788413 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 66px;
+}
+
+body.theme_lightblue .custom-shape-divider-top-1617788413 .shape-fill {
+    fill: #fff;
+}
+
+.pos-relative{
+    position: relative;
+}
+
+body.theme_lightblue .homeheaderdiv{
+    height: 55px;
+}
+
+body.theme_lightblue .homeheaderdiv h3{
+    color: #7CB1FF;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    margin-top: 15px !important;
+}
+
+body.theme_lightblue .menulistingholder{
+    height: calc(100vh - 130px);
+    margin-top: 10px;
+    background-color: #7CB1FF;
+    overflow-y: hidden;
+}
+
+body.theme_lightblue .menulistingholder .homemenupageholder {
+   height: calc(100vh - 128px);
+    position: relative;
+    /* display: flex; */
+    align-items: center;
+    padding: 0px 0px;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+body.theme_lightblue .menulistingholder .homemenupageholder .homemenucontainer {
+    background: #fff;
+    border-radius: 0px;
+    padding: 10px 5px;
+    font-size: 14px;
+    font-weight: 700;
+    height: calc(32vh - 52px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mt-57px{
+    margin-top: 57px !important;
+}
+
+.color-white{
+    color: #fff !important;
+}
+
+.theme_lightblue .background-theme{
+   background-color: #7CB1FF !important; 
+}
+
+
+body.theme_lightblue .calender-theme thead tr th{
+    background-color: transparent !important; 
+    color: #000 !important;
+    font-weight: 400;
+}
+
+body.theme_lightblue thead tr th{
+    background-color: #7CB1FF !important; 
+    color: #fff !important;
+}    
+
+body.theme_lightblue tr:nth-child(even) {background-color: transparent;}
+
+.theme_lightblue .bottomIcons .addclientmenubg,
+.theme_lightblue .bottomIcons .searchbg,
+.theme_lightblue .bottomIcons .myclientsmenubg,
+.theme_lightblue .bottomIcons .dashboardmenubg{
+    background-color: #7CB1FF !important; 
+}
+
+body.theme_lightblue .MuiRadio-colorSecondary.Mui-checked {
+    color: #7CB1FF;
+}
+
+body.theme_lightblue .fc .fc-daygrid-day.fc-day-today{
+    background-color: #7CB1FF !important;
+    color: #fff !important;
+} 
+
+body.theme_lightblue .fc-day-today .fc-daygrid-day-number{
+    background-color: #7CB1FF  !important;
+    border-radius: 20% !important;
+   width: 30px !important;
+   height: 30px !important;
+   padding: 16px !important;
+}
+
+body.theme_lightblue .customregistrationtabs .fullWidth .nameuicinfoholder{
+    background-color: #7CB1FF !important;
+}
+
+body.theme_lightblue .searchformcontainer .MuiAccordionSummary-root {
+    background-color: #7CB1FF;
+    color: #fff;
+    border-radius: 4px;
+}
+
+body.theme_lightblue .searchformcontainer .MuiAccordionSummary-root span svg {
+    fill: #fff;
+}
+
+body.theme_lightblue .searchformcontainer .MuiPaper-root.MuiAccordion-root{
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+body.theme_lightblue .searchformcontainer .MuiPaper-root.MuiAccordion-root .MuiAccordionDetails-root{
+    padding: 8px 16px 16px;
+    padding-bottom: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+body.theme_lightblue .searchformcontainer .MuiPaper-root.MuiAccordion-root .MuiAccordionDetails-root ul.MuiList-root.MuiList-padding{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+body.theme_lightblue .myClientsCaseList {
+    margin: 0px;
+    background-color: #7CB1FF !important;
+    margin-bottom: -8px;
+    padding-left: 8px;
+}
+
+.MuiAccordionDetails-root > div{
+    width: 100%;
+}
+
+.myClientsCaseList button{
+    border:none !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.referalscrolltabs .MuiAccordionDetails-root{
+    padding: 0px;
+}
+
+.referalscrolltabs .MuiAccordionDetails-root .myClientsCaseList{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+body.theme_lightblue .alertspage .regcasetabs header.MuiPaper-root{
+    position: fixed !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* bottom: 0px; */
+    box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%)
+}
+
+body.theme_lightblue .alertspage.searchtabmaindiv {
+    /* height: calc(100vh - 130px) !important; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightblue .referalcasespage .regcasetabs header.MuiPaper-root{
+     position: fixed !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* bottom: 48px; */
+    box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%)
+}
+
+body.theme_lightblue .referalcasespage .regscrolltabs.layoutscrolltabs {
+    margin-top: 100px;
+    height: calc(100vh - 250px) !important;
+    overflow-y: auto;
+}
+
+body.theme_lightblue .referalcasespage .customregistrationtabs button.MuiTab-textColorPrimary.Mui-selected {
+    color: #fff;
+}
+
+body.theme_lightblue .transferoutpage{
+    overflow-x: hidden;
+}
+
+body.theme_lightblue .transferoutpage .regcasetabs header.MuiPaper-root{
+    position: fixed !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    bottom: 0px;
+    box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%)
+}
+
+body.theme_lightblue .transferoutpage .searchformcontainer{
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body.theme_lightblue .myclientspage.searchtabmaindiv {
+    height: calc(100vh - 180px) !important;
+    /* height: calc(100vh - 100px) !important; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightblue .myclientspage .MuiPagination-root{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: right;
+    padding-right: 20px;
+}
+
+body.theme_lightblue .myclientspage .MuiPaginationItem-page.Mui-selected {
+     background-color: #7CB1FF !important;
+     color: #fff !important;
+}
+body.theme_lightblue .new_home_page{
+    background: linear-gradient(90deg, rgba(48,113,107,1) 0%, rgba(75,176,168,1) 35%, rgba(44,103,99,1) 100%);
+}
+body.theme_lightblue .new_home_page .cardtopBanner .bannerText {
+    width: 90%;
+    margin: 0 auto;
+    color: #7CB1FF;
+    font-size: 1.3rem;
+}
+body.theme_lightblue .new_home_page header{
+    background: #18615a !important;
+}
+body.theme_lightblue .new_home_page header svg {
+    fill: #f2f2f2;
+}
+body.theme_lightblue .new_home_page header h6{
+    color: #f2f2f2;
+}
+body.theme_lightblue .new-theme-sidebar .sidebar_list{
+    background: #18615a !important;
+}
+body.theme_lightblue .new-theme-sidebar .menuitem{
+    background: #18615a !important;
+}
+body.theme_lightblue .new-theme-sidebar .menuitem{
+    color: #f2f2f2;
+    fill: #f2f2f2
+}
+body.theme_lightblue .homePageCardBlock .homePageCardHeader{
+    padding-bottom: 10px;
+    padding-top: 25px;
+}
+body.theme_lightblue .homePageCardBlock .homePageCardHeader .MuiCardHeader-content span{
+    font-size: 0.9rem;
+    padding-left: 6%;
+    margin-bottom: 0;
+    color: #fff;
+}
+body.theme_lightblue .homePageCardBlock .lightbg {
+    background: #14524d;
+    width: 100%;
+}
+body.theme_lightblue .homePageCardBlock .darkbg{
+    background-color: #041010;
+    width: 100%;
+}
+body.theme_lightblue .new_select_lang_sec .MuiFormControlLabel-label {
+    color: #868897;
+}
+
+@media only screen and (min-width: 1200px){
+
+    
+    body.theme_lightblue .mainsection.pT-55 {
+        padding-top: 61px !important;
+    }
+   
+    .pagelaterpart {
+        height: 100vh !important;
+        background-color: transparent !important;
+    }
+
+    .loginpageformholder,body.theme_lightblue .langprefpageformholder{
+        /* height: 100vh !important; */
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .custom-shape-divider-top-1612935135,.userwebapp{
+        display: none !important;
+    }
+
+    body.theme_lightblue .mainsection.pb-0{
+        padding-top: 0px !important;
+    }
+    
+    body.theme_lightblue .loginpageformholder input{
+        background: #fff !important;
+    }
+    
+    body.theme_lightblue .pageupperpart {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0px 10px;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .logintext .MuiTypography-h4{
+        font-weight: 500 !important; 
+    }
+
+    .useravtarimgapp{
+        /* background:url("../../assets/images/homeLogo.png"); */
+        height: 100px;
+        /*40px;*/
+        width: 100px;
+        /*40px;*/
+        margin: 0 auto;
+        margin-bottom: 5px;
+        background-position: center;
+        background-size: auto;
+        background-repeat: no-repeat;
+     
+    }
+
+      .useravtarimgapp{
+        background:url("../../assets/images/homebluelogo.png");
+        height: 83px;
+        width: 123px;
+    }
+
+    .whologo {
+        max-width: 100%;
+        height: auto;
+        width: 20%;
+    }
+
+    .userselectgrid{
+        padding: 0px 20px;
+    }
+
+    /* .userselectgrid{
+        flex-direction: column;
+        margin-top: -2%;
+        flex-wrap: nowrap !important;
+    } */
+/* 
+    body.theme_orange .useravtarimgapp{
+        background:url("../../assets/images/homebluelogo.png");
+        height: 83px;
+        width: 123px;
+        filter: invert(1);
+    } */
+
+    body.theme_royalblue .loginphonepagegrid  .useravtarimgapp,
+    body.theme_red .loginphonepagegrid  .useravtarimgapp
+    /* body.theme_orange .loginphonepagegrid  .useravtarimgapp */
+    
+    {
+        margin-bottom: 12px !important;
+    }
+
+   
+
+
+   
+}
+
+.theme_lightblue .infoviewmorebtn {
+    background-color: #7CB1FF !important;
+    font-size: 12px !important;
+    margin-top: 5px !important;
+}
+
+.theme_lightblue .innertabdivreg.subclass3 {
+    padding-top: 80px !important;
+}
+
+@media only screen and (max-width: 767px) {
+    body.theme_lightblue .progresscontainer .makeStyles-progresstext-15 {
+        font-size: 1.2em !important;
+        color: #fff !important;
+    }
+
+    body.theme_lightblue .searchdiv .innertabdivreg.subclass3{
+        padding-top: 105px !important;
+    }
+
+    body.theme_lightblue .fullWidth .innertabdivreg.subclass4 {
+        padding-top: 105px !important;
+    }
+
+    body.theme_lightblue .reginnertabcontainer .MuiBox-root #reg-searchby-specimen{
+        padding-top: 15px !important;
+    }
+    
+    body.theme_lightblue .regcasetabs form.fullWidth .innertabdivreg.subclass5{
+        padding-top: 55px !important;
+    }
+
+    body.theme_lightblue .customregistrationtabs .fullWidth .nameuicinfoholder {
+        margin-top: 50px;
+    }
+
+}
+
+.stock-management .innertabdivreg.subclass4{
+    margin-top: 100px!important;
+    padding-top: 10px!important;
+}

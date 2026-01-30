@@ -1,0 +1,53 @@
+@font-face {
+  font-display: swap;
+  font-family: Apis;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/apis-regular.woff2') format('woff2'),
+    url('./fonts/apis-regular.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Apis;
+  font-style: italic;
+  font-weight: 400;
+  src: url('./fonts/apis-italic.woff2') format('woff2'),
+    url('./fonts/apis-italic.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Apis;
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/apis-medium.woff2') format('woff2'),
+    url('./fonts/apis-medium.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Apis;
+  font-style: italic;
+  font-weight: 500;
+  src: url('./fonts/apis-mediumitalic.woff2') format('woff2'),
+    url('./fonts/apis-mediumitalic.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Apis;
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/apis-bold.woff2') format('woff2'),
+    url('./fonts/apis-bold.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Apis;
+  font-style: italic;
+  font-weight: 700;
+  src: url('./fonts/apis-bolditalic.woff2') format('woff2'),
+    url('./fonts/apis-bolditalic.woff') format('woff');
+}

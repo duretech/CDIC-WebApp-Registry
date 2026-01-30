@@ -1,0 +1,13 @@
+
+
+/*
+*   oneImpact BACKGROUND images
+*/
+
+body[data-theme~="template1"] .homemenulist {
+  /* background-image: url("../images/logo.png"); */
+  background-size: 45%;
+}
+
+
+

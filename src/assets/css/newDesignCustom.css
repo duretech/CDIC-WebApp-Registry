@@ -1,0 +1,1551 @@
+/* Import fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Variable declarations */
+:root {
+    --primary-light-blue: #DCE8F4;
+    --body-font-family: "Apis", sans-serif;
+    --primary-dark-blue:#5397DF;
+    --primary-text-black:#515151;
+    --color-white:#ffffff;
+    --card-light-blue:#F1f6fb;
+    --primary-dark-button:#002D67;
+    --color-black:#000000;
+    --stats-color-red:#860F36;
+    --stats-color-blue:#1A4AA6;
+    --stats-color-green:#285430;
+    --stats-color-orange:#F49D1A;
+    --icon-orange:#EE8322;
+    --bg-light-orange:#FBF6F0;
+    --bg-light-green:#F1F8EE;
+    --border-grey:#A098AE;
+    --bg-dark-orange:#F7EBEB;
+    --bg-icon-red:#FF4550;
+    --bg-grid-odd:#FEF8F9;
+    --bg-grid-even:#FDF3F4;
+    --tertiary-dark-blue:#2C6FB5;
+    --tertiary-dark-red:#931717;
+    --secondary-bg-grey:#ECF1F5;
+    --secondary-dark-green:#289317;
+    --bg-light-pink:#FBF1F8;
+    --sidebar-bg:#f3f7fb;
+    --color-category-high:#FB7D5B;
+    --color-category-low:#71ABE8;
+    --color-status-yellow:#FCC43E;
+    --color-action-delete:#C21B1B;
+    --bg-alertstable-odd:#EDF5FD;
+    --bg-tablerowodd-blue:#F7FBFF;
+    --bg-tableroweven-blue:#EDF5FD;
+    --bg-patientname-card:#FAF0F0;
+    --bg-symptoms-card:#FDF8EE;
+    --color-dark-blue:#363B64;
+    --border-newpatient:#fb7d5b;
+    --border-followup:#c1c1c1;
+    --color-yellow-dark:#EDA10D;
+    --color-icon-lightred:#FA4F4F;
+   
+    
+
+
+}
+
+/* Common styles */
+
+body{
+    font-family: var(--body-font-family);
+    overflow-x: hidden;
+    background-color: var(--color-white) !important;
+}
+
+.m-0{
+    margin: 0px !important;
+}
+
+.MuiFormControl-root.MuiTextField-root , .MuiFormControl-root{
+    width: 100%;
+}
+
+.MuiInputBase-root , .MuiFormLabel-root , .MuiMenuItem-root , button , .MuiStepLabel-label, .MuiStepIcon-text{
+    font-family: var(--body-font-family) !important;
+}
+
+.MuiInput-underline::before, .MuiInput-underline::after{
+    border: none !important;
+}
+
+.loginpage .MuiInputLabel-formControl {
+    top: 0;
+    left: 10px !important;
+    position: absolute;
+    transform: translate(0, 19px) scale(1) !important;
+}
+
+.loginpage .MuiInputLabel-shrink {
+    transform: translate(0px, 6.5px) scale(0.75) !important;
+    transform-origin: top left;
+}
+
+input.MuiInputBase-input.MuiInput-input{
+    padding-left: 10px;
+    font-size: 0.875rem;
+    padding-top: 10px;
+    /* color: var(--primary-text-black) !important; */
+}
+
+.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu{
+    text-align: left;
+    padding-left: 10px;
+    font-size: 0.875rem;
+    padding-top: 7px
+}
+
+.MuiFormLabel-root.Mui-focused{
+    color: var(--primary-text-black) !important;
+}
+
+.MuiFormControl-root{
+    margin-top: 0px !important;
+}
+
+.loginpage .selectholder .MuiFormControl-root{
+    margin-left: -7px !important;
+}
+
+.MuiSelect-icon {
+    top: calc(50% - 20px) !important;
+    color: rgba(0, 0, 0, 0.54);
+    right: 5px !important;
+    position: absolute;
+    pointer-events: none;
+}
+
+label.MuiFormLabel-root.MuiInputLabel-root , 
+.MuiButtonBase-root.MuiListItem-root.MuiMenuItem-root{
+    font-size: 0.875rem !important;
+    color: var(--primary-text-black) !important;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-space-between{
+    justify-content: space-between;
+}
+
+.justify-content-end{
+    justify-content: end;
+}
+
+.mt-20px{
+    margin-top: 20px !important;
+}
+
+.mt-10px{
+    margin-top: 10px !important;
+}
+
+.mt-30px{
+    margin-top: 30px !important;
+}
+
+.w-100{
+    width: 100% !important;
+}
+
+.w-40{
+    width: 40% !important;
+}
+
+.w-70{
+    width: 70% !important;
+}
+
+.mr-0{
+    margin-right: 0px !important;
+}
+
+.px-20px{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.mt-15px{
+    margin-top: 15px !important;
+}
+
+.fw-600{
+    font-weight: 600 !important;
+}
+
+.fw-400{
+    font-weight: 400 !important;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.text-left{
+    text-align: left !important;
+}
+
+header.MuiPaper-root.MuiAppBar-root{
+    background-color: var(--sidebar-bg);
+    color: var(--color-black);
+    font-family: var(--body-font-family);
+}
+
+header.MuiPaper-root.MuiAppBar-root h6{
+    font-family: var(--body-font-family);
+}
+
+.MuiStepIcon-root.MuiStepIcon-active{
+    color: var(--primary-dark-button) !important;
+}
+
+.w-10px{
+    width: 10px;
+}
+
+.ml-5px{
+    margin-left: 5px !important;
+}
+
+.mr-10px{
+    margin-right: 10px;
+}
+
+.pb-0px{
+    padding-bottom: 0px !important;
+}
+
+.mt-5px{
+    margin-top: 5px !important;
+}
+
+.py-0px{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.p-0{
+    padding: 0px !important;
+}
+
+.pl-0px{
+    padding-left: 0px !important;
+}
+
+.mb-0{
+    margin-bottom: 0px !important;
+}
+
+.mx-4px{
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+}
+
+
+
+
+
+/* Login page style starts */
+
+.pagetitle{
+    font-size: 1.563rem;
+    font-weight: 600;
+    margin: 10px 0px;
+}
+
+.loginpage{
+    background-color: var(--primary-light-blue);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.loginpgimg{
+    background-image: url('../src/img/loginbg.png');
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.logincard{
+    background-color: var(--card-light-blue);
+    max-width: 33.125rem;
+    margin: 0 auto;
+    filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.25));
+    padding: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+}
+
+.logincardtitle{
+    font-size: 1.363rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0px;
+    margin-bottom: 30px;
+}
+
+.loginpage .MuiFormControl-root.MuiTextField-root , .loginpage .MuiFormControl-root{
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.25)) !important;
+    background-color: var(--color-white) !important;
+    border-radius: 8px;
+    width: 91% !important;
+    margin-left: -15px !important;
+    margin-bottom: 20px !important;
+}
+
+.loginbtn{
+    margin-top: 20px !important;
+    width: 91% !important;
+    margin-left: -15px !important;
+    background-color: var(--primary-dark-blue) !important;
+    color: var(--color-white) !important;
+    box-shadow: none !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    text-transform: none !important;
+    font-weight: 600 !important;
+}
+
+/* Sidebar style starts */
+
+.MuiDrawer-paper{
+    background-color: var(--sidebar-bg) !important;
+}
+
+.applogodrawer{
+    max-width: 80%;
+    height: auto;
+    padding-top: 0px;
+    padding-bottom: 8px;
+}
+
+.drawermenu span.MuiTypography-root {
+    font-size: 0.875rem;
+    font-family: var(--body-font-family);
+    color: var(--primary-dark-blue) !important;
+}
+
+.drawermenu svg.MuiSvgIcon-root{
+    fill: var(--primary-dark-blue) !important;
+}
+
+.drawermenu{
+    margin-left: 10px !important;
+    padding-top: 25px !important;
+}
+
+.drawermenu .MuiListItem-root.active{
+    background-color: var(--primary-dark-blue) !important;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+.drawermenu .MuiListItem-root.active span.MuiTypography-root{
+    color: var(--color-white) !important;
+}
+
+.drawermenu .MuiListItem-root.active svg.MuiSvgIcon-root{
+    fill: var(--color-white) !important;
+}
+
+.drawermenu .MuiListItem-root{
+    margin-bottom: 10px !important;
+    padding-left: 20px;
+}
+
+.dashboardheaderbtn{
+    color: var(--color-white);
+    background-color: var(--primary-dark-button);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-family: var(--body-font-family);
+    font-size: 0.75rem;
+    padding-right: 15px;
+    margin-right: 10px;
+}
+
+.dashboardheaderbtn svg{
+    font-size: 1.125rem;
+}
+
+.dashboardsearchbar .MuiFormControl-root{
+    margin: 0px !important;
+    background-color: var(--primary-light-blue) !important;
+    box-shadow: none !important;
+    filter: none !important;
+    width: 100% !important;
+    border-radius: 40px;
+    padding: 3px 10px !important;
+}
+
+.dashboardsearchbar .MuiFormControl-root input{
+    padding-left: 0px;
+    padding-top: 8px;
+    color: var(--color-black) !important;
+}
+
+.dashboardsearchbar svg{
+    font-size: 1.125rem;
+}
+
+.dashboardicon{
+    height: 38px;
+    width: 38px;
+    display: flex;
+    border: 1px solid var(--color-black);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dashboardicon:last-child{
+    margin-right: 0px;
+}
+
+.dashboardicon svg{
+    fill: var(--primary-dark-button);
+}
+
+.username{
+    margin: 0px;
+    margin-bottom: 0px;
+    font-family: var(--body-font-family);
+    font-weight: 600;
+}
+
+.designation{
+    margin: 0px;
+    margin-bottom: 0px;
+    font-family: var(--body-font-family);
+    color: var(--primary-dark-button);
+    font-size: 0.75rem;
+}
+
+.usernamelink{
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    border: 1px solid var(--color-black);
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    background-color: #E0E0E0;
+    font-size: 1.125rem;
+    color: var(--primary-dark-button);
+    margin-left: 10px;
+}
+
+.dashboardrightdiv{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.dashboardrightdiv .contentdiv{
+    margin-right: 20px;
+}
+
+.dashboardrightdiv .contentdiv:last-child{
+    margin-right: 0px;
+}
+
+.statscard{
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.25)) !important;
+    background-color: var(--color-white) !important;
+    border-radius: 5px;
+    width: 94%;
+    margin: 0 auto;
+}
+
+.headercardiconblue{
+    background: linear-gradient(180deg, rgba(23,70,162,1) 0%, rgba(95,157,247,1) 100%);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.statscard svg{
+    fill: var(--color-white);
+    font-size: 40px;
+}
+
+.statstitleblue{
+    margin: 0px;
+    color: var(--stats-color-blue);
+    font-family: var(--body-font-family);
+    text-transform: uppercase;
+}
+
+.statsnumberblue{
+    margin: 0px;
+    color: var(--stats-color-blue);
+    font-family: var(--body-font-family);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.border-top-blue{
+    border-top: 1px solid var(--stats-color-blue);
+}
+
+.statstitlered{
+    margin: 0px;
+    color: var(--stats-color-red);
+    font-family: var(--body-font-family);
+    text-transform: uppercase;
+}
+
+.statsnumberred{
+    margin: 0px;
+    color: var(--stats-color-red);
+    font-family: var(--body-font-family);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.headercardiconred{
+    background: linear-gradient(180deg, rgba(133,14,53,1) 0%, rgba(238,105,131,1) 100%);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.border-top-red{
+    border-top: 1px solid var(--stats-color-red);
+}
+
+.statstitlegreen{
+    margin: 0px;
+    color: var(--stats-color-green);
+    font-family: var(--body-font-family);
+    text-transform: uppercase;
+}
+
+.statsnumbergreen{
+    margin: 0px;
+    color: var(--stats-color-green);
+    font-family: var(--body-font-family);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.headercardicongreen{
+    background: linear-gradient(180deg, rgba(40,84,48,1) 0%, rgba(164,190,123,1) 100%);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.border-top-green{
+    border-top: 1px solid var(--stats-color-green);
+}
+
+.statstitleorange{
+    margin: 0px;
+    color: var(--stats-color-orange);
+    font-family: var(--body-font-family);
+    text-transform: uppercase;
+}
+
+.statsnumberorange{
+    margin: 0px;
+    color: var(--stats-color-orange);
+    font-family: var(--body-font-family);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.headercardiconorange{
+    background: linear-gradient(180deg, rgba(244,157,26,1) 0%, rgba(255,225,93,1) 100%);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.border-top-orange{
+    border-top: 1px solid var(--stats-color-orange);
+}
+
+.recentalertscard{
+    background-color: var(--bg-light-orange);
+    margin: 0px 10px;
+    padding: 20px 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.cardtitlesmall{
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0px;
+    color: #040615;
+    font-family: var(--body-font-family);
+    text-align: left;
+}
+
+.cardsubtitlesmall{
+    font-size: 0.75rem;
+    margin: 0px;
+    color: #040615;
+    font-family: var(--body-font-family);
+    text-align: left;
+}
+
+.alertname{
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0px;
+    margin-bottom: 0.2rem;
+    text-align: left;
+    font-family: var(--body-font-family);
+}
+
+.alertdescription{
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin: 0px;
+    margin-bottom: 0.2rem;
+    text-align: left;
+    font-family: var(--body-font-family);
+    color: var(--primary-dark-button);
+}
+
+.alertsicon{
+    background-color: var(--color-white);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--icon-orange);
+    border-radius: 50%;
+}
+
+.alertsicon svg{
+    fill: var(--icon-orange);
+}
+
+.alertsicon:hover{
+    background-color: var(--icon-orange);
+}
+
+.alertsicon:hover svg{
+    fill: var(--color-white);
+}
+
+.alertlistitem{
+    padding: 0.925rem 0;
+}
+
+.blueroundbtn{
+    background-color: var(--primary-dark-blue) !important;
+    width: 100%;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 40px;
+    display: inline-block;
+    font-family: var(--body-font-family);
+}
+
+.patientcard{
+    background-color: var(--bg-light-green);
+    margin: 0px 10px;
+    padding: 20px 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.border-bottom-grey{
+    border-bottom: 1px solid var(--border-grey);
+}
+
+.patientcard .alertlistitem{
+    border-bottom: 1px solid var(--border-grey);
+}
+
+.patientcard .alertlistitem:last-child{
+    border-bottom: none;
+}
+
+.seealltext{
+    margin: 0;
+    font-family: var(--body-font-family);
+    text-decoration: underline;
+    font-weight: 600;
+    color: #2C6FB5;
+}
+
+.insulincard{
+    background-color: var(--bg-dark-orange);
+    margin: 0px 10px;
+    padding: 20px 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.trendicon{
+    background: var(--bg-icon-red);
+    width: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.gridoddbg{
+    background-color: var(--bg-grid-odd);
+}
+
+.gridevenbg{
+    background-color: var(--bg-grid-even);
+}
+
+.appointmentcard{
+    background-color: var(--primary-light-blue);
+    margin: 0px 10px;
+    padding: 20px 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.appointmentsrow .MuiTableCell-root{
+    padding: 2px 5px;
+    font-family: var(--body-font-family);
+    text-align: center;
+}
+
+.appointmentsrow thead{
+    background-color: var(--tertiary-dark-blue);
+}
+
+.appointmentsrow thead th{
+    font-size: 0.75rem;
+    color: var(--color-white);
+}
+
+.appointmentsrow tbody td{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    background-color: var(--color-white);
+}
+
+.appointmentswitcher{
+    background-color: var(--color-white);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.innercardtitle{
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0px;
+        color: #040615;
+        font-family: var(--body-font-family);
+        text-align: center;
+}
+
+.newpatientdiv{
+    background-color: var(--primary-light-blue);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin: 0px 4px;
+}
+
+.appointmentswitchtitle{
+    font-size: 0.625rem;
+    margin: 0px;
+    font-weight: 600;
+    font-family: var(--body-font-family);
+}
+
+.bluecount{
+    color: var(--tertiary-dark-blue);
+}
+
+.progressbar{
+    background-color: var(--color-white);
+    height: 10px;
+    width: 90%;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 40px;
+}
+
+.blueprogress{
+    width: 30%;
+    background-color: var(--tertiary-dark-blue);
+    height: 8px;
+    border-radius: 40px;
+}
+
+.greenprogress{
+    width: 20%;
+    background-color: var(--secondary-dark-green);
+    height: 8px;
+    border-radius: 40px;
+}
+
+.redcount{
+    color: var(--tertiary-dark-red);
+}
+
+.followuppatientdiv{
+    background-color: var(--secondary-bg-grey);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin: 0px 4px;
+}
+
+.appointmenticon svg{
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.appointmentlistholder{
+    background-color: var(--color-white);
+    padding: 0px;
+    border-radius: 10px;
+}
+
+.appointmentlistholder .singleitem{
+    padding-top: 0.925rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.appointmentlistholder .singleitem:last-child{
+    border-bottom: none;
+}
+
+.color-black{
+    color: var(--color-black) !important;
+}
+
+.patientchartcard{
+    background-color: var(--bg-light-pink);
+    margin: 0px 10px;
+    padding: 20px 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Registration page style starts */
+
+.formcard{
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+    border-radius: 20px;
+    width: 92%;
+    margin: 0 auto;
+}
+
+.formcard .cardtitlesmall{
+    background-color: var(--primary-dark-blue);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: var(--color-white);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.formcardbody{
+    padding: 20px;
+}
+
+.singlequestiondiv{
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.backButton{
+    margin-right: 20px !important;
+    border: 1px solid var(--primary-dark-blue) !important;
+    border-radius: 8px !important;
+    color: var(--primary-dark-blue) !important;
+    font-family: var(--body-font-family);
+}
+
+.nextButton{
+    border: 1px solid var(--primary-dark-blue) !important;
+    border-radius: 8px !important;
+    background-color: var(--primary-dark-blue) !important;
+    box-shadow: none !important;
+    font-family: var(--body-font-family);
+}
+
+.stepperbtnholder{
+    margin-top: 30px;
+    text-align: right;
+    padding-right: 1%;
+}
+
+.steppersearchbtnholder{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1.8%;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.steppersearchbtnholder .dashboardheaderbtn{
+    margin-right: 0px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.steppersearchbtnholder .dashboardheaderbtn svg{
+    margin-right: 10px !important;
+}
+
+.searchdialog .MuiDialogContent-root{
+    padding: 0px;
+    background-color: transparent !important;
+}
+
+.searchdialog .MuiDialogContent-root .formcard{
+    width: 100%;
+    background-color: var(--color-white);
+}
+
+.searchdialog .MuiDialogContent-root{
+    padding-top: 0px !important;
+}
+
+.searchdialog .MuiDialogContentText-root{
+    margin-bottom: 0px !important;
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+.searchdialog .MuiPaper-root.MuiDialog-paper{
+    background-color: transparent !important;
+    background: transparent !important;
+    border-radius: 20px !important;
+}
+
+.qrimage{
+    height: 100px;
+    margin: 0 auto;
+    padding-bottom: 0px;
+}
+
+.ortext{
+    display: flex;
+  align-items: center;
+  width: 60%;
+    margin: 0 auto;
+    margin-top: 15px;
+    font-family: var(--body-font-family);
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.ortext::after {
+    content: '';
+    flex: 1;
+    margin-left: 1rem;
+    height: 1px;
+    background-color: #000;
+  }
+
+  .ortext::before {
+    content: '';
+    flex: 1;
+    margin-right: 1rem;
+    height: 1px;
+    background-color: #000;
+  }
+
+  .MuiStepIcon-root.MuiStepIcon-completed{
+    color: var(--secondary-dark-green) !important;
+  }
+
+  /* Alerts page style starts */
+
+  .dashboardsearchbar.tablesearch{
+    margin-left: 10px;
+    width: 70%;
+   
+  }
+
+  .dashboardsearchbar.tablesearch .MuiFormControl-root{
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white) !important; 
+  }
+
+  .dashboardsearchbar.tablesearch .MuiFormControl-root input{
+    color: var(--primary-dark-button) !important;
+  }
+
+  .dashboardheaderbtn.outline{
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white) !important; 
+    color: var(--color-black) !important;
+  }
+
+  .alertstableholder thead{
+    background-color: var(--primary-dark-button);
+    color: var(--color-white);
+  }
+
+  .alertstableholder table , .alertstableholder table td {
+    font-family: var(--body-font-family);
+  }
+
+  .alertstableholder table td {
+    border-bottom: none;
+  }
+
+  .alertstableholder table tr{
+    border-left: 1px solid var(--primary-dark-button);
+    border-right: 1px solid var(--primary-dark-button);
+   
+  }
+
+  .alertstableholder table tr:last-child{
+    border-bottom: 1px solid var(--primary-dark-button);
+  }
+
+  .alertstableholder thead th{
+    color: var(--color-white);
+    font-family: var(--body-font-family);
+    font-weight: 600;
+  }
+
+  .nextappointmentcolor{
+    color: var(--color-category-high);
+  }
+
+  .lastvisitcolor{
+    color: var(--color-category-low);
+  }
+
+  .color-yellow , .color-yellow svg{
+    fill: var(--color-status-yellow) !important;
+  }
+
+  .categoryhigh{
+    background-color: var(--color-category-high) !important;
+  }
+
+  .categorymedium{
+    background-color: var(--color-status-yellow) !important;
+  }
+
+  .categorylow{
+    background-color: var(--color-category-low) !important;
+  }
+
+  .icongreen{
+    fill: var(--secondary-dark-green) !important;
+  }
+
+  .iconred{
+    fill: var(--color-action-delete) !important;
+  }
+
+  .icondarkblue{
+    fill: var(--primary-dark-button) !important;
+  }
+
+  .iconblack{
+    fill: var(--color-black) !important;
+  }
+
+  .iconlightred{
+    fill: var(--color-icon-lightred) !important;
+  }
+
+  .alertscard{
+    background-color: var(--color-white);
+    margin: 0px 10px;
+    padding: 0px 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+}
+
+.alertstableholder tbody tr:nth-child(even) {
+    background-color: var(--bg-tablerowodd-blue);
+}
+
+.alertstableholder tbody tr:nth-child(odd){
+    background-color: var(--bg-tableroweven-blue);
+}
+
+.paginationdiv{
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    font-family: var(--body-font-family);
+}
+
+.paginationpagenumber{
+    color: var(--primary-dark-button) !important;
+}
+
+.paginationnumbercontroldiv{
+    margin-left: 10px !important;
+    margin-right: 17px !important;
+    font-family: var(--body-font-family);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.MuiPaginationItem-page.Mui-selected{
+    background-color: var(--primary-dark-button) !important;
+    color: var(--color-white) !important;
+    -webkit-box-shadow: 10px 7px 16px 0px rgba(0,0,0,0.14);
+-moz-box-shadow: 10px 7px 16px 0px rgba(0,0,0,0.14);
+box-shadow: 10px 7px 16px 0px rgba(0,0,0,0.14);
+}
+
+.MuiPagination-ul li{
+    margin-right: 5px;
+}
+
+.MuiPagination-ul li:last-child{
+    margin-right: 0px;
+}
+
+.MuiPaginationItem-root{
+    color: var(--border-grey) !important;
+}
+
+.MuiPagination-ul li:first-child button , 
+.MuiPagination-ul li:last-child button{
+    border: none !important;
+}
+
+.MuiPagination-ul li:first-child button svg , 
+.MuiPagination-ul li:last-child button svg{
+    fill: var(--primary-dark-blue) !important;
+    font-weight: bold;
+}
+
+/* Patient record list inner page style starts */
+
+.pateintrecordlistcard{
+    background-color: var(--color-white);
+    margin: 0px 10px;
+    padding: 0px 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+}
+
+.singlepatientrecord{
+    padding: 20px;
+}
+
+.singlepatientrecord:nth-child(odd) {
+    background-color: var(--bg-tableroweven-blue);
+}
+
+.singlepatientrecord:nth-child(even) {
+    background-color: var(--bg-tablerowodd-blue);
+}
+
+.patientnamecard{
+    background-color: var(--bg-patientname-card);
+    padding: 20px;
+}
+
+.appointmentdate svg{
+    fill: var(--primary-dark-blue) !important;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.appointmentdate{
+    display: flex;
+    align-items: center;
+}
+
+.patientnamecardactionicon{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.patientcardactiondiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.patientnamediv{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.medicinedetailsdiv{
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+}
+
+.symptomscard{
+    background-color: var(--bg-symptoms-card);
+    padding: 20px;
+}
+
+.symptomscheckboxholder .MuiTypography-root.MuiFormControlLabel-label{
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0px;
+    margin-bottom: 0.2rem;
+    text-align: left;
+    font-family: var(--body-font-family);
+}
+
+.performancecard{
+    background-color: var(--primary-light-blue);
+    padding: 20px;
+}
+
+.smalltitle{
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-weight: 500;
+}
+
+.charttitlediv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bigtitle{
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0px;
+    color: #040615;
+    font-family: var(--body-font-family);
+}
+
+.risklevelbtn{
+    background-color: var(--color-white);
+    width: fit-content;
+    padding: 10px 30px;
+    border-radius: 50px;
+    margin: 0 auto;
+    color: var(--stats-color-orange);
+}
+
+.color-grey{
+color: var(--border-grey);
+}
+
+/* Follow-up page style starts */
+
+.todayappointmentdiv{
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+.color-darkblue{
+    color: var(--color-dark-blue);
+}
+
+.appointmenttabs .MuiTab-textColorPrimary.Mui-selected{
+    color: var(--color-white) !important;
+    background-color: var(--primary-dark-blue) !important;
+}
+
+.appointmenttabs .MuiTabs-indicator{
+    background-color: transparent !important;
+}
+
+.appointmenttabs .MuiTab-textColorPrimary{
+    color: var(--stats-color-blue) !important;
+}
+
+.singleappointmentcard{
+    background-color: var(--sidebar-bg);
+    border-radius: 20px;
+    /* -webkit-box-shadow: inset 0px 0px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 0px 0px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: inset 0px 0px 4px 0px rgba(0,0,0,0.25);
+
+    -webkit-box-shadow: -4px 7px 4px 0px rgba(0,0,0,0.25);
+-moz-box-shadow: -4px 7px 4px 0px rgba(0,0,0,0.25);
+box-shadow: -4px 7px 4px 0px rgba(0,0,0,0.25); */
+
+filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));
+margin: 8px 4px;
+margin-bottom: 20px;
+    
+
+}
+
+.symptomsul{
+    margin: 0px;
+    padding: 0px;
+    padding-left: 15px;
+}
+
+.symptomsul li{
+    text-align: left;
+    font-family: var(--body-font-family);
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.px2010{
+    padding: 20px 10px;
+}
+
+.p20px{
+    padding: 20px;
+}
+
+.newpatientborder{
+    border-left: 8px solid var(--border-newpatient);
+}
+
+.followuppatientborder{
+    border-left: 8px solid var(--border-followup);
+}
+
+.appcarddetails{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.appcardfollowupdetails{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.risktext{
+    color: var(--color-yellow-dark);
+    font-size: 0.813rem;
+}
+
+.dashboardheaderbtn.w-100 svg{
+    margin-right: 10px;
+}
+
+.fc-toolbar-title{
+    font-family: var(--body-font-family);
+    font-size: 1rem !important;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0px;
+    color: var(--primary-dark-blue);
+    padding-left: 8px;
+}
+
+.fc{
+    font-family: var(--body-font-family);
+    height: calc(100vh - 80px);
+   
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+    .fc{
+        font-family: var(--body-font-family);
+        height: calc(100vh - 0px);
+       
+    }
+}
+
+.fc thead th.fc-col-header-cell{
+    border: none !important;
+    color: var(--border-grey) !important;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    margin: 0px 10px 10px 10px ;
+}
+
+.fc-theme-standard .fc-scrollgrid{
+    border: none !important;
+}
+
+.fc-theme-standard td, .fc-theme-standard th{
+    border: none !important;
+}
+
+.fc .fc-daygrid-day-frame {
+    min-height: 80%;
+    position: relative;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    margin: 0px 10px 10px 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 10px;
+    border-radius: 14px;
+}
+
+.fc-scroller{
+    /* overflow: hidden !important; */
+    overflow: auto !important;
+}
+
+.fc-day-past.fc-day-other .fc-daygrid-day-frame,
+.fc-day-future.fc-day-other .fc-daygrid-day-frame{
+    background-color: #f5f5f5 !important;
+}
+
+.fc-day-past.fc-day-other .fc-daygrid-day-number,
+.fc-day-future.fc-day-other .fc-daygrid-day-number{
+    color: var(--border-grey) !important;
+    font-weight: 700;
+}
+
+.fc-daygrid-day-number{
+    color: var(--color-black) !important;
+    font-weight: 700;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: transparent !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame{
+    background-color: var(--fc-today-bg-color) !important;
+}
+
+.newpatientcolor{
+    color: var(--border-newpatient);
+}
+
+.newpatientcolor svg{
+   
+    fill: var(--border-newpatient);
+}
+
+.followuppatientcolor{
+    color: var(--border-followup);
+}
+
+.followuppatientcolor svg{
+    fill: var(--border-followup);
+}
+
+.callegenddiv{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.callegenddiv p{
+    margin-right: 10px;
+}
+
+/* Follow-up page style starts */
+
+.followuppagination{
+    font-family: var(--body-font-family);
+}
+
+/* Task list page style starts */
+
+.tasklistpagemaindiv{
+    background-color: var(--bg-tablerowodd-blue);
+    padding: 30px 20px;
+}
+
+.tasklistoutertabs{
+    padding-right: 20px;
+}
+
+.tasklistoutertabs header.tasklistouterheader.MuiPaper-root{
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.tasklistoutertabs .MuiTabs-indicator{
+    background-color: var(--primary-text-black);
+}
+
+.tasklistoutertabs header button{
+    color: var(--border-grey);
+    font-weight: 500;
+}
+
+.tasklistoutertabs header button.Mui-selected{
+    color: var(--color-black);
+}
+
+.paginationdiv , .followuppagination{
+    font-size: 0.875rem;
+}
+
+.followuppageinnertabsdiv .appointmenttabsholder header{
+    z-index: 900;
+}
+
+.modal-90w {
+    width: 90%;
+    max-width: 90%;
+}

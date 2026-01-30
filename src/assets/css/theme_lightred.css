@@ -1,0 +1,2077 @@
+
+body.theme_lightred ::-webkit-scrollbar-thumb{
+    background-color: #6f7378bf !important
+}
+
+body.theme_lightred{
+	background-color: #ffff;
+}
+
+body.theme_lightred .main{
+    background-color: #ffff;
+}
+
+body.theme_lightred .mainsection{
+	width: auto;
+    height: calc(100vh - 94px) !important;
+    overflow-y: auto;
+    /* padding-top: 65px !important; */
+    background-color: #ffff;
+    overflow-x: hidden;
+}
+
+.mainsection.homeMain{
+    overflow: hidden !important;
+}
+.mainsection.langMain{
+    overflow: hidden !important;
+}
+
+
+body.theme_lightred .mainsection.pT-55{
+    padding-top: 55px !important;
+}
+@media only screen and (min-width: 1200px) {
+
+    .statusprofile {
+        width: 2%;
+    }
+    body.theme_lightred .mainsection.pT-55{
+        padding-top: 70px !important;
+    }
+
+    body.theme_lightred .regcasetabs form.fullWidth .innertabdivreg.subclass5{
+        padding-top: 130px !important;
+    }
+     body.theme_lightred .searchcustombg{
+        padding-top: 100px !important;
+    }
+     body.theme_lightred .customregistrationtabs .fullWidth .nameuicinfoholder {
+        margin-top: 115px; 
+    }
+}
+
+body.theme_lightred header{
+	background-color: #ffff !important;
+}
+
+body.theme_lightred header svg{
+	fill: #060707;
+}
+
+body.theme_lightred header h6{
+	color: #060707;
+}
+
+body.theme_lightred .pageupperpart{
+	height: calc(40vh - 35px);
+}
+
+body.theme_lightred .pagelaterpart{
+	/* height: calc(60vh - 16px);
+	background-color: #CB4153; */
+}
+
+body.theme_lightred .pageupperpart .innerdiv{
+	display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: calc(40vh - 68px);
+    justify-content: space-evenly;
+}
+
+.pb-0{
+	padding-bottom: 0px !important;
+}
+
+body.theme_lightred .mainsection.pb-0{
+	height: 100vh !important;
+    
+}
+
+body.theme_lightred .custom-shape-divider-top-1612935135 {
+    display: none;
+    position: absolute;
+    /*top: 0;*/
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    margin-top: -12px;
+    border-bottom: 2px solid #fff;
+}
+
+body.theme_lightred .custom-shape-divider-top-1612935135 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    background-color: #CB4153;
+}
+
+body.theme_lightred .custom-shape-divider-top-1612935135 .shape-fill {
+    fill: #ffff;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .langSection {
+        width: 100%;
+        text-align: center;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        padding: 30px;
+    }
+
+    .langprefpageformholder .MuiTypography-h4{
+        font-size: 1.5rem;
+    }
+
+    .backsvg {
+        max-width: 100%;
+        height: auto;
+        width: 25% !important;
+    }
+
+    body.theme_lightred .custom-shape-divider-top-1612935135 svg {
+        width: calc(100% + 1.3px);
+        height: 61px;
+    }
+    
+    .migrantlogin{
+        display: none;
+    }
+
+    /* body.theme_lightred .customregistrationtabs .fullWidth > div{
+        padding-top: 45px !important;
+    } */
+
+    .searchcustombg{
+        padding-top: 100px !important;
+    }
+
+    .langSection{
+        width: 80%;
+        text-align: center;
+    }
+
+        .langitems{
+            width: 85% !important;
+        }
+
+
+   .langSection .buttons{
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .pageupperpart.pagelang {
+        height: calc(47vh - 35px) !important;
+    }
+}
+
+.text-uppercase{
+	text-transform: uppercase;
+}
+
+body.theme_lightred .loginpageformholder{
+	/* height: calc(60vh - 65px); */
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.w-100{
+	width: 100%;
+}
+
+body.theme_lightred .loginpageformholder .MuiFormLabel-root.Mui-focused{
+	color: #fff;
+}
+
+body.theme_lightred .loginpageformholder label.MuiInputLabel-animated {
+    color: #fff;
+    font-size: 14px;
+    padding-left: 0px;
+}
+
+body.theme_lightred .loginpageformholder .MuiInputLabel-shrink {
+    transform: translate(0, 1.5px) scale(1);
+    transform-origin: top left;
+}
+
+body.theme_lightred .loginpageformholder .MuiInput-underline:before,
+body.theme_lightred .loginpageformholder .MuiInput-underline:after{
+	border-bottom: none !important;
+}
+
+body.theme_lightred .loginpageformholder input{
+	background: #6f73780f !important;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 10px;
+    padding-left: 5px;
+}
+
+
+
+.loginpageformholder .useravtarimgapp{
+    margin-bottom: 18px;
+}
+
+.langprefpageformholder .useravtarimgapp{
+    margin-bottom: 18px;
+}
+
+body.theme_lightred .loginpageformholder .MuiInputLabel-formControl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(0, 0px) scale(1);
+}
+
+body.theme_lightred .loginsubmitbtn{
+    padding: 25px 10px !important;
+    font-size: 16px !important;
+    text-transform: uppercase;
+    font-weight: 600 !important;
+    /* background-color: #CB4153 !important; */
+    color: #fff !important;
+    width: 100%;
+     padding: 0px 12px !important; 
+    font-size: 14px !important;
+    text-transform: capitalize;
+    font-weight: 600 !important;
+    min-height: 36px !important;
+}
+
+body.theme_lightred .langprefpageformholder{
+    /* height: calc(60vh - 44px); */
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+body.theme_lightred .langprefpageformholder label.MuiFormControlLabel-root{
+	background-color: #CB41531f;
+	border-radius: 5px;
+    margin: 10px 0px;
+}
+
+body.theme_lightred .langprefpageformholder .MuiRadio-colorSecondary.Mui-checked {
+    color: #242f31 ;
+}
+
+body.theme_lightred .homemenupageholder{
+    height: calc(60vh - 44px);
+    position: relative;
+    /* display: flex; */
+    align-items: center;
+    padding: 0px 0px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body.theme_lightred .homemenucontainer{
+	background: #e6faf8;
+    border-radius: 5px;
+    padding:10px 5px;
+    font-size: 14px;
+    font-weight: 700;
+    height: calc(100% - 20px);
+}
+
+body.theme_lightred .homemenucontainer svg{
+	color: #CB4153;
+    font-size: 40px;
+}
+
+body.theme_lightred .homemenucontainer span{
+    white-space: normal;
+    word-break: break-word;
+}
+
+body.theme_lightred a .homemenucontainer{
+	color: #000 !important;
+}
+
+body.theme_lightred .bottomnavbar{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigationAction-root{
+	min-width: 50px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigationAction-label.Mui-selected {
+    font-size: 0.875rem;
+    font-size: 0.75rem;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigation-root {
+    height: 66px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9ffff;
+    align-items: self-start;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigationAction-root.Mui-selected {
+    color: #2995d3;
+    padding-top: 0px;
+    font-weight: 600;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigation-root svg{
+	margin-top: 5px;
+	color: #9f9f9f;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigationAction-root.Mui-selected svg{
+	color: #2995d3;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigationAction-label{
+	color: #9f9f9f;
+    font-weight: 600;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigationAction-label.Mui-selected{
+	color: #2995d3;
+}
+
+body.theme_lightred .stepperdiv{
+	position: fixed;
+	bottom: 130px;
+	width: 100%;
+	margin-left: -12px;
+	background-color: transparent !important;
+	padding:0px !important;
+}
+
+body.theme_lightred .stepperbutton{
+	position: fixed;
+	bottom: 80px;
+	width: 100%;
+    margin-left: -12px;
+}
+
+body.theme_lightred .stepperbutton .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #1397c7 !important;
+}
+
+body.theme_lightred .stepperdiv .MuiStepIcon-root.MuiStepIcon-active {
+    color: #1397c7;
+}
+
+body.theme_lightred .stepperdiv .MuiStepIcon-root.MuiStepIcon-completed {
+    color: #1397c7;
+}
+
+body.theme_lightred .makeStyles-root-14,.bg-transparent ,
+body.theme_lightred .bg-transparent > div{
+    background-color: transparent !important;
+}
+
+body.theme_lightred .addclient-page .MuiTabs-root button.Mui-selected svg.MuiSvgIcon-root {
+    background-color: #545454;
+    fill: #fff;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+body.theme_lightred .addclient-page .MuiTabs-root svg.MuiSvgIcon-root {
+    background-color: #afabab;
+    fill: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+body.theme_lightred .addclient-page .MuiTabs-root button.Mui-selected span {
+    color: #545454;
+}
+
+body.theme_lightred .addclient-page .MuiTabs-root button span {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+body.theme_lightred .addclient-page .MuiTabs-indicator {
+    color: #545454;
+    background-color: #545454;
+}
+
+body.theme_lightred .searchtabmaindiv{
+    height: calc(100vh - 165px) !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightred .addclient-page .MuiBox-root {
+    padding: 24px;
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 5px;
+}
+
+body.theme_lightred .addclient-page label + .MuiInput-formControl {
+    margin-top: 20px;
+}
+
+body.theme_lightred .addclient-page label.MuiInputLabel-animated {
+    color: #000;
+    font-size: 16px;
+    padding-left: 0px;
+}
+
+body.theme_lightred .addclient-page .MuiInputLabel-shrink {
+    transform: translate(0, 1.5px) scale(1);
+    transform-origin: top left;
+    color: #545454;
+}
+
+body.theme_lightred .addclient-page .MuiInput-underline:after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    border-bottom: 1px solid #545454 !important;
+    pointer-events: none;
+}
+
+body.theme_lightred .addclient-page .MuiFormLabel-root.Mui-focused {
+  color: #545454 !important;
+}
+
+body.theme_lightred .addclient-page .MuiFormControl-root{
+    margin:0px !important;
+}
+
+body.theme_lightred .addclient-page .MuiTabs-root button span {
+    font-size: 12px;
+}
+
+body.theme_lightred .login-submitbtnholder a {
+    background-color: #545454;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    border: 1px solid #545454;
+}
+
+body.theme_lightred .login-submitbtnholder {
+    margin-top: 30px;
+}
+
+body.theme_lightred .searchtabmaindiv .MuiAccordionSummary-root {
+    background-color: #CB4153;
+    color: #fff;
+    border-radius: 4px;
+}
+
+body.theme_lightred .searchtabmaindiv .MuiAccordionSummary-root .MuiAccordionSummary-content p {
+    color: #fff;
+}
+
+body.theme_lightred .searchtabmaindiv .MuiAccordionSummary-root span svg {
+    fill: #fff;
+}
+
+body.theme_lightred .addclient-page .MuiPaper-root{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+body.theme_lightred .addclient-page .MuiCollapse-container{
+    background-color: #fff;
+}
+
+body.theme_lightred .addclient-page .MuiButtonBase-root.MuiAccordionSummary-root.Mui-expanded{
+    margin-bottom: 0px;
+}
+
+body.theme_lightred .riskselectiondiv label {
+    margin: 0px !important;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px !important;
+    background-color: #ebebeb;
+}
+
+body.theme_lightred .addclient-page .MuiCheckbox-colorSecondary.Mui-checked {
+    color: #545454;
+}
+
+body.theme_lightred .riskselectionmainholder{
+    height: calc(100vh - 308px);
+    overflow-y: auto;
+    padding: 0px 10px;
+}
+
+body.theme_lightred .reftabmaindiv{
+    height: calc(100vh - 264px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightred .sharerefsliptext {
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+body.theme_lightred .reftabmaindiv .MuiAccordionSummary-root{
+    background-color: #CB4153;
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+body.theme_lightred .reftabmaindiv .MuiAccordionSummary-root span svg {
+    fill: #fff;
+}
+
+body.theme_lightred .addclient-page .MuiTabs-scroller.MuiTabs-scrollable{
+    position: fixed;
+    bottom: 66px;
+    width: calc(100vw - 35px);
+    overflow-x: scroll;
+    box-shadow: 3px -8px 10px -9px rgba(0,0,0,0.75);
+-webkit-box-shadow: 3px -8px 10px -9px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px -8px 10px -9px rgba(0,0,0,0.75);
+width: calc(100vw - 0px);
+    margin-left: 0px;
+}
+
+body.theme_lightred .addclient-page .MuiTabs-root{
+    position: fixed;
+    bottom: 66px;
+    width: calc(100vw - 0px);
+}
+
+body.theme_lightred .addclient-page .MuiTabs-flexContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+body.theme_lightred .searchtabmaindiv.mytasksdiv .MuiAccordionDetails-root,
+body.theme_lightred .profilepage .MuiAccordionDetails-root {
+  flex-direction: column;
+}
+
+body.theme_lightred #tasksearchdate-label.MuiInputLabel-formControl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(0, 0px) scale(1);
+}
+
+body.theme_lightred .quizprogresstext{
+    color: #333 !important;
+}
+
+body.theme_lightred .searchtabmaindiv .progresscontainer{
+    margin-bottom: 0px !important;
+}
+
+body.theme_lightred .quizinfoholder {
+    background: #5d5858;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #12c0ff;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Chat page styles */
+
+body.theme_lightred .rsc-header{
+    display: none !important;
+}
+
+body.theme_lightred .rsc-container{
+    box-shadow: none !important;
+}
+
+body.theme_lightred .rsc-content{
+    height: calc(100vh - 207px) !important;
+    overflow-y: auto !important;
+}
+
+body.theme_lightred .rsc-footer .rsc-input{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    background-color: #ffff;
+}
+
+body.theme_lightred .rsc-input:disabled {
+    background-color: #ffff !important;
+    background: #ffff !important;
+}
+
+body.theme_lightred .rsc-footer,.rsc-container{
+    border-radius: 0px !important;
+}
+
+body.theme_lightred .react-quiz-container{
+    margin: 0px !important;
+     width: auto !important;
+}
+
+body.theme_lightred .react-quiz-container .questionWrapper .btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #908686 !important;
+    font-size: 15px;
+    display: block;
+    white-space: normal;
+    text-align: unset;
+}
+
+body.theme_lightred #dob-label.MuiInputLabel-formControl,
+body.theme_lightred #registerdob-label.MuiInputLabel-formControl,
+body.theme_lightred #doreferral-label.MuiInputLabel-formControl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(0, 0px) scale(1);
+}
+
+body.theme_lightred .searchtabmaindiv .MuiAccordionDetails-root .MuiTypography-root,
+body.theme_lightred .reftabmaindiv .MuiAccordionDetails-root .MuiTypography-root {
+    width: 100%;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigationAction-label.MuiBottomNavigationAction-iconOnly {
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+body.theme_lightred .bottomnavbar .MuiBottomNavigationAction-root.MuiBottomNavigationAction-iconOnly {
+    padding-top: 0px;
+}
+
+body.theme_lightred .bottomnavbar .anchorLink.active .MuiBottomNavigationAction-root svg {
+    color: #2995d3;
+}
+
+body.theme_lightred .bottomnavbar .anchorLink.active .MuiBottomNavigationAction-label {
+    color: #2995d3;
+}
+
+body.theme_lightred .searchtabsinglemaindiv.searchtabsinglemaindiv {
+    height: calc(100vh - 151px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightred .login-submitbtnholder a {
+    background-color: #545454;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    border: 1px solid #545454;
+    text-decoration: none;
+}
+
+body.theme_lightred .myclientslistholder ul li{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+body.theme_lightred .myclientslistholder button{
+    justify-content: flex-start;
+}
+
+@media only screen and (min-width: 1200px) {
+body.theme_lightred .bottomnavbar .MuiBottomNavigation-root {
+    height: 66px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9ffff;
+    align-items: center;
+}
+
+}
+
+
+body.theme_lightred .addclientmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/add-user.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/add-user.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/add-user.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain;
+}
+
+body.theme_lightred .dashboardmenubg{
+    -webkit-mask: url("../../assets/images/home/homeicon.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/homeicon.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+  /* background-image: url("../../assets/images/home/lightgreen/dashboard.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain;  
+}
+
+body.theme_lightred .myclientsmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/records.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/records.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+   /* background-image: url("../../assets/images/home/lightgreen/records.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain;   
+}
+
+body.theme_lightred .mytasksmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/clipboard.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/clipboard.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/clipboard.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .tutorialmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/video-tutorial.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/video-tutorial.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/video-tutorial.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .chatmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/speech-bubble.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/speech-bubble.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/speech-bubble.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightred .searchbg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/search.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/search.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/search.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightred .myjourneymenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/calendar.png") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/calendar.png") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightred .nearmemenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/pin.png") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/pin.png") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .getknowledgeablemenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/medical-book.png") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/medical-book.png") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .eduandknowmenubg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/education.png") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/education.png") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .alertbg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/alert.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/alert.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/alert.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .referalbg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/referral.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/referral.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/referral.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .databg{
+    -webkit-mask: url("../../assets/images/home/lightgreen/dataentry.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/dataentry.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/dataentry.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightred .transferOut{
+    -webkit-mask: url("../../assets/images/home/lightgreen/file-upload.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/file-upload.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/file-upload.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+body.theme_lightred .transferIn{
+    -webkit-mask: url("../../assets/images/home/lightgreen/file-download.svg") no-repeat 50% 50%;
+    mask: url("../../assets/images/home/lightgreen/file-download.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    /* background-image: url("../../assets/images/home/lightgreen/file-download.svg"); */
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .customregistrationtabs header.MuiPaper-root{
+    background-color: #CB4153 !important;
+    color: #fff !important;
+}
+
+body.theme_lightred .servicequestiontitle{
+    color: #6F7378 !important;
+}
+
+body.theme_lightred .casescardheader,body.theme_lightred .cardactionfooter{
+    background-color: #6f7378bf !important;
+}
+
+body.theme_lightred .MuiAvatar-root.MuiAvatar-circular.MuiAvatar-colorDefault{
+    background-color: #6f7378ad !important
+}
+body.theme_lightred .cardactionfooter .MuiSvgIcon-root{
+ fill: #fff !important;
+}
+.Mui-selected .MuiTab-wrapper{
+    font-size: 14px !important;
+}
+body.theme_lightred  .regformsubmitbtn {
+    background-color: #CB4153!important
+}
+
+body.theme_lightred .customregistrationtabs .regformresetbtn{
+    background-color: #6F7378 !important
+}
+body.theme_lightred .caselistholder > ul{
+    background-color: #ffff !important
+}
+body.theme_lightred .caselistholder{
+    background-color: #ffff !important
+}
+body.theme_lightred .MuiTab-textColorInherit.Mui-selected{
+    background-color: #8b000096 ;
+    box-shadow: 3px -8px 10px -9px #8b000096;
+}
+body.theme_lightred .alerts_title{
+    background-color: #CB4153;
+    color: #fff !important;
+    padding: 10px;
+}
+body.theme_lightred .alertsdetailholder{
+ border: 2px solid #CB4153;
+}
+
+body.theme_lightred .casescardheader {
+    padding: 5px !important;
+}
+body.theme_lightred .casescardheader .MuiAvatar-circle {
+    background-color: transparent;
+}
+body.theme_lightred .cardactionfooter {
+    padding: 0px !important;
+}
+body.theme_lightred .customregistrationtabs .fullWidth > div {
+    /* padding-top: 0px !important ; */
+}
+body.theme_lightred .customLoc {
+    background-color: inherit !important;
+    border:none !important;
+}
+@media only screen and (min-width: 1100px) {
+    body.theme_lightred .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item.customLoc {
+        background-color: inherit !important;
+        border:none !important;
+    }  
+
+    body.theme_lightred  .buttons.linkbtn{
+       padding-top: 50px;
+   }
+
+   body.theme_lightred .visibilityiconcontainer{
+      /* position: relative; */
+   }
+
+   /* body.theme_lightred .visibilityiconcontainer svg{
+        position: absolute;
+        top: -18px;
+        right: 40px;
+
+   } */
+   body.theme_lightred  .rightsectiontoppart{
+    margin-top: 28px;
+   }
+
+    body.theme_lightred .innertabdivreg.subclass4 {
+     padding-top: 164px !important;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    body.theme_lightred .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item.customLoc {
+        background-color: inherit !important;
+        border:none !important;
+    }  
+}
+body.theme_lightred .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item > div {
+    border: none  !important;
+    padding: 0 !important;
+    background-color: inherit !important
+}
+body.theme_lightred .alertsdetailholder {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+body.theme_lightred .alerts_description_fields{
+    padding-left: 5px;
+}
+
+body.theme_lightred .choose_alertdiv label.MuiInputLabel-animated,
+body.theme_lightred .choose_alertdiv .MuiInputBase-input{
+    color: #000 !important;
+}
+body.theme_lightred .searchcustombg.alertDiv,body.theme_lightred .searchcustombg.indiDiv{
+    height: 100vh !important;
+}
+
+body.theme_lightred .searchformcontainer .MuiGrid-container,
+body.theme_lightred .searchformcontainer .buttons ,
+body.theme_lightred .searchformcontainer .MuiFormControl-root {
+    padding-left: 20px !important;  
+    padding-right: 20px;
+}
+body.theme_lightred .searchformheading {
+    color: #000;
+    padding-left: 20px;
+}
+body.theme_lightred .alertformheading {
+    color: #000;
+}   
+body.theme_lightred .regcasetabs header.MuiPaper-root{
+    /* position: fixed !important; */
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* bottom: 66px; */
+    top: 65px;
+    box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%)
+}
+body.theme_lightred .regcasetabs form.fullWidth .innertabdivreg{
+    height: calc(100vh - 280px);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+@media (max-width: 599.95px){
+    body.theme_lightred .regcasetabs .MuiTabs-scrollButtonsDesktop{
+        margin: auto;
+    }   
+    .logintext{
+        /* display: none; */
+    }
+    body.theme_lightred .regcasetabs header.MuiPaper-root {
+        top: 56px;
+    }
+
+    .signweb{
+        display: none;
+    }
+}
+body.theme_lightred .visibilityiconcontainer svg{
+    margin-top: -60px;
+} 
+body.theme_lightred .forgotpw{
+    margin-top: 10px;
+    margin-bottom: 0px;
+} 
+
+
+body.theme_lightred .noHolder svg{
+    fill: #fff !important;
+    font-size: 20px;
+}
+body.theme_lightred .bottomnavbar{
+    z-index: 1;
+}
+body.theme_lightred .bottomnavbar .MuiBottomNavigation-root{
+    padding: 0px 20px !important;
+}
+
+body.theme_lightred .bottomIcons div{
+ height: 30px !important;
+ width: 30px !important;   
+ margin: 5px auto !important;
+}
+
+body.theme_lightred .MuiTab-wrapper{
+    /* color: #000; */
+}
+body.theme_lightred .MuiFormControlLabel-label {
+    color: #000;
+}
+body.theme_lightred .buttonFlex{
+    padding: 20px;
+}
+
+body.theme_lightred .userFolder{
+    background-image: url("../../assets/images/folder.svg");
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: contain; 
+}
+
+body.theme_lightred .MuiAccordionSummary-content.Mui-expanded{
+    margin: 0px !important;
+}
+
+body.theme_lightred .reginnertabcontainer .fullWidth{
+    padding: 0px !important;
+}
+
+body.theme_lightred .custom-shape-divider-top-1617788413 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background: #CB4153;
+}
+
+body.theme_lightred .custom-shape-divider-top-1617788413 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 66px;
+}
+
+body.theme_lightred .custom-shape-divider-top-1617788413 .shape-fill {
+    fill: #fff;
+}
+
+.pos-relative{
+    position: relative;
+}
+
+body.theme_lightred .homeheaderdiv{
+    height: 55px;
+}
+
+body.theme_lightred .homeheaderdiv h3{
+    color: #060707;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    margin-top: 15px !important;
+    font-weight: 600;
+}
+
+body.theme_lightred .menulistingholder{
+    height: calc(100vh - 110px);
+    margin-top: 10px;
+    background-color: #fff;
+    overflow-y: hidden;
+    position: relative;
+}
+
+body.theme_lightred .menulistingholder .homemenupageholder {
+   height: calc(100vh - 128px);
+    position: relative;
+    /* display: flex; */
+    align-items: center;
+    padding: 0px 0px;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+body.theme_lightred .menulistingholder .homemenupageholder .homemenucontainer {
+    background: #fff;
+    border-radius: 0px;
+    padding: 10px 5px;
+    font-size: 14px;
+    font-weight: 700;
+    height: calc(25vh - 52px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mt-57px{
+    margin-top: 57px !important;
+}
+
+.color-white{
+    color: #fff !important;
+}
+
+.theme_lightred .background-theme{
+   background-color: #CB4153 !important; 
+}
+
+
+body.theme_lightred .calender-theme thead tr th{
+    background-color: transparent !important; 
+    color: #000 !important;
+    font-weight: 400;
+}
+
+body.theme_lightred thead tr th{
+    background-color: #6f7378bf !important;
+    color: #fff !important;
+}    
+
+body.theme_lightred tr:nth-child(even) {background-color: transparent;}
+
+.theme_lightred .bottomIcons .addclientmenubg,
+.theme_lightred .bottomIcons .searchbg,
+.theme_lightred .bottomIcons .myclientsmenubg,
+.theme_lightred .bottomIcons .dashboardmenubg{
+    background-color: #8b0000c2 !important; 
+}
+
+body.theme_lightred .MuiRadio-colorSecondary.Mui-checked {
+    color: #CB4153 !important;
+}
+
+body.theme_lightred .fc .fc-daygrid-day.fc-day-today{
+    background-color: transparent !important;
+    color: #fff !important;
+} 
+
+body.theme_lightred .fc-day-today .fc-daygrid-day-number{
+    background-color: #CB4153 !important;
+    border-radius: 20% !important;
+   width: 30px !important;
+   height: 30px !important;
+   padding: 16px !important;
+}
+
+body.theme_lightred .customregistrationtabs .fullWidth .nameuicinfoholder{
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred .searchformcontainer .MuiAccordionSummary-root {
+    background-color: #CB4153;
+    color: #fff;
+    border-radius: 4px;
+}
+
+body.theme_lightred .searchformcontainer .MuiAccordionSummary-root span svg {
+    fill: #fff;
+}
+
+body.theme_lightred .searchformcontainer .MuiPaper-root.MuiAccordion-root{
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 31%), 0px 1px 1px 0px rgb(0 0 0 / 22%), 0px 1px 3px 0px #6f737869;
+}
+
+body.theme_lightred .searchformcontainer .MuiPaper-root.MuiAccordion-root .MuiAccordionDetails-root{
+    padding: 8px 16px 16px;
+    padding-bottom: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+body.theme_lightred .searchformcontainer .MuiPaper-root.MuiAccordion-root .MuiAccordionDetails-root ul.MuiList-root.MuiList-padding{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+body.theme_lightred .myClientsCaseList {
+    margin: 0px;
+    background-color: #CB4153 !important;
+    margin-bottom: -8px;
+    padding-left: 8px;
+}
+
+.MuiAccordionDetails-root > div{
+    width: 100%;
+}
+
+.myClientsCaseList button{
+    border:none !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.referalscrolltabs .MuiAccordionDetails-root{
+    padding: 0px;
+}
+
+.referalscrolltabs .MuiAccordionDetails-root .myClientsCaseList{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+body.theme_lightred .alertspage .regcasetabs header.MuiPaper-root{
+    position: fixed !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* bottom: 0px; */
+    box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%)
+}
+
+body.theme_lightred .alertspage.searchtabmaindiv {
+    /* height: calc(100vh - 130px) !important; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightred .referalcasespage .regcasetabs header.MuiPaper-root{
+     position: fixed !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* bottom: 48px; */
+    box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%)
+}
+
+body.theme_lightred .referalcasespage .regscrolltabs.layoutscrolltabs {
+    margin-top: 100px;
+    height: calc(100vh - 250px) !important;
+    overflow-y: auto;
+}
+
+body.theme_lightred .referalcasespage .customregistrationtabs button.MuiTab-textColorPrimary.Mui-selected {
+    color: #fff;
+}
+
+body.theme_lightred .transferoutpage{
+    overflow-x: hidden;
+}
+
+body.theme_lightred .transferoutpage .regcasetabs header.MuiPaper-root{
+    position: fixed !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    bottom: 0px;
+    box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px -8px 10px -9px rgb(0 0 0 / 75%)
+}
+
+body.theme_lightred .transferoutpage .searchformcontainer{
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body.theme_lightred .myclientspage.searchtabmaindiv {
+    height: calc(100vh - 180px) !important;
+    /* height: calc(100vh - 100px) !important; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+}
+
+body.theme_lightred .myclientspage .MuiPagination-root{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: right;
+    padding-right: 20px;
+}
+
+body.theme_lightred .myclientspage .MuiPaginationItem-page.Mui-selected {
+     background-color: #6F7378 !important;
+     color: #fff !important;
+}
+body.theme_lightred .new_home_page{
+    background: linear-gradient(90deg, rgb(50, 48, 113) 0%, rgb(83, 75, 176) 35%, rgb(44, 68, 103) 100%);
+}
+body.theme_lightred .new_home_page .cardtopBanner .bannerText {
+    width: 90%;
+    margin: 0 auto;
+    color: #CB4153;
+    font-size: 1.3rem;
+}
+body.theme_lightred .new_home_page header{
+    background: #CB4153 !important;
+}
+body.theme_lightred .new_home_page header svg {
+    fill: #f2f2f2;
+}
+body.theme_lightred .new_home_page header h6{
+    color: #f2f2f2;
+}
+body.theme_lightred .new-theme-sidebar .sidebar_list{
+    background: #CB4153 !important;
+}
+body.theme_lightred .new-theme-sidebar .menuitem{
+    background: #CB4153 !important;
+}
+body.theme_lightred .new-theme-sidebar .menuitem{
+    color: #f2f2f2;
+    fill: #f2f2f2
+}
+body.theme_lightred .homePageCardBlock .homePageCardHeader{
+    padding-bottom: 10px;
+    padding-top: 25px;
+}
+body.theme_lightred .homePageCardBlock .homePageCardHeader .MuiCardHeader-content span{
+    font-size: 0.9rem;
+    padding-left: 6%;
+    margin-bottom: 0;
+    color: #fff;
+}
+body.theme_lightred .homePageCardBlock .lightbg {
+    background: #CB4153;
+    width: 100%;
+}
+body.theme_lightred .homePageCardBlock .darkbg{
+    background-color: #041010;
+    width: 100%;
+}
+body.theme_lightred .new_select_lang_sec .MuiFormControlLabel-label {
+    color: #868897;
+}
+
+.loginwweb{
+    width: 80%;
+}
+
+.buttons{
+    /* text-align: center; */
+}
+
+.userprofilepage{
+    background: url(../images/homeimage.jpg);
+    /* background: url(../images/homeFade.png); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden !important;
+    height: 100vh;
+}
+.mainsection.homeMain,.mainlogSection{
+    background: url(../images/homeimage.jpg);
+    /* background: url(../images/homeFade.png); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden !important;
+}
+
+.diffprofilegrid{
+    width: 100%;
+    text-align: center;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 15px 30px 80px #00000014;
+    opacity: 0.83;
+    padding: 30px;
+
+}
+
+.userpro{
+    justify-content: center;
+    height: 65%;
+}
+.userprofilegrid{
+    height: 100%;
+}
+
+
+body.theme_lightred button.loginsubmitbtn:focus::after{
+    border-color: transparent !important;
+}
+
+@media only screen and (min-width: 1200px){
+    body.theme_lightred .langprefpageformholder {     
+        justify-content: center !important;
+    }
+    body.theme_lightred .loginsubmitbtn,
+    body.theme_lightred .loginsubmitbtn:focus,
+    body.theme_lightred .loginsubmitbtn:active {
+        background-color: #CB4153 !important;
+        border-color: #CB4153 !important;
+        box-shadow: none !important;
+    }
+
+    body.theme_lightred button.loginsubmitbtn::after{
+        border-color: transparent !important;
+    }
+
+    body.theme_lightred .mainsection.pT-55 {
+        padding-top: 61px !important;
+    }
+   
+    .pagelaterpart {
+        height: 100vh !important;
+        background-color: transparent !important;
+        display: flex;
+    }
+
+    .loginpageformholder,body.theme_lightred .langprefpageformholder{
+        /* height: 100vh !important; */
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .custom-shape-divider-top-1612935135,.userwebapp{
+        display: none !important;
+    }
+
+    body.theme_lightred .mainsection.pb-0{
+        padding-top: 0px !important;
+    }
+    
+    body.theme_lightred .loginpageformholder input{
+        /* background: #fff !important; */
+    }
+    
+    body.theme_lightred .pageupperpart {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0px 10px;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .logintext .MuiTypography-h4{
+        font-weight: 500 !important; 
+          font-size: 22px;
+    }
+
+    .useravtarimgapp{
+        /* background:url("../../assets/images/homeLogo.png"); */
+        height: 100px;
+        /*40px;*/
+        width: 100px;
+        /*40px;*/
+        margin: 0 auto;
+        /* margin-bottom: 5px; */
+        background-position: center;
+        background-size: auto;
+        background-repeat: no-repeat;
+     
+    }
+
+  
+    
+    .mainsection.langMain{
+        /* background: url(../images/healthcare-service.png); */
+        background: url(../images/homeFade.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden !important;
+    }
+
+    .mainsection.onboardingSection{
+        /* background: url(../images/healthcare-service.png); */
+        background: url(../images/homeFade.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden !important;
+    }
+    .logintext{
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        padding: 20px 20px 0px 20px;
+    }
+      
+    .loginlang{
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
+        padding: 20px 20px 0px 20px;
+    }
+
+    .loginwweb{
+        width: 100%;
+        text-align: center;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        padding: 30px;
+
+    }
+    .langSection{
+        width: 100%;
+        text-align: center;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        padding: 30px;
+
+    }
+    .profilediv{
+        cursor: pointer;
+    }
+    
+    
+
+    .signweb{
+        font-size: 26px !important;
+        color: #000
+    }
+
+    .forgotpw{
+        font-size: 14px !important;
+    }
+
+    .signmob{
+        display: none;
+    }
+   
+}
+body.theme_lightred .searchdiv .innertabdivreg{
+    padding-top: 165px !important;
+}
+
+body.theme_lightred .reginnertabcontainer #reg-searchby-specimen{
+    padding-top: 80px !important;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .diffprofilegrid {
+        width: 70%;
+        margin-top: -40% !important;
+    }
+    .lognewDIv{
+        height: 90%;
+    }
+    .logintext{
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        padding: 20px 20px 0px 20px;
+    }
+      
+    body.theme_lightred .loginpageformholder {
+    
+        width: 70%;
+        margin: 0 auto;
+    }
+    body.theme_lightred .loginpageformholder.loginphone {
+    
+        width: 100%;
+        margin: 0 auto;
+    }
+    .loginwweb.webphone{
+        width: 70%;
+    }
+
+    .loginwweb{
+        width: 100%;
+        text-align: center;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        padding: 30px;
+
+    }
+
+    body.theme_lightred .progresscontainer .makeStyles-progresstext-15 {
+        font-size: 1.2em !important;
+        color: #fff !important;
+    }
+
+    body.theme_lightred .searchdiv .innertabdivreg.subclass3{
+        padding-top: 180px !important;
+    }
+
+    body.theme_lightred .fullWidth .innertabdivreg.subclass4 {
+        padding-top: 180px !important;
+    }
+
+    body.theme_lightred .reginnertabcontainer .MuiBox-root #reg-searchby-specimen{
+        padding-top: 80px !important;
+    }
+    
+    body.theme_lightred .regcasetabs form.fullWidth .innertabdivreg.subclass5{
+        padding-top: 125px !important;
+    }
+    
+    body.theme_lightred .customregistrationtabs .fullWidth .nameuicinfoholder {
+        margin-top: 107px;
+    }
+    .mainsection{
+        /* background: url(../images/homeimage.jpg); */
+         /* background: url(../images/homeFade.png);  */
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden !important;
+    }
+
+
+}
+
+@media only screen and (min-width: 767px) {
+    .useravtarimgapp {
+        background: url(data:image/png;base64,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);
+        height: 100px;
+        width: 100px;
+        margin: 0 auto;
+        /* margin-bottom: 5px; */
+        background-position: center;
+        background-size: auto;
+        background-repeat: no-repeat;
+    }
+
+    .diffprofilegrid {
+        width: 70%;
+    }
+    .lognewDIv{
+        height: 90%;
+    }
+    .logintext{
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        padding: 20px 20px 0px 20px;
+    }
+      
+    body.theme_lightred .loginpageformholder {
+    
+        width: 70%;
+        margin: 0 auto;
+    }
+    body.theme_lightred .loginpageformholder.loginphone {
+    
+        width: 100%;
+        margin: 0 auto;
+    }
+    .loginwweb.webphone{
+        width: 70%;
+    }
+
+    .loginwweb{
+        width: 100%;
+        text-align: center;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 15px 30px 80px #00000014;
+        opacity: 0.83;
+        padding: 30px;
+
+    }
+
+    body.theme_lightred .progresscontainer .makeStyles-progresstext-15 {
+        font-size: 1.2em !important;
+        color: #fff !important;
+    }
+
+    body.theme_lightred .searchdiv .innertabdivreg.subclass3{
+        padding-top: 180px !important;
+    }
+
+    body.theme_lightred .fullWidth .innertabdivreg.subclass4 {
+        padding-top: 180px !important;
+    }
+
+    body.theme_lightred .reginnertabcontainer .MuiBox-root #reg-searchby-specimen{
+        padding-top: 80px !important;
+    }
+    
+    body.theme_lightred .regcasetabs form.fullWidth .innertabdivreg.subclass5{
+        padding-top: 125px !important;
+    }
+    
+    body.theme_lightred .customregistrationtabs .fullWidth .nameuicinfoholder {
+        margin-top: 107px;
+    }
+    .mainsection{
+        /* background: url(../images/homeimage.jpg); */
+        /* background: url(../images/homeFade.png); */
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden !important;
+    }
+
+
+}
+
+.disno{
+        width: 75px !important;
+        margin-right: 20px !important;
+}
+
+.phonenoinput{
+    display: flex;
+}
+
+.loginsection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.backsvg{
+    max-width: 100%;
+    height: auto;
+    width: 10%;
+}
+
+.patientModulesGrid,.patientModules{
+    height: 100%;
+    margin-top: 80px;
+}
+
+body.theme_lightred .leftsidebar{
+     margin-top:50px; 
+}
+
+body.theme_lightred .leftsidebar,
+body.theme_lightred .leftsidebar a {
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred .leftsidebar a {
+    text-decoration: none !important;
+}
+
+body.theme_lightred .clientImg{
+    filter: invert(50%) sepia(1%) saturate(1861%) hue-rotate(174deg) brightness(85%) contrast(73%) !important;
+}
+
+body.theme_lightred .referalImg{
+    filter: invert(50%) sepia(1%) saturate(1861%) hue-rotate(314deg) brightness(32%) contrast(48%) !important;
+}
+
+body.theme_lightred .casesactionmenu ul li svg{
+    fill: #CB4153;
+}
+
+body.theme_lightred .statnumber.four{
+    color: #CB4153 !important;
+}
+
+body.theme_lightred .infoviewmorebtn{
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred [data-test="dhis2-uicore-singleselectoption"].active,
+body.theme_lightred  [data-test="dhis2-uicore-singleselectoption"].hover,
+body.theme_lightred  [data-test="dhis2-uicore-singleselectoption"].focus {
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred .btn-load-more {
+    background-color:  #CB4153 !important;
+}
+
+body.theme_lightred .popup-btn, 
+body.theme_lightred .generic-btn{
+    background-color:  #CB4153 !important;
+}
+
+body.theme_lightred .patient-btn-actions .MuiSvgIcon-root{
+    color: #CB4153 !important;
+}
+
+body.theme_lightred .modalactionbtn {
+    background-color: #6F7378 !important
+    
+}
+
+body.theme_lightred .modalheader {
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred .gobutton {
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred .tabheader .MuiTab-root.Mui-selected{
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred .regcasetabs.feedbackformholder form.fullWidth .innertabdivreg {
+    height: calc(100vh - 185px);
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 20px;
+}
+
+body.theme_lightred .feedbackIcon,
+body.theme_lightred .homenav .feedbackIcon{
+    fill: #0066b2 !important;
+}
+
+body.theme_lightred .MuiFormLabel-root.Mui-focused {
+    color: #CB4153 !important;
+}
+
+body.theme_lightred .theme_lightgreen .privacy-content a {
+	color: #0066b2;
+}
+
+body.theme_lightred .homepageheaderdiv .MuiIconButton-label svg.MuiSvgIcon-root {
+    width : 20px !important;
+	height: 20px !important;
+	fill  : #0066b2 !important;
+}
+
+body.theme_lightred .surveytitlediv{
+    color: #0066b2 !important;
+}
+
+body.theme_lightred .secondary-header{
+    background-color: #004a96 !important;
+}
+
+body.theme_lightred .green-page .bottom-toolbar{
+    background-color: #004a96 !important;
+}
+
+body.theme_lightred .onboardBtn{
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred svg.checked .border, svg .border{
+    fill: #CB4153 !important;
+}
+
+body.theme_lightred .chatDivm{
+    background-color: #CB415336 !important;
+}
+
+body.theme_lightred div.active{
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred .root:focus, .root:active{
+    border-color: #CB4153 !important;
+}
+
+body.theme_lightred svg.checked.jsx-1744227082 .background.jsx-1744227082, svg.indeterminate.jsx-1744227082 .background.jsx-1744227082{
+    fill: #CB4153 !important;
+}
+
+body.theme_lightred .content-block{
+    background-color: #CB41531f !important;
+}
+
+
+body.theme_lightred .diadverse>#panel1a-header, .selfscreenacc>#panel1a-header {
+    background-color: #CB41531f !important;
+    /* color: #000!important;
+    border-radius: 13px!important; */
+}
+
+body.theme_lightred .diadverseChild .MuiAccordionSummary-root{
+    background-color: #CB41531f !important;
+}
+
+body.theme_lightred .statnumber.one,
+body.theme_lightred .statnumber.two,
+body.theme_lightred .statnumber.three,
+body.theme_lightred .statnumber.four{
+    color: #CB4153 !important;
+}
+
+body.theme_lightred .alertBox,
+body.theme_lightred .clientBox,
+body.theme_lightred .referalBox,
+body.theme_lightred .transferBox{
+    background-color: #CB41531f !important;
+}
+
+body.theme_lightred .alertImg, 
+body.theme_lightred .transferImg{
+    filter: invert(50%) sepia(1%) saturate(1861%) hue-rotate(174deg) brightness(85%) contrast(73%) !important;
+}
+
+body.theme_lightred input:focus{
+    border-color: #6F7378 !important;
+}
+
+body.theme_lightred button:focus::after{
+    border-color: #CB4153 !important;
+}
+
+body.theme_lightred .swal-button,
+body.theme_lightred .swal-button:active,
+body.theme_lightred .swal-button:focus
+{
+    background-color: #6F7378 !important;
+    box-shadow: none !important;
+    color: #fff !important;
+}
+
+body.theme_lightred .MuiCardHeader-avatar .MuiAvatar-root.MuiAvatar-circular.MuiAvatar-colorDefault {
+    background-color: #CB4153 !important;
+}
+
+body.theme_lightred .loginbtn,
+body.theme_lightred .loginbtn:active,
+body.theme_lightred .loginbtn:focus{
+    background-color: #CB4153 !important;
+        border-color: #CB4153 !important;
+        box-shadow: none !important;
+    color: #fff !important;
+}
+
+body.theme_lightred .loginpagemainsection{
+  background: linear-gradient(0deg, #6f7378b8 , #6f7378a8 ), url(/static/media/businesspeople.aed6c955.png) !important;   
+}
+
+body.theme_lightred button.resetButton:disabled,
+body.theme_lightred button.resetButton{
+    color: #fff !important;
+    border: 1px solid #AAAAAA !important;
+    background-color: #AAAAAA;
+}
+
+
+body.theme_lightred .patient-card .MuiAvatar-root.MuiAvatar-circular.MuiAvatar-colorDefault{
+ background-color: #6F7378 !important;
+}
+
+body.theme_lightred .username-tag,
+body.theme_lightred .version-tag{
+    background-color: #AAAAAA !important;
+}
+
+body.theme_lightred .MuiLinearProgress-barColorPrimary{
+    background-color: #6F7378 !important;
+}
+
+body.theme_lightred .visit-bg{
+    background-color: #dc5265 !important;
+}

@@ -1,0 +1,69 @@
+.inbox {
+    .card {
+        border-radius: 0 10px !important;
+
+        .card-header {
+            cursor: pointer;
+        }
+
+        .case_item {
+            cursor: pointer;
+
+            &.active {
+                background-color: #20a8d8;
+                color: #fff;
+            }
+        }
+    }
+
+    .toolbar {
+        .btn-outline-secondary {
+            box-shadow: 0 1px 3px;
+        }
+    }
+}
+
+.modal {
+    .inbox_chat {
+        background-color: #80808042;
+
+        .response_chat {
+            .dateTime{
+                text-align: left;
+            }
+            .chat_content {
+                background-color: #fff;
+                font-weight: 700;
+                border-radius: 0 20px 20px 20px;
+                max-width: 75%;
+                padding: 5px 10px;
+                position: relative;
+                display: table;
+                .text{
+                    word-wrap: break-word;
+                    word-break: break-all;
+                }
+            }
+        }
+
+        .request_chat {
+            .dateTime{
+                text-align: right;
+            }
+            .chat_content {
+                background-color: #20a8d854;
+                font-weight: 700;
+                border-radius: 20px 0 20px 20px;
+                max-width: 75%;
+                padding: 5px 10px;
+                position: relative;
+                margin: 0 0 0 auto;
+                display: table;
+                .text{
+                    word-wrap: break-word;
+                    word-break: break-all;
+                }
+            }
+        }
+    }
+}

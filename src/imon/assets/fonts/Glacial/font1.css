@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'GlacialIndifference-Italic';
+  src: url('GlacialIndifference-Italic.eot');
+  src: url('GlacialIndifference-Italic.eot?#iefix') format('embedded-opentype'),
+       url('GlacialIndifference-Italic.ttf') format('truetype'),
+       url('GlacialIndifference-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+

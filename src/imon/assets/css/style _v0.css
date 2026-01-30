@@ -1,0 +1,101 @@
+/*rem size is relative to its parent 16px == 100% , 10px == 62.5% */
+html{
+    font-size: 62.5%;
+}
+
+/* ============= Side Bar ===========================*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 26rem;
+    display: block;
+    z-index: 1;
+    color: #fff;
+    font-weight: 200;
+    background-size: cover;
+    background-position: center center;
+}
+
+.sidebar .sidebar-background {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center center;
+    
+    background: #282828; 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(100%, #111));
+    background: -webkit-linear-gradient(top, #282828 0%, #111 100%); 
+    background: -o-linear-gradient(top, #282828 0%, #111 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#111));
+    background: linear-gradient(to bottom, #282828 0%, #111 100%);    
+}
+
+.sidebar .logo{
+	position: relative;
+    z-index: 2;
+    padding: 1rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.sidebar .logo img {
+	max-width: 5rem;
+}
+
+.sidebar .logo .logo-text{
+	text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+.sidebar .sidebar-wrapper{
+	position: relative;
+	z-index: 2;
+}
+
+.sidebar .nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    background: transparent;
+}
+
+.sidebar .nav-title {
+    padding: 0.75rem 1rem;
+    /*font-weight: 700;*/
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.sidebar .nav-link i {
+    display: inline-block;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.sidebar .nav-link .nav-text{
+	font-size: 1.6rem;
+    /*font-weight: 500;*/
+}
+
+/* ================== end of SideBar ========================*/
+
+/* ============= DB Layout ======================*/
+/*.main-panel {
+    position: relative;
+    float: right;
+    width: calc(100% - 26rem);
+}*/
+/* ==================================================*/
+
+

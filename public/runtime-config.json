@@ -1,0 +1,8 @@
+{
+  "basename": "cdicv2",
+  "baseUrl": "https://YOUR_BASE_URL/",
+  "apiServiceKey": "https://YOUR_BASE_URL/service/api/",
+  "apiSurveyKey": "https://YOUR_BASE_URL/service/",
+  "googleMapAPIKey": "YOUR_GOOGLE_MAPS_API_KEY",
+  "basicAuth": "YOUR_BASIC_AUTH_KEY"
+}

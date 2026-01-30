@@ -1,0 +1,206 @@
+
+.react-calendar__tile {
+  max-width: 100%;
+  text-align: center;
+  padding: 1.05em 0.5em;
+  background: none;
+  color: white;
+  margin: 0.1em 0em !important;
+}
+
+.react-calendar__tile--now {
+
+  border-radius: 34px !important;
+  font-weight: bolder !important;
+  text-decoration: underline;
+  border: 2px solid #505050 !important;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  /* background: #ffffa9; */
+  border-radius: 34px !important;
+}
+
+.react-calendar__tile--hasActive {
+  /* background: #76baff; */
+  border-radius: 34px !important;
+  border: 3px solid pink;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  /* background: #a9d4ff; */
+  border-radius: 34px !important;
+}
+
+.react-calendar__tile--active {
+  background-color: rgba(255, 255, 255, 0.795) !important;
+  color: black;
+  border-radius: 34px !important;
+}
+
+/* .isPillDay{
+  background-color: rgba(255, 255, 255, 0.795) !important;
+  color: black !important;
+  border-radius: 34px !important;
+} */
+
+.react-calendar__tile--active.isFirstDay{
+  background-color: rgba(255, 255, 255, 0.795) !important;
+  color: black !important;
+  border-radius: 34px !important;
+}
+
+.hasEatenPill, 
+.hasEatenPill .MuiPickersDay-daySelected{
+  background-color: #b3cf92 !important;
+  color: black !important;
+  border-radius: 34px !important;
+}
+
+.hasMissedPill, 
+.hasMissedPill .MuiPickersDay-daySelected{
+  background-color: rgb(193, 26, 26) !important;
+  color: black !important;
+  border-radius: 34px !important;
+}
+
+.isPillDay{
+  background-color: #fccbd0 !important;
+  color: black !important;
+  border-radius: 34px !important;
+}
+
+
+.donePill {
+  color: black !important;
+  border-radius: 34px !important;
+}
+
+
+.donePill .MuiPickersDay-daySelected , .calendartabpanel .donePill .MuiPickersDay-current{
+  background: none !important;
+}
+
+
+
+.react-calendar__tile--active.react-calendar__tile--now{
+  border: 2px solid #505050 !important;
+  background-color: rgba(255, 255, 255, 0.795) !important;
+  color: black;
+  border-radius: 34px !important;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  /* background: #f8b1b1; */
+  border-radius: 34px !important;
+}
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+  border-radius: 34px !important;
+}
+
+.pillstatusholder, .pillstatusholder .MuiGrid-container {
+  padding: 10px;
+}
+
+.pillQuestionnaire {
+  border: 2px solid #ddd;
+  margin: 10px 10px;
+  box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.pillQuestionnaire .formlabel {
+  margin-bottom: 0;
+}
+
+.settingicon{
+  position: fixed !important;
+    top: 12px !important;
+    z-index: 9;
+    right: 10px;
+}
+
+.setreminderbtn{
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  margin-right:10px !important;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.reminderbtnholder{
+  width: 100vw;
+  text-align: right;
+  position: fixed;
+    width: calc(100% - 48px) !important;
+    text-align: right;
+  
+}
+
+body.mobile-frame .reminderbtnholder{
+  width: 400px;
+  width: calc(100% - 48px);
+  text-align: right;
+  
+}
+
+body.mobile-frame .reminderbtnholder .setreminderbtn{
+margin-right:30px !important;
+}
+
+body.mobile-frame .usercalendartabmainholder{
+  overflow-x: hidden;
+}
+
+body.mobile-frame .MuiDialog-paperFullScreen{
+  width: 400px;
+}
+
+body.mobile-frame .MuiDialog-paperFullScreen .calendartabmainholder,
+.MuiDialog-paperFullScreen .calendartabmainholder{
+  height: calc(100vh - 64px) !important;
+}
+
+body.mobile-frame .MuiDialog-paperFullScreen header.MuiPaper-root{
+  width: 400px;
+  left: 0px !important;
+  margin-left: calc(50% - 200px);
+}
+
+body.mobile-frame .MuiDialog-paperFullScreen header.MuiPaper-root button{
+  position: absolute;
+    right: 0px;
+}
+
+.MuiDialog-paperFullScreen header.MuiPaper-root button{
+  position: absolute;
+    right: 0px;
+}
+
+body.mobile-frame .settingicon{
+  position: fixed !important;
+  top: 12px !important;
+  z-index: 9;
+  right: 25px;
+}
+
+.nodatafound{
+  display: flex;
+  width: -webkit-fill-available;
+  min-height: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  align-items: center;
+}

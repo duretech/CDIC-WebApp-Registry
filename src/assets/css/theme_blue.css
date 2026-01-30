@@ -1,0 +1,933 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+/* body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+body,.MuiTypography,button,.MuiTypography-body1{
+    font-family: 'Open Sans', sans-serif !important;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.arvofont,.MuiTypography-h6,.homepageappname{
+  font-family: 'Arvo', serif !important;
+}
+
+/* .MuiTab-root {
+    font-family: 'Open Sans', sans-serif !important;
+} */
+
+/* .theme_blue .loginpagemainsection{
+    width: calc(100vw - 200px);
+    height: calc(100vh - 0px) !important;
+    overflow-y: auto;
+    background: linear-gradient(0deg,rgba(45,61,79,.7),rgba(45,61,79,.7)),url(../../assets/images/1.jpg);
+    background-repeat: no-repeat;
+    background:#fff !important;
+    background-size: cover;
+    background-position: 50%;
+    padding-top: 0px !important;
+    overflow-y: auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+} */
+
+.theme_blue .loginformholder{
+    color: #0143be;
+    width:40%;
+    margin: 0 auto;
+    /*height: calc(100vh - 100px);*/
+    justify-content: center;
+    display: flex;
+flex-direction: column;
+padding-bottom: 80px;
+}
+
+.theme_blue .loginbtn{
+    background-color: #0143be  !important;
+    color: #fff !important;
+    border:none !important;
+    margin-top: 15px !important;
+    width: fit-content !important;
+}
+
+
+
+@media only screen and (max-width: 1100px) {
+   
+.theme_blue .loginformholder{
+    width:60%;
+}
+
+
+}
+
+@media only screen and (max-width: 991px) {
+    .theme_blue .loginformholder{
+    width:80%;
+}
+}
+
+@media only screen and (max-width: 767px) {
+     .theme_blue .loginformholder{
+    width:90%;
+}
+}
+
+.theme_blue .loginformholder #username,.theme_blue .loginformholder #password{
+    border:none;
+    box-shadow: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #0143be;
+    margin-bottom: 20px;
+}
+
+.theme_blue header {
+    background-color: #0143be !important;
+    border-bottom: none !important;
+}
+
+.theme_blue header div , .theme_blue header h6 , .theme_blue header button {
+    color: #fff !important;
+}
+
+.theme_blue .MuiAppBar-colorPrimary {
+    color: #0143be !important;
+}
+
+.theme_blue .homepageappname{
+    font-weight: 400;
+    font-family: 'Arvo', serif !important;
+}
+
+.theme_blue .homepagebgsection {
+    height: calc(100vh - 0px) !important;
+    overflow-y: auto;
+    /* background: linear-gradient(0deg,rgba(45,61,79,.7),rgba(45,61,79,.7)),
+    url(../../assets/images/childrenbg.jpg); */
+    background:#fff !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 0px !important;
+}
+
+.theme_blue .homemenudivcontainer {
+    border: 2px solid #ddd;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.theme_blue .homemenudivcontainer:hover {
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    -moz-transition: all .4s ease-in;
+    -o-transition: all .4s ease-in;
+    -webkit-transition: all .4s ease-in;
+    transition: all .4s ease-in;
+}
+
+.theme_blue .homemenudivcontainer:hover .homemenulinkicon{
+    background: #f2f2f2;
+    color:#0143be;
+    -moz-transition: all .4s ease-in;
+    -o-transition: all .4s ease-in;
+    -webkit-transition: all .4s ease-in;
+    transition: all .4s ease-in;
+}
+
+.theme_blue .homemenulinkicon {
+    font-size: 35px;
+    background: #0143be;
+    /*border: 2px solid #656961;*/
+    border-radius: 50%;
+    margin-bottom: 0px;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.theme_blue .homemenuname {
+    text-align: center;
+    color: #545454 !important;
+    font-size: 1.4em !important;
+    margin: 0px !important;
+    font-weight: 400;
+    margin-top: 0px !important;
+}
+
+.theme_blue .homemenudivcontainer:hover .homemenuname{
+    color: #0143be !important;
+}
+
+
+@media only screen and (max-width: 767px) {
+
+.theme_blue .homemenuname {
+    text-align: center;
+   color: #545454 !important;
+    font-size: 1.0em !important;
+    margin: 0px !important;
+    font-weight: 400;
+    margin-top: 0px !important;
+}
+
+.theme_blue .homemenudivcontainer {
+    border: 2px solid #ddd;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.theme_blue .progresscontainer > div {
+    text-align: center;
+    padding-bottom: 0px !important;
+}
+
+.theme_blue .homemenulinkicon {
+    font-size: 18px;
+   background: #0143be;
+    /* border: 2px solid #656961; */
+    border-radius: 50%;
+    margin-bottom: 0px;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.theme_blue .progresscontainer {
+    padding-top: 10px !important;
+    width: 90% !important;
+    margin: 0 auto !important;
+}
+
+.theme_blue .progresscontainer .MuiCircularProgress-root {
+    width: 90px !important;
+    height: 90px !important;
+}
+
+.theme_blue .progresscontainer .makeStyles-progresstext-4,.theme_blue .progresscontainer .makeStyles-progresstext-13, .theme_blue .progresscontainer .makeStyles-progresstext-22 {
+    font-size: 1.2em !important;
+    color: #fff !important;
+}
+
+.theme_blue .progresscontainer .makeStyles-progresstext-17,
+ .theme_blue .progresscontainer .makeStyles-progresstext-26, 
+ .theme_blue .progresscontainer .makeStyles-progresstext-35 {
+    font-size: 1.2em !important;
+}
+
+.theme_blue .homemenudivcontainer .vert-center{
+    /*display: block !important;*/
+     align-items: flex-start !important;
+}
+
+.theme_blue .homemenuname,.theme_blue .homemenudesc{
+    text-align: left !important;
+}
+
+.theme_blue .progresscontainer{
+    margin-bottom: 30px !important;
+}
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+.theme_blue .homemenulinkicon {
+    font-size: 22px;
+    background: #0143be;
+    /*border: 2px solid #656961;*/
+    border-radius: 50%;
+    margin-bottom: 0px;
+    width: 55px;
+    height: 55px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+
+}
+
+@media only screen and (max-width: 991px) {
+.theme_blue .homemenudesc {
+    text-align: center;
+    color: #fff !important;
+    font-size: 0.8em !important;
+    margin: 0px !important;
+    font-weight: 400;
+    margin-top: 10px !important;
+}
+
+}
+
+.theme_blue .progresscontainer .MuiCircularProgress-root svg {
+    background: #f2f2f2;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+}
+
+.theme_blue .progresscontainer .MuiBox-root > .MuiTypography-root {
+    color: #0143be !important;
+}
+
+.theme_blue .regcustombg{
+    width: calc(100vw - 200px);
+    height: calc(100vh - 94px) !important;
+    overflow-y: auto;
+    padding-top: 74px !important;
+    /* background: linear-gradient(0deg,rgba(45,61,79,.7),rgba(45,61,79,.7)),
+    url(../../assets/images/childrenbg.jpg); */
+    background:#fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.theme_blue .MuiTabs-scrollButtons svg {
+    fill: #0143be !important;
+    font-size: 2rem !important;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+}
+
+.theme_blue .customregistrationtabs button.MuiTab-textColorPrimary.Mui-selected svg {
+    background: #0143be;
+    padding: 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    fill: #fff !important;
+}
+
+.theme_blue .customregistrationtabs button.MuiTab-textColorPrimary svg {
+    background: #afabab;
+    padding: 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    fill: #fff !important;
+}
+
+.theme_blue .customregistrationtabs button.MuiTab-textColorPrimary.Mui-selected {
+    color: #0143be;
+}
+
+.theme_blue .customregistrationtabs .PrivateTabIndicator-colorPrimary-15 {
+    background-color: #0143be !important;
+}
+
+.theme_blue .customregistrationtabs button.MuiTab-textColorPrimary {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.theme_blue .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item > div {
+    background-color: #f2f2f2 !important;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid #ddd !important;
+}
+
+.theme_blue .boxshadownone{
+    box-shadow: none !important;
+}
+
+.theme_blue .customregistrationtabs .MuiRadio-colorSecondary.Mui-checked {
+    color: #0143be;
+}
+
+.theme_blue .customregistrationtabs .regformsubmitbtn {
+    background-color: #0143be;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px !important;
+}
+
+.theme_blue .customregistrationtabs .regformresetbtn {
+    background-color: #f2f2f2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: #0143be;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px !important;
+}
+
+.theme_blue .sidebar_list{
+    background-color: #f2f2f2 !important;
+    height: calc(100vh - 0px) !important;
+    overflow-y: auto;
+}
+
+.theme_blue .menuitem{
+    color: #0143be !important;
+    font-size: 13px !important;
+    background-color: #f2f2f2 !important;
+}
+
+.theme_blue .menuitem svg{
+    width: 20px !important;
+    height: 20px !important;
+}
+
+
+@media only screen and (min-width: 1100px) {
+
+.theme_blue .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item.customLoc{
+    background-color: #f2f2f2 !important;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid #ddd !important;
+    margin:12px;
+    margin-right: 0px;
+    margin-right: 12px;
+    width: 40% !important;
+    max-width: 30.9%;
+}
+
+}
+
+
+
+@media only screen and (max-width: 1100px) {
+
+.theme_blue .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item.customLoc{
+    background-color: #f2f2f2 !important;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid #ddd !important;
+    margin: 12px;
+    margin-right: 0px;
+    margin-right: 12px;
+    width: 40% !important;
+    max-width: 29.3%;
+    flex-basis: 29.333333%;
+}
+
+}
+
+@media only screen and (max-width: 767px) {
+
+.theme_blue .customregistrationtabs .fullWidth .MuiGrid-container .MuiGrid-item.customLoc{
+    background-color: #f2f2f2 !important;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid #ddd !important;
+    margin:12px;
+    margin-right: 0px;
+    margin-right: 12px;
+    width: 40% !important;
+    max-width: 90.5%;
+    flex-basis: 90.5%;
+}
+
+}
+
+.theme_blue svg.checked rect.background{
+    fill:#0143be !important;
+}
+
+.theme_blue .MuiInput-underline:after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    border-bottom: 2px solid #0143be !important;
+    pointer-events: none;
+}
+
+.theme_blue .MuiPickersToolbar-toolbar {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #0143be !important;
+}
+
+#root.theme_blue .MuiPickersDay-daySelected {
+    color: #fff;
+    font-weight: 500;
+    background-color: #0143be !important;
+}
+
+.theme_blue .searchcustombg{
+    width: calc(100vw - 0px);
+    width: auto !important;
+    /* width: calc(100vw - 200px); */
+    height: calc(100vh - 94px) !important;
+    overflow-y: auto;
+    padding-top: 74px !important;
+    /* background: linear-gradient(0deg,rgba(45,61,79,.7),rgba(45,61,79,.7)),
+    url(../../assets/images/childrenbg.jpg); */
+    background:#fff !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.theme_blue .regformsubmitbtn {
+    background-color: #0143be !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px !important;
+}
+
+.theme_blue .regformresetbtn {
+    background-color: #f2f2f2 !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: #0143be !important;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px !important;
+}
+
+.theme_blue .searchformcontainer .fullWidth > div{
+    background-color: transparent;
+    padding: 0px;
+}
+
+.theme_blue .searchformcontainer .fullWidth {
+    padding: 0px;
+    padding: 20px 0px !important;
+    padding-top: 0px !important;
+}
+
+.theme_blue .searchtabscontainer .PrivateTabIndicator-colorSecondary-16 {
+    background-color: #0143be;
+}
+
+.theme_blue .searchtabscontainer .whitetext {
+    color: #545454 !important;
+}
+
+.theme_blue .searchtabscontainer .MuiTab-textColorInherit.Mui-selected {
+    opacity: 1;
+    color: #0143be !important;
+}
+
+.theme_blue .searchformheading {
+    font-size: 1.5rem;
+    margin: 0px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 500;
+    color: #0143be;
+    margin-top: 10px;
+}
+
+.theme_blue .searchtabscontainer .fullWidth .MuiGrid-container .MuiGrid-item > div {
+    background-color: #f2f2f2 !important;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid #ddd !important;
+}
+
+.theme_blue .searchformfielddiv{
+    background-color: #f2f2f2 !important;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid #ddd !important;
+}
+
+.theme_blue .searchformbtn{
+    background-color: #0143be !important;
+    color: #fff !important;
+    margin-top: 35px;
+    margin-bottom: 20px; 
+    border:1px solid #0143be !important;
+}
+
+.theme_blue .casescardheader .MuiAvatar-circle {
+    background-color: #0143be;
+}
+
+.theme_blue .casesactionmenu ul li svg {
+    fill: #0143be !important;
+    margin-right: 10px !important;
+}
+
+.theme_blue .choose_alertdiv .MuiInputBase-input {
+    color: #0143be;
+}
+
+.theme_blue .choose_alertdiv label.MuiInputLabel-animated {
+    color: #000;
+    font-size: 14px;
+    padding-left: 15px;
+    color: #0143be;
+    font-size: 16px;
+    padding-left: 0px;
+}
+
+.theme_blue .alertformheading{
+    font-size: 1.5rem;
+    margin: 0px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 500;
+    color: #0143be;
+}
+
+.theme_blue .tutorialbg{
+    height: calc(100vh - 0px) !important;
+    overflow-y: auto;
+    /* background: linear-gradient(0deg,rgba(45,61,79,.7),rgba(45,61,79,.7)), url(../../assets/images/childrenbg.jpg); */
+    background: #fff !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 0px !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.theme_blue .alerts_title {
+    color: #0143be !important;
+    font-weight: 600 !important;
+    margin: 0px;
+}
+
+.theme_blue .alertsdetailholder {
+    background-color: rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #ddd !important;
+    background: #f9f9f9;
+    padding: 10px 16px;
+    height: calc(100% - 30px);
+}
+
+.theme_blue .datepicker label.MuiInputLabel-animated {
+    color: #0143be;
+    font-size: 16px;
+    padding-left: 0px;
+}
+
+.theme_blue .datepicker svg {
+    fill: #0143be !important;
+}
+
+.theme_blue .datepicker .MuiInputBase-root input {
+    margin-top: 15px;
+    color: #0143be;
+}
+
+.theme_blue .mytaskstitle {
+    font-size: 1.2rem;
+    margin: 0px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 500;
+    color: #0143be;
+}
+
+.theme_blue .tasklistbgsection {
+    height: calc(100vh - 0px) !important;
+    overflow-y: auto;
+    /* background: linear-gradient(0deg,rgba(45,61,79,.7),rgba(45,61,79,.7)),
+    url(../../assets/images/childrenbg.jpg); */
+     background: #fff !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 0px !important;
+}
+
+.theme_blue .tasklistbtn {
+    margin-top: 10px !important;
+    margin-left: 7px !important;
+    background-color: #0143be !important;
+    font-size: 13px !important;
+}
+
+.theme_blue .registrationtabs.layouttabs button.MuiTab-textColorPrimary.Mui-selected svg {
+    background: #0143be;
+    padding: 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    fill: #fff !important;
+}
+
+.theme_blue .registrationtabs button.MuiTab-textColorPrimary.Mui-selected {
+    color: #0143be !important;
+}
+
+.theme_blue .registrationtabs.layouttabs .MuiTabs-indicator {
+    background-color: #0143be !important;
+}
+
+.theme_blue .registrationtabs button.MuiTab-textColorPrimary {
+    color: rgba(0, 0, 0, 0.54) !important;
+}
+
+.theme_blue .MuiRadio-colorSecondary.Mui-checked {
+    color: #0143be !important;
+}
+
+.theme_blue .registrationtabs.layouttabs button.MuiTab-textColorPrimary svg {
+    background: #afabab;
+    padding: 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    fill: #fff !important;
+}
+
+.theme_blue .knowkedgelistcontainer > ul li {
+    margin-left: 0px;
+    background-color: rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #ddd !important;
+    background: #f9f9f9;
+}
+
+.theme_blue .infotitle>span {
+    color: #0143be !important;
+    font-weight: 600 !important;
+}
+
+.theme_blue .infoviewmorebtn {
+    background-color: #0143be !important;
+    font-size: 12px !important;
+    margin-top: 5px !important;
+}
+
+.theme_blue .usermanualcontainer {
+    background-color: #f9f9f9;
+    border: 2px solid #ddd !important;
+    border-radius: 4px;
+    padding: 10px 16px;
+    margin-top: 8px;
+}
+
+.theme_blue .posttitle {
+    color: #0143be !important;
+    font-weight: 600 !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+.theme_blue .mapiconcontainer svg {
+    fill: #0143be;
+}
+
+.theme_blue .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    border: 2px solid #ddd !important;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.theme_blue .quizprogresstext {
+    text-align: center;
+    color: #0143be !important;
+    font-size: 1.4em !important;
+    margin: 0px !important;
+    font-weight: 400;
+    margin: 0 auto !important;
+    margin-top: 10px !important;
+}
+
+.theme_blue .quizinfoholder {
+    background: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.theme_blue .quizinfomain {
+    text-align: center;
+    color: #0143be !important;
+    font-size: 1.6em !important;
+    margin: 0px !important;
+    font-weight: 600;
+}
+
+.theme_blue .quizinfosub {
+    text-align: center;
+    color: #0143be !important;
+    font-size: 1.2em !important;
+    margin: 0px !important;
+    font-weight: 400;
+}
+
+.theme_blue .homepageappname {
+    text-align: center;
+    color: #545454 !important;
+    font-size: 2em !important;
+    margin: 0px !important;
+    font-weight: 600;
+} 
+
+.theme_blue .homepageappdesc {
+    text-align: center;
+    color: #545454 !important;
+    font-size: 1.4em !important;
+    margin: 0px !important;
+    font-weight: 400;
+    width: 50%;
+    margin: 0 auto !important;
+    margin-top: 10px !important;
+}
+
+.theme_blue .homepageachtitle {
+    text-align: center;
+    color: #0143be !important;
+    font-size: 1.8em !important;
+    margin: 0px !important;
+    font-weight: 600;
+    width: 50%;
+    margin: 0 auto !important;
+    margin-top: 30px !important;
+}
+
+@media only screen and (max-width: 767px) {
+
+.theme_blue .homepageappdesc {
+    text-align: center;
+    color: #545454 !important;
+    font-size: 1.0em !important;
+    margin: 0px !important;
+    font-weight: 400;
+    width: 100%;
+    margin: 0 auto !important;
+    margin-top: 10px !important;
+}
+
+.theme_blue .homepageappname {
+    text-align: center;
+    color: #545454 !important;
+    font-size: 1.4em !important;
+    margin: 0px !important;
+    font-weight: 600;
+} 
+
+.theme_blue .homepageachtitle {
+    text-align: center;
+    color: #0143be !important;
+    font-size: 1.2em !important;
+    margin: 0px !important;
+    font-weight: 600;
+    width: 100%;
+    margin: 0 auto !important;
+    margin-top: 30px !important;
+}
+
+
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+.theme_blue .homepageappdesc {
+    text-align: center;
+    color: #545454 !important;
+    font-size: 1.4em !important;
+    margin: 0px !important;
+    font-weight: 400;
+    width: 100%;
+    margin: 0 auto !important;
+    margin-top: 10px !important;
+}
+
+}
+
+.theme_blue .MuiCheckbox-colorSecondary.Mui-checked {
+    color: #0143be !important;
+}
+
+.theme_blue .MuiTabs-indicator{
+    background-color: #0143be !important;
+}
+
+.theme_blue .regscrolltabs.layoutscrolltabs.referalscrolltabs{
+    margin-top: 50px !important;
+}
+
+.theme_blue .regcustombg.regcasetabs {
+    width: calc(100vw - 200px);
+    height: calc(100vh - 78px) !important;
+}
+
+.theme_blue .regcasetabs .MuiTab-textColorInherit.Mui-selected {
+    opacity: 1;
+    color: #0143be !important;
+}
+
+.theme_blue .regcasetabs .MuiTab-textColorInherit{
+    opacity: 0.7;
+    color: #0143be !important;
+}
+
+
+.theme_blue .modalheader {
+    background-color: #0143be !important;
+}
+body .stock-management.fullWidth .innertabdivreg.subclass4 {
+    margin-top: 100px!important;
+    padding-top: 10px!important;
+}
+
+.theme_blue .patientlistsection .rdt_TableHeadRow{
+    background-color: #0143be !important;
+}

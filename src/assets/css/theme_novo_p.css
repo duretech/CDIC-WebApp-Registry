@@ -1,0 +1,303 @@
+/* variable declaration starts */
+
+:root {
+    --var-true-blue: #001965;
+    --var-dark-sea-blue: #005ad2;
+    --var-faint-light-blue: #e2f0fa;
+    --base-font-family: "Apis", sans-serif;
+    --var-snow-white: #ffffff;
+    --var-lava-red: #E6553F;
+    --var-granite-grey: #939AA7;
+    --var-sand-grey-faint: #f7f6f5;
+    --var-sand-grey-medium: #ece8e4;
+    --var-light-green: #dfeeee;
+    --var-dark-green: #aad3d1;
+    --var-ocean-green-faint: #dfeeee;
+    --var-ocean-green: #29918b;
+
+}
+
+/* body.theme_red.theme_novo ::-webkit-scrollbar-thumb {
+    background-color: #001965a1 !important;
+} */
+
+body.theme_red.theme_novo,
+.MuiTypography-body1,
+.theme_novo input::placeholder {
+    font-family: var(--base-font-family) !important;
+}
+
+/* main homepage ui  */
+
+body.theme_red.theme_novo header svg {
+    fill: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .leftsidebar,
+body.theme_red.theme_novo .leftsidebar a {
+    background-color: var(--var-sand-grey-faint) !important;
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .statnumber.one,
+body.theme_red.theme_novo .statnumber.two,
+body.theme_red.theme_novo .statnumber.three,
+body.theme_red.theme_novo .statnumber.four {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .clientImg {
+    filter: hue-rotate(46deg) !important;
+}
+
+body.theme_red.theme_novo .referalImg {
+    filter: hue-rotate(233deg) !important;
+}
+
+body.theme_red.theme_novo .alertImg {
+    filter: hue-rotate(54deg) !important;
+}
+
+body.theme_red.theme_novo .MuiTab-textColorInherit.Mui-selected {
+    color: var(--var-true-blue) !important;
+    border-bottom: 2px solid var(--var-true-blue)!important;
+}
+
+body.theme_red.theme_novo .regformsubmitbtn {
+    background-color: var(--var-true-blue) !important;
+}
+body.theme_red.theme_novo .regformsubmitbtn:disabled{
+    background-color: grey !important;
+  }
+
+body.theme_red.theme_novo .customregistrationtabs .regformresetbtn {
+    background-color: var(--var-granite-grey) !important;
+    color: var(--var-snow-white);
+    margin-right: 0px !important;
+}
+
+.theme_red.theme_novo .bottomIcons .addclientmenubg,
+.theme_red.theme_novo .bottomIcons .searchbg,
+.theme_red.theme_novo .bottomIcons .myclientsmenubg,
+.theme_red.theme_novo .bottomIcons .dashboardmenubg {
+    background-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .MuiFormLabel-root.Mui-focused {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .MuiRadio-colorSecondary.Mui-checked {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .root:focus,
+.root:active {
+    border-color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .MuiPickersDay-daySelected {
+    background-color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo h4.MuiPickersToolbarText-toolbarBtnSelected,
+.theme_red.theme_novo h6.MuiPickersToolbarText-toolbarTxt {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo [data-test="dhis2-uicore-singleselectoption"].active,
+body.theme_red.theme_novo [data-test="dhis2-uicore-singleselectoption"].hover,
+body.theme_red.theme_novo [data-test="dhis2-uicore-singleselectoption"].focus {
+    background-color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .alertspage .search-bar,
+body.theme_red.theme_novo .choose_alertdiv label+.MuiInput-formControl {
+    border: 1px solid #ddd !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    color: #515151 !important;
+    background-color: transparent !important;
+}
+
+/* body.theme_red.theme_novo .searchformcontainer .MuiAccordionSummary-root, */
+body.theme_red.theme_novo .infoviewmorebtn {
+    background-color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .swal-button {
+    background-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .customregistrationtabs .fullWidth .nameuicinfoholder {
+    background-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo svg.checked.jsx-1744227082 .background.jsx-1744227082,
+body.theme_red.theme_novo svg.indeterminate.jsx-1744227082 .background.jsx-1744227082,
+body.theme_red.theme_novo svg.checked.jsx-2583563271 .border.jsx-2583563271,
+body.theme_red.theme_novo svg.indeterminate.jsx-2583563271 .border.jsx-2583563271 {
+    fill: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .insulinTable thead tr th {
+    background-color: var(--var-granite-grey) !important;
+}
+
+body.theme_red.theme_novo .modalactionbtn {
+    background-color: var(--var-true-blue) !important;
+    height: 34px !important;
+}
+
+body.theme_red.theme_novo .btn-load-more {
+    background-color: var(--var-true-blue) !important;
+    border-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .casescardheader,
+body.theme_red.theme_novo .cardactionfooter {
+    background-color: #f7f6f5 !important;
+}
+
+
+body.theme_red.theme_novo .servicequestiontitle {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .clini-head {
+    color: var(--var-snow-white);
+}
+
+
+.theme_red.theme_novo .addnewaptbtn {
+    background-color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame,
+body.theme_red.theme_novo .fc-day-today .fc-daygrid-day-number {
+
+    background-color: var(--var-dark-green) !important;
+    color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .fc-daygrid-day-frame:has(.showEventPopup) {
+    background-color: var(--var-light-green) !important;
+    color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .fc-toolbar-title {
+    color: var(--var-true-blue) !important;
+}
+
+/* body.theme_red.theme_novo .fc-day-today .fc-daygrid-day-number {
+    background-color: var(--var-true-blue)!important;
+} */
+
+
+body.theme_red.theme_novo .appointment-card h4,
+body.theme_red.theme_novo .infoviewmorebtn {
+    background-color: #008ad2 !important;
+    border-color: #008ad2 !important;
+}
+
+body.theme_red.theme_novo .modalheader {
+    background-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .myClientsCaseList {
+    background-color: var(--var-sand-grey-faint) !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+body.theme_red.theme_novo .alerts_profilebtn_holder.caselistviewbtnholder.myClientsCaseList button.infoviewmorebtn {
+    background-color: var(--var-snow-white) !important;
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .alerts_profilebtn_holder.caselistviewbtnholder.myClientsCaseList button.infoviewmorebtn span.ml-10px {
+    display: none;
+}
+
+body.theme_red.theme_novo .alerts_profilebtn_holder.caselistviewbtnholder.myClientsCaseList button.infoviewmorebtn svg {
+    fill: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .alertformheading {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .patientlistsection .searchformheading {
+    justify-content: flex-start;
+    padding-left: 33px;
+}
+
+body.theme_red.theme_novo .transferoutpage .search-bar {
+    background-color: var(--var-sand-grey-faint) !important;
+    border: 1px solid var(--var-sand-grey-medium) !important;
+    color: var(--var-true-blue);
+}
+
+body.theme_red.theme_novo .swal-button.swal-button--cancel {
+    background-color: var(--var-lava-red) !important;
+}
+
+.WithStyles\(ForwardRef\(LinearProgress\)\)-bar-21,
+.MuiLinearProgress-barColorPrimary {
+    background-color: var(--var-true-blue) !important;
+}
+
+.default-login {
+    color: var(--var-snow-white) !important;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.card-risk h5 {
+    color: var(--var-true-blue) !important;
+}
+
+.theme_red a.leaflet-control-zoom-in,
+.theme_red a.leaflet-control-zoom-out {
+    background-color: var(--var-granite-grey) !important;
+}
+
+.theme_red.theme_novo .background-theme {
+    background-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .custom-shape-divider-top-1617788413 {
+    background: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .homeheaderdiv h3 {
+    color: var(--var-true-blue) !important;
+}
+
+/* .lab-heading {
+    color: var(--);
+} */
+
+body.theme_red.theme_novo .facilty-section .text-danger {
+    color: var(--var-lava-red) !important;
+}
+
+body.theme_red.theme_novo .facilityMgbg,
+body.theme_red.theme_novo .trainingbg {
+    background-color: var(--var-true-blue) !important;
+}
+
+
+.theme_red.theme_novo .MuiPickersToolbarText-toolbarBtnSelected,
+.theme_red.theme_novo .MuiPickersToolbarText-toolbarTxt {
+    color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .MuiPickersClock-pin,
+.theme_red.theme_novo .MuiPickersClockPointer-pointer {
+    background-color: var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .MuiPickersClockPointer-thumb {
+    border-color: var(--var-true-blue) !important;
+}

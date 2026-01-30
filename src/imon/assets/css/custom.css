@@ -1,0 +1,295 @@
+.sidebar.open-sidebar {
+  margin-left: 0 !important;
+}
+
+.sidebar.close-sidebar {
+  margin-left: -200px !important;
+}
+
+.main.open-sidebar {
+  margin-left: 200px !important;
+}
+
+.main.close-sidebar {
+  margin-left: 0px !important;
+}
+
+.rolesection .providerimg,
+.setuppageuser .providerimg,
+.userloginner .providerimg {
+  display: none;
+}
+
+.roleselectcon .req,
+.roleselectcon .mainHolder_divcontainer,
+.userregcon .req,
+.userregcon .mainHolder_divcontainer,
+.userlogcon .req,
+.userlogcon .mainHolder_divcontainer {
+  display: none;
+}
+
+@media(max-width: 768px) {
+  .main.open-sidebar {
+    margin-left: 0px !important;
+  }
+}
+
+.bgLogin {
+  /* background: url(../images/7.jpg); */
+  background-size: cover;
+  /* height      : calc(100vh - 77px);
+  min-height     : calc(100vh - 77px) !important;
+  margin-top     : 77px; */
+}
+
+/* .bgRegister {
+  background     : url(../images/1.jpg);
+  background-size: cover;
+  /* height      : calc(100vh - 77px);
+  min-height     : calc(100vh - 77px) !important;
+  margin-top     : 77px; 
+} */
+
+.login-card,
+.signup-card {
+  border: 0;
+}
+
+.login-card {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.signup-card {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.colorwhite {
+  color: #fff;
+}
+
+.colorblack {
+  color: #000;
+}
+
+.coloryellow {
+  color: rgba(255, 184, 0, 1);
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background-color: rgb(47, 45, 45);
+  color           : #fff;
+  border-color    : rgb(47, 45, 45);
+  opacity         : 0.65;
+}
+
+.btn-primary.customcss {
+  background-color: rgb(47, 45, 45);
+  color           : #fff;
+  border-color    : rgb(47, 45, 45);
+}
+
+.btn-primary.customcss:hover {
+  background-color: rgba(255, 184, 0, 0.9);
+  border-color    : rgba(255, 184, 0, 0.9);
+}
+
+.btn-link.customcss {
+  color: #fff;
+}
+
+.btn-link.customcss:hover {
+  color: rgba(255, 184, 0, 0.9);
+}
+
+.btn-primary.btn-register-community:hover {
+  background  : rgba(255, 184, 0, 0.9);
+  border-color: rgba(255, 184, 0, 0.9);
+  color       : #fff;
+}
+
+.registerlist {
+  list-style: none;
+}
+
+.registerlist li:before {
+  display                : inline-block;
+  font                   : normal normal normal 14px/1 FontAwesome;
+  font-size              : inherit;
+  text-rendering         : auto;
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content                : "\F111";
+  font-size              : 8px;
+  color                  : rgba(255, 184, 0, 1);
+  display                : inline-flex;
+  align-items            : center;
+  padding-right          : 10px;
+}
+
+.swal-text {
+  text-align: center;
+}
+
+.height-auto {
+  height: auto;
+}
+
+.logo {
+  width     : 120px;
+  height    : 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin    : 16px 28px 16px 0;
+  float     : left;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.app-body {
+  display: block;
+}
+
+.sidebar {
+  min-height: 100vh;
+}
+
+/* .app-body .omnubusguidelinemain {
+  height: 56%;
+} */
+.omni{
+  width: 38%;
+}
+.app-body .govissuepage.govissueben .govdiseasegrid {
+  height: 54%;
+}
+
+.app-body .govissuepage.govben .govdiseasegrid {
+  height: 54%;
+}
+
+.app-body .pdfrenderdiv {
+  height    : 84%;
+  height    : 95%;
+  overflow-y: auto;
+}
+
+.eduknowpage,
+.issuepage,
+.advpage {
+  height: 100%;
+}
+
+.pdfpage {
+  height: 97.5%;
+}
+
+.main {
+  display              : -webkit-box;
+  display              : -ms-flexbox;
+  display              : flex;
+  -webkit-box-flex     : 1;
+  -ms-flex             : auto;
+  flex                 : auto;
+  -webkit-box-orient   : vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction   : column;
+  flex-direction       : column;
+  min-height           : 0;
+  background           : #f0f2f5;
+}
+
+.collapsebtn {
+  float : left;
+  margin: 16px 28px 16px 0;
+}
+
+.header {
+  display        : flex;
+  justify-content: space-between;
+}
+
+#surveyform {
+  padding-bottom: 20px;
+}
+
+.community-list-wrap {
+  height    : 54vh;
+  overflow-y: auto;
+}
+
+.onboardingscrollcontent {
+  margin-top: 10px !important;
+}
+
+.adherencediv{
+  height: calc(100% - 186px);
+  overflow-x: scroll;
+}
+
+.reminderPage{
+  height: 89%;
+  overflow-y: auto;
+  overflow-y: auto;
+  padding: 10px 40px;
+  width: 100%;
+  position: relative;
+  background: lightgrey;
+  margin: 25px !important;
+}
+
+.reminderListPage {
+  height: 89%;
+  overflow-y: auto;
+  overflow-y: auto;
+  padding: 10px 40px;
+  width: 100%;
+  position: relative;
+}
+
+.reminderPagediv{
+  height: 97.3%;
+}
+
+.rem-float-btn {
+  color: #214134;
+  display: flex;
+  justify-content:end ;
+  position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.rem-float-btn .MuiSvgIcon-root{
+  fill: #214134;
+    font-size: 3rem;
+}
+
+.remInput {
+  margin-top: 20px;
+}
+
+.loginphonepagegrid .pageinfopart.pageqrcode {
+  height: 78%;
+}
+
+.loginphonepagegrid .loginsection.pageqrcodebtn {
+  height: 22%;
+  margin-top: 6px;
+}
+
+.fc-daygrid-day-top{
+  display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    padding-right: 0px !important;
+}
+
+.fc .fc-daygrid-day-top{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  padding-right: 0px !important;
+}

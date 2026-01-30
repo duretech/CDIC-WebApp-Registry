@@ -1,0 +1,252 @@
+#customSlider * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  /* overflow: hidden; */
+}
+
+#customSlider body {
+  background-color: #b5abb6;
+  overscroll-behavior-y: contain;
+}
+
+#customSlider #container {
+  width: 400px;
+  height: 100vh;
+  position: absolute;
+  box-shadow: 0px 0px 25px -8px rgba(53, 53, 53, 0.82);
+  overflow: hidden;
+}
+
+#customSlider .pageContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#customSlider .page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-family: "Oswald", sans-serif;
+  font-family: 'museo_sans300' !important;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  padding: 0vh 13px;
+  padding-top: 7vh;
+}
+
+#customSlider #page0 {
+  background: rgb(255, 255, 255);
+  background-color: #f8f5fb;
+}
+
+#customSlider #page1 {
+  background-image: linear-gradient(to right, #129a7f 0%, #129a7f 100%);
+}
+
+#customSlider #page2 {
+  background-image: linear-gradient(to right, #4CB8C4 0%, #4CB8C4 100%);
+}
+
+#customSlider #root {
+  display: flex;
+  justify-content: center;
+}
+
+#customSlider svg {
+  position: absolute;
+  height: 100%;
+}
+
+#customSlider button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-family: 'museo_sans300' !important;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+#customSlider button:focus {
+  outline: 0;
+}
+
+#customSlider img {
+  width: 43vh;
+	margin-left: 15px;
+  margin: 0 auto;
+}
+
+#customSlider .header {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+  font-family: 'museo_sans300' !important;
+  font-size: 19px;
+  padding: 0px 31px;
+  background-color: transparent !important;
+  justify-content: flex-end;
+ 
+}
+
+#customSlider #header0 {
+  color: #000;
+}
+
+#customSlider #header1 {
+  color: rgb(255, 255, 255);
+}
+
+#customSlider #header2 {
+  color: #fff;
+}
+
+#customSlider .skip {
+  font-weight: 400;
+}
+
+#customSlider #content {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 48px;
+  height: 30vh;
+}
+
+#customSlider .contentL1 {
+  color: rgb(0, 0, 0);
+  font-family: monospace;
+  font-weight: 100;
+  text-align: left;
+  letter-spacing: -2px;
+  line-height: 18px;
+  opacity: 0.3;
+}
+
+#customSlider .contentL2 {
+  color: #000;
+  font-family: "Oswald", sans-serif;
+  font-family: 'museo_sans300' !important;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+#customSlider .contentL3 {
+  color: #000;
+  font-family: 'museo_sans300' !important;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 100;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  opacity: 0.5;
+}
+
+#customSlider .text0 {
+  color: #000;
+  color: #103caf;
+}
+
+#customSlider .text1 {
+  color: #fd5888;
+}
+
+#customSlider .text2 {
+  color: #fff;
+}
+
+#customSlider .button0 {
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+#customSlider .button1 {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+#customSlider .button2 {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@media only screen and (max-width: 500px) {
+  #customSlider #container {
+    width: 100%;
+  }
+}
+
+
+#customSlider .contentL1,#customSlider .contentL2{
+  font-family: 'Rubik' !important;
+}
+
+#customSlider .contentL3{
+  font-family: 'Karla' !important;
+  color: #000 !important;
+  
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+
+#pageContainer1 .contentL1{
+  color: #fff !important;
+}
+
+#pageContainer1 .contentL2{
+  color: #fff !important;
+}
+
+#page0 .contentL1.text0{
+  color:#000 !important;
+  opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+#customSlider #page1{
+  background-color: #4e61bf !important;
+  background-image: none !important;
+}
+
+#customSlider #page1 .contentL3.text1{
+  color: #fff !important;
+}
+
+#customSlider #page1 .contentL1.text1{opacity: 0.7;
+    margin-bottom: 10px;}
+
+#customSlider #page2{
+  background-image: none !important;
+  background-color: #fff;
+}
+
+#customSlider #page2 .contentL1.text2{
+  color:#000 !important;
+  opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+#customSlider #page2 .contentL2.text2{
+  color:#4e61bf !important;
+  opacity: 1;
+}
+
+#customSlider .button2{
+  color: #4e61bf;
+  border-color: #4e61bf;
+}
+
+#pageContainer2 p.skipslidertext{
+  color: #fff;
+}

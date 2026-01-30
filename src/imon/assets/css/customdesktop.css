@@ -1,0 +1,697 @@
+/* .windowdesktop .userbg {
+    position       : relative;
+    height         : 100%;
+    border-radius  : 0px !important;
+    justify-content: center;
+}
+
+.windowdesktop .userselect {
+    position: relative;
+    height  : 100%;
+}
+
+.windowdesktop .userselect {
+    padding: 0 80px;
+}
+
+.windowdesktop .patientsection,
+.windowdesktop .providersection,
+.windowdesktop .guestbtn {
+    padding: 15px;
+    width  : 90%;
+}
+
+.windowdesktop .userselectgrid {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+}
+
+.windowdesktop .benimg img,
+.windowdesktop .providerimg img {
+    max-width: 100%;
+    height   : 100%;
+    width    : 75%;
+}
+
+.windowdesktop .loginphonepagegrid .pageinfopart {
+    height       : 100%;
+    border-radius: 0px !important;
+}
+
+.windowdesktop .loginphonepagegrid .loginsection {
+    height         : 100%;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+}
+
+.windowdesktop .loginphonepagegrid .noacc {
+    margin-top: 0px;
+}
+
+.windowdesktop .addben .MuiTypography-h6 {
+    text-decoration: underline;
+}
+
+.loginphonepage.windowdesktop .loginsection .logindetails {
+    display: block !important;
+    padding: 45px !important;
+    width  : 45%;
+}
+
+.loginphonepage.windowdesktop .pageinfopart .logindetails {
+    display: none !important;
+}
+
+.loginphonepage.windowdesktop .pageinfopart .user-doh {
+    height         : 95%;
+    justify-content: space-around;
+    align-items    : center;
+}
+
+.loginphonepage.loginpagedesktop .pageinfopart .user-doh {
+    height         : 95%;
+    justify-content: space-around;
+    align-items    : center;
+}
+
+.loginphonepage.windowdesktop .pageinfopart .user-doh {
+    height         : 95%;
+    justify-content: space-around;
+    align-items    : center;
+}
+
+.loginphonepage.windowdesktop .loginsection .loginpageformholder input {
+    box-shadow: 0px 3px 7px #00000047 !important;
+}
+
+.loginphonepage.windowdesktop .loginsection .buttons .loginb {
+    width: 55% !important;
+}
+
+.loginphonepage.windowdesktop .phonenoinput {
+    padding: 9px;
+}
+
+.windowdesktop .guidediv img {
+    width: 21%;
+}
+
+.windowdesktop .journeydiv img {
+    width: 33%;
+}
+
+.windowdesktop .screendiv img {
+    width: 31%;
+}
+
+.windowdesktop .Nearmediv img {
+    width: 37%;
+}
+
+.windowdesktop .educationdiv img {
+    width: 40%;
+}
+
+.windowdesktop .connectdiv img {
+    height: 135%;
+}
+
+.windowdesktop .homemenuholder_div.diseasediv .MuiTypography-h5 {
+    margin: revert !important;
+}
+
+.windowdesktop .homegriddesktop {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.windowdesktop .homesidebox {
+    display        : block;
+    background     : transparent linear-gradient(168deg, #214134 0%, #55AA79 100%) 0% 0% no-repeat padding-box;
+    box-shadow     : 0px 14px 18px #00000070;
+    color          : #fff;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.windowdesktop .homesidebox .user-doh {
+    padding-right: 30px;
+}
+
+.windowdesktop .userimg {
+    max-width: 100%;
+    height   : auto;
+    width    : 77%;
+}
+
+
+
+.windowdesktop .loginsection .logindetails {
+    display: block !important;
+    padding: 45px !important;
+    width  : 45%;
+}
+
+.windowdesktop .pageinfopart .logindetails {
+    display: none !important;
+}
+
+.windowdesktop .pageinfopart {
+    height       : 100%;
+    border-radius: 0px !important;
+}
+
+.windowdesktop .loginsection {
+    height         : 100%;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+}
+
+.windowdesktop .pageinfopart .user-doh {
+    height         : 95%;
+    justify-content: space-around;
+    align-items    : center;
+}
+
+.windowdesktop .loginsection .buttons .loginb {
+    width: 65% !important;
+}
+
+.windowdesktop .searchformcontainer .search-bar {
+    width: 50%;
+}
+
+.windowdesktop .casenewcard {
+    margin: 4px 20px !important;
+}
+
+.windowdesktop .searchformcontainer {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+}
+
+.referalcasesdesktop .refergrid .casenewcard {
+    margin: 5px 20px;
+}
+
+.referalcasesdesktop .refersearch {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.referalcasesdesktop .refersearch .search-bar {
+    width: 50%;
+}
+
+.windowdesktop .taskbox {
+    margin: 10px 20px !important;
+}
+
+.windowdesktop .listcontentdesktop {
+    display        : flex;
+    width          : 100%;
+    justify-content: space-evenly;
+    align-items    : center;
+}
+
+.windowdesktop .trainingcontentdiv {
+    flex-direction: row;
+}
+
+.windowdesktop .trainingcontentdiv .trainingon,
+.windowdesktop .trainingcontentdiv .trainingcom {
+    width: 35%;
+}
+
+.windowdesktop .clientsinfo {
+    flex-direction: column;
+    align-items   : baseline;
+}
+
+.windowdesktop .clientsinfodiv {
+    justify-content: flex-start;
+    margin         : 4px !important;
+}
+
+.windowdesktop .proavatar {
+    max-width: 100%;
+    height   : auto;
+    width    : 30%;
+}
+
+.windowdesktop .proavatar {
+    max-width: 100%;
+    height   : auto;
+    width    : 25%;
+}
+
+.windowdesktop .clientprofiletext {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.windowdesktop .tbtreatcontent {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.windowdesktop .tbtreatcontentdiv {
+    width: 50%;
+}
+
+.windowdesktop .backsvg {
+    width: 18%;
+}
+
+.windowdesktop .langcontents {
+    display        : flex;
+    width          : 100%;
+    align-items    : center;
+    justify-content: space-around;
+}
+
+.windowdesktop .americancontent,
+.tagalogcontent {
+    height: auto;
+}
+
+.windowdesktop .bisayacontent {
+    margin-top: 0px;
+}
+
+.windowdesktop .clientprofileactive {
+    height: 5% !important;
+}
+
+.windowdesktop .whiteback,
+.windowdesktop .whitebackre {
+    width: 18%;
+}
+
+.windowdesktop .clientprofileacc .screening img,
+.windowdesktop .clientprofileacc .regis img {
+    width: 3%;
+}
+
+.windowdesktop .viewdiv img {
+    width: 10%;
+}
+
+.windowdesktop .clientsinfo {
+    flex-direction: column;
+    align-items   : baseline;
+}
+
+.windowdesktop .clientsinfodiv {
+    justify-content: flex-start;
+    margin         : 4px !important;
+}
+
+.windowdesktop .editBtn {
+    position     : absolute;
+    right        : 93px;
+    padding      : 8px 20px;
+    color        : #fff;
+    border-radius: 8px;
+}
+
+.windowdesktop .clientprofileacc {
+    padding: 0 50px;
+}
+
+.windowdesktop .regiscontent .journeysvg {
+    width       : 1%;
+    margin-right: 10px;
+}
+
+.windowdesktop .pageinfopart {
+    height       : 100%;
+    border-radius: 0 !important;
+}
+
+.windowdesktop .pageinfopart .logindetails {
+    display: none !important;
+}
+
+.windowdesktop .loginsection .logindetails {
+    display: block !important;
+}
+
+.windowdesktop .loginsection {
+    height        : 100%;
+    display       : flex;
+    flex-direction: column;
+}
+
+.windowdesktop .loginsection .buttons .loginb {
+    width: 75% !important;
+}
+
+.windowdesktop .forgot-reg .forgotpw,
+.windowdesktop .forgot-reg .registeruser {
+    color: #000;
+}
+
+.windowdesktop .registeruser,
+.windowdesktop .forgotpw {
+    color: #000;
+}
+
+.windowdesktop .roleselectcon,
+.windowdesktop .setuppageoption {
+    height: 100%;
+
+}
+
+.windowdesktop .rolesection {
+    border-radius: 0 !important;
+}
+
+.windowdesktop .setuppageuser,
+.windowdesktop .loginselectsection {
+    height  : 100%;
+    position: relative;
+}
+
+.windowdesktop .roleregister {
+    height         : 100%;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : stretch;
+}
+
+.windowdesktop.keyboardactive .userregcon,
+.windowdesktop.keyboardactive .userlogcon {
+    height: 100%;
+}
+
+.windowdesktop .userregcon,
+.windowdesktop .userlogcon {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.windowdesktop .userlogcon {
+    display       : flex;
+    flex-direction: column;
+}
+
+.windowdesktop.keyboardactive .registermainpage,
+.userroleinner {
+    height    : 96%;
+    overflow-y: hidden;
+}
+
+.windowdesktop.keyboardactive .userlogpage {
+    height    : 100%;
+    overflow-y: hidden;
+}
+
+.windowdesktop.keyboardactive .userloginner {
+    height    : 100%;
+    overflow-y: hidden;
+}
+
+.windowdesktop .loginselect {
+    height         : 100%;
+    border-radius  : 0 !important;
+    display        : flex;
+    justify-content: center;
+    flex-direction : column;
+}
+
+
+.windowdesktop .MuiAccordionDetails-root>div {
+    width: auto;
+}
+
+.windowdesktop .clientdate {
+    width: 7%;
+}
+
+.regcasetabsdesktop .regdiv.createreg {
+    width: 85.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.regcasetabsdesktop .mainsection {
+    padding-top: 0 !important;
+}
+
+.customregistrationtabs.regcasetabsdesktop .fullWidth .stagetitles {
+    width: 87.5%;
+}
+
+.windowdesktop .rolesection .mainHolder_divcontainer {
+    display: none;
+}
+
+.windowdesktop .roleregister .mainHolder_divcontainer {
+    display: none;
+}
+
+.windowdesktop .userloginner .mainHolder_divcontainer {
+    display: none;
+}
+
+.windowdesktop .userlogcon .mainHolder_divcontainer {
+    display: block;
+}
+
+.windowdesktop .rolesection .req {
+    display: none;
+}
+
+.windowdesktop .roleregister .req {
+    display: none;
+}
+
+.windowdesktop .loginselect .req {
+    display: none;
+}
+
+.windowdesktop .roleregister .providerimg,
+.windowdesktop .loginselect .providerimg {
+    margin-top: 45px;
+}
+
+.windowdesktop .roleselectcon .req {
+    text-align    : end;
+    width         : 80%;
+    padding-bottom: 20px;
+}
+
+.windowdesktop .userregcon .req {
+    text-align    : end;
+    width         : 80%;
+    padding-bottom: 20px;
+}
+
+.windowdesktop .userlogcon .req {
+    text-align    : end;
+    width         : 80%;
+    padding-bottom: 20px;
+}
+
+.windowdesktop .roleselectcon .providerimg {
+    display: none;
+}
+
+.windowdesktop .userregcon .providerimg {
+    display: none;
+}
+
+.windowdesktop .roleselectcon {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+}
+
+.windowdesktop .roleselectcon .mainHolder_divcontainer {
+    width : 80%;
+    margin: 0 auto;
+}
+
+.windowdesktop .userlogcon .mainHolder_divcontainer {
+    width : 80%;
+    margin: 0 auto;
+}
+
+.windowdesktop.onboarding_pagerole .questionholderbtn {
+    height: auto;
+    width : 100%;
+}
+
+.windowdesktop .roleselectcon .inputholderdiv .selectdropdown {
+    background-color: #fff;
+    border-radius   : 5px;
+    padding         : 7px;
+    box-shadow      : 2px 4px 10px #00002924;
+}
+
+.windowdesktop .roleselectcon .MuiInput-underline:before {
+    border-bottom: none !important;
+}
+
+.windowdesktop .userregcon {
+    display       : flex;
+    flex-direction: column;
+
+}
+
+.windowdesktop .userregcon .mainHolder_divcontainer {
+    width: 80%;
+}
+
+.windowdesktop .userregcon .questionholderbtn {
+    margin-top: 10px;
+}
+
+.windowdesktop .registermainpage {
+    height    : 95%;
+    overflow-y: hidden;
+}
+
+.windowdesktop .disno {
+    width: 70px !important;
+}
+
+.windowdesktop .roleselectcon .continuebtn {
+    width: 80%;
+}
+
+.patientreg.windowdesktop .regusercontent,
+.patientreg.windowdesktop .patientnewreg {
+    height       : 96% !important;
+    border-radius: 0 !important;
+}
+
+.patientreg.windowdesktop .regusercontent .com-form,
+.patientreg.windowdesktop .regusercontent .user-doh {
+    display: none;
+}
+
+.patientreg.windowdesktop .patientnewreg .patientnewregdiv {
+    padding: 10px 60px;
+}
+
+.patientreg.windowdesktop .regusercontent .user-dohreg {
+    height                 : 95%;
+    display                : flex;
+    -webkit-justify-content: space-around;
+    justify-content        : space-around;
+    -webkit-align-items    : center;
+    align-items            : center;
+}
+
+.windowdesktop .knowdetails,
+.windowdesktop .gksearchdetails {
+    height       : 89%;
+    border-radius: 0 !important;
+    overflow-y: auto;
+}
+
+.windowdesktop .gksearchdetails {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+}
+
+.windowdesktop .ForwardRef-root-3 {
+    width: 70%;
+}
+
+.getconnectpage.windowdesktop .getconnect {
+    max-width: 100%;
+    height   : auto;
+    width    : 14%;
+}
+
+.getconnectpage.windowdesktop .get-connectlist .group-list .gridcontainer.chatuserlistdiv {
+    width: 50% !important;
+}
+
+.getconnectpage.windowdesktop .forum-container .group-list {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+
+}
+
+.getconnectpage.windowdesktop form#chat-profile {
+    width : 70%;
+    margin: 0 auto;
+}
+
+.getconnectpage.windowdesktop .get-connectlist .peer-list .gridcontainer.chatuserlistdiv {
+    width     : 70% !important;
+    margin    : 0 auto !important;
+    margin-top: 10px !important;
+}
+
+.getconnectpage.windowdesktop .get-connectlist .peer-list .getaccess-searchbar {
+    width      : 80%;
+    margin-left: auto;
+}
+
+.getconnectpage.windowdesktop .gobuttongrid {
+    text-align: left;
+}
+
+.chatwindowdesktop {
+    height: 100%;
+}
+
+.chatwindowdesktop .regname {
+    align-items: baseline;
+}
+
+.chatwindowdesktop .menubtn {
+    padding: 0 !important;
+}
+
+.chatwindowdesktop #frame .content .messages ul li .msg-wrap {
+    width: 35% !important;
+}
+
+.windowdesktop .omni-searchbar {
+    width : 70%;
+    margin: 0 auto;
+}
+
+.windowdesktop .connectimg {
+    padding-top: 20px;
+    max-width  : 55%;
+    height     : 100%;
+    display: none;
+}
+
+.windowdesktop .trainingdohdiv .dohimg{
+    width: 6% !important;
+}
+
+.windowdesktop .pagelaterpart {
+    border-radius: 0 !important;
+}
+
+.windowdesktop  #registerform{
+    height: auto !important;
+} */

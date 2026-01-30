@@ -1,0 +1,448 @@
+/* variable declaration starts */
+
+:root {
+    --var-true-blue: #001965;
+    --var-faint-light-blue: #e2f0fa;
+    --base-font-family: "Apis", sans-serif;
+    --var-snow-white: #ffffff;
+    --var-lava-red: #E6553F;
+    --var-granite-grey: #939AA7;
+    --var-sand-grey-faint: #f7f6f5;
+    --var-sand-grey-medium: #ece8e4;
+    --var-ocean-green-faint: #dfeeee;
+    --var-ocean-green: #29918b;
+    --bg-blue-secondary-color: #00adc3;
+}
+
+
+/* Onboarding page style starts */
+
+body.theme_red.theme_novo .clini-head {
+    font-family: var(--base-font-family);
+    color: var(--var-true-blue);
+}
+
+body.theme_red.theme_novo .onboardBtn {
+    background-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .onboardSelect.left,
+body.theme_red.theme_novo .onboardSelect.right {
+    background-color: var(--var-faint-light-blue);
+}
+
+/* Login page style starts */
+
+body.theme_red.theme_novo .registernav {
+    background-color: var(--var-snow-white);
+    align-items: center;
+}
+
+body.theme_red.theme_novo .logname,
+body.theme_red.theme_novo .regname {
+    color: var(--var-true-blue);
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+}
+
+body.theme_red.theme_novo .loginwweb,
+body.theme_red.theme_novo .langSection {
+    background-color: var(--var-faint-light-blue);
+    background-color: rgba(226, 240, 250, 0.8);
+    border-radius: 4px;
+    opacity: 1;
+}
+
+body.theme_red.theme_novo .loginMain .loginwweb {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+body.theme_red.theme_novo .loginMain .loginwweb label {
+    text-align: left;
+    color: var(--var-ocean-green-faint) !important;
+}
+
+body.theme_red.theme_novo .loginwweb label {
+    color: var(--var-true-blue);
+    font-weight: 500;
+    font-size: 17px;
+}
+
+body.theme_red.theme_novo .forgotpw {
+    color: var(--var-snow-white);
+    font-style: italic;
+    text-align: left;
+    font-weight: 500;
+}
+
+body.theme_red.theme_novo .loginsubmitbtn {
+    background-color: var(--var-true-blue) !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    margin-left: 0px !important;
+}
+
+body.theme_red.theme_novo .loginwweb .resetButton {
+    /* margin-top: 15px !important;
+    margin-bottom: 10px; */
+    background-color: var(--var-granite-grey);
+    color: var(--var-snow-white);
+}
+
+.theme_red.theme_novo input[type="checkbox"],
+.theme_red.theme_novo input:checked,
+.theme_red.theme_novo input[type='checkbox']:checked,
+.theme_red.theme_novo input:checked:focus {
+    fill: var(--var-true-blue) !important;
+    border-color: var(--var-true-blue) !important;
+    background-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .loginpageformholder input {
+    background-color: var(--var-snow-white) !important;
+    border: 1px solid var(--var-true-blue);
+    color: var(--var-true-blue) !important;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    border-radius: 50px;
+}
+
+body.theme_red.theme_novo .visibilityiconcontainer svg {
+    fill: var(--var-true-blue);
+}
+
+body.theme_red.theme_novo .loginpageformholder input:focus {
+    border-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .langSection {
+    border: none !important;
+}
+
+body.theme_red.theme_novo .langprefpageformholder label.MuiFormControlLabel-root {
+    background-color: var(--var-snow-white) !important;
+    border: 1px solid var(--var-true-blue);
+    color: var(--var-true-blue) !important;
+    font-size: 16px !important;
+    font-weight: 500;
+    font-family: var(--base-font-family);
+    border: 1px solid #ddd;
+}
+
+.MuiTypography-body1 {
+    font-family: var(--base-font-family) !important;
+}
+
+body.theme_red.theme_novo .langprefpageformholder label.MuiFormControlLabel-root .MuiFormControlLabel-label {
+    font-size: 16px !important;
+    font-weight: 500;
+    font-family: var(--base-font-family) !important;
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .MuiRadio-colorSecondary.Mui-checked {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .homepageappdesc {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo header h6 {
+    color: var(--var-true-blue) !important;
+    padding-top: 0px !important;
+}
+
+body.theme_red.theme_novo .searchformheading {
+    color: var(--var-true-blue);
+}
+
+/* Patient Record List page style starts */
+
+body.theme_red.theme_novo .myclientspage .search-bar {
+    background-color: #fff !important;
+    border: 1px solid #ddd !important;
+    color: var(--var-true-blue);
+    border-radius: 10px;
+}
+
+body.theme_red.theme_novo .patientlistsection .rdt_TableHeadRow {
+    /* background-color: var(--var-faint-light-blue) !important; */
+    background-color: #fff !important;
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .patientlistsection .MuiSvgIcon-root {
+    color: var(--var-true-blue);
+    font-size: 20px;
+}
+
+body.theme_red.theme_novo .patientlistsection .isyjeR {
+    background-color: var(--var-sand-grey-faint);
+}
+
+body.theme_red.theme_novo .patientlistsection .bbIKyw {
+    background-color: var(--var-snow-white);
+}
+
+body.theme_red.theme_novo .bottomnavbar .MuiBottomNavigation-root {
+    background-color: var(--var-faint-light-blue);
+    border-top: 1px solid var(--var-true-blue);
+    height: 50px;
+}
+
+body.theme_red.theme_novo .bottomnavbar .MuiBottomNavigationAction-label {
+    color: var(--var-true-blue);
+}
+
+/* body.theme_red.theme_novo .choose_alertdiv {
+    background-color: var(--var-faint-light-blue);
+} */
+
+body.theme_red.theme_novo .choose_alertdiv label.MuiInputLabel-animated {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .choose_alertdiv .MuiInputLabel-shrink {
+    transform: translate(0, 9.5px) scale(1);
+    transform-origin: top left;
+}
+
+body.theme_red.theme_novo .choose_alertdiv label+.MuiInput-formControl {
+    margin-top: 44px;
+    background: #f7f6f5;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    border: 1px solid #ddd;
+}
+
+body.theme_red.theme_novo .searchformcontainer .MuiAccordionSummary-root {
+    background-color: var(--var-snow-white) !important;
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .searchformcontainer .MuiAccordionSummary-root.Mui-expanded {
+    background-color: var(--var-sand-grey-faint) !important;
+}
+
+body.theme_red.theme_novo .searchtabmaindiv .MuiAccordionSummary-root .MuiAccordionSummary-content p {
+    color: var(--var-true-blue);
+}
+
+body.theme_red.theme_novo .searchformcontainer .MuiAccordionSummary-root span svg {
+    fill: var(--var-true-blue);
+}
+
+body.theme_red.theme_novo .loginwweb button.jsx-2371629422:focus.jsx-2371629422::after {
+    border-color: transparent !important;
+}
+
+body.theme_red.theme_novo .MuiTabs-root {
+    background-color: var(--var-faint-light-blue);
+}
+
+body.theme_red.theme_novo .MuiTabs-scroller.MuiTabs-fixed {
+    background-color: var(--var-sand-grey-faint);
+}
+
+body.theme_red.theme_novo .MuiTabs-scroller.MuiTabs-fixed button.MuiTab-root {
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .reginnertabcontainer .sectiondivmaincontainer p.MuiTypography-body1,
+.MuiAccordionSummary-content .MuiTypography-root  {
+    color: var(--var-true-blue) !important;
+    font-weight: 500;
+}
+
+body.theme_red.theme_novo .loginbtn {
+    background-color: var(--var-true-blue) !important;
+    width: 50% !important;
+    margin-left: 0px !important;
+}
+
+/* body.theme_red.theme_novo .statboxesholdermain .statbox{
+    background-color: var(--var-faint-light-blue);
+} */
+
+body.theme_red.theme_novo .rightsectiontoppart {
+    /* background: rgba(0, 25, 101, 1) url('../images/businesspeople.jpg'); */
+    background: linear-gradient(0deg, rgba(0, 25, 101, 0.4),
+            rgba(0, 25, 101, 0.4)), url('../images/businesspeople.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+/* .main-loginSection {
+    background-image: url(../images/login-mainpage.png);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+} */
+
+body.theme_red.theme_novo .loginpagemainsection {
+    background: linear-gradient(0deg, rgba(0, 25, 101, 0.3),
+            rgba(0, 25, 101, 0.3)), url('../images/businesspeople.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+body.theme_red.theme_novo .loginformholder {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 4px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    background-color: rgba(225, 239, 250, 0.9);
+}
+
+body.theme_red.theme_novo .loginformheading {
+    color: var(--var-true-blue);
+}
+
+body.theme_red.theme_novo .loginformholder label {
+    color: var(--var-true-blue);
+    font-weight: 500;
+}
+
+body.theme_red.theme_novo .loginformholder .password {
+    margin-bottom: 10px;
+}
+
+body.theme_red.theme_novo .loginformholder input {
+    border-color: #ddd !important;
+    box-shadow: none !important;
+}
+
+body.theme_red.theme_novo .loginformholder input:focus {
+    border-color: #ddd !important;
+}
+
+body.theme_red.theme_novo .fc-prevButton-button.fc-button.fc-button-primary,
+body.theme_red.theme_novo .fc-nextButton-button.fc-button.fc-button-primary {
+    background-color: var(--var-granite-grey);
+}
+
+body.theme_red.theme_novo .fc-prevButton-button {
+    border-right: 1px solid var(--var-true-blue) !important;
+}
+
+.theme_red.theme_novo .addnewaptbtn {
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.theme_red.theme_novo .fc-header-toolbar.fc-toolbar.fc-toolbar-ltr {
+    background-color: var(--var-sand-grey-faint);
+    padding: 15px 10px;
+    padding-right: 15px;
+}
+
+.journeyItems h6 {
+    width: calc(100% - 60px);
+    font-size: 16px;
+}
+
+body.theme_red.theme_novo .mainsection.onboardingSection,
+body.theme_red.theme_novo .mainsection.langMain {
+
+    /* background: url('../images/homepage.jpg'); */
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url('../images/homepage.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden !important;
+}
+
+body.theme_red.theme_novo .mainsection.homeMain,
+.mainlogSection {
+    /* background:linear-gradient(0deg, rgba(0, 0, 0, 0.5),
+     rgba(0, 0, 0, 0.5)), url('../images/loginpage.jpg'); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden !important;
+    background-image: none !important;
+    background-color: var(--bg-blue-secondary-color);
+}
+
+
+
+body.theme_red.theme_novo .loginlang {
+    display: none;
+}
+
+body.theme_red.theme_novo button.MuiTab-root {
+    color: var(--var-true-blue);
+    font-size: 14px;
+}
+
+body.theme_red.theme_novo .backimg .backsvg {
+    padding-left: 20px;
+}
+
+body.theme_red.theme_novo .backimg .backsvg svg {
+    fill: var(--var-true-blue);
+}
+
+body.theme_red.theme_novo .registernav.langnav {
+    height: 56px !important;
+}
+
+body.theme_red.theme_novo .loginphonepagegrid .loginnav {
+    height: 56px !important;
+    background-color: var(--var-snow-white);
+}
+
+body.theme_red.theme_novo .bottomIcons div {
+    height: 20px !important;
+    width: 20px !important;
+    margin: 0px auto !important;
+}
+
+body.theme_red.theme_novo .bottomIcons {
+    padding-top: 10px !important;
+}
+
+body.theme_red.theme_novo .facilty-section .pagination button,
+body.theme_red.theme_novo .facilty-section .pagination button,
+body.theme_red.theme_novo .regcardheader,
+body.theme_red.theme_novo .addbtn {
+    background-color: var(--var-true-blue) !important;
+    border-color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo thead tr th {
+    background-color: #fff !important;
+    /* background-color: var(--var-faint-light-blue) !important; */
+    color: var(--var-true-blue) !important;
+    border-right: 1px solid #ddd !important;
+    padding: 10px !important;
+}
+
+body.theme_red.theme_novo table tbody td{
+    border-right: 1px solid #ddd !important;
+   padding: 10px !important;
+
+}
+
+body.theme_red.theme_novo .linelistTable .btn-blue svg path {
+    fill: var(--var-true-blue) !important;
+    cursor: pointer;
+}
+
+body.theme_red.theme_novo .regcardheader {
+    background-color: var(--var-sand-grey-faint) !important;
+    color: var(--var-true-blue) !important;
+}
+
+body.theme_red.theme_novo .highlighted-box {
+    border-left-color: var(--var-true-blue) !important;
+    color: var(--var-true-blue) !important;
+}
