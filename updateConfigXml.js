@@ -4,14 +4,15 @@ const fetch = require('node-fetch');
 const APP_LOCALE = "PRODUCT";
 
 const CONFIG_XML_PATH = path.join(__dirname, 'config.xml');
-
-const API_URL = `${runtime.apiServiceKey}dataStore/ruleConfig/countyrule`;
-
-const locale = APP_LOCALE; 
 const RUNTIME_CONFIG_PATH = path.join(__dirname, 'public', 'runtime-config.json');
 
 // Read runtime-config.json instead of window.RUNTIME_CONFIG
 const runtime = JSON.parse(fs.readFileSync(RUNTIME_CONFIG_PATH, 'utf-8'));
+
+const API_URL = `${runtime.apiServiceKey}dataStore/ruleConfig/countyrule`;
+
+const locale = APP_LOCALE; 
+
 
 async function updateConfigXml() {
   try {

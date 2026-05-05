@@ -2,9 +2,8 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
 import 'firebase/storage';
-import 'firebase/firestore'
+import 'firebase/firestore';
 
-// check carefully before releasing to production
 export const firebaseConfig = {
   googleMapKey: "YOUR_GOOGLE_MAP_KEY",
   apiKey: "YOUR_FIREBASE_API_KEY",
@@ -18,8 +17,11 @@ export const firebaseConfig = {
   serverKey: "YOUR_FIREBASE_SERVER_KEY"
 };
 
-firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth;
-export const db = firebase.database();
-export const storageRef = firebase.storage();
-export const store = firebase.firestore()
+// firebase.initializeApp(firebaseConfig); // ← commented out
+
+const app = firebase.apps.length ? firebase.app() : null;
+
+export const auth       = app ? app.auth()      : null;
+export const db         = app ? app.database()  : null;
+export const storageRef = app ? app.storage()   : null;
+export const store      = app ? app.firestore() : null;
