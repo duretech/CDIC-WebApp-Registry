@@ -1133,7 +1133,7 @@ function InputFieldConfig(props) {
             <Field
               name={fieldData.trackedEntityAttribute.id}
               label={getTranslatedLabels(fieldData.trackedEntityAttribute)}
-              type={"text"}
+              type={APP_LOCALE== "CC013" && customfieldobj.nationalIdNumber && fieldData.trackedEntityAttribute.id === customfieldobj.nationalIdNumber ?  "number" : "text"}
               component={InputFieldFF}
               key={fieldData.trackedEntityAttribute.id}
               required={
@@ -2329,7 +2329,10 @@ function PhoneNumberFieldConfig(props) {
     isNaN(value) || value >= min
       ? undefined
       : t("Phone number cannot be 0 or negative");
-
+  const length9or10 = (value) =>
+  value && !/^\d{9,10}$/.test(value)
+    ? t("Should be 9 or 10 digits")
+    : undefined;
   const maxLength = (max) => (value) =>
     value
       ? isNaN(value) || value.length != max
@@ -2488,7 +2491,9 @@ function PhoneNumberFieldConfig(props) {
             // validate={composeValidators(required, numberFormat, maxLength(maxLengthValidation))}
             validate={composeValidators(
               required,
-              maxLength(maxLengthValidation),
+              APP_LOCALE === "CC013"
+                ? length9or10
+                : maxLength(maxLengthValidation),
               minValue(1)
             )}
             className={customClassName}

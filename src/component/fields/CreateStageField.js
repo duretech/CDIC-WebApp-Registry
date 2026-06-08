@@ -35,7 +35,7 @@ import {
   RadioFieldFF,
   FileInputFieldFF,
 } from "@dhis2/ui";
-
+import FileDownloadOutlined from "@mui/icons-material/FileDownloadOutlined";
 import CloseIcon from "@material-ui/icons/Close";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -58,7 +58,7 @@ import {
 //   import { Select } from 'mui-rff';
 
 import Grid from "@material-ui/core/Grid";
-
+import Box from "@material-ui/core/Box";
 //   import {Checkboxes, CheckboxData} from 'mui-rff';
 
 import "date-fns";
@@ -953,6 +953,33 @@ function InputFieldConfig(props) {
           }
         }
 
+        if(APP_LOCALE === "CC013"){
+          if(customfieldobj.occupationId && fieldData.dataElement.id == customfieldobj.occupationId){
+              validationResult.hideShow = false;
+              if(values[customfieldobj.ageUID] && values[customfieldobj.ageUID] >= 18){
+                  validationResult.hideShow = true;
+              }
+          }
+          if(customfieldobj.monthlyHouseholdIncomeId && fieldData.dataElement.id == customfieldobj.monthlyHouseholdIncomeId){
+              validationResult.hideShow = false;
+              if(values[customfieldobj.ageUID] && values[customfieldobj.ageUID] >= 18 && values[customfieldobj.occupationId] && (values[customfieldobj.occupationId] == "Self-employed" || values[customfieldobj.occupationId] == "Employed")){
+                  validationResult.hideShow = true;
+              }
+          }
+          if(customfieldobj.packYearsId && fieldData.dataElement.id == customfieldobj.packYearsId){
+              validationResult.hideShow = false;
+              if(values[customfieldobj.smokingId] && values[customfieldobj.smokingId] == "Active"){
+                  validationResult.hideShow = true;
+              }
+          }
+          if(customfieldobj.quitSmokingId && fieldData.dataElement.id == customfieldobj.quitSmokingId){
+              validationResult.hideShow = false;
+              if(values[customfieldobj.smokingId] && values[customfieldobj.smokingId] == "Ex-smoker"){
+                  validationResult.hideShow = true;
+              }
+          }
+        }
+
         //commented this as issue found in kier data upload
         // if (!values[customfieldobj.typeOfDiabetes]) {
         //   values[customfieldobj.typeOfDiabetes] = "Type 1";
@@ -1659,7 +1686,7 @@ function DateFieldConfig(props) {
                             {({ input, meta }) => {
                                 // Determine if there's an error to show
                                 const showError = ((meta.error && meta.touched) || (meta.error && meta.submitFailed));
-
+    
                return (
                     <>
                       {APP_LOCALE === "CC005" ? (
@@ -2806,7 +2833,7 @@ useEffect(() => {
 
   let bmicategory="";
     useEffect(() => {
-      if(APP_LOCALE === "PRODUCT"){
+      if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
         if(ageValue > 19){
     const bmiData = getBMICategory();
     const bmiValue = parseFloat(values[dataElementId]);
@@ -2837,8 +2864,8 @@ useEffect(() => {
 const bmizscore_ = values?.[customfieldobj.bmizscore] ?? "";
 let bmizcategory="";
  useEffect(() => {
-      if(APP_LOCALE === "PRODUCT"){
-        if(ageValue < 19){
+      if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
+        if(ageValue >=5 && ageValue <= 19){
     const bmiZData = getBMIZScoreCategory();
     const bmiZValue = parseFloat(values[customfieldobj.bmizscore]);
 
@@ -3096,80 +3123,151 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
               }
             );
           };
+          function showFieldError(element, message) {
+            let errorEl = element.nextElementSibling;
+
+            if (!errorEl || !errorEl.classList.contains("field-validation-msg")) {
+              errorEl = document.createElement("span");
+              errorEl.className = "field-validation-msg";
+              element.insertAdjacentElement("afterend", errorEl);
+            }
+
+            // Force the flex parent to wrap vertically
+            if (element.parentNode) {
+              element.parentNode.style.flexDirection = "column";
+              element.parentNode.style.alignItems = "flex-start";
+            }
+
+            //errorEl.textContent = message;
+            errorEl.innerHTML = `
+              <span style="display: inline-flex; align-items: center; gap: 4px; color:#d97706 !important">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" 
+                  fill="#fff" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="fill:#fff !important">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                ${message}
+              </span>
+            `;
+            errorEl.style.cssText = `
+              display: block;
+              width: 100%;
+              margin-top: 4px;
+              font-size: 0.85rem;
+              font-weight: 500;
+              color: #d97706 !important;
+            `;
+          }
+
+          function clearFieldError(element) {
+            const errorEl = element.nextElementSibling;
+            if (errorEl && errorEl.classList.contains("field-validation-msg")) {
+              errorEl.style.display = "none";
+              errorEl.textContent = "";
+
+              // Restore parent flex direction
+              if (element.parentNode) {
+                element.parentNode.style.flexDirection = "";
+                element.parentNode.style.alignItems = "";
+              }
+            }
+          }
           const handleInputChange = (event) => {
             const { id, value } = event.target;
 
             // Log the key up event
 
-            if (id === fieldData.dataElement.id) {
-              const timer = setTimeout(() => {
-                if (value !== null && value !== undefined && value !== "") {
-                  if (value < rangeValues.lowRange) {
-                    // If the value is less than the low range
-                   if(APP_LOCALE === "CC007"){
-                    Swal.fire({
-                      title: t("Falls in Lower Range"),
-                      text: `${t("The value")} ${value} ${t(
-                        "falls below the lower limit of"
-                      )} ${rangeValues.lowRange}.`,
-                      icon: "warning",
-                      showConfirmButton: false,
-                      timer: 1500,
-                      timerProgressBar: true
-                    });
-                  }
-                  else{
-                    swal({
-                      title: t("Falls in Lower Range"),
-                      text: `${t("The value")} ${value} ${t(
-                        "falls below the lower limit of"
-                      )} ${rangeValues.lowRange}.`,
-                      icon: "warning",
-                      button: t("OK"),
-                    });
-                  }
-                   // showWarningToast(value, rangeValues, t);
+            // if (id === fieldData.dataElement.id) {
+            //   const timer = setTimeout(() => {
+            //     if (value !== null && value !== undefined && value !== "") {
+            //       if (value < rangeValues.lowRange) {
+            //         // If the value is less than the low range
+            //        if(APP_LOCALE === "IGICH"){
+            //         Swal.fire({
+            //           title: t("Falls in Lower Range"),
+            //           text: `${t("The value")} ${value} ${t(
+            //             "falls below the lower limit of"
+            //           )} ${rangeValues.lowRange}.`,
+            //           icon: "warning",
+            //           showConfirmButton: false,
+            //           timer: 1500,
+            //           timerProgressBar: true
+            //         });
+            //       }
+            //       else{
+            //         swal({
+            //           title: t("Falls in Lower Range"),
+            //           text: `${t("The value")} ${value} ${t(
+            //             "falls below the lower limit of"
+            //           )} ${rangeValues.lowRange}.`,
+            //           icon: "warning",
+            //           button: t("OK"),
+            //         });
+            //       }
+            //        // showWarningToast(value, rangeValues, t);
 
-                  } else if (value > rangeValues.highRange) {
-                    // If the value is greater than the high range
-                     if(APP_LOCALE === "CC007"){
-                    Swal.fire({
-                      title: t("Falls in Higher Range"),
-                      text: `${t("The value")} ${value} ${t(
-                        "exceeds the upper limit of"
-                      )} ${rangeValues.highRange}.`,
-                      icon: "warning",
-                     showConfirmButton: false,
-                      timer: 1500,
-                      timerProgressBar: true
-                    });
-                  }
-                  else{
-                   swal({
-                      title: t("Falls in Higher Range"),
-                      text: `${t("The value")} ${value} ${t(
-                        "exceeds the upper limit of"
-                      )} ${rangeValues.highRange}.`,
-                      icon: "warning",
-                      button: t("OK"),
-                    });
-                  }
-                    // showupperWarningToast(value, rangeValues, t);
-                  } else if (
-                    value >= rangeValues.lowRange &&
-                    value <= rangeValues.highRange
-                  ) {
-                    // if (rangeValues.lowRange < 50 && rangeValues.highRange > 120) {
-                    // If the value is within range, but the range is out of normal bounds
-                    // swal({
-                    //     title: "Out of Range",
-                    //     text: `The value ${value} is within the allowed range of ${rangeValues.lowRange} to ${rangeValues.highRange}, but the range itself is out of normal bounds.`,
-                    //     icon: "warning",
-                    //     button: "OK",
-                    // });
-                  }
+            //       } else if (value > rangeValues.highRange) {
+            //         // If the value is greater than the high range
+            //          if(APP_LOCALE === "IGICH"){
+            //         Swal.fire({
+            //           title: t("Falls in Higher Range"),
+            //           text: `${t("The value")} ${value} ${t(
+            //             "exceeds the upper limit of"
+            //           )} ${rangeValues.highRange}.`,
+            //           icon: "warning",
+            //          showConfirmButton: false,
+            //           timer: 1500,
+            //           timerProgressBar: true
+            //         });
+            //       }
+            //       else{
+            //        swal({
+            //           title: t("Falls in Higher Range"),
+            //           text: `${t("The value")} ${value} ${t(
+            //             "exceeds the upper limit of"
+            //           )} ${rangeValues.highRange}.`,
+            //           icon: "warning",
+            //           button: t("OK"),
+            //         });
+            //       }
+            //         // showupperWarningToast(value, rangeValues, t);
+            //       } else if (
+            //         value >= rangeValues.lowRange &&
+            //         value <= rangeValues.highRange
+            //       ) {
+            //         // if (rangeValues.lowRange < 50 && rangeValues.highRange > 120) {
+            //         // If the value is within range, but the range is out of normal bounds
+            //         // swal({
+            //         //     title: "Out of Range",
+            //         //     text: `The value ${value} is within the allowed range of ${rangeValues.lowRange} to ${rangeValues.highRange}, but the range itself is out of normal bounds.`,
+            //         //     icon: "warning",
+            //         //     button: "OK",
+            //         // });
+            //       }
+            //     }
+            //   }, 100);
+            // }
+            if (id === fieldData.dataElement.id) {
+              if (value !== null && value !== undefined && value !== "") {
+                if (value < rangeValues.lowRange) {
+                  showFieldError(
+                    event.target,
+                    `${t("The value")} ${value} ${t("falls below the lower limit of")} ${rangeValues.lowRange}.`
+                  );
+                } else if (value > rangeValues.highRange) {
+                  showFieldError(
+                    event.target,
+                    `${t("The value")} ${value} ${t("exceeds the upper limit of")} ${rangeValues.highRange}.`
+                  );
+                } else {
+                  // Value is within range — clear any existing message
+                  clearFieldError(event.target);
                 }
-              }, 100);
+              } else {
+                // Empty value — clear error
+                clearFieldError(event.target);
+              }
             }
           };
 
@@ -3334,7 +3432,6 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
           validate: composeValidators(mustBeInteger),
         };
       }
-
       if (
         fieldData.dataElement.id == customfieldobj.durationOfDiabetes &&
         values[customfieldobj.dateOfDiagnosis]
@@ -3414,7 +3511,7 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
   const domhba1c = document.getElementById(customfieldobj.hbba1c);
   let EstimatedAverageBloodGlucose = document.getElementById(customfieldobj.EstimatedAverageBloodGlucose);
 
-  if (domhba1c && APP_LOCALE == "PRODUCT" && EstimatedAverageBloodGlucose) {
+  if (domhba1c && (APP_LOCALE == "PRODUCT" || APP_LOCALE == "SENEGAL") && EstimatedAverageBloodGlucose) {
    const calculateAndUpdateAverage = () => {
     let inputValue = domhba1c.value.trim();
 
@@ -3441,7 +3538,14 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
    domhba1c.addEventListener("input", calculateAndUpdateAverage);
     
       // Focus after user finishes editing
-      domhba1c.addEventListener("blur", () => {
+      domhba1c.addEventListener("blur", (e) => {
+        // relatedTarget is the element that is RECEIVING focus next
+        const focusingTarget = e.relatedTarget;
+
+        // Skip focusing EstimatedAverageBloodGlucose if user clicked a button (e.g. Submit)
+        if (focusingTarget && (focusingTarget.type === "submit" || focusingTarget.tagName === "BUTTON")) {
+          return;
+        }
         if (EstimatedAverageBloodGlucose) {
           EstimatedAverageBloodGlucose.focus();
         }
@@ -3452,8 +3556,61 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
       //   domhba1c.removeEventListener("input", calculateAndUpdateAverage);
       // };
     }
+    //Waist to Hip Ratio Calculation for Gandhi 
+    if(APP_LOCALE == "CC008"){
+                      if( customfieldobj.waistHipRatioId && fieldData.dataElement.id == customfieldobj.waistHipRatioId && customfieldobj.waistCircumferenceId && customfieldobj.hipCircumferenceId){
+                                customProps = {
+          ...customProps,
+          key: Math.random() * 9999,
+          disabled: true,
+        };
+                          try{
+                              const domWaist = values[customfieldobj.waistCircumferenceId];
+                              const domHip = values[customfieldobj.hipCircumferenceId];
+                              if(domWaist && domHip){
+                                  const waist = parseFloat(domWaist);
+                                  const hip   = parseFloat(domHip);
+                                  const ratio = (waist / hip).toFixed(3);
+                                  values[fieldData.dataElement.id] = ratio;
+                              }else{
+                                  values[fieldData.dataElement.id] = ""
+                              }
+                          }catch(e){ console.log(e)}
+                      }
+}
 
-      
+      if(APP_LOCALE == "CC013"){
+        if(customfieldobj.maximumValueFastingBloodGlucoseId && fieldData.dataElement.id == customfieldobj.maximumValueFastingBloodGlucoseId){
+            validationResult.hideShow = false;
+            if(customfieldobj.monitoringMethodId && values[customfieldobj.monitoringMethodId] && (values[customfieldobj.monitoringMethodId] == "SMBG only" || values[customfieldobj.monitoringMethodId] == "Both")){
+                validationResult.hideShow = true;
+            }
+        }
+        if(customfieldobj.maximumValuePostPrandialBloodGlucoseId && fieldData.dataElement.id == customfieldobj.maximumValuePostPrandialBloodGlucoseId){
+            validationResult.hideShow = false;
+            if(customfieldobj.monitoringMethodId && values[customfieldobj.monitoringMethodId] && (values[customfieldobj.monitoringMethodId] == "SMBG only" || values[customfieldobj.monitoringMethodId] == "Both")){
+                validationResult.hideShow = true;
+            }
+        }
+        if(customfieldobj.glucoseValuesFromMeterId && fieldData.dataElement.id == customfieldobj.glucoseValuesFromMeterId){
+            validationResult.hideShow = false;
+            if(customfieldobj.monitoringMethodId && values[customfieldobj.monitoringMethodId] && (values[customfieldobj.monitoringMethodId] == "CGM only" || values[customfieldobj.monitoringMethodId] == "Both")){
+                validationResult.hideShow = true;
+            }
+        }
+        if(customfieldobj.patientEstimatedBloodGlucoseMaximumId && fieldData.dataElement.id == customfieldobj.patientEstimatedBloodGlucoseMaximumId){
+            validationResult.hideShow = false;
+            if(customfieldobj.monitoringMethodId && values[customfieldobj.monitoringMethodId] && (values[customfieldobj.monitoringMethodId] == "CGM only" || values[customfieldobj.monitoringMethodId] == "Both")){
+                validationResult.hideShow = true;
+            }
+        }
+        if(customfieldobj.patientEstimatedBloodGlucoseMinimumId && fieldData.dataElement.id == customfieldobj.patientEstimatedBloodGlucoseMinimumId){
+            validationResult.hideShow = false;
+            if(customfieldobj.monitoringMethodId && values[customfieldobj.monitoringMethodId] && (values[customfieldobj.monitoringMethodId] == "CGM only" || values[customfieldobj.monitoringMethodId] == "Both")){
+                validationResult.hideShow = true;
+            }
+        }
+      }
 
    
       setFieldStructure(
@@ -3649,6 +3806,11 @@ function TextAreaConfig(props) {
   const [isPluginReady, setIsPluginReady] = useState(false);
   const [error, setError] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
+
+  useEffect(() => {
+  console.log("STATE isListening changed:", isListening);
+}, [isListening]);
+
   const required = (value) =>
     fieldData.compulsory && validationResult.hideShow == true
       ? value
@@ -3718,13 +3880,22 @@ function TextAreaConfig(props) {
     try {
       await requestPermissions();
 
+      // ✅ IMPORTANT: force stop before starting again
+    window.plugins.speechRecognition.stopListening(
+      () => {
+        console.log("Previous session stopped");
+      },
+      () => {}
+    );
+
+
       const options = {
         language: "en-US",
         matches: 5,
         prompt: "Speak now...",
         showPopup: true,
         showPartial: true,
-         continuous: true,
+        continuous: true,
       };
 
       // window.plugins.speechRecognition.startListening(
@@ -3772,7 +3943,7 @@ window.plugins.speechRecognition.startListening(
         // Fallback: concatenate all results
         collectedTranscript = results.join(' ');
       }
-      
+      setIsListening(false);
       values[fieldData.dataElement.id] = collectedTranscript;
        formref.current.change("forceRenderField_", Math.random());
       setRecognizedText(collectedTranscript);
@@ -3795,6 +3966,12 @@ window.plugins.speechRecognition.startListening(
 );
 
       setIsListening(true);
+
+      // ✅ Always reset
+      setTimeout(() => {
+        setIsListening(false);
+        console.log("set to false")
+      }, 5000);
       setError("");
     } catch (error) {
       console.error("Error starting speech recognition:", error);
@@ -3819,7 +3996,7 @@ window.plugins.speechRecognition.startListening(
     }
   };
 
-  const toggleListening = () => {
+  const toggleListening_old = () => {
     if (isListening) {
       stopListening();
     } else {
@@ -3829,6 +4006,18 @@ window.plugins.speechRecognition.startListening(
       startListening();
     }
   };
+
+const toggleListening = async () => {
+  console.log("clicked mic",isListening);
+
+  // always stop previous (safe reset)
+  await stopListening();
+
+  // small delay (important for Android)
+  setTimeout(() => {
+    startListening();
+  }, 300);
+};
 
   useEffect(() => {
     let checkAttempts = 0;
@@ -4126,44 +4315,7 @@ window.plugins.speechRecognition.startListening(
             autoGrow
             className={customClassName}
           />
-          <div className="speechtotext-container">
-            {settingsc?.enableUpload === "Yes" && (
-            window.cordova ? (
-              <img
-                src={
-                  isListening ? imgUrl.microphoneIcon : imgUrl.microphoneIcon
-                }
-                alt="Microphone"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  toggleListening();
-                }}
-                disabled={isPluginReady}
-                style={{ height: "25px !important", cursor: "pointer" }}
-                className="micAIIcon"
-              />
-            ) : (
-              <>
-               {/* {settingsc?.enableUpload === "Yes" && ( */}
-               <img
-                src={
-                  listening ? imgUrl.microphoneIcon : imgUrl.microphoneIcon
-                }
-                alt="Microphone"
-                onClick={e=> 
-                  showVoiceInputSwal(fieldData,values,formref)
-                  // startListeningBrowser
-                } disabled={listening}
-                // disabled={isPluginReady}
-                style={{ height: "25px !important", cursor: "pointer" }}
-                className="micAIIcon"
-              />
-               {/* )} */}
-              </>
-            )
-            )}
-          </div>
+         
 
           {/* { window.cordova ? (
                     <button
@@ -5319,7 +5471,12 @@ function QrCodeScanner(props) {
 }
 function ImageFieldConfig(props) {
   const [fileName, setFileName] = useState("No file chosen");
+  const [fieldDate, setFieldDate] = useState([])
+  const [fieldURL, setFieldURL] = useState([])
+  const [downloading, setDownloading] = useState({});
   const { t } = useTranslation();
+  const runtime = window.RUNTIME_CONFIG || {};
+  const apiServiceKey = runtime.apiServiceKey || "https://stagingcdic.imonitorplus.com/service/api/";
   let tempData = {
     Monday: {
       Breakfast: { Before: 0, After: 0 },
@@ -5716,6 +5873,50 @@ function ImageFieldConfig(props) {
     return transformedData;
   };
 
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (!file) {
+      return;
+    }
+    
+    // Validate that the file is an image
+    const isValidImage = file.type.startsWith('image/') || 
+      /\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(file.name);
+    if (!isValidImage) {
+      swal("Error", t("Please select an image file only. Other file types are not allowed."), "error");
+      // Reset the input
+      event.target.value = '';
+      return;
+    }
+    
+    setSelectedFile(file);
+    setPreviewUrl(URL.createObjectURL(file));
+    swal({
+      title: "Capture and Submit",
+      content: {
+        element: "img",
+        attributes: {
+          src: URL.createObjectURL(file),
+          alt: "Preview",
+          style: "width: 100%; max-width: 100%;",
+        },
+      },
+      className: "custom-swal-capture", // Adding class here
+      buttons: {
+        cancel: "Cancel",
+        confirm: "Process",
+      },
+    }).then((willSubmit) => {
+      if (willSubmit) {
+        handleUpload(file);
+        //   swal("Submitted!", "File captured and submitted.", "success");
+      }
+      // Reset the input value after dialog closes (whether confirmed or cancelled)
+      // This ensures onChange will fire again when selecting the same file
+      event.target.value = '';
+    });
+    setFileName(file ? file.name : "No file chosen");
+  };
 
   const captureFromCamera = () => {
     if (window.cordova && navigator.camera) {
@@ -5755,7 +5956,7 @@ function ImageFieldConfig(props) {
                       },
                     }).then((willSubmit) => {
                       if (willSubmit) {
-                        // handleUpload(realFile);
+                        handleUpload(realFile);
                       }
                     });
                   };
@@ -5788,6 +5989,239 @@ function ImageFieldConfig(props) {
     }
   };
 
+  const handlePdfFileChange = async (event, id) => {
+    const file = event.target.files[0];
+    if (!file) {
+      // setError('Please select or capture an image first.')
+      return;
+    }
+    
+    // Validate that the file is a PDF
+    const isValidPdf = file.type === "application/pdf" || file.name.toLowerCase().endsWith('.pdf');
+    if (!isValidPdf) {
+      swal("Error", t("Please select a PDF file only. Other file types are not allowed."), "error");
+      // Reset the input
+      event.target.value = '';
+      return;
+    }
+    
+    setGlobalSpinner(true);
+    const axiosInstance = axios.create({
+      baseURL: "https://apivital.imonitorplus.com/service/", // Replace with your API's base URL
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: `Token ${AUTH_TOKEN}`,
+        // Add any other default headers here
+      },
+    });
+    const formData = new FormData();
+    formData.append("files", file);
+    const jsonData = {
+      phoneNumber: "+919867155919",
+    };
+    formData.append("data", JSON.stringify(jsonData));
+    formData.append("testname", 
+      `GLYCOSYLATED HEMOGLOBIN (HbA1c),
+      Hemoglobin,
+      RBC Count,
+      Platelet Count,
+      Neutrophils,
+      Lymphocytes,
+      Monocytes,
+      Eosinophils,
+      Basophils,
+      TOTAL BILIRUBIN,
+      URINE MICROALBUMIN,
+      URINE CREATININE,
+      W.B.C,
+      R.B.C,
+      TOTAL CHOLESTEROL,
+      LDL CHOLESTEROL,
+      HDL CHOLESTEROL,
+      TRIGLYCERIDES
+      `);
+    let head = {
+      // "Content-Type": "multipart/form-data",
+      token: "yE637V8ZXVLNhIKkIJpcydCrkJeOxGgG",
+    };
+    try {
+      const response = await axiosInstance.post(
+        "v1.0/lab-report/process-report",
+        formData,
+        {
+          // headers: {
+          //   "Content-Type": "multipart/form-data",
+          //   "token":token,
+          // },
+          headers: head,
+        }
+      );
+      const number = parseFloat(
+        response.data.data["GLYCOSYLATED HEMOGLOBIN (HbA1c)"]
+      );
+      const hemoglobinValue = parseFloat(
+        response.data.data["Hemoglobin"]
+      );
+      const rbcCountValue = parseFloat(
+        response.data.data["RBC Count"] || response.data.data["R.B.C"]
+      );
+      const plateletCountValue = parseFloat(
+        response.data.data["Platelet Count"]
+      );
+      const neutrophilsValue = parseFloat(
+        response.data.data["Neutrophils"]
+      );
+      const lymphocytesValue = parseFloat(
+        response.data.data["Lymphocytes"]
+      );
+      const monocytesValue = parseFloat(
+        response.data.data["Monocytes"]
+      );
+      const eosinophilsValue = parseFloat(
+        response.data.data["Eosinophils"]
+      );
+      const basophilsValue = parseFloat(
+        response.data.data["Basophils"]
+      );
+      const creatinineValue = parseFloat(
+        response.data.data["URINE CREATININE"]
+      );
+      const wbcValue = parseFloat(
+        response.data.data["W.B.C"]
+      );
+      const totalCholesterolValue = parseFloat(
+        response.data.data["TOTAL CHOLESTEROL"]
+      );
+      const ldlCholesterolValue = parseFloat(
+        response.data.data["LDL CHOLESTEROL"]
+      );
+      const hdlCholesterolValue = parseFloat(
+        response.data.data["HDL CHOLESTEROL"]
+      );
+      const triglyceridesValue = parseFloat(
+        response.data.data["TRIGLYCERIDES"]
+      );
+     
+      setGlobalSpinner(false);
+      swal("", "Lab report sucessfully uploaded.", "success");
+      //Calculation eAG
+    // Convert to number
+    const hba1cValue = number;
+
+    if (!isNaN(hba1cValue) && hba1cValue > 0) {
+      let calc = (hba1cValue * 28.7) - 46.7;
+      calc = Math.round(calc * 100) / 100;
+      values[customfieldobj.EstimatedAverageBloodGlucose] = calc;
+    }
+    else {
+      values[customfieldobj.EstimatedAverageBloodGlucose] = 0;
+    }
+      //
+      setTimeout(() => {
+        // const bmizInput = document.getElementById("Br849ixPiPj"); // Ensure correct ID
+        // if (bmizInput) {
+        //     bmizInput.focus();
+        //     setTimeout(() => bmizInput.blur(), 300);
+        // }
+        values[id] = event.target.files;
+        values["Br849ixPiPj"] = number;
+        values["j4bBNr7kPfM"] = hemoglobinValue;
+        values["hZlxkLnoLNX"] = neutrophilsValue;
+        values["tJaqaceP7ky"] = lymphocytesValue;
+        values["rkcbgxJLPs0"] = monocytesValue;
+        values["GyPXmzGEzM8"] = eosinophilsValue;
+        values["dUltOfowoLm"] = basophilsValue;
+        values["WOaCpWKszVO"] = rbcCountValue;
+        values["Z92ftrTjmS5"] = plateletCountValue;
+        values["ElT6ODpiuKP"] = creatinineValue;
+        values["HcemfZG0LPQ"] = wbcValue;
+        values["tShYB61qPz3"] = totalCholesterolValue;
+        values["ZpcCQRjcbXU"] = ldlCholesterolValue;
+        values["dxwoI3g7sil"] = hdlCholesterolValue;
+        values["hcIYUW54fBm"] = triglyceridesValue;
+        formref.current.change("forceRenderField_", Math.random());
+      }, 1000);
+      return response.data;
+    } catch (error) {
+      console.error("POST form data request error:", error);
+      throw error;
+    }
+  };
+  const handleUpload = async (file) => {
+    setGlobalSpinner(true);
+    if (!file) {
+      // setError('Please select or capture an image first.')
+      return;
+    }
+
+    const axiosInstance = axios.create({
+      baseURL: "https://apivital.imonitorplus.com/service/", // Replace with your API's base URL
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: `Token ${AUTH_TOKEN}`,
+        // Add any other default headers here
+      },
+    });
+
+    const formData = new FormData();
+
+    // Append the file (assuming 'selectedFile' holds your image file)
+    formData.append("files", file);
+    // formData.append('token', "yRX3MzrICoVo8lV7A2428n8N7t4XgkJs")
+
+    // Append the JSON data as a string or Blob
+    const jsonData = {
+      phoneNumber: "+919867155919",
+    };
+
+    // You can append it as a string
+    formData.append("data", JSON.stringify(jsonData));
+    let head = {
+      "Content-Type": "multipart/form-data",
+      token: "yRX3MzrICoVo8lV7A2428n8N7t4XgkJs",
+    };
+    try {
+      const response = await axiosInstance.post(
+        "v1.0/lab-report/process-imageocr",
+        formData,
+        {
+          // headers: {
+          //   "Content-Type": "multipart/form-data",
+          //   "token":token,
+          // },
+          headers: head,
+        }
+      );
+      
+      if (response.data.data.lab_data) {
+        const parsedData = JSON.parse(response.data.data.lab_data).table_data;
+        
+        // Check if it's the new array format (starts with array)
+        if (Array.isArray(parsedData)) {
+          setIsNewFormat(true);
+          setDateBasedData(parsedData);
+          // Transform to old structure for compatibility with dataElementMap
+          const transformedData = transformNewFormatToOldStructure(parsedData);
+          setGlucoseData(transformedData);
+        } else {
+          // Old object format (day-based)
+          setIsNewFormat(false);
+          setDateBasedData([]);
+          setGlucoseData(parsedData);
+        }
+      } else {
+        setGlucoseData(tempData);
+      }
+      
+      setGlobalSpinner(false);
+      setOpenMap(true);
+      return response.data;
+    } catch (error) {
+      console.error("POST form data request error:", error);
+      setGlobalSpinner(false);
+      throw error;
+    }
+  };
   useEffect(() => {
     Object.entries(dataElementMap).forEach(([day, meals]) => {
       // Check if there's a Date field in the dataElementMap
@@ -5939,10 +6373,109 @@ function ImageFieldConfig(props) {
     setGlucoseData(newGlucoseData);
     return newGlucoseData;
   };
+
+  const getFileDetails = (values) => {
+    try{
+      if(props?.trackentityInstanceDetails?.enrollments?.[0]?.events){
+          const events = props.trackentityInstanceDetails.enrollments[0].events
+          const currentField = fieldData.dataElement.id
+          const stageEvent = events.filter(
+            (event) => event.programStage === props.currentStage.id
+          );
+          if (stageEvent.length > 0) {
+            const latestEvent = stageEvent.sort(
+              (a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated)
+            )[0];
+             const fileFieldId = latestEvent.dataValues.find(
+              (dv) => dv.dataElement === currentField
+            );
+            const fileFieldValue = fileFieldId?.value;
+            
+            if (fileFieldValue) {
+              // setFieldDate(prev => ({
+              //   ...prev,
+              //   [currentField]: moment(latestEvent.lastUpdated).format("DD-MM-YYYY"),
+              // }));
+
+              setFieldURL(prev => ({
+                ...prev,
+                [currentField]:
+                  "events/files?eventUid=" +
+                  latestEvent.event +
+                  "&dataElementUid=" +
+                  currentField,
+              }));
+            }
+          }
+      }
+    }catch(e){}
+  }
+
+  const handleDownload = async () => {
+  const key = fieldData.dataElement.id;
+
+  try {
+    setGlobalSpinner(true);
+    setDownloading(prev => ({ ...prev, [key]: true }));
+
+    const response = await apiServices.getBlobAPI(fieldURL[key]);
+
+    const blob = response.data; // already blob
+
+    // 🔥 Detect file type
+    const contentType =
+      response.headers?.["content-type"] || blob.type;
+
+    // 🔥 Extract filename from header (if backend sends it)
+    let fileName = "download";
+
+    const contentDisposition = response.headers?.["content-disposition"];
+
+    if (contentDisposition && contentDisposition.includes("filename")) {
+      const match = contentDisposition.match(/filename="?([^"]+)"?/);
+
+      if (match && match[1]) {
+        fileName = match[1]
+          .split(";")[0]          // 🔥 removes ;charset=UTF-8
+          .trim();
+      }
+    } else {
+      // fallback
+      const contentType =
+      response.headers?.["content-type"] || blob.type;
+
+      if (contentType.includes("pdf")) {
+        fileName = "download.pdf";
+      } else if (contentType.includes("image")) {
+        // 🔥 remove charset if present
+        const cleanType = contentType.split(";")[0];   // removes ;charset=UTF-8
+        const extension = cleanType.split("/")[1];
+
+        fileName = `download.${extension}`;
+      }
+    }
+    const url = window.URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    window.URL.revokeObjectURL(url);
+  } catch (err) {
+    console.error("Download failed", err);
+  } finally {
+    setGlobalSpinner(false);
+    setDownloading(prev => ({ ...prev, [key]: false }));
+  }
+};
   
   useEffect(() => {
     fetchValidation();
     buildGlucoseData(values);
+    getFileDetails(values)
   }, [values]);
 
   async function openFileChooser() {
@@ -5951,6 +6484,26 @@ function ImageFieldConfig(props) {
     });
     setDefaultValue(file);
   }
+
+  const validateFileType = (file) => {
+    if (!file) return undefined;
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "application/pdf"
+    ];
+
+    // DHIS2 may pass File or array
+    const selectedFile = Array.isArray(file) ? file[0] : file;
+
+    if (!allowedTypes.includes(selectedFile.type)) {
+      return t("Only JPG, PNG, and PDF files are allowed");
+    }
+
+    return undefined;
+  };
   
   const TranslatedFileInput = (props) => {
     return <FileInputFieldFF {...props} />;
@@ -6021,6 +6574,21 @@ function ImageFieldConfig(props) {
           </Grid>
         );
       } else {
+        if(APP_LOCALE == "CC013"){
+          if(customfieldobj.selfMonitoringId && fieldData.dataElement.id == customfieldobj.selfMonitoringId){
+              validationResult.hideShow = false;
+              if(customfieldobj.monitoringMethodId && values[customfieldobj.monitoringMethodId] && (values[customfieldobj.monitoringMethodId] == "SMBG only" || values[customfieldobj.monitoringMethodId] == "Both")){
+                  validationResult.hideShow = true;
+              }
+          }
+          if(customfieldobj.continuousGlucoseSensorUseId && fieldData.dataElement.id == customfieldobj.continuousGlucoseSensorUseId){
+              validationResult.hideShow = false;
+              if(customfieldobj.monitoringMethodId && values[customfieldobj.monitoringMethodId] && (values[customfieldobj.monitoringMethodId] == "CGM only" || values[customfieldobj.monitoringMethodId] == "Both")){
+                  validationResult.hideShow = true;
+              }
+          }
+        }
+        console.log("fieldData.dataElement.description ",fieldData.dataElement.description)
         if (
           fieldData.dataElement.description ==
           "Continuous Glucose Monitoring Chart"
@@ -6043,7 +6611,78 @@ function ImageFieldConfig(props) {
                                     capture="environment"
                                     onChange={handleFileChange}
                                 /> */}
-                  <div className="manualButton">
+                  {settingsc && settingsc.enableUpload === "Yes" && (
+                    <>
+                      <input
+                        type="file"
+                        accept="image/*,.jpg,.jpeg,.png,.gif,.webp,.bmp"
+                        capture="environment"
+                        style={{ display: "none" }}
+                        id="upload-file"
+                        onChange={handleFileChange}
+                      />
+                      <label htmlFor="upload-file" className="uploadImageFile">
+                        <p>Upload / Click log book image​</p>
+                        <AttachFileIcon className="attachIcon"></AttachFileIcon>{" "}
+                        *
+                      </label>
+                    </>
+                  )}
+                  {(APP_LOCALE == "CC013" || APP_LOCALE == "SENEGAL") &&
+                    (
+                      <>
+                        <Field
+                          name={fieldData.dataElement.id}
+                          //label={getTranslatedLabels(fieldData.dataElement)}
+                          // component={FileInputFieldFF}
+                          component={TranslatedFileInput}
+                          key={fieldData.dataElement.id}
+                          required={
+                            fieldData.compulsory && validationResult.hideShow == true
+                              ? true
+                              : false
+                          }
+                          value={[]}
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          validate={validateFileType}
+                          className={customClassName}
+
+                          //onChange={handleChange.bind(this)}
+                          //validate={composeValidators(required, URLCheck)}
+                        />
+                        {fieldURL?.[fieldData.dataElement.id] && values[fieldData.dataElement.id] && (
+                          <Box sx={{ mt: 1.3, ml: 0.2, mb: 0.9 }} className="download-btn">
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 1,
+                              }}
+                            >
+                              {/* <Typography variant="body2">
+                                <strong>{t("View/Download")}:</strong>{" "}
+                                {fieldDate?.[fieldData.dataElement.id]}
+                              </Typography> */}
+
+                              <FileDownloadOutlined
+                                className="viewdownloadIcon"
+                                sx={{
+                                  cursor: downloading?.[fieldData.dataElement.id] ? "not-allowed" : "pointer",
+                                  opacity: downloading?.[fieldData.dataElement.id] ? 0.6 : 1,
+                                  fontSize: 20,
+                                  color: "#1976d2",
+                                  "&:hover": { color: "#0d47a1" },
+                                }}
+                                onClick={!downloading?.[fieldData.dataElement.id] ? handleDownload : undefined}
+                              />
+                            </Box>
+                          </Box>
+                        )}
+                      </>
+
+                    )
+                  }
+                  <div className="manualButton" style={{marginTop:"10px"}}>
                     <div className="d-flex justify-content-start align-items-center gap-10px">
                       <span onClick={() => setOpenMap(true)}>
                         <IconButton aria-label="close">
@@ -6396,7 +7035,56 @@ function ImageFieldConfig(props) {
                 )}
             </>
           );
-        }  else {
+        }else if (fieldData.dataElement.description == "Lab Report Upload") {
+          setFieldStructure(
+            <>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                className={validationResult.hideShow == true ? "" : "hide"}
+              >
+                <div>
+                  <label>{getTranslatedLabels(fieldData.dataElement)}</label>
+                  {/* <input
+                                    type="file"
+                                    accept="image/*"
+                                    capture="environment"
+                                    onChange={handleFileChange}
+                                /> */}
+                  <input
+                    type="file"
+                    accept=".pdf,application/pdf"
+                    capture="environment"
+                    style={{ display: "none" }}
+                    id="upload-file"
+                    onChange={(e) =>
+                      handlePdfFileChange(e, fieldData.dataElement.id)
+                    }
+                  />
+                  <label htmlFor="upload-file" className="uploadImageFile">
+                    <p>Upload / Click Lab Report</p>
+
+                    <AttachFileIcon className="attachIcon"></AttachFileIcon>
+                  </label>
+                  <div className="manualButton">
+                    <div className="d-flex justify-content-start align-items-center gap-10px">
+                      {/* <span onClick={() => setOpenMap(true)} >
+                                    <IconButton aria-label="close">
+                                        <Edit/>
+                                    </IconButton>
+                                    <span>{t("Add Manually")}</span>
+                                    </span> */}
+                    </div>
+
+                    {/* <Typography variant="body2" className='fileSpecify'>{fileName}</Typography> */}
+                  </div>
+                </div>
+              </Grid>
+            </>
+          );
+        } else {
           setFieldStructure(
             <Grid
               item
@@ -6410,10 +7098,13 @@ function ImageFieldConfig(props) {
                                 onChange={handleChange.bind(this)}
                                 filesLimit={1}
                             /> */}
-
+              <div>
+                 
+              <>
+              <label>{getTranslatedLabels(fieldData.dataElement)}</label>
               <Field
                 name={fieldData.dataElement.id}
-                label={getTranslatedLabels(fieldData.dataElement)}
+                //label={getTranslatedLabels(fieldData.dataElement)}
                 // component={FileInputFieldFF}
                 component={TranslatedFileInput}
                 key={fieldData.dataElement.id}
@@ -6423,12 +7114,46 @@ function ImageFieldConfig(props) {
                     : false
                 }
                 value={[]}
-                accept=".pdf, image/*"
+                accept=".pdf,.jpg,.jpeg,.png"
+                validate={validateFileType}
                 className={customClassName}
 
                 //onChange={handleChange.bind(this)}
                 //validate={composeValidators(required, URLCheck)}
               />
+
+              {/* FORCE NEW ROW */}
+                {fieldURL?.[fieldData.dataElement.id] && values[fieldData.dataElement.id] && (
+                  <Box sx={{  mt: 0, ml: 1.5 }} className="download-btn tp">
+                    <Box
+                       sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1,
+                        }}
+                    >
+                      {/* <Typography variant="body2">
+                        <strong>{t("View/Download")}:</strong>{" "}
+                        {fieldDate?.[fieldData.dataElement.id]}
+                      </Typography> */}
+
+                      <FileDownloadOutlined
+                        className="viewdownloadIcon"
+                        sx={{
+                          cursor: downloading?.[fieldData.dataElement.id] ? "not-allowed" : "pointer",
+                          opacity: downloading?.[fieldData.dataElement.id] ? 0.6 : 1,
+                          fontSize: 20,
+                          color: "#1976d2",
+                          "&:hover": { color: "#0d47a1" },
+                        }}
+                        onClick={!downloading?.[fieldData.dataElement.id] ? handleDownload : undefined}
+                      />
+                    </Box>
+                  </Box>
+                )}
+                </>
+              </div>
+             
             </Grid>
           );
         }
@@ -6444,6 +7169,7 @@ function ImageFieldConfig(props) {
     isNewFormat,
     dateBasedData,
     localStorage.getItem("locale"),
+    fieldURL
   ]);
 
   return <>{fieldStructure != null ? fieldStructure : <> </>}</>;
@@ -6476,6 +7202,7 @@ function CreateField(props) {
     let glucometerFieldMap = props.glucometerFieldMap
     let currentStage = props.currentStage
     let pageType = props.pageType
+    let trackentityInstanceDetails = props.trackentityInstanceDetails
     const isHealthWorker = userBO?.userRoles?.find(
     (role) => role.name === "healthworker"
   );
@@ -6608,6 +7335,9 @@ function CreateField(props) {
                     ismaskable={ismaskable}
                     formref={formref}
                     glucometerFieldMap={glucometerFieldMap}
+                    activeCaseDetails={activeCaseDetails}
+                    trackentityInstanceDetails={trackentityInstanceDetails}
+                    currentStage={currentStage}
                 />
 
             case 'DATE':

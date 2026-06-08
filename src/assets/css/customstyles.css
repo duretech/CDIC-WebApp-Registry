@@ -12687,3 +12687,225 @@ body.theme_red .searchformcontainer .patient-filter .MuiFormControl-root{
     padding-right: 5px !important;
 
  }
+
+.field-info {
+  position: absolute;
+  left: 24px;
+  font-size: 12px;
+  color: #A0A0A0;
+  white-space: nowrap;
+}
+
+.field-note {
+  display: block;              /* force new line */
+  max-width: 240px;            /* match input width (adjust if needed) */
+  line-height: 1.4;
+  white-space: normal;         /* allow wrapping */
+  word-break: break-word;      /* break long text safely */
+  margin-top: 4px;
+}
+
+.forceNewRow {
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.download-btn{
+    position: relative;
+    right: 0px;
+    top: -34px;
+    float: right;
+}
+
+.download-btn-history {
+    position: relative;
+    right: 0px;
+    top: -12px;
+    float: right;
+}
+
+.download-btn.tp{
+    top: -25px !important;
+}
+
+.download-btn svg, .download-btn-history svg{
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.MuiAccordionDetails-root svg.viewdownloadIcon{
+    width: 25px !important;
+    height: 25px !important;
+    vertical-align: middle;
+}
+
+[data-test="dhis2-uicore-filelistitem"].selected-file .text{
+    max-width: 90% !important;
+}
+
+.password-with-eye { position: relative; }
+
+.password-with-eye .eye-btn {
+  position: absolute;
+  right: 10px;
+  top: 34px; /* adjust to align with the input */
+}
+
+/* SweetAlert v1: position custom close button in top-right */
+.swal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+
+  min-width: auto;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-size: 28px;
+  line-height: 34px;
+  color: #9aa5b1;
+}
+
+.swal-close-btn:hover {
+  background: transparent;
+  color: #111;
+}
+
+.swal-modal .swal-custom-close{
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  width: 34px;
+  height: 34px;
+  border: 0;
+  padding: 0;
+
+  background: transparent;
+  color: #9aa5b1;
+
+  font-size: 28px;
+  line-height: 34px;
+  cursor: pointer;
+}
+
+.swal-modal .swal-custom-close:hover{
+  color: #111;
+}
+
+
+.loginformholder input[type="password"],
+.loginformholder input[type="text"] {
+    padding-right: 40px !important;
+}
+
+/* Show red border on error without DHIS2's internal exclamation icon */
+.loginformholder .error-border input {
+    border-color: #d32f2f !important;
+    border-width: 2px !important;
+}
+
+
+@media (max-width: 768px) {
+
+.appointment-calenadar-block .fc .fc-scroller {
+  overflow-x: hidden !important;
+}
+
+/* Ensure calendar fits container */
+.appointment-calenadar-block .fc {
+  width: 100% !important;
+}
+
+/* Fix table layout */
+.appointment-calenadar-block .fc .fc-daygrid-body {
+  width: 100% !important;
+}
+
+/* Reduce font size */
+  .appointment-calenadar-block .fc {
+    font-size: 12px;
+  }
+
+  /* Reduce header spacing */
+  .appointment-calenadar-block .fc-toolbar {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Fix day cell height */
+  .appointment-calenadar-block .fc .fc-daygrid-day-frame {
+    min-height: 55px;
+    padding: 2px;
+  }
+
+  /* Make day numbers smaller */
+  .appointment-calenadar-block .fc .fc-daygrid-day-number {
+    font-size: 12px;
+  }
+
+  /* Event compact */
+  .appointment-calenadar-block .fc-event {
+    font-size: 10px;
+    padding: 1px 2px;
+  }
+
+  .appointment-calenadar-block .fc-more-popover {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 320px;
+  }
+
+  .appointment-calenadar-block .fc .fc-daygrid-day-frame {
+        min-height: 50% !important;
+        position: relative;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        margin: 0px 10px 10px 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding: 10px;
+        border-radius: 14px;
+        height: auto;
+        width: 25px;
+    }
+
+    body.theme_red .appointment-calenadar-block .fc-day-today .fc-daygrid-day-number{
+        background-color: transparent !important;
+        padding: 0px !important;
+    }
+
+    body.theme_red.theme_novo .appointment-calenadar-block thead tr th{
+        padding: 0px !important
+    }
+
+    body.theme_red.theme_novo .appointment-calenadar-block table tbody td{
+        padding: 0px !important
+    }
+}
+
+.field-validation-msg {
+  display: none;
+  width: 100%;          /* match the input width */
+  margin-top: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #d97706 !important;
+}
+
+.date-helper .MuiFormHelperText-root{
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+.appointment-calenadar-block tbody .fc-scroller-harness .fc-scroller {
+   overflow-y: scroll !important;
+   height: 480px !important;
+}
+}

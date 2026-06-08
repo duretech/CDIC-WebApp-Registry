@@ -25,13 +25,19 @@ function HideShowCondition(rules, programRulesVariables, values, dataElementGrou
         let parentIsCheckBox = false
         const variableName = splitCondition.match(/\{(.*?)\}/)[1]
         // console.log(programRulesVariables,splitCondition.match(/\{(.*?)\}/)[1],"splitCondition")
-        const parentRaw = programRulesVariables.filter(obj => {
+        let parentRaw = programRulesVariables.filter(obj => {
             if(obj.displayName.includes("_"))
                 return obj.displayName == (splitCondition.match(/\{(.*?)\}/)[1])
             // return obj.displayName.split("_")[1] == (splitCondition.match(/\{(.*?)\}/)[1]).split("_")[1]
             else
             return obj.displayName == splitCondition.match(/\{(.*?)\}/)[1]
             }) //[0] .dataElement.id
+
+        try{
+            if(parentRaw.length > 1 && variableName && parentRaw.filter(ele => ele.displayName == variableName)?.length > 0){
+                parentRaw = parentRaw.filter(ele => ele.displayName == variableName)
+            }
+        }catch(e){ console.log(e)}
         const parentNameFromFilter = parentRaw.length > 0 ? parentRaw[0].displayName : undefined
         // const parentNameFromFilter = parentRaw.length > 0 ? (parentRaw[0].displayName.includes("_") ? parentRaw[0].displayName.split("_")[1] : parentRaw[0].displayName) : undefined
         const parentId = parentRaw.length > 0 ? parentRaw[0].dataElement ? parentRaw[0].dataElement.id : parentRaw[0].trackedEntityAttribute ? parentRaw[0].trackedEntityAttribute.id : undefined : undefined

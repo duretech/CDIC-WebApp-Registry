@@ -48,6 +48,9 @@ const BPData = BPChart
       text: '',
       align: 'left'
   },
+  exporting: {
+        enabled: !window.cordova
+      },
   xAxis: {
         categories: BPIndicatorNames,
       title: {

@@ -130,7 +130,7 @@ const Glucose = (userData) => {
       height: "250",
     },
     exporting: {
-      enabled: true,
+      enabled: !window.cordova,
     },
     series: [
       {

@@ -113,6 +113,7 @@ const Appointments = () => {
     const [selectedCalenderDate,setSelectedCalenderDate] = useState(new Date());
     const [filteredAppoinments,setFilteredAppoinments] = useState([]);
     const [calendarMonth,setCalendarMonth] = useState(moment(new Date()).format("YYYY-MM"))
+    const isMobile = window.innerWidth < 768;
 
     // Drawer states and functions
     const [state, setState] = React.useState({ right: false });
@@ -173,8 +174,7 @@ const Appointments = () => {
                         let obj = {}
                         let getDate = moment(element.dateofappointment).format("YYYY-MM-DD")
                         let getFromTime = element.fromtime && element.fromtime !== "null" && element.fromtime.length > 0 ? element.fromtime + ':00' : '00:00:00';
-                        let getToTime = element.totime && element.fromtime !== "null" && element.totime.length > 0 ? element.totime + ':00' : '00:00:00';
-                        
+                        let getToTime = element.totime && element.totime !== "null" && element.totime.length > 0 ? element.totime + ':00' : '00:00:00';
                         obj.title = element.fisrtname;
                         obj.start = `${getDate}T${getFromTime}` //'2024-04-01 12:34:56';
                         obj.end = `${getDate}T${getToTime}` //'2024-04-01 12:34:56';
@@ -293,16 +293,36 @@ const Appointments = () => {
     }
 
     const renderEventContent = (eventInfo) => {
-    // Customize rendering of events
-        activeTodayBtn(calendarMonth)
+        activeTodayBtn(calendarMonth);
+        const { title, startStr, endStr } = eventInfo.event;
+
+        let timeText = "N/A";
+
+        const formatTime = (str) => str ? moment(str).format('HH:mm') : null;
+
+        const startTime = formatTime(startStr);
+        const endTime = endStr ? formatTime(endStr) : null;
+
+        // All-day / midnight-only event → N/A
+        if (!startStr || startTime === '00:00') {
+            timeText = "N/A";
+        } else if (endTime && endTime !== '00:00') {
+            // Both times are valid and non-midnight
+            timeText = `${startTime} - ${endTime}`;
+        } else {
+            // end is missing or same as start (FullCalendar strips endStr when equal to startStr)
+            // Show start time twice to reflect the actual single-point time
+            timeText = `${startTime} - ${startTime}`;
+        }
+
         return (
-                <div style={{overflow: 'hidden'}} className="showEventPopup">
-                    <p>
-                        <b>{t(eventInfo.event.title)}</b>
-                        <i>{moment(eventInfo.event.startStr).format('HH:mm')} - {moment(eventInfo.event.endStr).format('HH:mm')}</i>
-                    </p>
-                </div>
-            );
+            <div style={{ overflow: 'hidden' }} className="showEventPopup">
+                <p>
+                    <b>{t(title)}</b>
+                    <i style={{ marginLeft: "6px" }}>{timeText}</i>
+                </p>
+            </div>
+        );
     }
 
     return (
@@ -325,13 +345,17 @@ const Appointments = () => {
                             </Grid>
                         </Grid>
                     </div>
-                    <div className='mt-20px px-20px pl-16px'>
-                  {console.log("FullCalendar",calenderRef,eventData)}
+                    <div className='mt-20px px-20px pl-16px appointment-calenadar-block'>
+                  {/* {console.log("FullCalendar",calenderRef,eventData)} */}
                         <FullCalendar       
                             ref={calenderRef}
                             selectable={true}
                             plugins={[dayGridPlugin, interactionPlugin ]}
-                            initialView='dayGridMonth'
+                            initialView={"dayGridMonth"}
+                            height="auto"
+                            contentHeight="auto"
+                            eventDisplay="block"
+                            //moreLinkClick={isMobile ? "day" : "popover"}
                             weekends={true}
                             events={eventData}
                             dateClick={handleDateClick}

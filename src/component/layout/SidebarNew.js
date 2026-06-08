@@ -206,40 +206,59 @@ function SidebarNew({
     setSidebarToggel(false);
 
     if (menuName == "Logout") {
-      OfflineDb.getAllEntities().then((res) => {
-        if (res == undefined || res.total_rows == 0) {
-          localStorage.clear();
-          OfflineDb.deleteDatabse()
-            .then((res) => {
-              //(window.cordova) ? navigator.app.exitApp() : window.location.reload()
-              setLoginUser(false);
-            })
-            .catch((err) => {
-              //(window.cordova) ? navigator.app.exitApp() : window.location.reload()
-              setLoginUser(false);
-            });
-        } else {
-          swal({
-            title: t("Offline data"),
-            text: t("Offline records found, please sync data before logout"),
-            icon: "warning",
-            buttons: "Close",
-          }); /*.then(result=>{
-					if(result){
-						localStorage.clear()
-						OfflineDb.cleanAppDB().then(response=>{
-						})
-						OfflineDb.deleteDatabse().then(res=>{
-							//(window.cordova) ? navigator.app.exitApp() : window.location.reload()
-							setLoginUser(false)
-						}).catch(err=>{
-							//(window.cordova) ? navigator.app.exitApp() : window.location.reload()
-							setLoginUser(false)
-						}) 
-					}
-				})*/
-        }
-      });
+      if (!navigator.onLine) {
+              swal({
+                title: t("Alert"),
+                text: t("You are currently offline. Please connect to the internet before logging out."),
+                icon: "warning",
+                button: "OK",
+              });
+              return; // stop logout process
+            }
+            swal({
+                  // title: t("New Visit"),
+                  text: t("Are you sure you want to logout ?"),
+                  icon: "warning",
+                  buttons: [t("No"), t("Yes")],
+                })
+                  .then((AlertRes) => {
+                    if (AlertRes) {
+                        OfflineDb.getAllEntities().then((res) => {
+                          if (res == undefined || res.total_rows == 0) {
+                            localStorage.clear();
+                            OfflineDb.deleteDatabse()
+                              .then((res) => {
+                                //(window.cordova) ? navigator.app.exitApp() : window.location.reload()
+                                setLoginUser(false);
+                              })
+                              .catch((err) => {
+                                //(window.cordova) ? navigator.app.exitApp() : window.location.reload()
+                                setLoginUser(false);
+                              });
+                          } else {
+                            swal({
+                              title: t("Offline data"),
+                              text: t("Offline records found, please sync data before logout"),
+                              icon: "warning",
+                              buttons: "Close",
+                            }); /*.then(result=>{
+                            if(result){
+                              localStorage.clear()
+                              OfflineDb.cleanAppDB().then(response=>{
+                              })
+                              OfflineDb.deleteDatabse().then(res=>{
+                                //(window.cordova) ? navigator.app.exitApp() : window.location.reload()
+                                setLoginUser(false)
+                              }).catch(err=>{
+                                //(window.cordova) ? navigator.app.exitApp() : window.location.reload()
+                                setLoginUser(false)
+                              }) 
+                            }
+                          })*/
+                          }
+                        });
+                      }
+                    })
     }
 
     if (menuName == "Add New Client") {

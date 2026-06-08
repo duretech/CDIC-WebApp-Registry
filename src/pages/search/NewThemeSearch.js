@@ -218,7 +218,7 @@ function Search() {
                 id="panel1-header"
               >
               {APP_LOCALE === "CC002" ? (
-                // Return blank/null when locale is CAMEROON
+                // Return blank/null when locale is CC002
                 null
               ) : (
                 // Otherwise display identification details

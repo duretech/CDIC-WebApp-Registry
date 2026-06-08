@@ -12,7 +12,7 @@ const BMI = (userData) => {
   const [monthNames, setMonthNames] = useState([]);
   const [maxDates, setMaxDates] = useState([]);
 
-  // Define static months for Gandhi
+  // Define static months for CC008
   const staticMonths = [
     t("JANUARY"),
     t("FEBRUARY"),
@@ -44,7 +44,7 @@ const BMI = (userData) => {
         const responseData = res?.data?.data || [];
 
         if (APP_LOCALE === "CC008") {
-          // Map API response to static months order for Gandhi
+          // Map API response to static months order for CC008
           const mappedData = staticMonths.map((month) => {
             const apiData = responseData?.find(
               (item) => item.monthname.trim() === month
@@ -59,7 +59,7 @@ const BMI = (userData) => {
           });
           setChartData(mappedData);
         } else {
-          // Non-Gandhi logic
+          // Non-CC008 logic
           const sortedData = responseData.sort((a, b) => {
             const monthAIndex = staticMonths.indexOf(a.monthname.trim());
             const monthBIndex = staticMonths.indexOf(b.monthname.trim());
@@ -80,7 +80,7 @@ const BMI = (userData) => {
       .catch((error) => console.error("Error fetching BMI data:", error));
   }, []);
 
-  // Find second occurrence of 25 in data for non-GANDHI
+  // Find second occurrence of 25 in data for non-CC008
   const firstIndexOf25 = chartData.indexOf(25);
   const secondIndexOf25 = chartData.indexOf(25, firstIndexOf25 + 1);
 
@@ -103,6 +103,9 @@ const BMI = (userData) => {
       x: 10,
       y: 10,
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: APP_LOCALE === "CC008" ? staticMonths : monthNames,
     },

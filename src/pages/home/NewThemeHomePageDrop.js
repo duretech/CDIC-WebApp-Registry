@@ -283,7 +283,7 @@ function NewThemeHomePageDrop(props) {
   const [tempMonth, setTempMonth] = useState('01');
   const [tempPeriodType, setTempPeriodType] = useState('Yearly');
   const [lineChartType, setLineChartType] = useState(
-    APP_LOCALE === 'GANDHI' ? 'Basal Insulin' : 'Insulin'
+    APP_LOCALE === 'CC008' ? 'Basal Insulin' : 'Insulin'
   );
   const [basicTestChartType, setBasicTestChartType] = useState('Basic Test');
   const filterRef = useRef(null);
@@ -603,6 +603,7 @@ function NewThemeHomePageDrop(props) {
                                                     : []
                                                 );
                                                 setProgress(90);
+                                                
                                                 let ouAPI = OUStructureParams;
                                                 if (
                                                   programBoDetails &&
@@ -700,7 +701,7 @@ function NewThemeHomePageDrop(props) {
                               loginDetails.data.programs[0],
                               loginDetails.data.organisationUnits[0].id
                             )
-                            if (APP_LOCALE === 'GANDHI') {
+                            if (APP_LOCALE === 'CC008') {
                               getSocioEconomicCharts(
                                 loginDetails.data.programs[0],
                                 loginDetails.data.organisationUnits[0].id
@@ -1127,7 +1128,7 @@ function NewThemeHomePageDrop(props) {
   const handleTabChange = (newValue) => {
     setTabValue(newValue);
 
-    if (APP_LOCALE === 'GANDHI') {
+    if (APP_LOCALE === 'CC008') {
       setLineChartType(newValue === 1 ? 'Bolus Insulin' : newValue === 2 ? 'Glucose' : newValue === 0 ? 'Basal Insulin' : '');
     } else {
       setLineChartType(newValue === 1 ? 'HbA1c' : newValue === 2 ? 'Glucose' : newValue === 0 ? 'Insulin' : '');
@@ -1439,8 +1440,37 @@ function NewThemeHomePageDrop(props) {
 
       if (programDetailsValue && programDetailsValue.data) {
 
-        const roleBasedArray = programDetailsValue.data.roleBasedArray[0];
-        userRoleData = roleBasedArray[userrolename];
+        const roleBasedArray = programDetailsValue?.data?.roleBasedArray[0];
+        let userRoleData = roleBasedArray[userrolename] ? roleBasedArray[userrolename] : []
+        if(roleBasedArray){
+          const hasSortOrder = userRoleData?.some(item => item.sortOrder !== undefined);
+
+          if (hasSortOrder) {
+            // Find logout item
+            const logoutItemIndex = userRoleData.findIndex(
+              item => item.name?.toLowerCase() === "logout"
+            );
+
+            let logoutItem = null;
+            if (logoutItemIndex !== -1) {
+              logoutItem = userRoleData[logoutItemIndex];
+            }
+
+            // Separate items with & without sortOrder
+            const withOrder = userRoleData.filter(item => item.sortOrder !== undefined && item !== logoutItem);
+            const withoutOrder = userRoleData.filter(item => item.sortOrder === undefined && item !== logoutItem);
+
+            // Sort items with sortOrder
+            withOrder.sort((a, b) => a.sortOrder - b.sortOrder);
+
+            // Final Order: withOrder → withoutOrder → Logout
+            userRoleData = [
+              ...withOrder,
+              ...withoutOrder,
+              ...(logoutItem ? [logoutItem] : [])
+            ];
+          }
+        }
         //   }
         // }
         // let programDetails = await OfflineDb.getDataFromPouchDB("programBoDetails");
@@ -1967,7 +1997,8 @@ function NewThemeHomePageDrop(props) {
             : <></>
             } */}
                         <div className="leftsidebar">
-                          {userrolename
+                          {renderNewStyleMenuitems()}
+                          {/* {userrolename
                             ? userrolename == patientRole
                               ? renderPatientMenuitems()
                               : userrolename.toLowerCase() == superAdmin
@@ -1975,7 +2006,7 @@ function NewThemeHomePageDrop(props) {
                                 : userrolename == facilityUser
                                   ? renderFacilityUserComponent()
                                   : renderNewStyleMenuitems()
-                            : renderNewStyleMenuitems()}
+                            : renderNewStyleMenuitems()} */}
                         </div>
                         <div className="version-tag web-version-tag">
                           {t("Version No")} : 1.0.8s
@@ -2600,7 +2631,8 @@ function NewThemeHomePageDrop(props) {
             : <></>
             } */}
                     <div className="leftsidebar">
-                      {userrolename
+                      {renderNewStyleMenuitems()}
+                      {/* {userrolename
                         ? userrolename == patientRole
                           ? renderPatientMenuitems()
                           : userrolename.toLowerCase() == superAdmin
@@ -2608,7 +2640,7 @@ function NewThemeHomePageDrop(props) {
                             : userrolename == facilityUser
                               ? renderFacilityUserComponent()
                               : renderNewStyleMenuitems()
-                        : renderNewStyleMenuitems()}
+                        : renderNewStyleMenuitems()} */}
                     </div>
                     <div className="version-tag web-version-tag">
                       {t("Version No")} : 1.0.8s

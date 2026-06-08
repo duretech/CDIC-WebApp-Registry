@@ -38,6 +38,9 @@ const LineChart = (props) => {
         text: "",
         ...(APP_LOCALE === "GANDHIO" && { align: "left" }) // Add `align: 'left'` only for GANDHI
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
         categories: [
             t('Jan'), 

@@ -18,7 +18,7 @@ const healthThresholds = {
 };
 
 const HealthMetricIndicator = ({ prevValue, currValue, metric, filterObject }) => {
-    console.log(prevValue, currValue, 'values')
+    //console.log(prevValue, currValue, 'values')
   const [referenceRange, setReferenceRange] = useState({});
   
   useEffect(() => {

@@ -58,6 +58,9 @@ const SMRChart = ({ userData }) => {
     const chartOptions = {
         chart: { type: "column", backgroundColor: "transparent", height: 500 },
         title: { text: "" },
+        exporting: {
+        enabled: !window.cordova
+      },
         xAxis: { categories: chartData.months, title: { text: "Months" } },
         // yAxis: { min: 0, title: { text: "" }, labels: { enabled: false } },
         yAxis: { 

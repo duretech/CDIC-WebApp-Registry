@@ -381,6 +381,15 @@ function HeaderNew({ setSidebarToggel, setLoginUser }) {
       })
   }
   const logout = () => {
+    if (!navigator.onLine) {
+        swal({
+          title: t("Alert"),
+          text: t("You are currently offline. Please connect to the internet before logging out."),
+          icon: "warning",
+          button: "OK",
+        });
+        return; // stop logout process
+      }
     let userrorle = localStorage.getItem('userrole')
 
     swal({
@@ -571,17 +580,19 @@ function HeaderNew({ setSidebarToggel, setLoginUser }) {
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={"classes.menuButton: backMainButton"}
-            color="inherit"
-            aria-label="go back"
-            onClick={() => history.goBack()}
+          { window.location && window.location.pathname && !window.location.pathname.includes('/home') &&
+            <IconButton
+              edge="start"
+              className={"classes.menuButton: backMainButton"}
+              color="inherit"
+              aria-label="go back"
+              onClick={() => history.goBack()}
 
-          //style={{display:'none'}}
-          >
-            <ArrowBack />
-          </IconButton>
+            //style={{display:'none'}}
+            >
+              <ArrowBack />
+            </IconButton>
+          }
           {window.document.body.clientWidth < 1023 || window.cordova ?
             <IconButton
               edge="start"

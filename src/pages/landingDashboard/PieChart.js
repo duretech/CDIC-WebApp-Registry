@@ -28,6 +28,9 @@ const PieChart = (props) => {
       backgroundColor: null,
       height: '400',
     },
+    exporting: {
+      enabled: !window.cordova
+    },
     title: {
       text: "",
     },

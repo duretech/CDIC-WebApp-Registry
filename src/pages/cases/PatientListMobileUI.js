@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const actionColumns = ["edit","followup","view","patientcard",];
+const actionColumns = ["edit","view","followup","patientcard",];
 
 const PatientListMobileUI = ({columns, data, itemsPerPage}) => {
   console.log("data: ", columns, data);
@@ -161,8 +161,8 @@ const PatientListMobileUI = ({columns, data, itemsPerPage}) => {
                         onClick={(e) => onClickHandler && onClickHandler(e)}
                       >
                         {key === "edit" && <><EditIcon /> <span className="ml-10px"></span></>}
-                        {key === "followup" && <><AssignmentTurnedInIcon /> <span className="ml-10px"></span></>}
                         {key === "view" && <><VisibilityIcon /><span className="ml-10px"></span></>}
+                        {key === "followup" && <><AssignmentTurnedInIcon /> <span className="ml-10px"></span></>}
                         {key === "patientcard" && <><PortraitIcon /> <span className="ml-10px"></span></>}
                       </Button>
                     );

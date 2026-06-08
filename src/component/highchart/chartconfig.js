@@ -23,7 +23,9 @@ export const columnConfig = (
         color: "#000",
       },
     },
-
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: xaxis,
       gridLineWidth: 0,
@@ -330,6 +332,9 @@ export const stackConfig = (
         color: "#ffc107",
       },
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: xaxis,
     },
@@ -504,6 +509,9 @@ export const lineConfig = (seriesdata, xaxis, charttitle, yaxis = "") => {
         color: "#ffc107",
       },
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: xaxis,
     },
@@ -660,6 +668,9 @@ export const ageConfig = (
     credits: {
       enabled: false,
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       gridLineWidth: 0,
       scalable: true,
@@ -742,6 +753,9 @@ export const genderConfig = (
     title: {
         text: ''
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       
       gridLineWidth: 0,
@@ -847,6 +861,9 @@ export const migrConfig = (
       "#cccc00",
       "#000080",
     ],
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: ['Total documented migrant ', 'Total non-documented migrant ', 'Total refugees ', 'Total Returnees ', 'Total IDPs '],
       scalable: true,
@@ -987,6 +1004,9 @@ export const drillDownConfig = (
     lang: {
       drillUpText: '<<Back'
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
         type: 'category'
     },
@@ -1065,9 +1085,9 @@ export const drillDownConfig = (
                     drilldown: "Afghanistan"
                 },
                 {
-                    name: "CC005",
+                    name: "Pakistan",
                     y: 65,
-                    drilldown: "CC005"
+                    drilldown: "Pakistan"
                 },
                 {
                     name: "Iran",
@@ -1223,8 +1243,8 @@ export const drillDownConfig = (
                 ]
             },
             {
-                name: "CC005",
-                id: "CC005",
+                name: "Pakistan",
+                id: "Pakistan",
                 data: [
                     [
                         "KP",
@@ -1331,6 +1351,9 @@ export const epiConfig = (
       "#cccc00",
       "#000080",
     ],
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
       scalable: true,
@@ -1579,6 +1602,9 @@ export const migrantChart = (data,seriesData) => {
           "#cccc00",
           "#000080",
         ],
+        exporting: {
+          enabled: !window.cordova
+        },
         xAxis: {
           categories: ['Screened','Tested','Tested positive','Initiated on treatment','Recovered'],
           scalable: true,
@@ -1655,6 +1681,9 @@ export const countryTransfer = (data) => {
       "#cccc00",
       "#000080",
     ],
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: ['Afghanistan',
       'Iran','Pakistan'],
@@ -1827,6 +1856,9 @@ export const countryCaseType = (data) => {
       "#cccc00",
       "#000080",
     ],
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: ['Afghanistan',
       'Iran','Pakistan'],

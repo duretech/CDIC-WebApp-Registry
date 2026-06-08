@@ -406,6 +406,7 @@ function SimpleTabs(props) {
   const [linkContactFlag, setLinkContactFlag] = useState(null);
   const [trackentityInstanceDetails, setTrackentityInstanceDetails] = useState(null);
   const [newServiceStartFlag, setServiceStartFlag] = useState(false);
+  const [followupServices, setFollowupServices] = useState([]);
   const [searchResponse, setSearchResponse] = React.useState(null);
   const [searchHeader, setSearchHeader] = React.useState(null);
   const [formValuePostDeDup, setFormValuePostDeDup] = React.useState(null);
@@ -418,7 +419,7 @@ function SimpleTabs(props) {
   const [showOCRDataPopUp, SetShowOCRDataPopUp] = useState([]);
   const [dataSummary, setSummaryNoData] = useState(false);
   const [resetData, setResetData] = useState(false);
-
+  const [stageTabValue, setStageTabValue] = useState(false);
   //this is for full calender
   const [fullCalendarEvents, setFullCalendarEvents] = useState([]);
   const [isFullCalenderPresentInStage, setIsFullCalenderPresentInStage] =
@@ -633,7 +634,7 @@ useEffect(() => {
         currentStage.description != "History" &&
         currentStage.description?.trim() != "Management" &&
         currentStage.id?.trim() != patientProfileStageId &&
-        activeCaseDetails.data?.redirectionTrue
+        activeCaseDetails.data?.redirectionTrue && !followupServices.includes(currentStage.id)
       ) {
         setTimeout(() => {
           starttoNewService(currentStage);
@@ -1739,6 +1740,7 @@ useEffect(() => {
   const [transferInStageId, settransferInStageId] = useState(null);
   const [historyscreeningStageId, sethistoryscreeningStageId] = useState(null);
   const [userProfileData, setUserProfileData] = useState({});
+  
   const [
     refertonextlevelsecondarytertiarycarecentregeneralcancers,
     setrefertonextlevelsecondarytertiarycarecentregeneralcancers,
@@ -2375,6 +2377,7 @@ useEffect(() => {
         setlabvaluesStageId(stage.id);
         tempobj = { ...tempobj, ["labvaluesStageId"]: stage.id };
       }
+      
       stage.programStageDataElements.map((de) => {
         const deId = getDataElementIdByAttribute(de, "BMIFlag");
         const wtId = getDataElementIdByAttribute(de, "WeightForBMI");
@@ -2410,6 +2413,51 @@ useEffect(() => {
           : de.dataElement.displayName;
 
         if (fieldname) {
+          if (fieldname.trim() == "Occupation") {
+            tempobj = { ...tempobj, ["occupationId"]: de.dataElement.id };
+          }
+          //  if (fieldname.trim() == "Monthly income") {
+          //   setMonthlyIncomeId(de.dataElement.id);
+          //   tempobj = { ...tempobj, ["monthlyIncomeId"]: de.dataElement.id };
+          // }
+          if (fieldname.trim() == "Monthly household income (RM)") {
+            tempobj = { ...tempobj, ["monthlyHouseholdIncomeId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Smoking_Smoking") {
+            tempobj = { ...tempobj, ["smokingId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Years Smoked") {
+            tempobj = { ...tempobj, ["packYearsId"]: de.dataElement.id };
+          }
+          //Quit smoking
+          if (fieldname.trim() == "Quit smoking") {
+            tempobj = { ...tempobj, ["quitSmokingId"]: de.dataElement.id };
+          }
+          //Monitoring method
+          if (fieldname.trim() == "Monitoring method") {
+            tempobj = { ...tempobj, ["monitoringMethodId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Continuous Glucose Monitoring Chart") {
+            tempobj = { ...tempobj, ["selfMonitoringId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Maximum Value of Fasting Blood Glucose") {
+            tempobj = { ...tempobj, ["maximumValueFastingBloodGlucoseId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Maximum Value of Post Prandial Blood Glucose") {
+            tempobj = { ...tempobj, ["maximumValuePostPrandialBloodGlucoseId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Continuous glucose sensor use") {
+            tempobj = { ...tempobj, ["continuousGlucoseSensorUseId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Glucose values from meter (mean)(mg/dl)") {
+            tempobj = { ...tempobj, ["glucoseValuesFromMeterId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Patient Estimated Blood Glucose Range (Maximum)(mg/dl)") {
+            tempobj = { ...tempobj, ["patientEstimatedBloodGlucoseMaximumId"]: de.dataElement.id };
+          }
+          if (fieldname.trim() == "Patient Estimated Blood Glucose Range (Minimum)(mg/dl)") {
+            tempobj = { ...tempobj, ["patientEstimatedBloodGlucoseMinimumId"]: de.dataElement.id };
+          }
           if (fieldname.trim() == "Previous Diabetic Foot Ulcer Year - pak_history") {
             tempobj = { ...tempobj, ["footUlcerYear"]: de.dataElement.id };
           }
@@ -2568,6 +2616,12 @@ useEffect(() => {
               ["typeOfInsulinRoutineVisits"]: de.dataElement.id,
             };
           }
+          if (fieldname.trim() == "Name of the Insulin_Temp") {
+            tempobj = {
+              ...tempobj,
+              ["nameOfInsulin"]: de.dataElement.id,
+            };
+          }
           if (fieldname.trim() == "Name of the Insulin_Routine") {
             setNameOfInsulinRoutineVisits(de.dataElement.id);
             tempobj = {
@@ -2580,6 +2634,36 @@ useEffect(() => {
             tempobj = {
               ...tempobj,
               ["frequencyRoutineVisits"]: de.dataElement.id,
+            };
+          }
+          if (fieldname.trim() == "Dosage (breakfast) - Management") {
+            tempobj = {
+              ...tempobj,
+              ["dosageDailyUnits"]: de.dataElement.id,
+            };
+          }
+          if (fieldname.trim() == "Insulin dose per kg") {
+            tempobj = {
+              ...tempobj,
+              ["insulinDosePerkg"]: de.dataElement.id,
+            };
+          }
+          if (fieldname.trim() == "Insulin delivery method") {
+            tempobj = {
+              ...tempobj,
+              ["insulinDeliveryMethod"]: de.dataElement.id,
+            };
+          }
+          if (fieldname.trim() == "Dosage units - Malaysia") {
+            tempobj = {
+              ...tempobj,
+              ["dosageUnits"]: de.dataElement.id,
+            };
+          }
+          if (fieldname.trim() == "Time units") {
+            tempobj = {
+              ...tempobj,
+              ["timeUnits"]: de.dataElement.id,
             };
           }
           if (fieldname.trim() == "Dosage (unit/day)_Routine_visits") {
@@ -2889,6 +2973,15 @@ useEffect(() => {
           //   setbmiID1(de.dataElement.id);
           //   tempobj = { ...tempobj, ["bmiID1"]: de.dataElement.id };
           // }
+if (fieldname.trim() === 'Waist Circumference') {
+  tempobj = { ...tempobj, waistCircumferenceId: de.dataElement.id }; 
+}
+if (fieldname.trim() === 'Hip Circumference') {
+  tempobj = { ...tempobj, hipCircumferenceId: de.dataElement.id }; 
+}
+if (fieldname.trim() === 'Waist - Hip Ratio') {
+  tempobj = { ...tempobj, waistHipRatioId: de.dataElement.id }; 
+}
           if (fieldname.trim() == "Test result (TB)") {
             setTestresultTBId(de.dataElement.id);
             tempobj = { ...tempobj, ["testresultTBId"]: de.dataElement.id };
@@ -3418,6 +3511,8 @@ useEffect(() => {
               ["refertonextlevelsecondarytertiarycarecentregeneralcancers"]:
                 de.dataElement.id,
             };
+            
+            
           }
 
           //CUSTOM CHECK - Date fields for Glucometer
@@ -3679,6 +3774,9 @@ useEffect(() => {
             );
             if (sortedEvents.length > 0) {
               sortedEvents = _.sortBy(sortedEvents, "created");
+              if(stages.id == managementStageId){
+                 sortedEvents = _.sortBy(sortedEvents, "lastUpdated");
+              }
               stageData.push(sortedEvents[sortedEvents.length - 1]);
             } else {
             }
@@ -3820,7 +3918,6 @@ useEffect(() => {
           //}
         });
       });
-
       _.sortBy(stageData, "created").map((events) => {
         events.dataValues.map((fields) => {
           if (stageList != null) {
@@ -3886,7 +3983,8 @@ useEffect(() => {
                           customfieldobj.dosageSplitId,
                           customfieldobj.anyAdditionalShot,
                           customfieldobj.insulinType,
-                          customfieldobj.regimeTypeManagement
+                          customfieldobj.regimeTypeManagement,
+                          customfieldobj.nameOfInsulin
                         ];
                         if(mandatoryFields.includes(fields.dataElement)){
                             return;
@@ -3895,6 +3993,18 @@ useEffect(() => {
                              return;
                         }
                         if(APP_LOCALE == "CC006" && customfieldobj.route && fields.dataElement == customfieldobj.route){
+                             return;
+                        }
+                        if(APP_LOCALE == "CC013" && customfieldobj.insulinDosePerkg && fields.dataElement == customfieldobj.insulinDosePerkg){
+                             return;
+                        }
+                        if(APP_LOCALE == "CC013" && customfieldobj.insulinDeliveryMethod && fields.dataElement == customfieldobj.insulinDeliveryMethod){
+                             return;
+                        }
+                        if(customfieldobj.dosageUnits && fields.dataElement == customfieldobj.dosageUnits){
+                             return;
+                        }
+                        if(customfieldobj.timeUnits && fields.dataElement == customfieldobj.timeUnits){
                              return;
                         }
                     }
@@ -3913,7 +4023,7 @@ useEffect(() => {
           // InitialValueData[fields.dataElement] = fields.value
         });
       });
-
+      
       setStageImageValue(ObjecteHolder);
       if (promises.length == 0) {
         const activeCaseFormData = {
@@ -4015,7 +4125,10 @@ useEffect(() => {
           setActiveCaseFormData(activeCaseFormData);
 
           if (props.stageTabValue) {
-            setValue(props.stageTabValue);
+            if(!stageTabValue){
+              setValue(props.stageTabValue);
+            }
+            setStageTabValue(true)
           } else {
             if (
               props.selectTrackedEnityInstanceId &&
@@ -4435,6 +4548,8 @@ useEffect(() => {
     setNonInsulinTable([]);
     setinsulinTableNewObj([]);
     setNonInsulinNewObj([]);
+    // Fix: Reset on tab change to prevent History from saving as a new event if already exist via follow-up module.
+    setServiceStartFlag(false); 
     // }
     function goToNext() {
       //setFormDataChange(null)
@@ -4921,7 +5036,7 @@ useEffect(() => {
                 // "Frequency",
                 "Meal",
                 "Before/After Meal",
-                // <-- We will insert Frequency here conditionally for KIER
+                // <-- We will insert Frequency here conditionally for CC006
                 "Time of Dosage",
                 // "Dosage",
                 // "Dosage (units/day)",
@@ -4930,15 +5045,28 @@ useEffect(() => {
                 // "Dosage (lunch)",
                 // "Dosage (dinner)",
                 "Total Daily Dosage (Units)",
+                "Daily Dosage (Units)",
                 "Daily Dosage units",
                 "Dosage (units/day)",
                 "Course of Days",
+                "Duration",
+                "Time units",
+                "Dosage units",
                 ...(!isDrop
                   ? ["Any Additional Shot", "Reason for the Shot"]
                   : []),
                 // "Additional Comments",
                 "",
               ];
+              // Insert new variables only when APP_LOCALE === "CC013"
+              if(APP_LOCALE === "CC013"){
+                  //"Insulin delivery method"
+                  const index = desiredOrder.indexOf("Type of Insulin");
+                  if (index !== -1) {
+                    // Insert Insulin delivery method AFTER "Type of Insulin"
+                    desiredOrder.splice(index + 1, 0, "Insulin Delivery Method");
+                  }
+              }
 
               // Insert "Frequency" only when APP_LOCALE === "CC006"
               if (APP_LOCALE === "CC006") {
@@ -4977,7 +5105,7 @@ useEffect(() => {
               if (desiredOrder && insulinTableHeader) {
                 desiredOrder.forEach((header) => {
                   for (let key in insulinTableHeader) {
-                    if (insulinTableHeader[key] === header) {
+                    if (insulinTableHeader[key]?.toLowerCase() === header?.toLowerCase()) {
                       reorderedInsulinTableHeader[key] =
                         insulinTableHeader[key];
                       break;
@@ -4989,7 +5117,7 @@ useEffect(() => {
               if (desiredOrderNonInsulin && nonInsulinTableHeader) {
                 desiredOrderNonInsulin.forEach((header) => {
                   for (let key in nonInsulinTableHeader) {
-                    if (nonInsulinTableHeader[key] === header) {
+                    if (nonInsulinTableHeader[key]?.toLowerCase() === header?.toLowerCase()) {
                       reorderedNonInsulinTableHeader[key] =
                         nonInsulinTableHeader[key];
                       break;
@@ -6354,6 +6482,7 @@ useEffect(() => {
                 ? "FS" + localStorage.getItem("fontSize")
                 : ""
             }
+            trackentityInstanceDetails={trackentityInstanceDetails}
           />
           {/* <FieldWatcher name={fields.dataElement.id} /> */}
         </>
@@ -6387,6 +6516,7 @@ useEffect(() => {
                 ? "FS" + localStorage.getItem("fontSize")
                 : ""
             }
+            trackentityInstanceDetails={trackentityInstanceDetails}
           />
           <FieldWatcher name={fields.dataElement.id} />
         </>
@@ -7056,7 +7186,7 @@ const handleSaveTemplate = async () => {
             className="managementSection mt-10px"
           >
             {" "}
-            <Accordion defaultExpanded={managementAccordions.length === 0}>
+            <Accordion defaultExpanded={managementAccordions.length === 0 || section.name === "Outcome"}>
               {/* <Accordion> */}
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -7071,6 +7201,7 @@ const handleSaveTemplate = async () => {
                 <Typography>
                   <div>
                     {section.name === "Outcome" ||
+                    section?.name?.trim() == "Medical Therapy for DROP" ||
                     section.name === "Refer for Vascularization" ? (
                       <div>
                         <Grid container spacing={3} className="">
@@ -7133,6 +7264,9 @@ const handleSaveTemplate = async () => {
                                                   if (e.regimeType != "")
                                                     values[regimeTypeMgmnt] =
                                                       e.regimeType;
+                                                  if(customfieldobj.dosageUnits){
+                                                      delete values[customfieldobj.dosageUnits];
+                                                  }
                                                   setActiveCaseFormData({
                                                     data: {
                                                       formFormat: values, //valueForFormInput,
@@ -7148,6 +7282,12 @@ const handleSaveTemplate = async () => {
                                                   delete values[regimeTypeMgmnt];
                                                   if(APP_LOCALE =="CC006" && kierRoute){
                                                       delete values[kierRoute];
+                                                  }
+                                                  if(APP_LOCALE == "CC013" && customfieldobj.insulinDeliveryMethod){
+                                                      delete values[customfieldobj.insulinDeliveryMethod];
+                                                  }
+                                                  if(APP_LOCALE =="CC013" && customfieldobj.insulinDosePerkg){
+                                                      delete values[customfieldobj.insulinDosePerkg];
                                                   }
                                                   formRef.current.change(
                                                     "forceRenderField_",
@@ -7529,6 +7669,26 @@ const handleSaveTemplate = async () => {
                                           {renderStageField(
                                             findAndReturnDataElement(
                                               "Patient Advice / Notes/ Suggestion",
+                                              stage.programStageDataElements
+                                            ),
+                                            values ? values : {},
+                                            form,
+                                            stage.programStageDataElements,
+                                            stage
+                                          )}
+                                          {APP_LOCALE== "CC014" && renderStageField(
+                                            findAndReturnDataElement(
+                                              "Fundus of the Eye",
+                                              stage.programStageDataElements
+                                            ),
+                                            values ? values : {},
+                                            form,
+                                            stage.programStageDataElements,
+                                            stage
+                                          )}
+                                          {APP_LOCALE== "CC014" && renderStageField(
+                                            findAndReturnDataElement(
+                                              "Remarks_Fundus of the Eye",
                                               stage.programStageDataElements
                                             ),
                                             values ? values : {},
@@ -8130,7 +8290,9 @@ const handleSaveTemplate = async () => {
                                               values[insulinType] = e.typeOfInsulin;
                                             if (e.regimeType !== "")
                                               values[regimeTypeMgmnt] = e.regimeType;
-
+                                            if(customfieldobj.dosageUnits){
+                                                delete values[customfieldobj.dosageUnits];
+                                            }
                                             setActiveCaseFormData({
                                               data: {
                                                 formFormat: values,
@@ -8144,6 +8306,12 @@ const handleSaveTemplate = async () => {
                                             if(APP_LOCALE =="CC006" && kierRoute){
                                                 delete values[kierRoute];
                                             }
+                                             if(APP_LOCALE == "CC013" && customfieldobj.insulinDeliveryMethod){
+                                                  delete values[customfieldobj.insulinDeliveryMethod];
+                                              }
+                                              if(APP_LOCALE =="CC013" && customfieldobj.insulinDosePerkg){
+                                                  delete values[customfieldobj.insulinDosePerkg];
+                                              }
                                             formRef.current.change("forceRenderField_", Math.random());
                                           }
                                         }}
@@ -8167,6 +8335,9 @@ const handleSaveTemplate = async () => {
                                                 dhisFormat: null, //
                                               },
                                             });
+                                            if(customfieldobj.dosageUnits){
+                                                delete values[customfieldobj.dosageUnits];
+                                            }
                                             formRef.current.change(
                                               "forceRenderField_",
                                               Math.random()
@@ -8181,6 +8352,12 @@ const handleSaveTemplate = async () => {
                                             delete values[regimeTypeMgmnt];
                                             if(APP_LOCALE =="CC006" && kierRoute){
                                                 delete values[kierRoute];
+                                            }
+                                            if(APP_LOCALE == "CC013" && customfieldobj.insulinDeliveryMethod){
+                                                delete values[customfieldobj.insulinDeliveryMethod];
+                                            }
+                                            if(APP_LOCALE =="CC013" && customfieldobj.insulinDosePerkg){
+                                                delete values[customfieldobj.insulinDosePerkg];
                                             }
                                             formRef.current.change(
                                               "forceRenderField_",
@@ -8273,6 +8450,17 @@ const handleSaveTemplate = async () => {
                            />
                            </Grid> */}
                                 {/* <InputField label="Name" placeholder="Actrapid"/> */}
+                                {APP_LOCALE == "CC013" && (selectedOption == null ||
+                                selectedOption.type == "Insulin") && renderStageField(
+                                  findAndReturnDataElement(
+                                    "Insulin delivery method",
+                                    stage.programStageDataElements
+                                  ),
+                                  values ? values : {},
+                                  form,
+                                  stage.programStageDataElements,
+                                  stage
+                                )}
                                 {APP_LOCALE == "CC006" && (selectedOption == null ||
                                       selectedOption.type == "Insulin") && renderStageField(
                                   findAndReturnDataElement(
@@ -8318,9 +8506,46 @@ const handleSaveTemplate = async () => {
                                   stage.programStageDataElements,
                                   stage
                                 )}
+                                {selectedOption && selectedOption.type != "Insulin" && findAndReturnDataElement(
+                                    "Dosage units - Malaysia",
+                                    stage.programStageDataElements
+                                  ) && renderStageField(
+                                  findAndReturnDataElement(
+                                    "Dosage units - Malaysia",
+                                    stage.programStageDataElements
+                                  ),
+                                  values ? values : {},
+                                  form,
+                                  stage.programStageDataElements,
+                                  stage
+                                )}
+                                {APP_LOCALE == "CC013" && (selectedOption == null ||
+                                selectedOption.type == "Insulin") && renderStageField(
+                                  findAndReturnDataElement(
+                                    "Insulin dose per kg",
+                                    stage.programStageDataElements
+                                  ),
+                                  values ? values : {},
+                                  form,
+                                  stage.programStageDataElements,
+                                  stage
+                                )}
                                 {!isDrop && renderStageField(
                                   findAndReturnDataElement(
                                     "Course of Days",
+                                    stage.programStageDataElements
+                                  ),
+                                  values ? values : {},
+                                  form,
+                                  stage.programStageDataElements,
+                                  stage
+                                )}
+                                {findAndReturnDataElement(
+                                    "Time units",
+                                    stage.programStageDataElements
+                                  ) && renderStageField(
+                                  findAndReturnDataElement(
+                                    "Time units",
                                     stage.programStageDataElements
                                   ),
                                   values ? values : {},
@@ -9169,6 +9394,26 @@ const handleSaveTemplate = async () => {
                                           stage.programStageDataElements,
                                           stage
                                         )}
+                                        {APP_LOCALE== "CC014" && renderStageField(
+                                            findAndReturnDataElement(
+                                              "Fundus of the Eye",
+                                              stage.programStageDataElements
+                                            ),
+                                            values ? values : {},
+                                            form,
+                                            stage.programStageDataElements,
+                                            stage
+                                          )}
+                                          {APP_LOCALE== "CC014" && renderStageField(
+                                            findAndReturnDataElement(
+                                              "Remarks_Fundus of the Eye",
+                                              stage.programStageDataElements
+                                            ),
+                                            values ? values : {},
+                                            form,
+                                            stage.programStageDataElements,
+                                            stage
+                                          )}
                                       </div>
                                     </Grid>
 
@@ -9215,7 +9460,7 @@ const handleSaveTemplate = async () => {
                                     spacing={2}
                                     style={{ marginTop: "20px" }}
                                   >
-                                    <Grid item xs={12} sm={6} md={6} lg={6}>
+                                    <Grid item xs={12} sm={6} md={6} lg={6} style={{display:"block"}}>
                                       <div className="">
                                         {renderStageField(
                                           findAndReturnDataElement(
@@ -9227,9 +9472,33 @@ const handleSaveTemplate = async () => {
                                           stage.programStageDataElements,
                                           stage
                                         )}
+                                        </div>
+                                        <div className="prescriptionFieldDiv">
+                                        {APP_LOCALE== "CC014" && renderStageField(
+                                            findAndReturnDataElement(
+                                              "Fundus of the Eye",
+                                              stage.programStageDataElements
+                                            ),
+                                            values ? values : {},
+                                            form,
+                                            stage.programStageDataElements,
+                                            stage
+                                          )}
                                         {/* <label>Patient Advice / Suggestions</label>
                            <InputField multiline /> */}
                                       </div>
+                                      <div className="prescriptionFieldDiv">
+                                        {APP_LOCALE== "CC014" && renderStageField(
+                                            findAndReturnDataElement(
+                                              "Remarks_Fundus of the Eye",
+                                              stage.programStageDataElements
+                                            ),
+                                            values ? values : {},
+                                            form,
+                                            stage.programStageDataElements,
+                                            stage
+                                          )}
+                                        </div>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={6} lg={6}>
                                       <div>
@@ -9255,7 +9524,7 @@ const handleSaveTemplate = async () => {
                                             stage
                                           )}
                                         </div>
-                                        <div>
+                                        <div className="prescriptionFieldDiv">
                                           {renderStageField(
                                             findAndReturnDataElement(
                                               "Conclusion of the visit",
@@ -13489,7 +13758,7 @@ async function findMatchBeforeSearchCNIC(valuesToSave, currentInstanceId = null)
             (APP_LOCALE !== "CC006"
               ? section.displayName !== "Current Medication" &&
                 section.displayName !== "Medical Therapy"
-              : true) // For KIER, these conditions are skipped
+              : true) // For CC006, these conditions are skipped
           ) {
             return (
               <div key={`section-${sectionIndex}`}>
@@ -17244,6 +17513,7 @@ async function findMatchBeforeSearchCNIC(valuesToSave, currentInstanceId = null)
     //                 })
     //         })
     // } else {
+    //console.log("referalAPIObject ",referalAPIObject)
     //return;
     if (navigator.onLine) {
       setGlobalSpinner(true);
@@ -17315,6 +17585,14 @@ async function findMatchBeforeSearchCNIC(valuesToSave, currentInstanceId = null)
           if (!workFlow) {
             OfflineDb.setDataIntoPouchDB("newSeviceStart", false);
             setServiceStartFlag(false);
+            if(activeCaseDetails.data?.redirectionTrue && (currentStage.id == examinationStageId || currentStage.id == labvaluesStageId)){
+              setFollowupServices(prev =>
+                prev.includes(currentStage.id)
+                  ? prev
+                  : [...prev, currentStage.id]
+              );
+            }
+            
           }
 
           if (
@@ -18669,7 +18947,8 @@ async function findMatchBeforeSearchCNIC(valuesToSave, currentInstanceId = null)
 
     // setGlobalSpinner(false)
     //return
-
+    //console.log("referalAPIObject ",referalAPIObject)
+    //return;
     if (navigator.onLine) {
       setGlobalSpinner(true);
 
@@ -18678,7 +18957,6 @@ async function findMatchBeforeSearchCNIC(valuesToSave, currentInstanceId = null)
         url: updateURL,
         data: referalAPIObject,
       };
-
       const encryptedData = encryptData(tempHolder);
       apiServices
         .postAPI("commonencryption/postDecrypt", { data: encryptedData })
@@ -18743,6 +19021,13 @@ async function findMatchBeforeSearchCNIC(valuesToSave, currentInstanceId = null)
               if (!workFlow) {
                 OfflineDb.setDataIntoPouchDB("newSeviceStart", false);
                 setServiceStartFlag(false);
+                if(activeCaseDetails.data?.redirectionTrue && (currentStage.id == examinationStageId || currentStage.id == labvaluesStageId)){
+                  setFollowupServices(prev =>
+                    prev.includes(currentStage.id)
+                      ? prev
+                      : [...prev, currentStage.id]
+                  );
+                }
               }
 
               const linkContact = {
@@ -21710,7 +21995,22 @@ function hydrateRadFromTemplate(template,values) {
       let promises = [];
       for (let objectKey of Object.keys(values)) {
         //Object.keys(values).map(async function (objectKey, index) {
-
+        if(APP_LOCALE == "CC013"){
+          try{
+            if(customfieldobj.monitoringMethodId && data[customfieldobj.monitoringMethodId]){
+                if(customfieldobj.continuousGlucoseSensorUseId && objectKey == customfieldobj.continuousGlucoseSensorUseId && data[objectKey]){
+                    if(data[customfieldobj.monitoringMethodId] == "SMBG only"){
+                        delete data[objectKey]
+                    }
+                }
+                if(customfieldobj.selfMonitoringId && objectKey == customfieldobj.selfMonitoringId && data[objectKey]){
+                    if(data[customfieldobj.monitoringMethodId] == "CGM only"){
+                        delete data[objectKey]
+                    }
+                }
+            }
+          }catch(e){ console.log(e)}
+        }
         if (
           dataElementGroup.find((array) => array.id == objectKey) == undefined
         ) {
@@ -21799,8 +22099,6 @@ function hydrateRadFromTemplate(template,values) {
         }
         //})
       }
-
-      //return;
       const events = _.isEmpty(trackentityInstanceDetails)
         ? []
         : trackentityInstanceDetails.enrollments[0].events;
@@ -21817,7 +22115,7 @@ function hydrateRadFromTemplate(template,values) {
         });
       }
       if (promises.length == 0) {
-        if (filterCurrentEvent.length > 0 && newServiceStartFlag == false) {
+        if ((filterCurrentEvent.length > 0 && (currentStage.id == managementStageId || newServiceStartFlag == false)) || (activeCaseDetails.data?.redirectionTrue && followupServices.includes(currentStage.id))) {
           if (
             currentStage.attributeValues &&
             currentStage.attributeValues.length > 0 &&
@@ -21892,7 +22190,7 @@ function hydrateRadFromTemplate(template,values) {
             fieldValueWithAttribute.push(imageData);
           });
 
-          if (filterCurrentEvent.length > 0 && newServiceStartFlag == false) {
+          if ((filterCurrentEvent.length > 0 && (currentStage.id == managementStageId || newServiceStartFlag == false)) || (activeCaseDetails.data?.redirectionTrue && followupServices.includes(currentStage.id))) {
             if (
               currentStage.attributeValues &&
               currentStage.attributeValues.length > 0 &&

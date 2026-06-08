@@ -630,7 +630,7 @@ function InputFieldConfig(props) {
                 if (selectedOptionMed?.type != "Others" && fieldData.dataElement.id == customfieldobj.otherMedications) {
                     validationResult.hideShow = false
                 }
-                if (APP_LOCALE === 'KIER') {
+                if (APP_LOCALE === 'CC006') {
                     if (values[customfieldobj.Diagnosis_Examination] &&
                         (values[customfieldobj.Diagnosis_Examination] == "Type 1" ||
                             values[customfieldobj.Diagnosis_Examination] == "Type 2" ||
@@ -706,8 +706,23 @@ function InputFieldConfig(props) {
                 };
                 if (fieldData.dataElement.id === "kajeJgrCwVu") {
                 }
+                if(APP_LOCALE == "CC013" && customfieldobj.insulinDosePerkg && fieldData.dataElement.id == customfieldobj.insulinDosePerkg && customfieldobj.dosageDailyUnits && customfieldobj.weightID1){
+                    try{
+                        const doseString = values[customfieldobj.dosageDailyUnits];
+                        const weight = values[customfieldobj.weightID1];
+                        if(doseString && weight){
+                            const doses = doseString.split("-").map(Number);
+                            const totalDose = doses.reduce((a, b) => a + b, 0);
+                            const dosePerKg = (totalDose / weight).toFixed(3);
+                            values[fieldData.dataElement.id] = dosePerKg
+                        }else{
+                            values[fieldData.dataElement.id] = ""
+                        }
+                    }catch(e){ console.log(e)}
+                }
                 // additional comment field
                 setFieldStructure(
+                    
                     // <Grid item xs={12} sm={fullWidthIds.includes(fieldData.dataElement.id) ? 12 : 2} md={fullWidthIds.includes(fieldData.dataElement.id) ? 12 : 2} className={validationResult.hideShow ? '' : 'hide'}></Grid>
                     <div sm={fullWidthIds.includes(fieldData.dataElement.id) ? 12 : 2} md={fullWidthIds.includes(fieldData.dataElement.id) ? 12 : 2} className={validationResult.hideShow ? '' : 'hide'}>
                         <Field
@@ -727,9 +742,23 @@ function InputFieldConfig(props) {
                                 }
                                 return value; // Normal behavior for other fields
                             }}
+                            placeholder={fieldData.dataElement.id == customfieldobj.dosageDailyUnits ? "e.g. 10-00-08-22" : ""}
                             parse={value => value}
+                            disabled={APP_LOCALE == "CC013" && customfieldobj.insulinDosePerkg && fieldData.dataElement.id == customfieldobj.insulinDosePerkg ? true : false}
                         />
+                        {APP_LOCALE === "CC013" &&
+                        customfieldobj.insulinDosePerkg &&
+                        fieldData.dataElement.id === customfieldobj.insulinDosePerkg &&
+                        (!values[customfieldobj.dosageDailyUnits] ||
+                            !values[customfieldobj.weightID1]) && (
+                            <span className="field-info field-note">
+                            {t("* Weight and Daily Dosage (Units) are required for this calculation")}
+                            </span>
+                        )}
                     </div>
+                   
+                        
+                    
                 )
             } else if (fieldType == "radio") {
                 if (values[customfieldobj.reasonForTodaysVisit] &&
@@ -1398,7 +1427,7 @@ function DateFieldConfig(props) {
                         <Field
                             name={fieldData.dataElement.id}
                             key={`${fieldData.dataElement.id}-${validationResult.hideShow}`}
-                            validate={fieldData.mandatory && validationResult.hideShow === true ? requiredDate : undefined}
+                            validate={fieldData.compulsory && validationResult.hideShow === true ? requiredDate : undefined}
                         >
                             {({ input, meta }) => {
                                 // Determine if there's an error to show
@@ -1435,7 +1464,7 @@ function DateFieldConfig(props) {
                                                 }
                                             }}
                                             onBlur={input.onBlur}
-                                            required={fieldData.mandatory && validationResult.hideShow === true}
+                                            required={fieldData.compulsory && validationResult.hideShow === true}
                                             error={showError}
                                             helperText={showError ? meta.error : ""}
                                             InputLabelProps={{
@@ -1471,7 +1500,7 @@ function DateFieldConfig(props) {
                         <Field
                             name={fieldData.dataElement.id}
                             key={`${fieldData.dataElement.id}-${validationResult.hideShow}`}
-                            validate={fieldData.mandatory && validationResult.hideShow === true ? requiredDate : undefined}
+                            validate={fieldData.compulsory && validationResult.hideShow === true ? requiredDate : undefined}
                         >
                             {({ input, meta }) => {
                                 // Determine if there's an error to show
@@ -1482,7 +1511,7 @@ function DateFieldConfig(props) {
                                         disabled={showYear ? true : false}
                                         label={getTranslatedLabels(fieldData.dataElement)}
                                         name={fieldData.dataElement.id}
-                                        required={fieldData.mandatory && validationResult.hideShow == true ? true : false}
+                                        required={fieldData.compulsory && validationResult.hideShow == true ? true : false}
                                         dateFunsUtils={DateFnsUtils}
                                         value={input.value || null}
                                         onChange={(value) => {
@@ -1524,7 +1553,7 @@ function DateFieldConfig(props) {
             }
 
             setFieldStructure(
-                <Grid item xs={12} sm={12} md={12} className={validationResult.hideShow == true ? '' : 'hide'} style={{ marginTop: '20px' }}>
+                <Grid item xs={12} sm={12} md={12} className={validationResult.hideShow == true ? '' : 'hide'}>
                     {content}
                 </Grid>
             );
@@ -2544,7 +2573,7 @@ function IntegerConfig(props) {
                         fieldData.dataElement.formName.split(' ')[1]
                             .replace(/[()]/g, '')
                             .slice(1)} */}
-                                    {APP_LOCALE === 'KIER'
+                                    {APP_LOCALE === 'CC006'
                                         ? fieldData.dataElement.formName.split(' ')[0]
                                             .replace(/[()]/g, '')
                                             .charAt(0)

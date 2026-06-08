@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import Grid from '@material-ui/core/Grid';
 
-function HideShowConditionRegistration(rules, programRulesVariables, values, field) {
+function HideShowConditionRegistration(rules, programRulesVariables, values, field,fieldData) {
     const condition = rules.condition
     const splitConditions = condition.split("&&")
     
@@ -16,15 +16,21 @@ function HideShowConditionRegistration(rules, programRulesVariables, values, fie
         
         const variableName = splitCondition.match(/\{(.*?)\}/)[1]
         
-        const parentRaw = programRulesVariables.filter(obj => {
+        let parentRaw = programRulesVariables.filter(obj => {
             if(obj.displayName.includes("_"))
             return obj.displayName.split("_")[1] == (splitCondition.match(/\{(.*?)\}/)[1]).split("_")[1]
             else
             return obj.displayName == splitCondition.match(/\{(.*?)\}/)[1]
             // obj.displayName == splitCondition.match(/\{(.*?)\}/)[1]
         }) //[0] .trackedEntityAttribute.id
+        try{
+            if(parentRaw.length > 1 && variableName && parentRaw.filter(ele => ele.displayName == variableName)?.length > 0){
+                parentRaw = parentRaw.filter(ele => ele.displayName == variableName)
+            }
+        }catch(e){ console.log(e)}
         const parentNameFromFilter = parentRaw.length > 0 ? parentRaw[0].displayName : undefined        
         const parentId = parentRaw.length > 0 ? parentRaw[0].trackedEntityAttribute ? parentRaw[0].trackedEntityAttribute.id : parentRaw[0].dataElement ? parentRaw[0].dataElement.id : undefined : undefined
+        
         const parentNameFromFilterStart = splitCondition.search(parentNameFromFilter)
         const parentNameLength = parentNameFromFilter ? parentNameFromFilter.length : undefined
 

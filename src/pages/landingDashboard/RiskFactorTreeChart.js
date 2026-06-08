@@ -72,7 +72,9 @@ const totalCases = riskWiseData.reduce((sum, item) => sum + item.value, 0);
         },
         data: riskWiseData
     }],
-    
+    exporting: {
+        enabled: !window.cordova
+      },
     title: {
         text: ''
     }

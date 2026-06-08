@@ -43,6 +43,9 @@ const BMIData = BMIChart.filter(item => item.indicatornames.includes("BMI"))
       text: '',
       align: 'left'
   },
+  exporting: {
+        enabled: !window.cordova
+      },
   xAxis: {
         categories: BMIIndicatorNames,
       title: {

@@ -35,6 +35,9 @@ const basicTestData = Array.isArray(props?.basicTestData) ? props.basicTestData 
     title: {
         text: ''
     },
+    exporting: {
+        enabled: !window.cordova
+      },
  xAxis: {
   categories: [
     !isDrop && t('CREATININE'),

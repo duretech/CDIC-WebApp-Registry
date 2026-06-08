@@ -48,6 +48,9 @@ const PulseChartData = PulseChart
       text: '',
       align: 'left'
   },
+  exporting: {
+        enabled: !window.cordova
+      },
   xAxis: {
       categories: PulseChartIndicatorNames,
       title: {

@@ -22,7 +22,8 @@ import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
+import FileDownloadOutlined from "@mui/icons-material/FileDownloadOutlined";
+import Box from "@material-ui/core/Box";
 import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -127,7 +128,16 @@ function RecordHistory(props) {
       return r;
     }, Object.create(null));
 
-    return GroupArrData;
+    //return GroupArrData;
+     // Sort keys latest date first
+    const sortedGroupArrData = Object.keys(GroupArrData)
+      .sort((a, b) => new Date(b) - new Date(a))
+      .reduce((result, key) => {
+        result[key] = GroupArrData[key];
+        return result;
+      }, {});
+
+    return sortedGroupArrData;
   };
   
   function formatDateToDDMMYYYY(dateString) {
@@ -201,7 +211,69 @@ function RecordHistory(props) {
   const [nonInsulinHeader, setNonInsulinHeader] = useState({});
   const [insulinTable, setinsulinTable] = useState([]);
   const [nonInsulinTable, setNonInsulinTable] = useState([]);
+  const [downloading, setDownloading] = useState({});
   // =================================================//
+  
+  const handleDownload = async (key,eventId) => {
+      try {
+        setGlobalSpinner(true)
+        setDownloading(prev => ({ ...prev, [key]: true }));
+        const fileurl = "events/files?eventUid=" +
+                  eventId +
+                  "&dataElementUid=" +
+                  key
+        const response = await apiServices.getBlobAPI(fileurl)
+        const blob = response.data; 
+        
+        // 🔥 Detect file type
+    const contentType =
+      response.headers?.["content-type"] || blob.type;
+
+    // 🔥 Extract filename from header (if backend sends it)
+    let fileName = "download";
+
+    const contentDisposition = response.headers?.["content-disposition"];
+
+    if (contentDisposition && contentDisposition.includes("filename")) {
+      const match = contentDisposition.match(/filename="?([^"]+)"?/);
+
+      if (match && match[1]) {
+        fileName = match[1]
+          .split(";")[0]          // 🔥 removes ;charset=UTF-8
+          .trim();
+      }
+    } else {
+      // fallback
+      const contentType =
+      response.headers?.["content-type"] || blob.type;
+
+      if (contentType.includes("pdf")) {
+        fileName = "download.pdf";
+      } else if (contentType.includes("image")) {
+        // 🔥 remove charset if present
+        const cleanType = contentType.split(";")[0];   // removes ;charset=UTF-8
+        const extension = cleanType.split("/")[1];
+
+        fileName = `download.${extension}`;
+      }
+    }
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Download failed", err);
+    } finally {
+      setGlobalSpinner(false);
+      setDownloading(prev => ({ ...prev, [key]: false }));
+    }
+  };
 
   function createStructure(events) {
     return events.dataValues.map((values, i) => {
@@ -219,6 +291,7 @@ function RecordHistory(props) {
 
         if (filterFieldData.length > 0) {
           try {
+            
             if (filterFieldData[0].dataElement.valueType === "DATE") {
               // fieldValue = moment(values.value).format("DD-MM-YYYY");
               fieldValue = formatDateToDDMMYYYY(values.value)
@@ -239,6 +312,26 @@ function RecordHistory(props) {
                   fieldValue = getTranslatedLabels(option);
                 }
               });
+            }
+
+            if((filterFieldData[0].dataElement.valueType === "IMAGE" || filterFieldData[0].dataElement.valueType === "FILE_RESOURCE") && fieldValue){
+              fieldValue = (
+                    <>
+                      <span>{t("Download File ")}</span>
+                    <FileDownloadOutlined
+                      className="viewdownloadIcon"
+                      sx={{
+                        cursor: downloading?.[filterFieldData[0].dataElement.id] ? "not-allowed" : "pointer",
+                        opacity: downloading?.[filterFieldData[0].dataElement.id] ? 0.6 : 1,
+                        fontSize: 20,
+                        color: "#1976d2",
+                        "&:hover": { color: "#0d47a1" },
+                      }}
+                      onClick={!downloading?.[filterFieldData[0].dataElement.id] ? () => handleDownload(filterFieldData[0].dataElement.id,events.event) : undefined}
+                    />
+                    </>
+                    
+                  )
             }
           } catch (e) {}
 
@@ -368,7 +461,6 @@ function RecordHistory(props) {
             >
               <Typography>{t("Previous Visits")}</Typography>
             </AccordionSummary>
-
             {GroupArr &&
             Object.keys(GroupArr).length > 0 &&
             Object.keys(GroupArr).map((key) => {
@@ -416,7 +508,10 @@ function RecordHistory(props) {
                               currentStage={props.currentStage}
                               currentStageData={currentStageData}
                             />
-                            {currentStageData.map((events, i) => (
+                            {currentStageData
+                            .slice()
+                            .sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated))
+                            .map((events, i) => (
                               <CardContent key={i}>
                                 {getEntityData(
                                   events,
@@ -429,7 +524,10 @@ function RecordHistory(props) {
                           </>
                         ) : (
                           <>
-                            {currentStageData.map((events, i) => (
+                            {currentStageData 
+                            .slice()
+                            .sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated))
+                            .map((events, i) => (
                               <AccordionDetails key={i}>
                                 {getEntityData(
                                   events,

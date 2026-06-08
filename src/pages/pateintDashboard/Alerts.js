@@ -59,6 +59,9 @@ export default function Alerts() {
     title: {
       text: "",
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       lineColor: "#ffffff",
       tickLength: 0,

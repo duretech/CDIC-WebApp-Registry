@@ -37,6 +37,9 @@ function DeathLineChart() {
             credits:{
       	enabled:false,
       },
+      exporting: {
+        enabled: !window.cordova
+      },
       xAxis: {
         categories: ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
       },

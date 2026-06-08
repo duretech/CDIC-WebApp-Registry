@@ -35,6 +35,10 @@ export const CookieConsentContext = createContext();
 const App = ({ setLoginUser, storeIsLogin }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [showCookieConsent, setShowCookieConsent] = useState(false);
+  const [hasLoadedConfigOnce, setHasLoadedConfigOnce] = useState(false);
+  const [showConfigError, setShowConfigError] = useState(false);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [offlineDataExists, setOfflineDataExists] = useState(false);
   const history = useHistory();
   const { t, i18n } = useTranslation();
 
@@ -154,13 +158,18 @@ const App = ({ setLoginUser, storeIsLogin }) => {
   
   const { config, loading, error } = useLocaleConfiguration('App');
   
+  
   useEffect(() => {
+    if(!navigator.onLine){
+      return;
+    }
+
     if (loading) {
        
         if (!document.querySelector('.swal-modal')) {
             swal({
-                title: "Loading Configuration...",
-                text: "Please wait while the configuration is being loaded.",
+                title: t("Loading Configuration..."),
+                text: t("Please wait while the configuration is being loaded."),
                 icon: "info",
                 buttons: false, 
                 dangerMode: true,
@@ -179,7 +188,7 @@ const App = ({ setLoginUser, storeIsLogin }) => {
 
     if(config)
     {
-     
+      setHasLoadedConfigOnce(true);
       const htmlConfig = getHtmlConfig();
   
       // Set the title
@@ -200,14 +209,83 @@ const App = ({ setLoginUser, storeIsLogin }) => {
 }, [loading, error, config]); // React on changes in loading and error state
 
 useEffect(() => {
-  if(config){
-  //  setCssContent(config)
+  checkOfflineDataExists().then((hasData) => {
+    setOfflineDataExists(hasData);
+  });
+}, []);
+
+const checkOfflineDataExists = async () => {
+  try {
+    const [dataEntryDoc, metadataDoc] = await Promise.all([
+      OfflineDb.getDataFromPouchDB("dataEntrySet"),
+      OfflineDb.getDataFromPouchDB("matadata")
+    ]);
+
+    const hasData =
+      (dataEntryDoc && dataEntryDoc.status !== 404) ||
+      (metadataDoc && metadataDoc.status !== 404);
+
+    return hasData; // ← true or false
+  } catch {
+    return false; // ← error = treat as no data
   }
-},[config])
+};
 
 if (!config) {
-    // If no config and not loading, show error or empty state
-    return loading ? null : <div>No configuration loaded or failed to load</div>;
+    if (loading) return null;
+    if (!navigator.onLine) {
+      if(!offlineDataExists){
+          return (
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh',
+            textAlign: 'center',
+            fontFamily: 'sans-serif',
+            padding: '20px'
+          }}>
+            {/* Offline Icon */}
+
+            {/* Title */}
+            <h2 style={{ color: '#e53e3e', marginBottom: '8px' }}>
+              {t("You are Offline")}
+            </h2>
+
+            {/* Message */}
+            <p style={{ color: '#555', fontSize: '16px', marginBottom: '24px', maxWidth: '400px' }}>
+              {t("Application configuration could not be loaded.")} 
+              {t("Please check your internet connection and go online to sync data.")}
+            </p>
+
+            {/* Retry Button */}
+            <button
+              onClick={() => window.location.reload()}
+              style={{
+                padding: '10px 24px',
+                backgroundColor: '#3182ce',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '6px',
+                fontSize: '15px',
+                cursor: 'pointer',
+              }}
+            >
+              🔄 {t("Retry Now")}
+            </button>
+
+          </div>
+        );
+      }
+    } // ← offline, show nothing
+    else{
+      if(localStorage.getItem('appConfign') && offlineDataExists){
+          //do nothing
+      }else{
+        return <div>No configuration loaded or failed to load</div>; // ← only show when online + no config
+      }
+    }
 }
 
   return (

@@ -35,6 +35,9 @@ const PatientHospitalVisits  = (props) => {
         text: '',
         align: 'left'
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories:indicatornames,
         crosshair: true,

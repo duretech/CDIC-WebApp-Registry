@@ -11,6 +11,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
+import swal from "sweetalert";
 import { Favorite, Opacity, Accessibility } from "@material-ui/icons";
 import PersonIcon from "@mui/icons-material/Person";
 import MonitorWeightIcon from "@mui/icons-material/MonitorWeight";
@@ -28,6 +29,7 @@ import Highcharts from "highcharts";
 import { Button } from "react-bootstrap";
 import { APP_LOCALE } from "../../../assets/data/config";
 import { convertToGC, toEthiopianDateString } from "gc-to-ethiopian-calendar";
+import { useGlobalSpinnerActionsContext} from "../../../context/GlobalSpinnerContext";
 
 import FileDownloadOutlined from "@mui/icons-material/FileDownloadOutlined";
 
@@ -62,6 +64,7 @@ export default function ProfileFormSection({
   // const theme = useTheme();
   // const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const runtime = window.RUNTIME_CONFIG || {};
+  let basicAuth = runtime.basicAuth; // fallback
   const apiServiceKey =
     runtime.apiServiceKey ||
     "https://stagingcdic.imonitorplus.com/service/api/";
@@ -122,7 +125,7 @@ export default function ProfileFormSection({
   const [dateofdoagnosis, setDateOfdoagnosis] =useState("N/A");
   const dataElementMap = glucometerFieldMap
   const { t, i18n } = useTranslation();
-
+  const setGlobalSpinner = useGlobalSpinnerActionsContext();
   const chartRef = useRef(null);
   const handleTabChange = (event, newIndex) => {
     setTabIndex(newIndex);
@@ -1472,9 +1475,12 @@ export default function ProfileFormSection({
       title: {
         text: "",
       },
+      exporting: {
+        enabled: !window.cordova
+      },
       xAxis: {
         categories: daysTranslated,
-        title: { text: t("Day of the Week") },
+        title: { text: t("Days") },
       },
       credits: {
         enabled: false,
@@ -1997,17 +2003,59 @@ export default function ProfileFormSection({
                     <FileDownloadOutlined
                       className="viewdownloadIcon"
                       onClick={(e) => {
-                        const link = document.createElement("a");
-                        link.href = labURL;
-                        link.setAttribute("target", "_blank");
-                        link.setAttribute("download", `Report.pdf`);
-                        // Append to html link element page
-                        document.body.appendChild(link);
-                        // Start download
-                        link.click();
-                        // Clean up and remove the link
-                        link.parentNode.removeChild(link);
-                      }}
+                         if (window.cordova) {
+                            if(!navigator.onLine){
+                                swal({
+                                  title: t("Alert"),
+                                  text: t("No internet connection. This feature is unavailable."),
+                                  icon: "waring",
+                                  button: t("Close"),
+                                });
+                                return;
+                            }
+                            setGlobalSpinner(true);
+                            // Mobile
+                            const token = basicAuth;
+                            const filePath = window.cordova.platformId === "ios"
+                                  ? window.cordova.file.documentsDirectory + "Report.pdf"
+                                  : window.cordova.file.externalDataDirectory + "Report.pdf";
+
+                            window.cordova.plugin.http.downloadFile(
+                              labURL,
+                              {},
+                              {
+                                Authorization: token
+                              },
+                              filePath,
+
+                              function (entry, response) {
+                                console.log("Downloaded:", entry.toURL(),entry.nativeURL);
+                                setGlobalSpinner(false);
+                                // ✅ open file
+                                window.cordova.plugins.fileOpener2.open(
+                                  entry.nativeURL,
+                                  "application/pdf"
+                                );
+                              },
+
+                              function (error) {
+                                setGlobalSpinner(false);
+                                console.error("Download failed:", error);
+                              }
+                            );
+                          } else {
+                              const link = document.createElement("a");
+                              link.href = labURL;
+                              link.setAttribute("target", "_blank");
+                              link.setAttribute("download", `Report.pdf`);
+                              // Append to html link element page
+                              document.body.appendChild(link);
+                              // Start download
+                              link.click();
+                              // Clean up and remove the link
+                              link.parentNode.removeChild(link);
+                            }}
+                    }
                     />
                     {/* )} */}
                   </CardContent>

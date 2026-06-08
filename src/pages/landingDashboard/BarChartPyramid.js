@@ -41,6 +41,9 @@ const BarChartPyramid = (props) => {
     credits: {
       enabled: false 
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     title: {
       text: "",
       style: {

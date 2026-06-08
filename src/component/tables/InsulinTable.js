@@ -36,6 +36,17 @@ const GeneralTable = ({
       dosageHeaders.push(value);
     }
   }
+  const getKeyByHeader = (headers, label) => {
+    const target = label.toLowerCase();
+    return Object.keys(headers).find(
+      (key) => headers[key]?.toLowerCase() === target
+    );
+  };
+
+  const DAILY_DOSAGE_KEY = getKeyByHeader(tableHeaders, "Daily Dosage (Units)");
+  const DOSAGE_UNITS_KEY = getKeyByHeader(tableHeaders, "Dosage units");
+  const DURATION_KEY = getKeyByHeader(tableHeaders, "Duration");
+  const TIME_UNITS_KEY = getKeyByHeader(tableHeaders, "Time units");
 
   return (
     <>
@@ -48,7 +59,7 @@ const GeneralTable = ({
             <TableHead>
               <TableRow>
                 {Object.keys(tableHeaders).map((header, index) => {
-                  if (keysWithDosage.includes(header)) return null;
+                  if (keysWithDosage.includes(header) || (TIME_UNITS_KEY && header == TIME_UNITS_KEY) || (DOSAGE_UNITS_KEY && header == DOSAGE_UNITS_KEY)) return null;
                   return (
                     <TableCell key={`${header}-${index}`}>
                       {t(tableHeaders[header])}
@@ -65,10 +76,29 @@ const GeneralTable = ({
               {tableData.map((row, index) => (
                 <TableRow key={`${row[insulinType] || "row"}-${index}`}>
                   {Object.keys(tableHeaders).map((header) => {
-                    if (keysWithDosage.includes(header)) return null;
+                    // Skip helper keys that are merged into other columns
+                    if (keysWithDosage.includes(header) || (TIME_UNITS_KEY && header == TIME_UNITS_KEY) || (DOSAGE_UNITS_KEY && header == DOSAGE_UNITS_KEY)) return null;
+
+                    let cellValue = "N/A";
+
+                    if (header === DAILY_DOSAGE_KEY) {
+                      const val = row[DAILY_DOSAGE_KEY];
+                      const unit = DOSAGE_UNITS_KEY && row[DOSAGE_UNITS_KEY] ? " ("+row[DOSAGE_UNITS_KEY]+")" : '';
+                      cellValue = val ? `${t(val)} ${t(unit) || ""}` : "N/A";
+                    } 
+                    else if (header === DURATION_KEY) {
+                      const val = row[DURATION_KEY];
+                      const unit = TIME_UNITS_KEY && row[TIME_UNITS_KEY] ? " ("+row[TIME_UNITS_KEY]+")" : '';
+                      // Only show unit if the duration value exists
+                      cellValue = val ? `${t(val)} ${t(unit) || ""}` : "N/A";
+                    } 
+                    else {
+                      cellValue = t(row[header]) || "N/A";
+                    }
+
                     return (
                       <TableCell key={`${header}-${index}`}>
-                        {t(row[header]) || "N/A"}
+                        {cellValue}
                       </TableCell>
                     );
                   })}

@@ -78,7 +78,8 @@ export const apiServices = {
     loginEncApi,
     sendTokenAPI,
     updatePasswordAPI,
-    validateTokenAPI
+    validateTokenAPI,
+    resetPasswordApi
 };
 
 function sendTokenAPI(param) {
@@ -108,6 +109,18 @@ function validateTokenAPI(param) {
         return response.data
     }))
 }
+
+function resetPasswordApi(staticHeader, param) {
+    const subURL = 'dashboardIndicator/updatePasswordFlag'
+     return axios({
+        method: 'POST',
+        url: `${apiUrl}${subURL}`,
+        //withCredentials: true,
+        headers: { Authorization: staticHeader },
+        data: param
+    })
+}
+
 
 function updatePasswordAPI(param) {
     let subURL = `rtmpro/subscribe/updatePassword`

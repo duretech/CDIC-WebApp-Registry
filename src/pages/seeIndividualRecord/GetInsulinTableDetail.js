@@ -8,6 +8,7 @@ import { Paper, TableContainer } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { APP_LOCALE } from "../../assets/data/config";
 
+// This file for online prescription pdf download(print prescription)
 const GetInsulinTableDetail = (props) => {
   const { t, i18n } = useTranslation();
   let currentStage = props.currentStage
@@ -53,13 +54,27 @@ const GetInsulinTableDetail = (props) => {
     // "Dosage (dinner)",
     //"Additional Comments",
     "Total Daily Dosage (Units)",
+    "Daily Dosage (Units)",
     "Daily Dosage units",
     "Dosage (units/day)",
     "Course of Days",
+    "Duration",
     "Any Additional Shot",
     "Reason for the Shot",
+    "Time units",
+    "Dosage units",
     "",
   ];
+
+  // Insert new variables only when APP_LOCALE === "CC013"
+  if(APP_LOCALE === "CC013"){
+      //"Insulin delivery method"
+      const index = desiredOrder.indexOf("Type of Insulin");
+      if (index !== -1) {
+        // Insert Insulin delivery method AFTER "Type of Insulin"
+        desiredOrder.splice(index + 1, 0, "Insulin Delivery Method");
+      }
+  }
 
   // Insert "Frequency" only when APP_LOCALE === "CC006"
   if (APP_LOCALE === "CC006") {
@@ -89,13 +104,17 @@ const GetInsulinTableDetail = (props) => {
     "Additional Comments"
   ];
 
+  // if(APP_LOCALE === "CC013"){
+  //     desiredOrderNonInsulin.push("Dosage units")
+  // }
+
   // Reorder the headers
   let reorderedInsulinTableHeader = {};
   let reorderedNonInsulinTableHeader = {};
   if (desiredOrder && insulinTableHeader) {
     desiredOrder.forEach((header) => {
       for (let key in insulinTableHeader) {
-        if (insulinTableHeader[key] === header) {
+        if (insulinTableHeader[key]?.toLowerCase() === header?.toLowerCase()) {
           reorderedInsulinTableHeader[key] = insulinTableHeader[key];
           break;
         }
@@ -106,7 +125,7 @@ const GetInsulinTableDetail = (props) => {
   if (desiredOrderNonInsulin && nonInsulinTableHeader) {
     desiredOrderNonInsulin.forEach((header) => {
       for (let key in nonInsulinTableHeader) {
-        if (nonInsulinTableHeader[key] === header) {
+        if (nonInsulinTableHeader[key]?.toLowerCase() === header?.toLowerCase()) {
           reorderedNonInsulinTableHeader[key] = nonInsulinTableHeader[key];
           break;
         }

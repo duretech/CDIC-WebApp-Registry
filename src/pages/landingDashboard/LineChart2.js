@@ -21,6 +21,9 @@ const LineChart2 = (props) => {
     title: {
         text: ''
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
         categories: [t('Jan'), t('Feb'), t('Mar'), t('Apr'), t('May'), t('Jun'),t('Jul'), t('Aug'), t('Sep'), t('Oct'), t('Nov'), t('Dec')],
         accessibility: {

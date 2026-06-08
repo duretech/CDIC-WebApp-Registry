@@ -17,7 +17,7 @@ function Validator(fieldId, fieldData, values, programRules, programRulesVariabl
         if (filteringRuleWithField.length > 0) { 
             switch (filteringRuleWithField[0].programRuleActionType) {
                 case 'HIDEFIELD':
-                    hideShow = HideShowCondition(rules, programRulesVariables, values)
+                    hideShow = HideShowCondition(rules, programRulesVariables, values,fieldId, fieldData)
                     break;
 
                 case 'ASSIGN':

@@ -77,7 +77,7 @@ const HbA1C = (userData)=> {
       resetZoomButton: false // Disable the reset zoom button
     },
     exporting:{
-      enabled:true,
+      enabled:!window.cordova
   },
   legend:{
     enabled: false,

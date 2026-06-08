@@ -20,6 +20,9 @@ const PatientStatusBarChart  = (props) => {
         text: '',
         align: 'left'
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
         categories: indicatornames,
         title: {

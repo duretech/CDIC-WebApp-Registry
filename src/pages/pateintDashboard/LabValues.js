@@ -56,6 +56,9 @@ export default function LabValues() {
     title: {
       text: "",
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       lineColor: "#ffffff",
       tickLength: 0,
@@ -194,6 +197,9 @@ export default function LabValues() {
     title: {
       text: "",
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       lineColor: "#ffffff",
       tickLength: 0,
@@ -320,6 +326,9 @@ export default function LabValues() {
     title: {
       text: "",
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       lineColor: "#ffffff",
       tickLength: 0,
@@ -472,6 +481,9 @@ export default function LabValues() {
     title: {
       text: "",
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       lineColor: "#ffffff",
       tickLength: 0,

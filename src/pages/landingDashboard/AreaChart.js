@@ -13,6 +13,9 @@ const AreaChart = () => {
     title: {
       text: "",
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: [
         "Jan",

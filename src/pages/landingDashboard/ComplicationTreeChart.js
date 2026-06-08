@@ -62,6 +62,9 @@ const totalCases = complicationsData.reduce((sum, item) => sum + item.value, 0);
      
         data:complicationsData
     }],
+    exporting: {
+        enabled: !window.cordova
+      },
     title: {
         text: ''
     }

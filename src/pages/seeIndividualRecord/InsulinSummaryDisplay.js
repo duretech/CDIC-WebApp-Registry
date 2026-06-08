@@ -40,8 +40,10 @@ const InsulinSummaryDisplay = (props) => {
     "Meal",
     "Any Other Medications",
     "Course of Days",
+    "Duration",
     "Additional Comments",
     "Total Daily Dosage (Units)",
+    "Daily Dosage (Units)",
     "Daily Dosage units",
     "Dosage (units/day)",
     "Any Additional Shot",
@@ -50,13 +52,15 @@ const InsulinSummaryDisplay = (props) => {
     "Dosage (lunch)",
     "Dosage (dinner)",
     " Dosage (units/day) ",
+    "Time units",
+    "Dosage units",
   ];
 
   // Reorder header mapping
   let reorderedHeader = {};
   desiredOrder.forEach((headerLabel) => {
     Object.keys(insulinTableHeader).forEach((key) => {
-      if (insulinTableHeader[key].trim() === headerLabel.trim()) {
+      if (insulinTableHeader[key].trim().toLowerCase() === headerLabel.trim().toLowerCase()) {
         reorderedHeader[key] = insulinTableHeader[key];
       }
     });
@@ -104,7 +108,7 @@ const getFieldValue = (entry, fieldLabel) => {
 
   // Find the key in reorderedHeader that matches the given field label
   const key = Object.keys(reorderedHeader).find(
-    (k) => reorderedHeader[k]?.trim() === fieldLabel?.trim()
+    (k) => reorderedHeader[k]?.trim().toLowerCase() === fieldLabel?.trim().toLowerCase()
   );
 
   // Retrieve value from either entry directly or from eventdetails.dataValues
@@ -132,11 +136,14 @@ const getFieldValue = (entry, fieldLabel) => {
       const regimen =
         getFieldValue(entry, "Regimen Type") ||
         getFieldValue(entry, "Regime Type");
-      const duration = getFieldValue(entry, "Course of Days") ? getFieldValue(entry, "Course of Days") : t("N/A");
-      const dailyDosageLabel = APP_LOCALE == "CC006" ? "Dosage (units/day)" : "Total Daily Dosage (Units)"
+      const durationLabel = APP_LOCALE == "CC013"  ? "Duration" : "Course of Days"
+      const duration = getFieldValue(entry, durationLabel) ? getFieldValue(entry, durationLabel) : t("N/A");
+      const dailyDosageLabel = APP_LOCALE == "CC006" ? "Dosage (units/day)" : APP_LOCALE == "CC013" ? "Daily Dosage (Units)" : "Total Daily Dosage (Units)"
       const breakfastDosage = getFieldValue(entry, dailyDosageLabel) ? getFieldValue(entry, dailyDosageLabel) :  t("N/A");  
       const lunchDosage = getFieldValue(entry, "Dosage (lunch)") ?? 0;
       const dinnerDosage = getFieldValue(entry, "Dosage (dinner)") ?? 0;
+      const timeUnits = getFieldValue(entry, "Time units") ?? '';
+      const dosageUnits = getFieldValue(entry, "Dosage units") ?? '';
 
       // ✅ Compute medicationName inline (no hooks inside map)
       const medicationName =
@@ -153,7 +160,7 @@ const getFieldValue = (entry, fieldLabel) => {
             </Typography>
             <Typography variant="body1">
               {/* {`${dosage} | ${mealTiming} | ${breakfastDosage} | ${duration} days`} */}
-              {`Meal: ${mealTiming} | Dosage: ${breakfastDosage} | Duration: ${duration}${duration !== "N/A" ? " days" : ""}`}
+              {`Meal: ${mealTiming} | Dosage: ${breakfastDosage} ${dosageUnits ? dosageUnits != "N/A" ? " ("+dosageUnits+")" : '' : '' } | Duration: ${duration}${duration !== "N/A" ? timeUnits ?  timeUnits != "N/A" ? " ("+timeUnits+")" : '' : " days" : ""}`}
             </Typography>
           </div>
         </Grid>

@@ -21,6 +21,9 @@ const StockBarChart = (data) => {
     title: {
       text: ''
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       type: 'category',
       labels: {

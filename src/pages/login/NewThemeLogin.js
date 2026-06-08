@@ -63,6 +63,7 @@ function Login({ onSuccess }) {
   const [initialValuesObject, setInitialValuesObject] = useState({
     agreePrivacy: true,
     agreeConsent: true,
+    ageconfirmation: true
     // username:"NikhilG",
     // username:"hsw_user1",
     // password:"Dure@123"
@@ -886,20 +887,22 @@ function sendTokenToEmail(username) {
 
 // Step 3: Token verification modal
 function openTokenVerificationModal(username) {
-  swal({
-    title: "Enter Verification Token",
-    content: {
-      element: "input",
-      attributes: {
-        placeholder: "Enter token here",
-        type: "text"
-      }
+swal({
+  title: "Enter Verification Token",
+  content: {
+    element: "input",
+    attributes: {
+      placeholder: "Enter token here",
+      type: "text",
     },
-    buttons: {
-      resend: { text: "Resend", value: "resend" },
-      verify: { text: "Verify", value: "verify" }
-    }
-  }).then((value) => {
+  },
+  buttons: {
+    cancel: t("Cancel"),
+    resend: { text: "Resend", value: "resend" },
+    verify: { text: "Verify", value: "verify" },
+  },
+  closeOnClickOutside: false,
+}).then((value) => {
     const tokenInput = document.querySelector('.swal-content input');
     const token = tokenInput?.value.trim();
 
@@ -918,6 +921,7 @@ function openTokenVerificationModal(username) {
       }
     }
   });
+
 }
 
 // Step 4: Verify token and show password modal
@@ -953,34 +957,87 @@ function verifyTokenAndShowPasswordModal(username, token) {
 
 // Step 5: Show new password modal
 function openNewPasswordModal(username, token) {
+
+  // Exact SVG paths from Font Awesome Free Regular (far fa-eye / far fa-eye-slash)
+  const eyeOpenSVG = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="18" height="18" fill="#888">
+      <path d="M288 144a144 144 0 1 0 144 144A144 144 0 0 0 288 144zm0 240a96 96 0 1 1 96-96 96 96 0 0 1-96 96zm0-160a64 64 0 1 0 64 64 64 64 0 0 0-64-64zm284.52 36.58C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 260.58a31.94 31.94 0 0 0 0 22.84C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-196.58a31.94 31.94 0 0 0 0-22.84zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/>
+    </svg>`;
+
+  const eyeOffSVG = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="18" height="18" fill="#888">
+      <path d="M634 471L36 3.51A16 16 0 0 0 13.51 6l-10 12.49A16 16 0 0 0 6 41l598 467.49a16 16 0 0 0 22.49-2.49l10-12.49A16 16 0 0 0 634 471zM296.79 146.47l134.79 105.38C429 240.39 416 224 416 204a96 96 0 0 0-96-96 95.94 95.94 0 0 0-23.21 38.47zm-37.56 55.44L123.45 96.42C176.29 63.07 228.88 48 320 48c117.54 0 221.53 64.55 278.71 144.4a31.91 31.91 0 0 1 0 22.92c-16.75 27.73-42.21 57.3-74.09 82.43l-59.47-46.47C468 239.7 470 230 470 220c0-72.79-55-132.38-125.07-139.67a95.93 95.93 0 0 0-85.7 121.58zM320 464c-117.54 0-221.53-64.55-278.71-144.4a31.91 31.91 0 0 1 0-22.92c16.47-27.28 41.43-56.44 72.77-81.45l-43.77-34.2C27.77 209.73 3 240.49 3 256c0 1 .17 2 .21 2.94C57 376.52 164.06 448 320 448a372.34 372.34 0 0 0 74.19-7.67l-54-42.19A95.83 95.83 0 0 1 320 400a96 96 0 0 1-96-96 95.82 95.82 0 0 1 1.22-15.11l-50.77-39.7A163.32 163.32 0 0 0 172 268a148.23 148.23 0 0 0 148 148 147.52 147.52 0 0 0 62.22-13.89l-62.22-48.64z"/>
+    </svg>`;
+
   const passwordForm = document.createElement('div');
- passwordForm.innerHTML = `
-  <div style="text-align: left; margin-top: 15px;">
-    <label style="font-weight: bold;">Username:</label>
-    <input type="text" value="${username}" disabled 
-      style="width: 95%; margin-bottom: 15px; border: none; background-color: #f2f2f2; padding: 10px; font-size: 14px;" />
+  passwordForm.innerHTML = `
+    <div style="text-align: left; margin-top: 15px;">
 
-    <label style="font-weight: bold;">New Password:</label>
-    <input type="password" id="newPassword" placeholder="Enter new password" 
-      style="width: 95%; margin-bottom: 15px; border: none; background-color: #f9f9f9; padding: 10px; font-size: 14px;" />
+      <label style="font-weight: bold;">Username:</label>
+      <input type="text" value="${username}" disabled
+        style="width: 95%; margin-bottom: 15px; border: none; background-color: #f2f2f2;
+               padding: 10px; font-size: 14px; box-sizing: border-box;" />
 
-    <label style="font-weight: bold;">Confirm Password:</label>
-    <input type="password" id="confirmPassword" placeholder="Confirm new password" 
-      style="width: 95%; border: none; background-color: #f9f9f9; padding: 10px; font-size: 14px;" />
+      <label style="font-weight: bold;">New Password:</label>
+      <div style="position: relative; margin-bottom: 15px; width: 95%;">
+        <input type="password" id="newPassword" placeholder="Enter new password"
+          style="width: 100%; border: none; background-color: #f9f9f9;
+                 padding: 10px 40px 10px 10px; font-size: 14px; box-sizing: border-box;" />
+        <button type="button" id="toggleNewPassword"
+          style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+                 background: none; border: none; cursor: pointer; padding: 0;
+                 display: flex; align-items: center;">
+          <span id="eyeIconNew"></span>
+        </button>
+      </div>
 
-    <div style="font-size: 12px; color: #666; margin-top: 5px; margin-bottom: 10px;">
-      Password must contain at least 8 characters, 1 lowercase, 1 uppercase, 1 number, and 1 symbol.
+      <label style="font-weight: bold;">Confirm Password:</label>
+      <div style="position: relative; margin-bottom: 5px; width: 95%;">
+        <input type="password" id="confirmPassword" placeholder="Confirm new password"
+          style="width: 100%; border: none; background-color: #f9f9f9;
+                 padding: 10px 40px 10px 10px; font-size: 14px; box-sizing: border-box;" />
+        <button type="button" id="toggleConfirmPassword"
+          style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+                 background: none; border: none; cursor: pointer; padding: 0;
+                 display: flex; align-items: center;">
+          <span id="eyeIconConfirm"></span>
+        </button>
+      </div>
+
+      <div style="font-size: 12px; color: #666; margin-top: 5px; margin-bottom: 10px;">
+        Password must contain at least 8 characters, 1 lowercase, 1 uppercase, 1 number, and 1 symbol.
+      </div>
     </div>
-  </div>
-`;
+  `;
 
+  // Set initial icons (hidden state = eyeOff)
+  passwordForm.querySelector('#eyeIconNew').innerHTML = eyeOffSVG;
+  passwordForm.querySelector('#eyeIconConfirm').innerHTML = eyeOffSVG;
+
+  // Toggle New Password
+  passwordForm.querySelector('#toggleNewPassword').addEventListener('click', function () {
+    const input = passwordForm.querySelector('#newPassword');
+    const icon = passwordForm.querySelector('#eyeIconNew');
+    const isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    icon.innerHTML = isHidden ? eyeOpenSVG : eyeOffSVG;
+  });
+
+  // Toggle Confirm Password
+  passwordForm.querySelector('#toggleConfirmPassword').addEventListener('click', function () {
+    const input = passwordForm.querySelector('#confirmPassword');
+    const icon = passwordForm.querySelector('#eyeIconConfirm');
+    const isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    icon.innerHTML = isHidden ? eyeOpenSVG : eyeOffSVG;
+  });
 
   swal({
     title: "Set New Password",
     content: passwordForm,
     buttons: {
-      confirm: { text: "Update Password", value: "update" },
       cancel: t("Cancel"),
+      confirm: { text: "Update Password", value: "update" },
     },
     icon: "info",
     closeOnClickOutside: false
@@ -1009,9 +1066,8 @@ function openNewPasswordModal(username, token) {
       }
 
       updatePassword(username, newPassword, token);
-    }
-    else{
-      swal.close(); // Close the modal if cancelled
+    } else {
+      swal.close();
     }
   });
 }

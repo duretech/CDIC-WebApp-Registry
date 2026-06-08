@@ -355,6 +355,38 @@ function NewThemeHomePage(props) {
     let configurations = await OfflineDb.getDataFromPouchDB("configurations");
     setConfigurationFromServer(configurations.data.configuration);
   }
+
+   // Version comparison function
+  function compareVersions(v1, v2) {
+    const v1Parts = v1.split('.').map(Number);
+    const v2Parts = v2.split('.').map(Number);
+    for (let i = 0; i < Math.max(v1Parts.length, v2Parts.length); i++) {
+        const part1 = v1Parts[i] || 0; // Default to 0 if segment is missing
+        const part2 = v2Parts[i] || 0;
+        if (part1 < part2) return -1; // v1 is less than v2
+        if (part1 > part2) return 1;  // v1 is greater than v2
+    }
+    return 0; // v1 is equal to v2
+  }
+   function appUpdate(){
+    swal({
+      title: t("Application update"),
+      text: t("The current version of the application is no longer supported. Kindly upgrade the same!"),
+      icon: "warning",
+      button: Configuration.mobileAppMode && Configuration.mobileAppMode == 'debug' ? t("Ok") : t("Update")
+    }).then(res=>{
+      if(Configuration.mobileAppMode && Configuration.mobileAppMode == 'debug'){
+        appUpdate()
+      }else{
+        if(window.cordova && window.cordova.platformId == 'ios'){
+            window.open(Configuration.mobileAppiOSUrl, '_system');
+        }else{
+            window.open(Configuration.mobileAppDownloadUrl, '_system');
+        }
+      }
+    })
+  }
+
   useEffect(() => {
     if (localStorage.getItem("showCases")) {
       localStorage.removeItem("showCases");
@@ -367,6 +399,34 @@ function NewThemeHomePage(props) {
   useEffect(() => {
     getUserBo();
     i18n.changeLanguage(localStorage.getItem("locale"));
+
+    document.addEventListener('resume', () => {
+      try{
+          OfflineDb.getDataFromPouchDB('metaData')
+              .then(metaData => {
+              OfflineDb.getDataFromPouchDB('loginDetails')
+              .then(loginDetails => {
+                  if (loginDetails.data != undefined) {
+                      const versionCheckParam = 'metadata?fields=:owner,displayName&programs:filter=id:eq:' + loginDetails.data.programs[0] + '&programs:fields=:owner,unique,playName,attributeValues[:all,attribute[id,name,displayName]]'
+                      apiServices.getAPI(versionCheckParam)
+                          .then(versionCheck => {
+                              console.log('versionCheck', versionCheck)
+                              if (metaData.data != undefined && versionCheck.data != undefined && Array.isArray(versionCheck.data.programs)) {
+                                  if(window.cordova){
+                                      let result = _.filter(versionCheck.data.programs[0].attributeValues, ['attribute.name', 'AppVersion'])
+                                      if(result.length > 0 && compareVersions(Configuration.mobileAppVersion, result[0].value) < 0){
+                                        appUpdate()
+                                      }
+                                  }
+                              }
+                          })
+                  }
+              })
+          })
+      }catch(e){
+
+      }
+    })
   }, []);
 
   useEffect(() => {
@@ -609,7 +669,7 @@ function NewThemeHomePage(props) {
                                                     : []
                                                 );
                                                 setProgress(90);
-                                               
+                              
                                                 let ouAPI = OUStructureParams;
                                                 if (
                                                   programBoDetails &&
@@ -707,7 +767,7 @@ function NewThemeHomePage(props) {
                               loginDetails.data.programs[0],
                               loginDetails.data.organisationUnits[0].id
                             )
-                            if (APP_LOCALE === 'GANDHI') {
+                            if (APP_LOCALE === 'CC006') {
                               getSocioEconomicCharts(
                                 loginDetails.data.programs[0],
                                 loginDetails.data.organisationUnits[0].id
@@ -747,28 +807,10 @@ function NewThemeHomePage(props) {
                                 setReloadDataFlag(true);
                               }
                             }
-                            // logic for mobile app
-                            if (window.cordova) {
-                              let result = _.filter(
-                                versionCheck.data.programs[0].attributeValues,
-                                ["attribute.name", "AppVersion"]
-                              );
-                              if (
-                                result.length > 0 &&
-                                result[0].value !=
-                                Configuration.mobileAppVersion
-                              ) {
-                                swal({
-                                  title: t("Application update"),
-                                  text: "The current version of the application is no longer supported. Kindly upgrade the same!",
-                                  icon: "warning",
-                                  button: t("Ok"),
-                                }).then((res) => {
-                                  window.open(
-                                    Configuration.mobileAppDownloadUrl,
-                                    "_system"
-                                  );
-                                });
+                            if(window.cordova){
+                              let result = _.filter(versionCheck.data.programs[0].attributeValues, ['attribute.name', 'AppVersion'])
+                              if(result.length > 0 && compareVersions(Configuration.mobileAppVersion, result[0].value) < 0){
+                                appUpdate()
                               }
                             }
                           }
@@ -1287,25 +1329,46 @@ function NewThemeHomePage(props) {
 
   const onMenuClick = (menuName, menuData) => {
     if (menuName === "Logout") {
-      OfflineDb.getAllEntities().then((res) => {
-        if (res === undefined || res.total_rows === 0) {
-          localStorage.clear();
-          OfflineDb.deleteDatabse()
-            .then(() => {
-              props.setLoginUser(false);
-            })
-            .catch(() => {
-              props.setLoginUser(false);
-            });
-        } else {
-          swal({
-            title: t("Offline data"),
-            text: t("Offline records found, please sync data before logout"),
+      if (!navigator.onLine) {
+        swal({
+          title: t("Alert"),
+          text: t("You are currently offline. Please connect to the internet before logging out."),
+          icon: "warning",
+          button: "OK",
+        });
+        return; // stop logout process
+      }
+      swal({
+            // title: t("New Visit"),
+            text: t("Are you sure you want to logout ?"),
             icon: "warning",
-            buttons: "Close",
-          });
-        }
-      });
+            buttons: [t("No"), t("Yes")],
+          })
+            .then((AlertRes) => {
+              if (AlertRes) {
+                OfflineDb.getAllEntities().then((res) => {
+                  if (res === undefined || res.total_rows === 0) {
+                    localStorage.clear();
+                    OfflineDb.deleteDatabse()
+                      .then(() => {
+                        props.setLoginUser(false);
+                      })
+                      .catch(() => {
+                        props.setLoginUser(false);
+                      });
+                  } else {
+                    swal({
+                      title: t("Offline data"),
+                      text: t("Offline records found, please sync data before logout"),
+                      icon: "warning",
+                      buttons: "Close",
+                    });
+                  }
+                });
+            }
+
+            })
+
     } else if (menuName === "Settings" && !navigator.onLine) {
       swal({
         title: t("Offline mode"),
@@ -3245,7 +3308,7 @@ function NewThemeHomePage(props) {
                             </Grid>
                           </Grid>
                           {/*  */}
-                          {APP_LOCALE === "CC008" && (<Grid
+                          {APP_LOCALE === "CC006" && (<Grid
                             container
                             spacing={2}
                             className="mt-10px main-second-chartSection"
@@ -3332,7 +3395,7 @@ function NewThemeHomePage(props) {
                           <Grid
                             container
                             spacing={2}
-                            // className={`mt-10px main-second-chartSection main-chart-SubSection ${APP_LOCALE === "CC008" ? "hide" : ""}`}
+                            // className={`mt-10px main-second-chartSection main-chart-SubSection ${APP_LOCALE === "CC006" ? "hide" : ""}`}
                             className={`mt-10px main-second-chartSection main-chart-SubSection`}
                           >
                             <Grid item xs={12} sm={12} md={12} lg={4}>
@@ -3500,7 +3563,7 @@ function NewThemeHomePage(props) {
                           <Grid
                             container
                             spacing={2}
-                            // className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC008" ? "hide" : ""}`}
+                            // className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC006" ? "hide" : ""}`}
                             className={`mt-10px main-second-chartSection`}
                           >
                             {/* Risk Factor Chart */}
@@ -3647,7 +3710,7 @@ function NewThemeHomePage(props) {
                             spacing={2}
                             className="mt-10px main-second-chartSection"
                           >
-                            {/* <Grid item xs={12} className={APP_LOCALE === "CC008" ? "hide" : ""}> */}
+                            {/* <Grid item xs={12} className={APP_LOCALE === "CC006" ? "hide" : ""}> */}
                             <Grid item xs={12}>
                               <Card variant="outlined" className="bg-lightgrey">
                                 <CardContent className="pb-0">
@@ -3667,7 +3730,7 @@ function NewThemeHomePage(props) {
                           <Grid
                             container
                             spacing={2}
-                            // className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC008" || APP_LOCALE === "CC006" ? "hide" : ""}`}
+                            // className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC006" || APP_LOCALE === "CC012" ? "hide" : ""}`}
                             className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC012" ? "hide" : ""}`}
                           >
                             <Grid item xs={12} sm={6} md={6} lg={6}>
@@ -4439,7 +4502,7 @@ function NewThemeHomePage(props) {
                             </Grid>
                           </Grid>
                           {/*  */}
-                          {APP_LOCALE === "CC008" && (<Grid
+                          {APP_LOCALE === "CC006" && (<Grid
                             container
                             spacing={2}
                             className="mt-10px main-second-chartSection"
@@ -4526,7 +4589,7 @@ function NewThemeHomePage(props) {
                           <Grid
                             container
                             spacing={2}
-                            // className={`mt-10px main-second-chartSection main-chart-SubSection ${APP_LOCALE === "CC008" ? "hide" : ""}`}
+                            // className={`mt-10px main-second-chartSection main-chart-SubSection ${APP_LOCALE === "CC006" ? "hide" : ""}`}
                             className={`mt-10px main-second-chartSection main-chart-SubSection`}
                           >
                             <Grid item xs={12} sm={12} md={12} lg={4}>
@@ -4694,7 +4757,7 @@ function NewThemeHomePage(props) {
                           <Grid
                             container
                             spacing={2}
-                            // className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC008" ? "hide" : ""}`}
+                            // className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC006" ? "hide" : ""}`}
                             className={`mt-10px main-second-chartSection`}
                           >
                             {/* Risk Factor Chart */}
@@ -4841,7 +4904,7 @@ function NewThemeHomePage(props) {
                             spacing={2}
                             className="mt-10px main-second-chartSection"
                           >
-                            {/* <Grid item xs={12} className={APP_LOCALE === "CC008" ? "hide" : ""}> */}
+                            {/* <Grid item xs={12} className={APP_LOCALE === "CC006" ? "hide" : ""}> */}
                             <Grid item xs={12}>
                               <Card variant="outlined" className="bg-lightgrey">
                                 <CardContent className="pb-0">
@@ -4861,7 +4924,7 @@ function NewThemeHomePage(props) {
                           <Grid
                             container
                             spacing={2}
-                            // className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC008" || APP_LOCALE === "CC006" ? "hide" : ""}`}
+                            // className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC006" || APP_LOCALE === "CC012" ? "hide" : ""}`}
                             className={`mt-10px main-second-chartSection ${APP_LOCALE === "CC012" ? "hide" : ""}`}
                           >
                             <Grid item xs={12} sm={6} md={6} lg={6}>

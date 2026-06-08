@@ -44,7 +44,7 @@ const HBA1C = (props) => {
 
     const plotOptions = APP_LOCALE === "CC006" ? {
         column: {
-            stacking: 'percent',  // Enable stacking for KIER
+            stacking: 'percent',  // Enable stacking for CC006
             dataLabels: {
                 enabled: true,
                 formatter: function () {
@@ -83,6 +83,9 @@ const HBA1C = (props) => {
             text: '',
             align: 'left'
         },
+        exporting: {
+        enabled: !window.cordova
+      },
         xAxis: {
             categories: categories,
             crosshair: true,

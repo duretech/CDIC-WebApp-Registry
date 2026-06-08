@@ -84,7 +84,7 @@ function PatientDashboard(props) {
   const db = new PouchDB('myDatabase');
 
   const getName = () => {
-    console.log("Attribute", props)
+    //console.log("Attribute", props)
     // let firstName = props?.userData?.attributes?.filter((attr) => attr.displayName === "Patient Name_First Name") || [];
     //let lastName = props?.userData?.attributes?.filter((attr) => attr.displayName === "Family name_Family name") || [];
 

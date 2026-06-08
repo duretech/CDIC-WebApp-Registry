@@ -60,6 +60,9 @@ const HeightChart = (userData) => {
       x: 10,
       y: 10,
     },
+    exporting: {
+        enabled: !window.cordova
+      },
     xAxis: {
       categories: staticMonths,
     },
