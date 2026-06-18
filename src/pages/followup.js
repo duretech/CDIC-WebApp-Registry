@@ -690,7 +690,7 @@ export default function PersistentDrawerLeft() {
                           </div>
                         </div>
                         <div className='mt-30px mx-4px'>
-                          <a href='#' className='blueroundbtn fw-600'>View More</a>
+                          <a href='#' className='blueroundbtn fw-600'>{t("View More")}</a>
                         </div>
                       </TabPanel>
                       <TabPanel value={value} index={1} dir={theme.direction}>
@@ -808,7 +808,7 @@ export default function PersistentDrawerLeft() {
                           </div>
                         </div>
                         <div className='mt-30px mx-4px'>
-                          <a href='#' className='blueroundbtn fw-600'>View More</a>
+                          <a href='#' className='blueroundbtn fw-600'>{t("View More")}</a>
                         </div>
                       </TabPanel>
 

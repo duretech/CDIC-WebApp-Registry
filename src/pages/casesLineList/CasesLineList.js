@@ -252,7 +252,7 @@ function CasesLineList(){
                 title: "Error",
                 text: t("Sorry, something went wrong"),
                 icon: "error",
-                button: "Close",
+                button: t("Close"),
               });
         })
         
@@ -306,7 +306,7 @@ const changeStatus = (instancetId,data) => {
                             title: "Success",
                             text: t("Client successfully deactivated."),
                             icon: "success",
-                            button: "Close",
+                            button: t("Close"),
                         });
                         //console.log("casesData ",casesData,data);
                         // let filterCasesData = _.cloneDeep(data)
@@ -322,7 +322,7 @@ const changeStatus = (instancetId,data) => {
                             title: "Error",
                             text: t("Sorry, something went wrong"),
                             icon: "error",
-                            button: "Close",
+                            button: t("Close"),
                         });
                         setGlobalSpinner(false)
                     }
@@ -332,7 +332,7 @@ const changeStatus = (instancetId,data) => {
                         title: "Error",
                         text: t("Sorry, something went wrong"),
                         icon: "error",
-                        button: "Close",
+                        button: t("Close"),
                     });
                 })
             }

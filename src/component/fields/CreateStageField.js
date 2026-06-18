@@ -1477,9 +1477,9 @@ function DateFieldConfig(props) {
           setDate(null);
           swal({
             icon: "warning",
-            title: "Invalid Date Selection",
-            text: `Follow up Date cannot be before the Initial Assessment Date.`,
-            confirmButtonText: "OK",
+            title: t("Invalid Date Selection"),
+            text: t("Follow up Date cannot be before the Initial Assessment Date."),
+            confirmButtonText: t("OK"),
           });
         }
       }
@@ -6622,7 +6622,7 @@ function ImageFieldConfig(props) {
                         onChange={handleFileChange}
                       />
                       <label htmlFor="upload-file" className="uploadImageFile">
-                        <p>Upload / Click log book image​</p>
+                        <p>{t("Upload/ Click log book image")}</p>
                         <AttachFileIcon className="attachIcon"></AttachFileIcon>{" "}
                         *
                       </label>
@@ -7064,7 +7064,7 @@ function ImageFieldConfig(props) {
                     }
                   />
                   <label htmlFor="upload-file" className="uploadImageFile">
-                    <p>Upload / Click Lab Report</p>
+                    <p>{t("Upload / Click Lab Report")}</p>
 
                     <AttachFileIcon className="attachIcon"></AttachFileIcon>
                   </label>

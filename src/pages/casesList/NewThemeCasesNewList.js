@@ -136,7 +136,7 @@ function Cases(){
                 title: "Error",
                 text: t("Sorry, something went wrong"),
                 icon: "error",
-                button: "Close",
+                button: t("Close"),
               });
         })
         

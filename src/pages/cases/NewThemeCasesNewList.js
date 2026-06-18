@@ -157,7 +157,7 @@ function Cases() {
             ? t("Sorry, something went wrong.")
             : t("Data could not be shown in offline mode."),
           icon: "error",
-          button: "Close",
+          button: t("Close"),
         });
       });
   }

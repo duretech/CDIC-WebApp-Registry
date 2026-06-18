@@ -177,7 +177,7 @@ const getTranslatedLabels = (stage) => {
           : stage.displayName;
     }
   }
-  return stage.displayName;
+  return <Trans>{stage.displayName}</Trans>;
 };
 
 const getTranslatedDataElementLabels = (dataElement) => {
@@ -1578,9 +1578,9 @@ useEffect(() => {
           setGlobalSpinner(false);
           swal({
             title: "Error",
-            text: error,
+            text: t(error),
             icon: "error",
-            button: "Close",
+            button: t("Close"),
           });
         });
     }
@@ -6791,6 +6791,7 @@ const handleSaveTemplate = async () => {
     stage.programStageSections.map((section, i) => {
       let subsectionDeArray = [];
       let hideClass = false;
+      section.name = section?.name?.trim()
       try{
         if(_.isEmpty(section.dataElements)){
           hideClass = true;
@@ -7256,6 +7257,7 @@ const handleSaveTemplate = async () => {
                                               defaultOptions={staticOptions} // No options initially
                                               loadOptions={loadOptions}
                                               value={selectedOption}
+                                              placeholder={t("Search")}
                                               onChange={(e) => {
                                                 if (e?.type == "Insulin") {
                                                   if (e.typeOfInsulin != "")
@@ -7296,7 +7298,7 @@ const handleSaveTemplate = async () => {
                                                 }
                                                 setSelectedOption(e);
                                               }}
-                                              placeholder={t("Search...")}
+                                              placeholder={t("Search")+"..."}
                                               className="custom-SelectBox"
                                             />
                                           </Grid>
@@ -8372,7 +8374,7 @@ const handleSaveTemplate = async () => {
                                           setSelectedOption(e);
                                         }}
                                         //  menuIsOpen={true} // Keeps the dropdown always open
-                                        placeholder={t("Search...")}
+                                        placeholder={t("Search")+"..."}
                                         className="custom-SelectBox"
                                         classNamePrefix="custom-Select"
                                       />)
@@ -8841,7 +8843,7 @@ const handleSaveTemplate = async () => {
                                                 setSelectedVisit(selectedOption_);
                                               }, 500);
                                               }}
-                                              placeholder="Select Template"
+                                              placeholder={t("Select Template")}
                                               style={{
                                                 width: "100%",
                                                 minWidth: "200px",
@@ -14691,7 +14693,7 @@ async function findMatchBeforeSearchCNIC(valuesToSave, currentInstanceId = null)
             title: "Error",
             text: "",
             icon: "error",
-            button: "Close",
+            button: t("Close"),
           });
         });
     }
@@ -14960,10 +14962,10 @@ async function findMatchBeforeSearchCNIC(valuesToSave, currentInstanceId = null)
           });
       } else {
         swal({
-          title: "Please fill in the search parameter",
+          title: t("Please fill in the search parameter"),
           text: "",
           icon: "warning",
-          button: "Close",
+          button: t("Close"),
         });
       }
       setGlobalSpinner(false);
@@ -21206,7 +21208,7 @@ const addInsulin = (stage, formvalues, form) => {
     swal({
       text: t("Please add medication details"),
       icon: "warning",
-      button: "Close",
+      button: t("Close"),
     });
     return;
   }
@@ -21588,9 +21590,9 @@ function hydrateRadFromTemplate(template,values) {
       setNonInsulinNewObj(arrTempCopy);
     } else {
       swal({
-        text: "Please enter the values to be inserted in the Non-Insulin table",
+        text: t("Please enter the values to be inserted in the Non-Insulin table"),
         icon: "warning",
-        button: "Close",
+        button: t("Close"),
       });
     }
 
@@ -21935,7 +21937,7 @@ function hydrateRadFromTemplate(template,values) {
             title: t("Missing Date"),
             text: t("Please provide date of next visit"),
             icon: "warning",
-            buttons: "Close",
+            buttons: t("Close"),
           });
           return;
         }
@@ -21943,9 +21945,9 @@ function hydrateRadFromTemplate(template,values) {
           if (timestamp1 > timestamp2) {
             swal({
               title: t("Invalid Time Selection"),
-              text: t(`"Time To" should be greater than "Time From"`),
+              text: t("Time To should be greater than Time From"),
               icon: "warning",
-              buttons: "Close",
+              buttons: t("Close"),
             });
             return;
           }
@@ -21956,7 +21958,7 @@ function hydrateRadFromTemplate(template,values) {
               title: t("Missing From Time"),
               text: t("Please select From Time"),
               icon: "warning",
-              buttons: "Close",
+              buttons: t("Close"),
             });
             return;
           }
@@ -21966,7 +21968,7 @@ function hydrateRadFromTemplate(template,values) {
               title: t("Missing To Time"),
               text: t("Please select To Time"),
               icon: "warning",
-              buttons: "Close",
+              buttons: t("Close"),
             });
             return;
           }
@@ -23192,9 +23194,9 @@ function hydrateRadFromTemplate(template,values) {
                                 </div>
                                 <Typography className="sidebar-text">
                                   {isSidebarOpen
-                                    ? "Close Quick View"
-                                    : "Open Quick View"}{" "}
-                                  - Patient Summary & Latest Visit Details
+                                    ? t("Close Quick View")
+                                    : t("Open Quick View")}{" "}
+                                  - {t("Patient Summary & Latest Visit Details")}
                                 </Typography>
                               </Box>
                             </Box>
@@ -23739,7 +23741,7 @@ function hydrateRadFromTemplate(template,values) {
                                     //  openPrintPreview('prescriptionPdf');
                                   }}
                                 >
-                                  {t("Print Prescription​")}
+                                  {t("Print Prescription")}
                                 </Button>
                               </div>
                             )}

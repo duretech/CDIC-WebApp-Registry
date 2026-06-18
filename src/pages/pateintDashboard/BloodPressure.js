@@ -104,6 +104,26 @@ const BloodPressure = (userData) => {
     },
     exporting: {
       enabled: !window.cordova,
+      menuItemDefinitions: {
+        viewFullscreen: {
+            text: t("View in full screen")
+        },
+        printChart: {
+            text: t("Print Chart")
+        },
+        downloadPNG: {
+            text: t("Download PNG image")
+        },
+        downloadJPEG: {
+            text: t("Download JPEG image")
+        },
+        downloadPDF: {
+            text: t("Download PDF document")
+        },
+        downloadSVG: {
+            text: t("Download SVG vector image")
+        }
+      }
     },
     series: [
       {

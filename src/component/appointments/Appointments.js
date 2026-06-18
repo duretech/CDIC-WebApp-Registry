@@ -352,6 +352,9 @@ const Appointments = () => {
                             selectable={true}
                             plugins={[dayGridPlugin, interactionPlugin ]}
                             initialView={"dayGridMonth"}
+                            moreLinkContent={(arg) =>
+                                `+${arg.num} ${t('more')}`
+                            }
                             height="auto"
                             contentHeight="auto"
                             eventDisplay="block"

@@ -804,7 +804,7 @@ function getCasesList(param) {
             ? t("Sorry, something went wrong.")
             : t("Client list could not be shown in offline mode."),
           icon: "error",
-          button: "Close",
+          button: t("Close"),
         });
       });
   }
@@ -1197,7 +1197,7 @@ function getCasesList(param) {
               ? t("Failed to load client list. Please try again.")
               : t("Client list could not be shown in offline mode."),
             icon: "error",
-            button: "Close",
+            button: t("Close"),
           });
         });
     }

@@ -38,6 +38,10 @@ function CaseListInTableView(props) {
             })}
             className='patientTableList'
             noDataComponent={<NoDataComponent />} // Use the custom component here
+            paginationComponentOptions={{
+              rowsPerPageText: t("Rows per page"),
+              rangeSeparatorText: t("of")
+            }}
           />
         </Grid>
           )

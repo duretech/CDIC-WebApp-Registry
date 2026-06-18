@@ -207,7 +207,7 @@ function AccordianList ({AccordionLabel, FollowUpDate,AccordionContent, Accordio
                             fontStyle: 'italic',
                             whiteSpace: 'nowrap'
                           }} className="followup-date">
-                            Follow up Date: {FollowUpDate}
+                            {t("Follow up Date")}: {FollowUpDate}
                           </Typography>
                       )}
                     

@@ -7,6 +7,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
+import { useTranslation } from "react-i18next";
 
 import Button from "@material-ui/core/Button";
 
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AlignItemsList() {
+  const { t } = useTranslation();
   const classes = useStyles();
 
   let [checked] = React.useState(true);
@@ -64,7 +66,7 @@ export default function AlignItemsList() {
                   disableElevation
                   className="infoviewmorebtn"
                 >
-                  View More
+                  {t("View More")}
                 </Button>
               </Typography>
             </React.Fragment>
@@ -104,7 +106,7 @@ export default function AlignItemsList() {
                   disableElevation
                   className="infoviewmorebtn"
                 >
-                  View More
+                 {t("View More")}
                 </Button>
               </Typography>
             </React.Fragment>

@@ -684,10 +684,10 @@ if (allFieldsEmpty) {
     }
     else{
       swal({
-        title: "Please fill in the search parameter",
+        title: t("Please fill in the search parameter"),
         text: "",
         icon: "warning",
-        button: "Close",
+        button: t("Close"),
       });
     }
     }else{

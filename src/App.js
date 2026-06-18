@@ -103,7 +103,7 @@ const App = ({ setLoginUser, storeIsLogin }) => {
             title: t("Offline data"),
             text: t("Offline records found, please sync data before logout"),
             icon: "warning",
-            buttons: "Close",
+            buttons: t("Close"),
           });
         }
       });

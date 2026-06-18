@@ -307,18 +307,18 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\
     // Validate username and password
     if (!values.username || values.username.trim() === "") {
       swal({
-        title: "Invalid input",
-        text: "Username is required..",
+        title: t("Invalid input"),
+        text: t("Username is required.."),
         icon: "error",
-        button: "Close",
+        button: t("Close"),
       });
       return;
     } else if (!values.password || values.password.trim() === "") {
       swal({
-        title: "Invalid input",
-        text: "Password is required",
+        title: t("Invalid input"),
+        text: t("Password is required"),
         icon: "error",
-        button: "Close",
+        button: t("Close"),
       });
       return;
     }
@@ -695,17 +695,17 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\
           localStorage.removeItem("basicAuth");
           if (error.response) {
             swal({
-              title: "Login failed",
+              title: t("Login failed"),
               text: error.response.data.message,
               icon: "error",
-              button: "Close",
+              button: t("Close"),
             });
           } else {
             swal({
-              title: "Login failed",
+              title: t("Login failed"),
               text: "",
               icon: "error",
-              button: "Close",
+              button: t("Close"),
             });
           }
           //setLoading(false)
@@ -760,10 +760,10 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\
       .then((res) => {
         setLoading(false);
         swal({
-          title: "Done",
+          title: t("Done"),
           text: res.data.message,
           icon: "success",
-          button: "Close",
+          button: t("Close"),
         });
       })
       .catch((err) => {
@@ -772,14 +772,14 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\
             title: "Fail",
             text: err.response.data.message,
             icon: "error",
-            button: "Close",
+            button: t("Close"),
           });
         } else {
           swal({
             title: "Fail",
             text: "Fail to update",
             icon: "error",
-            button: "Close",
+            button: t("Close"),
           });
         }
         setLoading(false);

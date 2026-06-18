@@ -85,12 +85,13 @@ const SelectedDateAppointments = (props) => {
         swal({
             // title: "Are you sure you want to cancel this Appointment?",
             icon: "warning",
-            buttons: true,
+            //buttons: true,
+            buttons: [t("Cancel"), t("Ok")],
             dangerMode: true,
             content: {
                 element: "p",
                 attributes: {
-                    innerHTML: "Are you sure you want to cancel this Appointment?",
+                    innerHTML: t("Are you sure you want to cancel this appointment?"),
                     style: "text-align: center; font-size: 16px;",
                 },
             },
@@ -103,9 +104,9 @@ const SelectedDateAppointments = (props) => {
                         if(response.status == 200) {
                             swal({
                                 title: t("Done"),
-                                text: "Appointment Cancelled!",
+                                text: t("Appointment Cancelled!"),
                                 icon: "success",
-                                button: "Close",
+                                button: t("Close"),
                             })
                             props.closeDrawer(); 
                             props.updateCalender();
@@ -186,7 +187,7 @@ const SelectedDateAppointments = (props) => {
                 <div className='todayappointmentdiv'>
                     <div className="flex-row" style={{ justifyContent: "space-between"}}>
                         <p className="cardtitlesmall color-darkblue mt-20px">
-                            Appointment details
+                            {t("Appointment details")}
                         </p>
                         <IconButton 
                             aria-label="close" 
@@ -206,7 +207,7 @@ const SelectedDateAppointments = (props) => {
                             <TabPanel value={value} index={0} dir={theme.direction}>
                                 <div className='appointmentcardlist' style={{minWidth: '300px'}}>
                                     { filteredAppoinments && filteredAppoinments.length > 0 ? showTodaysAppointmentCards(filteredAppoinments) : (moment(getCalenderDate).format('YYYY-MM-DD') == moment(new Date()).format('YYYY-MM-DD')) ? showTodaysAppointmentCards(appointmentData) : <div>
-                                        <h5 style={{ marginTop: '20px' }}>Nothing planned for the day</h5>
+                                        <h5 style={{ marginTop: '20px' }}>{t("Nothing planned for the day")}</h5>
                                         <div style={{width: '300px'}}><EventBusyTwoToneIcon style={{fontSize: '10rem'}}/></div>
                                         </div>  }
 

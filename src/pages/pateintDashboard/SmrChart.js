@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { apiServices } from "../../services/apiServices";
+import { useTranslation } from "react-i18next";
 
 const SMRChart = ({ userData }) => {
     const [chartData, setChartData] = useState({ months: [], series: [] });
-
+    const { t, i18n } = useTranslation();
     useEffect(() => {
       const staticMonths = [
         "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", 
@@ -59,7 +60,27 @@ const SMRChart = ({ userData }) => {
         chart: { type: "column", backgroundColor: "transparent", height: 500 },
         title: { text: "" },
         exporting: {
-        enabled: !window.cordova
+        enabled: !window.cordova,
+        menuItemDefinitions: {
+        viewFullscreen: {
+            text: t("View in full screen")
+        },
+        printChart: {
+            text: t("Print Chart")
+        },
+        downloadPNG: {
+            text: t("Download PNG image")
+        },
+        downloadJPEG: {
+            text: t("Download JPEG image")
+        },
+        downloadPDF: {
+            text: t("Download PDF document")
+        },
+        downloadSVG: {
+            text: t("Download SVG vector image")
+        }
+      }
       },
         xAxis: { categories: chartData.months, title: { text: "Months" } },
         // yAxis: { min: 0, title: { text: "" }, labels: { enabled: false } },

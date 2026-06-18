@@ -92,9 +92,9 @@ const SelectedDateAppointments = (props) => {
                         if(response.status == 200) {
                             swal({
                                 title: "Done",
-                                text: "Appointment Cancelled!",
+                                text: t("Appointment Cancelled!"),
                                 icon: "success",
-                                button: "Close",
+                                button: t("Close"),
                             })
                             props.closeDrawer(); 
                             props.updateCalender();
@@ -113,7 +113,7 @@ const SelectedDateAppointments = (props) => {
         if(filteredAppoinments.length === 0 && (moment(new Date()).format("YYYY-MM-DD") == moment(getCalenderDate).format("YYYY-MM-DD"))) {
             return (
                 <div>
-                    <h5 style={{ marginTop: '20px' }}>Nothing planned for the day</h5>
+                    <h5 style={{ marginTop: '20px' }}>{t("Nothing planned for the day")}</h5>
                     <div style={{width: '300px'}}><EventBusyTwoToneIcon style={{fontSize: '10rem'}}/></div>
                 </div>
             )
@@ -169,7 +169,7 @@ const SelectedDateAppointments = (props) => {
                             <TabPanel value={value} index={0} dir={theme.direction}>
                                 <div className='appointmentcardlist' style={{minWidth: '300px'}}>
                                     { filteredAppoinments && filteredAppoinments.length > 0 ? showTodaysAppointmentCards(filteredAppoinments) : (moment(getCalenderDate).format('YYYY-MM-DD') == moment(new Date()).format('YYYY-MM-DD')) ? showTodaysAppointmentCards(appointmentData) : <div>
-                                        <h5 style={{ marginTop: '20px' }}>Nothing planned for the day</h5>
+                                        <h5 style={{ marginTop: '20px' }}>{t("Nothing planned for the day")}</h5>
                                         <div style={{width: '300px'}}><EventBusyTwoToneIcon style={{fontSize: '10rem'}}/></div>
                                         </div>  }
 

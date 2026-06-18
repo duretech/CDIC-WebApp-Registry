@@ -4643,16 +4643,16 @@ function GoogleLocation(props) {
 
                           if (availableAddressOptions.length === 0) {
                             swal({
-                              title: "No more Address details to be added",
+                              title: t("No more Address details to be added"),
                               icon: "warning",
-                              button: "OK",
+                              button: t("OK"),
                               className: "custom-swalwarning",
                             });
                             return;
                           }
 
                           swal({
-                            title: "Select type of address",
+                            title: t("Select type of address"),
                             text: "",
                             content: {
                               element: "select",

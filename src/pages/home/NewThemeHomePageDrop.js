@@ -1296,7 +1296,7 @@ function NewThemeHomePageDrop(props) {
             title: t("Offline data"),
             text: t("Offline records found, please sync data before logout"),
             icon: "warning",
-            buttons: "Close",
+            buttons: t("Close"),
           });
         }
       });
@@ -1305,7 +1305,7 @@ function NewThemeHomePageDrop(props) {
         title: t("Offline mode"),
         text: t("This operation is not available while offline. Please go online to proceed."),
         icon: "warning",
-        buttons: "Close",
+        buttons: t("Close"),
       }).then(() => {
         history.push("/layout/home");
       });
@@ -1507,7 +1507,7 @@ function NewThemeHomePageDrop(props) {
                           "This operation is not available while offline. Please go online to proceed."
                         ),
                         icon: "warning",
-                        buttons: "Close",
+                        buttons: t("Close"),
                       });
                     }}
                     key={index}

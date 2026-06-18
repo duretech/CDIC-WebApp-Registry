@@ -9,7 +9,7 @@ import { withTranslation, Trans, useTranslation } from "react-i18next";
 
 
 const LineChart2 = (props) => {
-    const { t, i18n } = useTranslation();   
+  const { t, i18n } = useTranslation();   
   const followUpChart = Array.isArray(props?.followUpChart) ? props.followUpChart : [];
 
   const lineChart = {
@@ -22,7 +22,27 @@ const LineChart2 = (props) => {
         text: ''
     },
     exporting: {
-        enabled: !window.cordova
+        enabled: !window.cordova,
+         menuItemDefinitions: {
+            viewFullscreen: {
+                text: t("View in full screen")
+            },
+            printChart: {
+                text: t("Print Chart")
+            },
+            downloadPNG: {
+                text: t("Download PNG image")
+            },
+            downloadJPEG: {
+                text: t("Download JPEG image")
+            },
+            downloadPDF: {
+                text: t("Download PDF document")
+            },
+            downloadSVG: {
+                text: t("Download SVG vector image")
+            }
+            }
       },
     xAxis: {
         categories: [t('Jan'), t('Feb'), t('Mar'), t('Apr'), t('May'), t('Jun'),t('Jul'), t('Aug'), t('Sep'), t('Oct'), t('Nov'), t('Dec')],

@@ -343,7 +343,7 @@ const Alerts = () => {
                 className="btn-load-more"
                 onClick={() => loadMore()}
               >
-                Load More
+                {t("Load More")}
               </Button>
             )}
           </Grid>

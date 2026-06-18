@@ -202,7 +202,7 @@ function Followup(){
                 title: "Error",
                 text: navigator.onLine ? t("Sorry, something went wrong.") : t("Client list could not be shown in offline mode."),
                 icon: "error",
-                button: "Close",
+                button: t("Close"),
               });
         })
         

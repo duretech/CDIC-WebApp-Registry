@@ -1961,7 +1961,7 @@ function Cases() {
             })
           : 
           <div className="no-data-container">
-        <Trans>{t("No Data Found")}</Trans>
+        <Trans>No Data Found</Trans>
       </div>
           }
         <ToastContainer

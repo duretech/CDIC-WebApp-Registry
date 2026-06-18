@@ -232,10 +232,10 @@ function PatientCard(props){
 }}catch (error) {
         console.error("Error fetching details: ", error);
         swal({
-            title: "Error",
+            title: t("Error"),
             text: t("Something went wrong."),
             icon: "error",
-            button: "Close",
+            button: t("Close"),
         });
     } finally {
         setLoading(false);
