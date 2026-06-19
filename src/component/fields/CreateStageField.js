@@ -5153,7 +5153,7 @@ function MultiSelectConfig(props) {
   }
   useEffect(() => {
     if (validationResult != null) {
-      let fieldLabel = getTranslatedLabels(DataElementGroup);
+      let fieldLabel = getTranslatedLabels(fieldData.dataElement)//getTranslatedLabels(DataElementGroup);
       try {
         if (fieldLabel.includes("_")) {
           let l = fieldLabel.split("_");
