@@ -2879,13 +2879,14 @@ useEffect(() => {
         if(bmiValue){
         bmiCategoryLabel = matchedCategory.category;
         // setBmiCondition(matchedCategory.category)
-        bmicategory = "Patient Category is " + matchedCategory.category;
+        bmicategory = t("Patient Category is") +" "+t(matchedCategory.category);
         setBmiCondition(bmicategory)
         }
     } else {
     }
   //}
   }
+  
 }, [values[dataElementId], localStorage.getItem("locale")]);
 
 const bmizscore_ = values?.[customfieldobj.bmizscore] ?? "";
@@ -4315,7 +4316,7 @@ const toggleListening = async () => {
   SpeechRecognition.startListening({ continuous: true, language: "en-US", interimResults: false });
 
   swal({
-    title: "Voice Recorder",
+    title: t("Voice Recorder"),
     content: {
       element: "div",
       attributes: {
@@ -4323,9 +4324,9 @@ const toggleListening = async () => {
       },
     },
     buttons: {
-      cancel: "Cancel",
+      cancel: t("Cancel"),
       confirm: {
-        text: "Stop & Add",
+        text: t("Stop & Add"),
         closeModal: false,
       },
     },
@@ -4348,7 +4349,7 @@ const toggleListening = async () => {
         swal.close();
         // swal("✅ Added", `"${finalText}" added to form`, "success");
       } else {
-        swal("Cancelled", "Voice input was cancelled", "info");
+        swal(t("Cancelled"), t("Voice input was cancelled"), "info");
       }
     }, 300);
   });
@@ -5971,7 +5972,7 @@ function ImageFieldConfig(props) {
     setSelectedFile(file);
     setPreviewUrl(URL.createObjectURL(file));
     swal({
-      title: "Capture and Submit",
+      title: t("Capture and Submit"),
       content: {
         element: "img",
         attributes: {
@@ -5982,8 +5983,8 @@ function ImageFieldConfig(props) {
       },
       className: "custom-swal-capture", // Adding class here
       buttons: {
-        cancel: "Cancel",
-        confirm: "Process",
+        cancel: t("Cancel"),
+        confirm: t("Process"),
       },
     }).then((willSubmit) => {
       if (willSubmit) {
@@ -5994,7 +5995,7 @@ function ImageFieldConfig(props) {
       // This ensures onChange will fire again when selecting the same file
       event.target.value = '';
     });
-    setFileName(file ? file.name : "No file chosen");
+    setFileName(file ? file.name : t("No file chosen"));
   };
 
   const captureFromCamera = () => {
@@ -6182,7 +6183,7 @@ function ImageFieldConfig(props) {
       );
      
       setGlobalSpinner(false);
-      swal("", "Lab report sucessfully uploaded.", "success");
+      swal("", t("Lab report sucessfully uploaded"), "success");
       //Calculation eAG
     // Convert to number
     const hba1cValue = number;
@@ -6725,7 +6726,6 @@ function ImageFieldConfig(props) {
                           accept=".pdf,.jpg,.jpeg,.png"
                           validate={validateFileType}
                           className={customClassName}
-
                           //onChange={handleChange.bind(this)}
                           //validate={composeValidators(required, URLCheck)}
                         />

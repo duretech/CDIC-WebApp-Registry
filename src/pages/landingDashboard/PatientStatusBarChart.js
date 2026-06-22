@@ -96,7 +96,7 @@ const PatientStatusBarChart  = (props) => {
         enabled: false
     },
     series: [{
-        name: 'Count',
+        name: t('Count'),
         data: counts
     }]
   };

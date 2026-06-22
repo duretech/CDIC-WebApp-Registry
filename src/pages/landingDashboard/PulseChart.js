@@ -117,7 +117,7 @@ const PulseChartData = PulseChart
       enabled: false
   },
   series: [{
-    name: 'Count',
+    name: t('Count'),
     data: PulseChartData,
   }]
   };

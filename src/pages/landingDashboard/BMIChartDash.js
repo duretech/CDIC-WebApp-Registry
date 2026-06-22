@@ -112,7 +112,7 @@ const BMIData = BMIChart.filter(item => item.indicatornames.includes("BMI"))
       enabled: false
   },
   series: [{
-    name: 'Count',
+    name: t('Count'),
       data:BMIData,
   }]
   };

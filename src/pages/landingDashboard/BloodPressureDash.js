@@ -117,7 +117,7 @@ const BPData = BPChart
       enabled: false
   },
   series: [{
-    name: 'Count',
+    name: t('Count'),
     data:BPData,
   }]
   };

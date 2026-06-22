@@ -97,7 +97,7 @@ const PatientHospitalVisits  = (props) => {
     },
     series: [
         {
-            name: 'Visits',
+            name: t('Visits'),
             data:dynamicData
         }
     ]
