@@ -143,6 +143,49 @@ function Cases() {
     }
   }
 
+  const getTranslatedLabels = (attribute) => {
+  if (!attribute) {
+    return;
+  }
+  if (localStorage.getItem("locale") == "en") {
+    let label = attribute.translations.filter(
+      (tanslation) =>
+        tanslation.property == "NAME" &&
+        tanslation.locale == localStorage.getItem("locale")
+    );
+    if (label.length > 0) {
+      return label[0].value;
+    } else {
+      return attribute.formName
+        ? attribute.formName
+        : attribute.displayName
+        ? attribute.displayName
+        : attribute.description;
+    }
+  } else if (attribute.translations && attribute.translations.length > 0) {
+    //debugger;
+    let label = attribute.translations.filter(
+      (tanslation) =>
+        tanslation.property == "NAME" &&
+        tanslation.locale == localStorage.getItem("locale")
+    );
+    if (label.length > 0) {
+      return label[0].value;
+    } else {
+      return attribute.formName
+        ? attribute.formName
+        : attribute.displayName
+        ? attribute.displayName
+        : attribute.description;
+    }
+  }
+  return attribute.formName
+    ? attribute.formName
+    : attribute.displayName
+    ? attribute.displayName
+    : attribute.description;
+};
+
   useEffect(() => {
     if (navigator.onLine && navigator.geolocation && geolocation != null) {
       navigator.geolocation.getCurrentPosition(
@@ -368,8 +411,8 @@ function Cases() {
               return (
                 <p className="alerts_description_fields" key={i}>
                   {eachFields.trackedEntityAttribute.formName
-                    ? eachFields.trackedEntityAttribute.formName
-                    : eachFields.trackedEntityAttribute.displayName}{" "}
+                    ? getTranslatedLabels(eachFields.trackedEntityAttribute)//eachFields.trackedEntityAttribute.formName
+                    : getTranslatedLabels(eachFields.trackedEntityAttribute)}{" "}
                   :
                   {entityObj[eachFields.trackedEntityAttribute.id]
                     ? entityObj[eachFields.trackedEntityAttribute.id]

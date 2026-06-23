@@ -1305,9 +1305,9 @@ function DateFieldConfig(props) {
                     setDate(null);
                     swal({
                         icon: "warning",
-                        title: "Invalid Date Selection",
-                        text: `Date of Entry cannot be before the Initial Assessment Date.`,
-                        confirmButtonText: "OK"
+                        title: t("Invalid Date Selection"),
+                        text: t(`Date of Entry cannot be before the Initial Assessment Date`),
+                        confirmButtonText: t("OK")
                     });
                 }
             }
@@ -1320,9 +1320,9 @@ function DateFieldConfig(props) {
                     setDate(null);
                     swal({
                         icon: "warning",
-                        title: "Invalid Date Selection",
-                        text: `Follow up Date cannot be before the Initial Assessment Date.`,
-                        confirmButtonText: "OK"
+                        title: t("Invalid Date Selection"),
+                        text: t(`Follow up Date cannot be before the Initial Assessment Date`),
+                        confirmButtonText: t("OK")
                     });
                 }
             }
@@ -1337,9 +1337,9 @@ function DateFieldConfig(props) {
                     setDate(null);
                     swal({
                         icon: "warning",
-                        title: "Invalid Date Selection",
-                        text: `Date of Diagnosis cannot be later than Initial Assessment Date.`,
-                        confirmButtonText: "OK"
+                        title: t("Invalid Date Selection"),
+                        text: t(`Date of Diagnosis cannot be later than Initial Assessment Date`),
+                        confirmButtonText: t("OK")
                     });
                 }
             }

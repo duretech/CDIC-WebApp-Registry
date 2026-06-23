@@ -472,7 +472,7 @@ function Search() {
   function qrErrorhandler(err) {
     setshowScanner(false);
     if(err == undefined){
-      err = "Data could not be shown in offline mode"
+      err = t("Data could not be shown in offline mode.")
     }
     alert(err);
   }
@@ -694,9 +694,7 @@ if (allFieldsEmpty) {
       setLoading(false);
       swal({
         title: t("Error"),
-        text: t(
-          "Data could not be shown in offline mode"
-        ),
+        text: t("Data could not be shown in offline mode."),
         icon: "error",
         button: t("Close"),
       });

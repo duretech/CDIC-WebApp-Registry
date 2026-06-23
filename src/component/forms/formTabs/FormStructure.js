@@ -6633,20 +6633,23 @@ const handleSaveTemplate = async () => {
 
   const showInputModal = () => {
     swal({
-      title: "Save Template",
-      text: `You have ${medCount} medications in this template.\nPlease enter a template name:`,
+      title: t("Save Template"),
+      text: `${t("You have")} ${medCount} ${t("medications in this template")}.\n${t("Please enter a template name")}:`,
       content: {
         element: "input",
         attributes: {
-          placeholder: "Template Name",
+          placeholder: t("Template Name"),
           type: "text",
           name: "templateName",
         },
       },
       buttons: {
-        cancel: true,
+        cancel: {
+          text: t("Cancel"),
+          visible: true,
+        },
         confirm: {
-          text: "Save",
+          text: t("Save"),
           closeModal: false, 
         },
       },
@@ -6667,9 +6670,9 @@ const handleSaveTemplate = async () => {
 
       if (exists) {
         await swal({
-          text: "Template with this name already exists.",
+          text: t("Template with this name already exists"),
           icon: "warning",
-          button: "OK",
+          button: t("OK"),
         });
         try { swal.stopLoading(); } catch (_) {}
         swal.close();
@@ -6711,7 +6714,7 @@ const handleSaveTemplate = async () => {
 
         await swal({
           title: t?.("Success") || "Success",
-          text: "Template Created Successfully",
+          text: t("Template Created Successfully"),
           icon: "success",
           button: t?.("Ok") || "OK",
         });
@@ -6732,7 +6735,7 @@ const handleSaveTemplate = async () => {
 
           await swal({
             title: t?.("Success") || "Success",
-            text: "Template Created Successfully",
+            text: t("Template Created Successfully"),
             icon: "success",
             button: t?.("Ok") || "OK",
           });
@@ -6744,7 +6747,7 @@ const handleSaveTemplate = async () => {
           console.error("Error saving template:", error);
           await swal({
             title: t?.("Error") || "Error",
-            text: "Error saving template",
+            text: t("Error saving template"),
             icon: "error",
             button: t?.("Close") || "Close",
           });
@@ -7751,7 +7754,7 @@ const handleSaveTemplate = async () => {
                                           onClick={async () => {
                                             if (!logoReady) {
                                               alert(
-                                                "Logo still loading, please wait..."
+                                                t("Logo still loading, please wait...")
                                               );
                                               return;
                                             }
@@ -7799,7 +7802,7 @@ const handleSaveTemplate = async () => {
                                         onClick={async () => {
                                           if (!logoReady) {
                                             alert(
-                                              "Logo still loading, please wait..."
+                                              t("Logo still loading, please wait...")
                                             );
                                             return;
                                           }
@@ -23658,7 +23661,7 @@ function hydrateRadFromTemplate(template,values) {
                                     onClick={async () => {
                                       if (!logoReady) {
                                         alert(
-                                          "Logo still loading, please wait..."
+                                          t("Logo still loading, please wait...")
                                         );
                                         return;
                                       }
