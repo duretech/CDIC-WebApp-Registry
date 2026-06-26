@@ -259,7 +259,7 @@ function InputFieldConfig(props) {
   const scriptCheck = (value) => {
     if (value && typeof value === "string") {
       return value.match(/<[^>]*>|</g) !== null
-        ? t('Incorrect expression "<, >, or -" added as input')
+        ? t('Incorrect expression "< or >" added as input')
         : undefined;
     }
     return undefined;

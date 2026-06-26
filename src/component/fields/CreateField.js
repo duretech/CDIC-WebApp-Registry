@@ -375,7 +375,7 @@ function InputFieldConfig(props) {
     APP_LOCALE === "PRODUCT"
       ? (value) => {
           if (value && value !== undefined && value !== null && value !== "") {
-            if (value.match(/<[^>]*>/g) != null) {
+            if (value.match(/<[^>]*>|</g) != null) {
               return t('Incorrect expression "< or >" added as input');
             }
             // else if (!/^[a-zA-Z\s]+$/.test(value)) {
@@ -391,26 +391,34 @@ function InputFieldConfig(props) {
               : undefined
             : undefined;
 
-  const alphaOnlyCheck =
-    APP_LOCALE === "PRODUCT"
-      ? (value) => {
-          if (value && value !== undefined && value !== null && value !== "") {
-            // Check if input contains any non-alphabetic characters
-            if (!/^[a-zA-Z\s]+$/.test(value)) {
-              return t("Input contains numbers or special characters");
-            }
-          }
-          return undefined;
-        }
-      : (value) => {
-          if (value && value !== undefined && value !== null && value !== "") {
-            // Check if input contains any non-alphabetic characters
-            if (!/^[a-zA-Z\s]+$/.test(value)) {
-              return t("Input contains numbers or special characters");
-            }
-          }
-          return undefined;
-        };
+  // const alphaOnlyCheck =
+  //   APP_LOCALE === "PRODUCT"
+  //     ? (value) => {
+  //         if (value && value !== undefined && value !== null && value !== "") {
+  //           // Check if input contains any non-alphabetic characters
+  //           if (!/^[a-zA-Z\s]+$/.test(value)) {
+  //             return t("Input contains numbers or special characters");
+  //           }
+  //         }
+  //         return undefined;
+  //       }
+  //     : (value) => {
+  //         if (value && value !== undefined && value !== null && value !== "") {
+  //           // Check if input contains any non-alphabetic characters
+  //           if (!/^[a-zA-Z\s]+$/.test(value)) {
+  //             return t("Input contains numbers or special characters");
+  //           }
+  //         }
+  //         return undefined;
+  //       };
+  const alphaOnlyCheck = (value) => {
+    if (value?.trim()) {
+      if (!/^[\p{L}\p{M}\s'.-]+$/u.test(value)) {
+        return t("Input contains numbers or special characters");
+      }
+    }
+    return undefined;
+  };
 
   // const composeValidators =
   //   (...validators) =>
@@ -3125,7 +3133,7 @@ function TextAreaConfig(props) {
       : undefined;
   const scriptCheck = (value) =>
     value
-      ? value.match(/<[^>]*>/g) != null
+      ? value.match(/<[^>]*>|</g) != null
         ? t('Incorrect expression "< or >" added as input')
         : undefined
       : undefined;

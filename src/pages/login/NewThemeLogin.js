@@ -1155,8 +1155,8 @@ function showTokenFailureAlert() {
       setShowPassword(true);
     }
   }
-  const regex = new RegExp("^[a-zA-Z0-9_@.]*$");
-  const scriptBlockRegex = new RegExp("/<[^>]*>/g");
+ const regex = new RegExp("^[\\p{L}\\p{M}0-9_@.]+$", "u");//new RegExp("^[a-zA-Z0-9_@.]*$");
+  const scriptBlockRegex = new RegExp("/<[^>]*>|</g");
   
   const userCheck = (value) =>
     value
