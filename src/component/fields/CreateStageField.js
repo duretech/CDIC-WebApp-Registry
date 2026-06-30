@@ -2617,7 +2617,7 @@ function IntegerConfig(props) {
           .getAPI(apiUrl)
           .then((response) => {
             if (response.data?.data?.length > 0) {
-              const bmiZScore = response.data.data[0]["BMIZ Score"];
+              const bmiZScore = response.data.data[0]["BMIZ Score"] || "";
               values[customfieldobj.bmizscore] = values[customfieldobj.bmiID]?bmiZScore : ""; 
               setFormValues((prevValues) => ({
                 ...prevValues,
@@ -2625,11 +2625,25 @@ function IntegerConfig(props) {
               }));
 
               setBmiZScore(bmiZScore?bmiZScore:"");
+              setBmiZCondition(response.data.data[0]["interpretation"] ? response.data.data[0]["interpretation"] : "")
             } else {
               // 
               // toast.warn(
               //   "Please check if the required data is filled in to calculate BMI Z-Score"
               // );
+              // Clear previous value
+              formref.current.change(customfieldobj.bmizscore, '');
+              formref.current.change("forceRenderField_", Math.random());
+              
+              values[customfieldobj.bmizscore] = "";
+
+              setFormValues((prev) => ({
+                ...prev,
+                [customfieldobj.bmizscore]: "",
+              }));
+              
+              setBmiZScore("");
+              setBmiZCondition("");
             }
           })
           .catch((error) => {
@@ -2657,6 +2671,18 @@ function IntegerConfig(props) {
   }
 }, [values[dataElementId], ageValue, ageAlertShown, programData, currentstagename]);
 
+useEffect(() => {
+  try{
+    const fieldId = customfieldobj.bmizscore;
+    const value = bmiZScore ?? "";
+
+    if (formref?.current?.change && fieldId) {
+      formref.current.change(fieldId, value);
+    }
+
+    values[fieldId] = value;
+  }catch(e){ console.log(e) }
+}, [bmiZScore]);
 
   // useEffect(() => {
   //   try{
@@ -2833,8 +2859,8 @@ useEffect(() => {
 
   let bmicategory="";
     useEffect(() => {
-      if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
-        if(ageValue > 19){
+      //if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
+        if(ageValue > 20){
     const bmiData = getBMICategory();
     const bmiValue = parseFloat(values[dataElementId]);
 
@@ -2858,60 +2884,73 @@ useEffect(() => {
     } else {
     }
   }
-  }
+  //}
 }, [values[dataElementId]]);
 
 const bmizscore_ = values?.[customfieldobj.bmizscore] ?? "";
 let bmizcategory="";
  useEffect(() => {
-      if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
-        if(ageValue >=5 && ageValue <= 19){
-    const bmiZData = getBMIZScoreCategory();
-    const bmiZValue = parseFloat(values[customfieldobj.bmizscore]);
-
-    if (!bmiZData || isNaN(bmiZValue)) {
-        console.log("Invalid or missing BMI value.");
-        return;
-    }
-
-    const matchedCategory = bmiZData.find(item => {
-        const min = item.min ?? -Infinity;
-        const max = item.max ?? Infinity;
-        return bmiZValue >= min && bmiZValue <= max;
-    });
-
-    if (matchedCategory) {
-        if(bmiZValue){
-       // bmiCategoryLabel = matchedCategory.category;
-        bmizcategory = "Patient Category is " + matchedCategory.category;
-
-        setBmiZCondition(bmizcategory)
-       // formref.current.change("forceRenderField_", Math.random());
-        const bmizDiv = document.getElementById("bmizscore-category");
-        if (bmizDiv) {
-           setTimeout(() => {
-          bmizDiv.textContent = `BMI Z Score: ${matchedCategory.category}`;
+      //if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
+        if(ageValue >=2 && ageValue <= 20 && customfieldobj.sexatbirthUID && values[customfieldobj.sexatbirthUID] != "Other"){
+          const bmizDiv = document.getElementById("bmizscore-category");
+          if (bmizDiv) {
+            setTimeout(() => {
+          bmizDiv.textContent = `${t("BMI Z Score")}: ${t(bmizcondition)}`;
           bmizDiv.focus();
           setTimeout(() => bmizDiv.blur(), 300);
           const bmizInput = document.getElementById(customfieldobj.bmizscore);
-           // bmizInput.focus();
-           setTimeout(() => bmizInput.blur(), 300);
+            // bmizInput.focus();
+            setTimeout(() => bmizInput.blur(), 300);
             }, 500);
         }
+      //}
+  //       if(ageValue >=5 && ageValue <= 19){
+  //   const bmiZData = getBMIZScoreCategory();
+  //   const bmiZValue = parseFloat(values[customfieldobj.bmizscore]);
 
-        // Optional: highlight/focus logic
-        // const bmizInput = document.getElementById(customfieldobj.bmizscore);
-        // if (bmizInput) {
-        //   bmizInput.focus();
-        //   setTimeout(() => bmizInput.blur(), 300);
-        // }
-        }
-    } else {
-        console.log("No matching BMI category found.");
-    }
+  //   if (!bmiZData || isNaN(bmiZValue)) {
+  //       console.log("Invalid or missing BMI value.");
+  //       return;
+  //   }
+
+  //   const matchedCategory = bmiZData.find(item => {
+  //       const min = item.min ?? -Infinity;
+  //       const max = item.max ?? Infinity;
+  //       return bmiZValue >= min && bmiZValue <= max;
+  //   });
+
+  //   if (matchedCategory) {
+  //       if(bmiZValue){
+  //      // bmiCategoryLabel = matchedCategory.category;
+  //       bmizcategory = t("Patient Category is") +" "+t(matchedCategory.category);
+
+  //       setBmiZCondition(bmizcategory)
+  //      // formref.current.change("forceRenderField_", Math.random());
+  //       const bmizDiv = document.getElementById("bmizscore-category");
+  //       if (bmizDiv) {
+  //          setTimeout(() => {
+  //         bmizDiv.textContent = `${t("BMI Z Score")}: ${t(matchedCategory.category)}`;
+  //         bmizDiv.focus();
+  //         setTimeout(() => bmizDiv.blur(), 300);
+  //         const bmizInput = document.getElementById(customfieldobj.bmizscore);
+  //          // bmizInput.focus();
+  //          setTimeout(() => bmizInput.blur(), 300);
+  //           }, 500);
+  //       }
+
+  //       // Optional: highlight/focus logic
+  //       // const bmizInput = document.getElementById(customfieldobj.bmizscore);
+  //       // if (bmizInput) {
+  //       //   bmizInput.focus();
+  //       //   setTimeout(() => bmizInput.blur(), 300);
+  //       // }
+  //       }
+  //   } else {
+  //       console.log("No matching BMI category found.");
+  //   }
+  // }
   }
-  }
-}, [bmiZScore]);
+}, [bmiZScore, bmizcondition]);
 const hba1cValue = values[customfieldobj.hbba1c];
 if (isNaN(hba1cValue) || hba1cValue <= 0) {
   values[customfieldobj.hbba1c] = "0";
@@ -3611,8 +3650,6 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
             }
         }
       }
-
-   
       setFieldStructure(
         <Grid
           item
@@ -3704,6 +3741,13 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
                     }
                     return value;
                   }}
+                 disabled={
+                    fieldData?.dataElement?.attributeValues?.some(
+                      (attr) =>
+                        attr.attribute?.name === "isDisabled" &&
+                        attr.value === "true"
+                    ) ?? false
+                  }
                 />
               </div>
               {fieldData.dataElement.id === dataElementId && (
@@ -3759,6 +3803,13 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
                 }
                 return value;
               }}
+             disabled={
+                fieldData?.dataElement?.attributeValues?.some(
+                  (attr) =>
+                    attr.attribute?.name === "isDisabled" &&
+                    attr.value === "true"
+                ) ?? false
+              }
             />
             {fieldData.dataElement.id === dataElementId && (
               <div style={{ marginTop: "5px", color: "#001965", fontWeight: "bold" }}>
