@@ -2481,7 +2481,8 @@ function IntegerConfig(props) {
         const variableweight = parseFloat(weightInput.value);
         const variableheight = parseFloat(heightInput.value);
         values[customfieldobj.bmizscore] = "";
-        if (variableweight && variableheight) {
+        console.log("ageValue ",ageValue)
+        if (variableweight && variableheight && ageValue >= 2) {
           const calculatedBMI = dynamiccalculateBMI(
             variableweight,
             variableheight,
@@ -2883,15 +2884,15 @@ useEffect(() => {
         }
     } else {
     }
-  }
   //}
-}, [values[dataElementId]]);
+  }
+}, [values[dataElementId], localStorage.getItem("locale")]);
 
 const bmizscore_ = values?.[customfieldobj.bmizscore] ?? "";
 let bmizcategory="";
  useEffect(() => {
       //if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
-        if(ageValue >=2 && ageValue <= 20 && customfieldobj.sexatbirthUID && values[customfieldobj.sexatbirthUID] != "Other"){
+        if(ageValue >=2 && ageValue <= 20){
           const bmizDiv = document.getElementById("bmizscore-category");
           if (bmizDiv) {
             setTimeout(() => {
@@ -3650,6 +3651,11 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
             }
         }
       }
+      try{
+        if(dataElementId && ageValue < 2){
+          values[dataElementId] = ""
+        }
+      }catch(e){}
       setFieldStructure(
         <Grid
           item
@@ -3760,6 +3766,17 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
                  {bmizcategory?.trim() ? bmizcategory : bmizcondition}
                 </div>
               )}
+               {fieldData.dataElement.id === customfieldobj.bmizscore &&
+              ageValue < 2 && (
+                <Typography
+                  variant="caption"
+                  color="#d97706"
+                  className="zscore-help"
+                  style={{ marginTop: 4,color:"#d97706" }}
+                >
+                  {t("BMI z-score is not available for children under 2 years")}.
+                </Typography>
+              )}
             </div>
           ) : (
             <div>
@@ -3820,6 +3837,17 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
                 <div id="bmizscore-category" style={{ marginTop: "5px", color: "#001965", fontWeight: "bold" }}>
                  {bmizcategory?.trim() ? bmizcategory : bmizcondition}
                 </div>
+              )}
+              {fieldData.dataElement.id === customfieldobj.bmizscore &&
+              ageValue < 2 && (
+                <Typography
+                  variant="caption"
+                  color="#d97706"
+                  className="zscore-help"
+                  style={{ marginTop: 4,color:"#d97706" }}
+                >
+                  {t("BMI z-score is not available for children under 2 years")}.
+                </Typography>
               )}
             </div>
           )}

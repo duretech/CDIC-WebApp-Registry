@@ -12899,6 +12899,10 @@ body.theme_red .searchformcontainer .patient-filter .MuiFormControl-root{
   color: #d97706 !important;
 }
 
+.theme_novo .FS14 .field-validation-msg span, .zscore-help{
+    font-size:12px !important;
+}
+
 .date-helper .MuiFormHelperText-root{
     color: #fff;
 }
