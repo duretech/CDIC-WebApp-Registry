@@ -2355,7 +2355,7 @@ function TimeFieldConfig(props) {
 }
 
 function IntegerConfig(props) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   let fieldData = props.fieldData;
   let programRules = props.programRules;
   let programRulesVariables = props.programRulesVariables;
@@ -2626,7 +2626,7 @@ function IntegerConfig(props) {
               }));
 
               setBmiZScore(bmiZScore?bmiZScore:"");
-              setBmiZCondition(response.data.data[0]["interpretation"] ? response.data.data[0]["interpretation"] : "")
+              setBmiZCondition(response.data.data[0]["interpretation"] ? t(response.data.data[0]["interpretation"]) : "")
             } else {
               // 
               // toast.warn(
@@ -2670,7 +2670,7 @@ function IntegerConfig(props) {
    
     return () => clearTimeout(timer);
   }
-}, [values[dataElementId], ageValue, ageAlertShown, programData, currentstagename]);
+}, [values[dataElementId], ageValue, ageAlertShown, programData, currentstagename,i18n.language]);
 
 useEffect(() => {
   try{
@@ -2891,12 +2891,12 @@ useEffect(() => {
 const bmizscore_ = values?.[customfieldobj.bmizscore] ?? "";
 let bmizcategory="";
  useEffect(() => {
-      //if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
-        if(ageValue >=2 && ageValue <= 20){
+      //if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "593aad5"){
+        if(ageValue >=2 && ageValue <= 20 && customfieldobj.sexatbirthUID && values[customfieldobj.sexatbirthUID] != "Other"){
           const bmizDiv = document.getElementById("bmizscore-category");
           if (bmizDiv) {
             setTimeout(() => {
-          bmizDiv.textContent = `${t("BMI Z Score")}: ${t(bmizcondition)}`;
+          bmizDiv.textContent = `${t("BMI Z Score")}: ${bmizcondition}`;
           bmizDiv.focus();
           setTimeout(() => bmizDiv.blur(), 300);
           const bmizInput = document.getElementById(customfieldobj.bmizscore);
@@ -3767,14 +3767,14 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
                 </div>
               )}
                {fieldData.dataElement.id === customfieldobj.bmizscore &&
-              ageValue < 2 && (
+              (ageValue < 2 || (customfieldobj.sexatbirthUID && values[customfieldobj.sexatbirthUID] == "Other")) && (
                 <Typography
                   variant="caption"
                   color="#d97706"
                   className="zscore-help"
                   style={{ marginTop: 4,color:"#d97706" }}
                 >
-                  {t("BMI z-score is not available for children under 2 years")}.
+                  {customfieldobj.sexatbirthUID && values[customfieldobj.sexatbirthUID] == "Other" ? t("BMI Z score is not available to patients who have the gender Other") : t("BMI z-score is not available for children under 2 years")}.
                 </Typography>
               )}
             </div>
@@ -3839,14 +3839,14 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
                 </div>
               )}
               {fieldData.dataElement.id === customfieldobj.bmizscore &&
-              ageValue < 2 && (
+              (ageValue < 2 || (customfieldobj.sexatbirthUID && values[customfieldobj.sexatbirthUID] == "Other")) && (
                 <Typography
                   variant="caption"
                   color="#d97706"
                   className="zscore-help"
                   style={{ marginTop: 4,color:"#d97706" }}
                 >
-                  {t("BMI z-score is not available for children under 2 years")}.
+                  {customfieldobj.sexatbirthUID && values[customfieldobj.sexatbirthUID] == "Other" ? t("BMI Z score is not available to patients who have the gender Other") : t("BMI z-score is not available for children under 2 years")}.
                 </Typography>
               )}
             </div>

@@ -486,6 +486,7 @@ function SimpleTabs(props) {
   const [ageUID, setAgeUID] = useState(false);
   const [nationality, setNationality] = useState(false);
   const [genderUID, setGenderUID] = useState(false);
+  const [sexatbirthUID, setSexatbirthUID] = useState(false);
   const [username, setusername] = React.useState(null);
   const [userrolename, setuserrolename] = React.useState(null);
   const patientRole = "Patient Role";
@@ -2173,7 +2174,14 @@ useEffect(() => {
           ["genderUID"]: regField.trackedEntityAttribute.id,
         };
       }
-
+      //setSexatbirthUID
+      if (regFieldName.trim().toLowerCase() == "sex at birth") {
+        setSexatbirthUID(regField.trackedEntityAttribute.id);
+        tempobj = {
+          ...tempobj,
+          ["sexatbirthUID"]: regField.trackedEntityAttribute.id,
+        };
+      }
       if (regFieldName.trim().toLocaleLowerCase() == "hiv status") {
         setHivStatusId(regField.trackedEntityAttribute.id);
         tempobj = {
