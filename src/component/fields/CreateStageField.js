@@ -2880,7 +2880,15 @@ useEffect(() => {
         bmiCategoryLabel = matchedCategory.category;
         // setBmiCondition(matchedCategory.category)
         bmicategory = t("Patient Category is") +" "+t(matchedCategory.category);
-        setBmiCondition(bmicategory)
+        try{
+          const weightInput = document.getElementById(weight);
+          const heightInput = document.getElementById(height);
+          // this is for followup and if not followup but from edit
+          if((weightInput && heightInput) || (activeCaseDetails && activeCaseDetails.data && !activeCaseDetails.data.hasOwnProperty("stageuid") && values[customfieldobj.weightID] && values[customfieldobj.heightID])){
+              setBmiCondition(bmicategory)
+          }
+        }catch(e){ console.log(e) }
+              setBmiCondition(bmicategory)
         }
     } else {
     }
