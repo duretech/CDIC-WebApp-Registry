@@ -2884,11 +2884,17 @@ useEffect(() => {
           const weightInput = document.getElementById(weight);
           const heightInput = document.getElementById(height);
           // this is for followup and if not followup but from edit
+          //console.log("weightInput ",weightInput,heightInput,activeCaseDetails,values[customfieldobj.weightID] , values[customfieldobj.heightID])
           if((weightInput && heightInput) || (activeCaseDetails && activeCaseDetails.data && !activeCaseDetails.data.hasOwnProperty("stageuid") && values[customfieldobj.weightID] && values[customfieldobj.heightID])){
               setBmiCondition(bmicategory)
           }
-        }catch(e){ console.log(e) }
-              setBmiCondition(bmicategory)
+        }catch(e){ 
+
+          console.log("error ",e)
+          setBmiCondition(bmicategory)
+
+        }
+              
         }
     } else {
     }
