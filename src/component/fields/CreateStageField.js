@@ -2606,70 +2606,77 @@ function IntegerConfig(props) {
     }
     return;
   }
+  const weightInput = document.getElementById(weight);
+  const heightInput = document.getElementById(height);
+  // this is for followup and if not followup but from edit
+  //console.log("weightInput ",weightInput,heightInput,activeCaseDetails,values[customfieldobj.weightID] , values[customfieldobj.heightID])
+  try{
+    if((weightInput && heightInput) || (activeCaseDetails && activeCaseDetails.data && !activeCaseDetails.data.hasOwnProperty("stageuid") && values[customfieldobj.weightID] && values[customfieldobj.heightID])){
+      if (currentStage && hasCalcBMIAttribute(currentStage)) {
+        // Debounce timer
+        const timer = setTimeout(() => {
+          // --- Check BMI Z-Score conditions ---
+          //if(values[customfieldobj.bmiID]) {
+            const apiUrl = `dashboardIndicator/getBMIZScore?programuid=${programuid}&orguid=${orguid}&instanceuid=${trackedEntityInstance}&bmiValue=${values[dataElementId]}`;
 
-  if (currentStage && hasCalcBMIAttribute(currentStage)) {
-    // Debounce timer
-    const timer = setTimeout(() => {
-      // --- Check BMI Z-Score conditions ---
-      //if(values[customfieldobj.bmiID]) {
-        const apiUrl = `dashboardIndicator/getBMIZScore?programuid=${programuid}&orguid=${orguid}&instanceuid=${trackedEntityInstance}&bmiValue=${values[dataElementId]}`;
+            apiServices
+              .getAPI(apiUrl)
+              .then((response) => {
+                if (response.data?.data?.length > 0) {
+                  const bmiZScore = response.data.data[0]["BMIZ Score"] || "";
+                  values[customfieldobj.bmizscore] = values[customfieldobj.bmiID]?bmiZScore : ""; 
+                  setFormValues((prevValues) => ({
+                    ...prevValues,
+                    [customfieldobj.bmizscore]: values[customfieldobj.bmiID]?bmiZScore : "",
+                  }));
 
-        apiServices
-          .getAPI(apiUrl)
-          .then((response) => {
-            if (response.data?.data?.length > 0) {
-              const bmiZScore = response.data.data[0]["BMIZ Score"] || "";
-              values[customfieldobj.bmizscore] = values[customfieldobj.bmiID]?bmiZScore : ""; 
-              setFormValues((prevValues) => ({
-                ...prevValues,
-                [customfieldobj.bmizscore]: values[customfieldobj.bmiID]?bmiZScore : "",
-              }));
+                  setBmiZScore(bmiZScore?bmiZScore:"");
+                  setBmiZCondition(response.data.data[0]["interpretation"] ? t(response.data.data[0]["interpretation"]) : "")
+                } else {
+                  // 
+                  // toast.warn(
+                  //   "Please check if the required data is filled in to calculate BMI Z-Score"
+                  // );
+                  // Clear previous value
+                  formref.current.change(customfieldobj.bmizscore, '');
+                  formref.current.change("forceRenderField_", Math.random());
+                  
+                  values[customfieldobj.bmizscore] = "";
 
-              setBmiZScore(bmiZScore?bmiZScore:"");
-              setBmiZCondition(response.data.data[0]["interpretation"] ? t(response.data.data[0]["interpretation"]) : "")
-            } else {
+                  setFormValues((prev) => ({
+                    ...prev,
+                    [customfieldobj.bmizscore]: "",
+                  }));
+                  
+                  setBmiZScore("");
+                  setBmiZCondition("");
+                }
+              })
+              .catch((error) => {
+                console.error("Error fetching BMI Z-Score:", error);
+              });
+          //}
+
+          // --- Check Age conditions ---
+          if (!ageValue || ageValue > 19) {
+            if (!ageAlertShown) {
               // 
               // toast.warn(
-              //   "Please check if the required data is filled in to calculate BMI Z-Score"
+              //   "Either Age is above 19 or date of birth is not selected. BMI Z-Score is applicable only for ages 19 and below"
               // );
-              // Clear previous value
-              formref.current.change(customfieldobj.bmizscore, '');
-              formref.current.change("forceRenderField_", Math.random());
-              
-              values[customfieldobj.bmizscore] = "";
-
-              setFormValues((prev) => ({
-                ...prev,
-                [customfieldobj.bmizscore]: "",
-              }));
-              
-              setBmiZScore("");
-              setBmiZCondition("");
+              setAgeAlertShown(true);
             }
-          })
-          .catch((error) => {
-            console.error("Error fetching BMI Z-Score:", error);
-          });
-      //}
+            return; 
+          } else {
+            setAgeAlertShown(false);
+          }
+        }, 1000); 
 
-      // --- Check Age conditions ---
-      if (!ageValue || ageValue > 19) {
-        if (!ageAlertShown) {
-          // 
-          // toast.warn(
-          //   "Either Age is above 19 or date of birth is not selected. BMI Z-Score is applicable only for ages 19 and below"
-          // );
-          setAgeAlertShown(true);
-        }
-        return; 
-      } else {
-        setAgeAlertShown(false);
+      
+        return () => clearTimeout(timer);
       }
-    }, 1000); 
-
-   
-    return () => clearTimeout(timer);
-  }
+    }
+  }catch(e){console.log(e)}
 }, [values[dataElementId], ageValue, ageAlertShown, programData, currentstagename,i18n.language]);
 
 useEffect(() => {

@@ -122,6 +122,8 @@ function CustomeCaseCard(row) {
   const [hdlCholesterol, sethdlCholesterol] = useState(null);
   const [screeningstageId, setscreeningstageId] = useState(null);
   const [advancedinvestigationstageId, setadvancedinvestigationstageId] = useState(null);
+  const [patientProfileStageId, setPatientProfileStageId] = useState(null);
+  const [currentVisitStageId, setCurrentVisitStageId] = useState(null);
   async function getUserBO() {
     // let userdata = await OfflineDb.getDataFromPouchDB('loginDetails');
     // setUserBO(userdata.data)
@@ -153,6 +155,12 @@ function CustomeCaseCard(row) {
         }
         if (stageName.trim() == "Advanced Investigations") {
           setadvancedinvestigationstageId(stage.id);
+        }
+        if (stageName.trim() == "Patient Dashboard") {
+          setPatientProfileStageId(stage.id);
+        }
+        if (stageName.trim() == "Examination") {
+          setCurrentVisitStageId(stage.id);
         }
         stage.programStageDataElements.map((de) => {
           let fieldname = de.dataElement.description ? de.dataElement.description : de.dataElement.formName ? de.dataElement.formName : de.dataElement.displayName
@@ -216,7 +224,7 @@ function CustomeCaseCard(row) {
       enrollmentId: "",
       type: "case",
       //   "stageinstanceuid": PropsArray.stageinstanceuid,
-      "stageuid": "MiH09cnBLda"
+      "stageuid": patientProfileStageId || "MiH09cnBLda"
     };
     const activeCaseFormData = {
       formFormat: null, //formDataMassaged,
@@ -302,7 +310,7 @@ function CustomeCaseCard(row) {
       enrollmentId: "",
       type: "case",
       //   "stageinstanceuid": PropsArray.stageinstanceuid,
-      "stageuid": "abbLBsRGdfM"
+      "stageuid": currentVisitStageId || "abbLBsRGdfM"
     };
     const activeCaseFormData = {
       formFormat: null, //formDataMassaged,
