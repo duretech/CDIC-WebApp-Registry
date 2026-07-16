@@ -2870,8 +2870,13 @@ useEffect(() => {
 
   let bmicategory="";
     useEffect(() => {
+      //console.log("I am in bmicategory")
       //if(APP_LOCALE === "PRODUCT" || APP_LOCALE === "CC008"){
-        if(ageValue > 20){
+      const dob = customfieldobj?.dobID && values[customfieldobj.dobID] ? moment(values[customfieldobj.dobID]) : null;
+      const limitDate = moment().subtract(20, "years").subtract(16, "day");
+      const isValid = dob && dob.isBefore(limitDate, "day");
+      //console.log("ageData ",dob,ageValue,dob.isBefore(limitDate, "day"),isValid)
+        if(ageValue > 20 || isValid){
     const bmiData = getBMICategory();
     const bmiValue = parseFloat(values[dataElementId]);
 
