@@ -3731,6 +3731,9 @@ if (fieldname.trim() === 'Waist - Hip Ratio') {
 
     return () => {
       localStorage.removeItem("childDropDown");
+      if(localStorage.getItem("Followup")){
+          localStorage.removeItem("Followup")
+      }
       // localStorage.removeItem("specimen");
       // localStorage.removeItem("searchtype");
     };
@@ -21820,6 +21823,9 @@ function hydrateRadFromTemplate(template,values) {
           .querySelector(".innertabdivreg")
           .scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }, 500);
+    }
+    if(localStorage.getItem("Followup")){
+      localStorage.removeItem("Followup")
     }
   }
 

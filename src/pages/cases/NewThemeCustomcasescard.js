@@ -310,7 +310,8 @@ function CustomeCaseCard(row) {
       enrollmentId: "",
       type: "case",
       //   "stageinstanceuid": PropsArray.stageinstanceuid,
-      "stageuid": currentVisitStageId || "abbLBsRGdfM"
+      "stageuid": currentVisitStageId || "abbLBsRGdfM",
+      redirectionTrue: true,
     };
     const activeCaseFormData = {
       formFormat: null, //formDataMassaged,
@@ -323,6 +324,7 @@ function CustomeCaseCard(row) {
     OfflineDb.setDataIntoPouchDB("activeCaseDetails", activeCaseDetails);
     OfflineDb.setDataIntoPouchDB("linkContactFlag", linkContact);
     sessionStorage.setItem("fromDirectToExamination", "true");
+    localStorage.setItem("Followup",true)
     setGlobalSpinner(false);
     history.push("/layout/registration");
   }

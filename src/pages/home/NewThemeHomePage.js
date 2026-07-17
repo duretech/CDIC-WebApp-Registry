@@ -394,6 +394,9 @@ function NewThemeHomePage(props) {
     if (localStorage.getItem("stagesShow")) {
       localStorage.removeItem("stagesShow");
     }
+    if(localStorage.getItem("Followup")){
+      localStorage.removeItem("Followup")
+    }
   }, []);
 
   useEffect(() => {

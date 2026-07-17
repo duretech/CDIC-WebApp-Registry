@@ -7,7 +7,6 @@ import _, { parseInt } from "lodash";
 import OUMapping from "../../assets/data/registerOU";
 import { useHistory } from "react-router-dom";
 import { Mic, MicOff, VolumeUp, Clear, Settings } from "@mui/icons-material";
-
 import HideShowCondition from "../validation/HideShowCondition";
 import "../../assets/css/customstyles.css";
 import AssignCondition from "../validation/Assign";
@@ -2481,7 +2480,7 @@ function IntegerConfig(props) {
         const variableweight = parseFloat(weightInput.value);
         const variableheight = parseFloat(heightInput.value);
         values[customfieldobj.bmizscore] = "";
-        console.log("ageValue ",ageValue)
+        
         if (variableweight && variableheight && ageValue >= 2) {
           const calculatedBMI = dynamiccalculateBMI(
             variableweight,
@@ -2611,7 +2610,7 @@ function IntegerConfig(props) {
   // this is for followup and if not followup but from edit
   //console.log("weightInput ",weightInput,heightInput,activeCaseDetails,values[customfieldobj.weightID] , values[customfieldobj.heightID])
   try{
-    if((weightInput && heightInput) || (activeCaseDetails && activeCaseDetails.data && !activeCaseDetails.data.hasOwnProperty("stageuid") && values[customfieldobj.weightID] && values[customfieldobj.heightID])){
+    //if((weightInput && heightInput) || (activeCaseDetails && activeCaseDetails.data && !activeCaseDetails.data.hasOwnProperty("stageuid") && values[customfieldobj.weightID] && values[customfieldobj.heightID])){
       if (currentStage && hasCalcBMIAttribute(currentStage)) {
         // Debounce timer
         const timer = setTimeout(() => {
@@ -2632,6 +2631,10 @@ function IntegerConfig(props) {
 
                   setBmiZScore(bmiZScore?bmiZScore:"");
                   setBmiZCondition(response.data.data[0]["interpretation"] ? t(response.data.data[0]["interpretation"]) : "")
+                  if(localStorage.getItem("Followup")){
+                      setBmiZScore("");
+                      setBmiZCondition("");
+                  }
                 } else {
                   // 
                   // toast.warn(
@@ -2675,7 +2678,7 @@ function IntegerConfig(props) {
       
         return () => clearTimeout(timer);
       }
-    }
+    //}
   }catch(e){console.log(e)}
 }, [values[dataElementId], ageValue, ageAlertShown, programData, currentstagename,i18n.language]);
 
@@ -2881,25 +2884,21 @@ useEffect(() => {
         const max = item.max ?? Infinity;
         return bmiValue >= min && bmiValue <= max;
     });
-
+    //console.log("I am in bmicategory",matchedCategory,bmiValue)
     if (matchedCategory) {
         if(bmiValue){
         bmiCategoryLabel = matchedCategory.category;
         // setBmiCondition(matchedCategory.category)
         bmicategory = t("Patient Category is") +" "+t(matchedCategory.category);
+        //console.log("bmicategory",bmicategory)
         try{
-          const weightInput = document.getElementById(weight);
-          const heightInput = document.getElementById(height);
-          // this is for followup and if not followup but from edit
-          //console.log("weightInput ",weightInput,heightInput,activeCaseDetails,values[customfieldobj.weightID] , values[customfieldobj.heightID])
-          if((weightInput && heightInput) || (activeCaseDetails && activeCaseDetails.data && !activeCaseDetails.data.hasOwnProperty("stageuid") && values[customfieldobj.weightID] && values[customfieldobj.heightID])){
-              setBmiCondition(bmicategory)
+          setBmiCondition(bmicategory)
+          if(localStorage.getItem("Followup")){
+              setBmiCondition('')
           }
         }catch(e){ 
-
           console.log("error ",e)
           setBmiCondition(bmicategory)
-
         }
               
         }
@@ -2918,7 +2917,7 @@ let bmizcategory="";
           const bmizDiv = document.getElementById("bmizscore-category");
           if (bmizDiv) {
             setTimeout(() => {
-          bmizDiv.textContent = `${t("BMI Z Score")}: ${bmizcondition}`;
+          bmizDiv.textContent = `${t("BMI Z Score")}: ${bmizcondition ? bmizcondition : ""}`;
           bmizDiv.focus();
           setTimeout(() => bmizDiv.blur(), 300);
           const bmizInput = document.getElementById(customfieldobj.bmizscore);
@@ -3022,6 +3021,14 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
 
   useEffect(() => {
     if (validationResult != null) {
+      if(dataElementId && fieldData.dataElement.id == dataElementId && !values[dataElementId] && values[customfieldobj.weightID] && values[customfieldobj.heightID] && ageValue >=2){
+          const calculatedBMI = dynamiccalculateBMI(
+            values[customfieldobj.weightID],
+            values[customfieldobj.heightID],
+            bmiUnit
+          );
+          values[dataElementId] = calculatedBMI;
+      }
       // Fields to be hidden for value "Annual visit"
       // if (
       //   values[customfieldobj.reasonForTodaysVisit] &&
@@ -3778,6 +3785,7 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
                   }
                 />
               </div>
+              
               {fieldData.dataElement.id === dataElementId && (
               <div style={{ marginTop: "5px", color: "#001965", fontWeight: "bold" }}>
                {bmicategory?.trim() ? bmicategory : bmicondition}
@@ -3876,7 +3884,7 @@ if (isNaN(hba1cValue) || hba1cValue <= 0) {
         </Grid>
       );
     }
-  }, [validationResult, localStorage.getItem("locale")]);
+  }, [validationResult, bmicondition, localStorage.getItem("locale")]);
 
   return <>{fieldStructure != null ? fieldStructure : <> </>}</>;
 }

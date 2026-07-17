@@ -1361,6 +1361,7 @@ const resetFilters = (resetPatientName) => {
     OfflineDb.setDataIntoPouchDB("activeCaseDetails", activeCaseDetails);
     OfflineDb.setDataIntoPouchDB("linkContactFlag", linkContact);
     sessionStorage.setItem("fromDirectToExamination", "true");
+    localStorage.setItem("Followup",true)
     setGlobalSpinner(false);
     history.push("/layout/registration");
   }
