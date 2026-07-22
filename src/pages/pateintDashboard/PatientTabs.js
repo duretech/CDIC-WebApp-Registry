@@ -849,7 +849,7 @@ export default function PatientTabs(userData) {
                     <h5 className="mt-0 text-right">{t("Risk Factors")} </h5>
                     <div className="tick-img-section tick-img-left-section">
                       {riskData && Object.keys(riskData).map((key) => {
-                        if (key === 'Alcohol' && riskData[key] !== '' && riskData[key] !== '0 Days') {
+                        if (key === 'Alcohol' && riskData[key] !== '' && riskData[key] !== '0 Days' && riskData[key] !== 'Never') {
                           riskData[key] = 'Yes';
                         }
                         if (key === 'Celiac Disease' && riskData[key] !== '' && riskData[key] == "Screened & Positive") {
