@@ -140,7 +140,20 @@ export const useKeyboardAccessibility = (tabValue) => {
       
       if (isPopupVisible && !popupJustClosed) {
         console.log("🔔 Popup detected, handling popup keyboard events");
-        
+        const active = document.activeElement;
+
+        const isTyping =
+          active &&
+          (
+            active.tagName === "INPUT" ||
+            active.tagName === "TEXTAREA" ||
+            active.isContentEditable
+          );
+
+        // Don't intercept keyboard while typing
+        if (isTyping) {
+          return;
+        }
         // Find all buttons in the popup
         const popupButtons = Array.from(
           isPopupOpen.querySelectorAll('button:not([disabled])')
