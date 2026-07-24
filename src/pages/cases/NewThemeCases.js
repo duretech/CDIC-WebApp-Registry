@@ -240,6 +240,27 @@ function Cases() {
     }
   }, [age, gender, region, bmiCategory, bmiZ, hba1c]); // dependencies
 
+  // Helper to safely check if a value is really a date (and not just a number/UIC etc.)
+  const isActualDate = (value) => {
+    if (value === null || value === undefined || value === "") return false;
+
+    const strValue = String(value).trim();
+
+    // Reject pure numbers (e.g. "1234", "2023") - moment.ISO_8601 wrongly
+    // treats these as valid year-only ISO dates
+    if (/^\d+$/.test(strValue)) return false;
+
+    // Require an actual date-like shape: needs at least two separators (- or /)
+    // e.g. 2023-01-01, 01-01-2023, 2023-01-01T00:00:00Z
+    if (!/\d{1,4}[-/]\d{1,2}[-/]\d{1,4}/.test(strValue)) return false;
+
+    return (
+      moment(strValue, moment.ISO_8601, true).isValid() ||
+      moment(strValue, "DD-MM-YYYY", true).isValid() ||
+      moment(strValue, "YYYY-MM-DD", true).isValid()
+    );
+  };
+
   useEffect(() => {
     const updatedColumnHeader = [];
     
@@ -253,28 +274,18 @@ function Cases() {
                const value = row[header.column]
                  ? row[header.column]
                  : "-";
-   
+                
                // Check if value is a date and format it
                if (APP_LOCALE === "CC008") {
-                 if (header.column !== "UIC") {
-                   if (
-                     moment(value, moment.ISO_8601, true).isValid() ||
-                     moment(value, "DD-MM-YYYY", true).isValid() ||
-                     moment(value, "YYYY-MM-DD", true).isValid()
-                   ) {
-                     return moment(value).format(correctFormat);
-                   }
-                 }
-               } else if (APP_LOCALE === "CC004") {
+                 if (header.column !== "UIC" && isActualDate(value)) {
+                    return moment(value).format(correctFormat);
+                  }
+               } else if (APP_LOCALE === "ETHOPIA") {
                  let value = row[header.column]
                    ? row[header.column]
                    : "-";
    
-                 if (
-                   moment(value, moment.ISO_8601, true).isValid() ||
-                   moment(value, "DD-MM-YYYY", true).isValid() ||
-                   moment(value, "YYYY-MM-DD", true).isValid()
-                 ) {
+                 if (isActualDate(value)) {
                    const [year, month, day] = value.split("-").map(Number);
    
                    // Create date object at noon to avoid timezone issues
@@ -289,14 +300,11 @@ function Cases() {
                    return value;
                  }
                } else {
-                 if (
-                   moment(value, moment.ISO_8601, true).isValid() ||
-                   moment(value, "DD-MM-YYYY", true).isValid() ||
-                   moment(value, "YYYY-MM-DD", true).isValid()
-                 ) {
+                 if (isActualDate(value)) {
                    return moment(value).format(correctFormat);
                  }
                }
+               
    
                return value;
              },
@@ -324,25 +332,15 @@ function Cases() {
    
                // Check if value is a date and format it
                if (APP_LOCALE === "CC008") {
-                 if (header[0].obj.column !== "UIC") {
-                   if (
-                     moment(value, moment.ISO_8601, true).isValid() ||
-                     moment(value, "DD-MM-YYYY", true).isValid() ||
-                     moment(value, "YYYY-MM-DD", true).isValid()
-                   ) {
+                 if (header[0].obj.column !== "UIC" && isActualDate(value)) {
                      return moment(value).format(correctFormat);
-                   }
                  }
                } else if (APP_LOCALE === "CC004") {
                  let value = row[header[0].obj.column]
                    ? row[header[0].obj.column]
                    : "-";
    
-                 if (
-                   moment(value, moment.ISO_8601, true).isValid() ||
-                   moment(value, "DD-MM-YYYY", true).isValid() ||
-                   moment(value, "YYYY-MM-DD", true).isValid()
-                 ) {
+                 if (isActualDate(value)) {
                    const [year, month, day] = value.split("-").map(Number);
    
                    // Create date object at noon to avoid timezone issues
@@ -357,11 +355,7 @@ function Cases() {
                    return value;
                  }
                } else {
-                 if (
-                   moment(value, moment.ISO_8601, true).isValid() ||
-                   moment(value, "DD-MM-YYYY", true).isValid() ||
-                   moment(value, "YYYY-MM-DD", true).isValid()
-                 ) {
+                 if (isActualDate(value)) {
                    return moment(value).format(correctFormat);
                  }
                }
