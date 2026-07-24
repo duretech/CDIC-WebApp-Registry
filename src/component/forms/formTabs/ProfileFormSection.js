@@ -1875,7 +1875,7 @@ export default function ProfileFormSection({
                 <CardContent>
                   <Typography>
                     <strong>{t("Date Of Diagnosis")}:</strong>{" "}
-                    {dateofdoagnosis
+                    {dateofdoagnosis && moment(dateofdoagnosis).isValid()
                       ? moment(dateofdoagnosis).format("DD-MM-YYYY")
                       : "N/A"}
                   </Typography>
