@@ -4131,6 +4131,7 @@ function CreateStageFieldManagement(props) {
                     customfieldobj={customfieldobj}
                     ismaskable={ismaskable}
                     activeCaseFormData={activeCaseFormData}
+                    formref={formref}
                 />
 
             case 'AGE':
