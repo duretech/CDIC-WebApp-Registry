@@ -1211,6 +1211,7 @@ function DateFieldConfig(props) {
     let hideField = fieldData.dataElement.attributeValues.length > 0 && fieldData.dataElement.attributeValues[0].attribute.name == "hideField" ? true : false
     let customProps = {}
     let ismaskable = props.ismaskable
+    let formref = props.formref;
     const [fieldStructure, setFieldStructure] = useState(null)
     const [selectedDate, setDate] = useState(new Date());
     const [validationResult, setValidationResult] = useState(null)
@@ -1458,6 +1459,9 @@ function DateFieldConfig(props) {
 
                                                     // Update Field component value
                                                     input.onChange(formattedDate);
+                                                     if (formref?.current) {
+                                                        formref.current.change("forceRenderField_", Math.random());
+                                                     }
                                                 } else {
                                                     console.error("Invalid date received:", selectedDateethiopia);
                                                     input.onChange(''); // Clear the field value
