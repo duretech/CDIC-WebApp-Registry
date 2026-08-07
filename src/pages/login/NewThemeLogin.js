@@ -434,7 +434,7 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\
             "common/getPrivacyVersions",
             param
           );
-
+          
           if (privacyRes && privacyRes.data) {
             const { consentVersion, privacyVersion, status } = privacyRes.data;
             const approvedTimeStamp = new Date().toISOString();
@@ -491,7 +491,7 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\
                 }
               } else if (ucversion > consentVersion) {
                 const ucValue = sessionStorage.getItem("uc");
-                const isUc = ucValue === true;
+                const isUc = ucValue === true || ucValue === "true";
                 if (!isUc || ucValue === null) {
                   setGlobalSpinner(false);
                   swal({
@@ -522,7 +522,7 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[a-zA-Z\
                 }
               } else if (ppversion > privacyVersion) {
                 const ppValue = sessionStorage.getItem("pp");
-                const ispp = ppValue === true;
+                const ispp = ppValue === true || ppValue === "true";
                 if (!ispp || ppValue === null) {
                   setGlobalSpinner(false);
                   swal({
