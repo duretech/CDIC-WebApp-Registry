@@ -127,7 +127,6 @@ function RecordHistory(props) {
       r[a.groupDate].push(a);
       return r;
     }, Object.create(null));
-
     //return GroupArrData;
      // Sort keys latest date first
     const sortedGroupArrData = Object.keys(GroupArrData)
@@ -468,8 +467,9 @@ function RecordHistory(props) {
               const currentStageData = GroupArr[key].filter(
                 (item) => item.programStage === props?.currentStage.id
               );
-            
+
               return (
+                currentStageData?.length > 0 &&
                 <AccordionDetails key={key} className="data-container pt-0">
                   <Grid container className="mt-10px mb-10px">
                     <Grid item xs={12} sm={12} md={12} className="mb-10px">
