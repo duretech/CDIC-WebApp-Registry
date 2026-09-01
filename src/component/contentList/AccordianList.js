@@ -59,7 +59,10 @@ function AccordianList ({AccordionLabel, FollowUpDate,AccordionContent, Accordio
     const [anchorEl, setAnchorEl] = useState(null);
     const listOfFields = PropsArray && PropsArray.progarmData ? PropsArray.progarmData.programs[0].programTrackedEntityAttributes : ''
     const fieldsToDisplay = listOfFields ? listOfFields.filter(obj => obj.displayInList == true) : ''
-
+    const patientDashboardStageId = PropsArray && PropsArray.progarmData ? PropsArray.progarmData.programs[0].programStages.find(
+      (stage) => stage.description?.trim() === "Patient Dashboard"
+    )?.id : '';
+    
     const setGlobalSpinner = useGlobalSpinnerActionsContext()
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -76,6 +79,31 @@ function AccordianList ({AccordionLabel, FollowUpDate,AccordionContent, Accordio
     setGlobalSpinner(true)
     history.push('/layout/individualrecord', { 'trackedEntityInstance': TrackEntityId }); // Update TrackentityId here
     }
+
+    function directToSummary() {
+        setGlobalSpinner(true);
+    
+        const formDataMassaged = {};
+        const activeCaseDetails = {
+          trackedEntityInstance: TrackEntityId,
+          enrollmentId: "",
+          type: "case",
+          //   "stageinstanceuid": PropsArray.stageinstanceuid,
+          stageuid: patientDashboardStageId,
+        };
+        const activeCaseFormData = {
+          formFormat: null, //formDataMassaged,
+          dhisFormat: null,
+        };
+        const linkContact = {
+          enabled: false,
+          linkTrackedEntityInstance: TrackEntityId,
+        };
+        OfflineDb.setDataIntoPouchDB("activeCaseDetails", activeCaseDetails);
+        OfflineDb.setDataIntoPouchDB("linkContactFlag", linkContact);
+        setGlobalSpinner(false);
+        history.push("/layout/registration");
+      }
 
     function UpdateRecordClick() {
         setGlobalSpinner(true)
@@ -221,7 +249,7 @@ function AccordianList ({AccordionLabel, FollowUpDate,AccordionContent, Accordio
                         <p className="alerts_profilebtn_holder caselistviewbtnholder myClientsCaseList">
                           {Component && Component!= "FollowUp" &&
                           <>
-                        <Button variant="contained" color="primary" disableElevation className="infoviewmorebtn" onClick={seeIndividualRecordClick}>
+                        <Button variant="contained" color="primary" disableElevation className="infoviewmorebtn" onClick={directToSummary}>
                             <VisibilityIcon /><span className="ml-10px"></span>
                         </Button>
                         <Button variant="contained" color="primary" disableElevation className="infoviewmorebtn ml-10px" onClick={UpdateRecordClick}>
