@@ -1869,13 +1869,13 @@ function DateFieldConfig(props) {
         } else {
         }
 
-        if (APP_LOCALE !== "CC004") {
-          if (values[fieldData.trackedEntityAttribute.id]) {
-            values[fieldData.trackedEntityAttribute.id] = moment(
-              values[fieldData.trackedEntityAttribute.id]
-            ).format("YYYY-MM-DD");
-          }
-        }
+        // if (APP_LOCALE !== "CC004") {
+        //   if (values[fieldData.trackedEntityAttribute.id]) {
+        //     values[fieldData.trackedEntityAttribute.id] = moment(
+        //       values[fieldData.trackedEntityAttribute.id]
+        //     ).format("YYYY-MM-DD");
+        //   }
+        // }
       } catch (e) {}
 
       let displayValue;
