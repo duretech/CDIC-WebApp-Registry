@@ -699,10 +699,10 @@ function InputFieldConfig(props) {
                     // Remove all non-numeric characters
                     let digitsOnly = value.replace(/\D/g, '');
 
-                    // Apply format: XX-XX-XX-XX (add dashes after every 2 digits)
+                    // Apply format: XX-XX-XX-XX (add dashes after every 3 digits)
                     return digitsOnly
-                        .substring(0, 8) // Limit to 8 characters (XX-XX-XX-XX)
-                        .replace(/(\d{2})(?=\d)/g, '$1-'); // Insert dash every 2 digits
+                        .substring(0, 12) // Limit to 12 characters (XXX-XXX-XXX-XXX)
+                        .replace(/(\d{3})(?=\d)/g, '$1-'); // Insert dash every 3 digits
                 };
                 if (fieldData.dataElement.id === "kajeJgrCwVu") {
                 }
@@ -742,7 +742,7 @@ function InputFieldConfig(props) {
                                 }
                                 return value; // Normal behavior for other fields
                             }}
-                            placeholder={fieldData.dataElement.id == customfieldobj.dosageDailyUnits ? "e.g. 10-00-08-22" : ""}
+                            placeholder={fieldData.dataElement.id == customfieldobj.dosageDailyUnits ? "e.g. 100-000-085-222" : ""}
                             parse={value => value}
                             disabled={APP_LOCALE == "CC013" && customfieldobj.insulinDosePerkg && fieldData.dataElement.id == customfieldobj.insulinDosePerkg ? true : false}
                         />
